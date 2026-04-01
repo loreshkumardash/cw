@@ -1,0 +1,1110 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "title": "Web Development",
+      "slug": "web-development",
+      "icon": "bi-code-slash",
+      "shortDescription": "Custom web solutions",
+      "fullDescription": "We build custom web applications using cutting-edge technologies like React, Vue, Angular, and Node.js. Our solutions are scalable, secure, and designed to meet your specific business requirements. From simple landing pages to complex enterprise applications, we deliver excellence in every line of code.\n\nOur team of experienced developers works closely with you to understand your unique business challenges and create tailored solutions that drive results. Whether you need a modern website to establish your online presence, a web application to streamline operations, or a complex enterprise system to manage your business processes, we have the expertise to bring your vision to life.\n\nWe follow industry best practices throughout the development process, ensuring clean, maintainable code, optimal performance, and robust security. Our commitment to quality means we thoroughly test every feature before deployment, and our dedicated support team is always ready to assist you post-launch.\n\nWith a focus on user experience, mobile responsiveness, and search engine optimization, we create web solutions that not only look great but also deliver measurable business outcomes. Partner with us to transform your digital presence and stay ahead of the competition.",
+      "whyChooseUs": [
+        "7+ years of expertise in modern web technologies",
+        "Agile development methodology for faster delivery",
+        "Code quality assurance with rigorous testing",
+        "Post-launch support and maintenance",
+        "Transparent communication throughout the project"
+      ],
+      "benefits": [
+        "Custom-tailored solutions for your business needs",
+        "Modern, responsive design that works on all devices",
+        "High-performance architecture for optimal speed",
+        "SEO-friendly structure for better visibility",
+        "Easy maintenance and scalability",
+        "Enhanced security with best practices implementation",
+        "Improved user experience leading to higher conversions"
+      ],
+      "features": [
+        "Frontend Development (React, Vue, Angular)",
+        "Backend Development (Node.js, Python, PHP)",
+        "Database Design & Optimization",
+        "API Development & Integration",
+        "Cloud Deployment & Hosting",
+        "Progressive Web App (PWA) Development",
+        "Real-time Application Development",
+        "Content Management System (CMS) Integration"
+      ],
+      "deliverables": [
+        "Fully functional web application",
+        "Source code with documentation",
+        "Technical specification documents",
+        "User manuals and training materials",
+        "Deployment on your preferred hosting",
+        "30 days free post-launch support"
+      ],
+      "technologies": [
+        { "name": "React", "icon": "bi-react" },
+        { "name": "Vue.js", "icon": "bi-circle-fill" },
+        { "name": "Angular", "icon": "bi-circle-fill" },
+        { "name": "Node.js", "icon": "bi-node-plus" },
+        { "name": "Express", "icon": "bi-lightning-charge" },
+        { "name": "Python", "icon": "bi-circle-fill" },
+        { "name": "Django", "icon": "bi-circle-fill" },
+        { "name": "MongoDB", "icon": "bi-database" },
+        { "name": "PostgreSQL", "icon": "bi-database" },
+        { "name": "MySQL", "icon": "bi-database" },
+        { "name": "AWS", "icon": "bi-cloud" },
+        { "name": "Azure", "icon": "bi-cloud" },
+        { "name": "Docker", "icon": "bi-box" },
+        { "name": "Git", "icon": "bi-git" }
+      ],
+      "industries": [
+        "E-commerce & Retail",
+        "Healthcare & Medical",
+        "Finance & Banking",
+        "Education & E-learning",
+        "Real Estate",
+        "Hospitality & Tourism",
+        "Manufacturing",
+        "Non-profit Organizations"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Discovery & Analysis",
+          "description": "We start by understanding your business requirements, target audience, and project goals through detailed discussions and research."
+        },
+        {
+          "step": 2,
+          "title": "Planning & Architecture",
+          "description": "Our team creates a comprehensive technical architecture, project roadmap, and timeline with clear milestones."
+        },
+        {
+          "step": 3,
+          "title": "UI/UX Design",
+          "description": "We design intuitive user interfaces and experiences with wireframes, mockups, and interactive prototypes."
+        },
+        {
+          "step": 4,
+          "title": "Development",
+          "description": "Using agile methodology, we develop your application with regular sprints, updates, and feedback sessions."
+        },
+        {
+          "step": 5,
+          "title": "Testing & QA",
+          "description": "Rigorous testing including unit tests, integration tests, performance tests, and security audits."
+        },
+        {
+          "step": 6,
+          "title": "Deployment & Launch",
+          "description": "Smooth deployment to your production environment with proper configuration and optimization."
+        },
+        {
+          "step": 7,
+          "title": "Support & Maintenance",
+          "description": "Ongoing support, updates, and maintenance to ensure your application runs smoothly."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How long does it take to develop a web application?",
+          "answer": "The timeline varies based on complexity. A simple website takes 2-4 weeks, while complex web applications can take 2-6 months. We provide accurate timelines after understanding your requirements."
+        },
+        {
+          "question": "What technologies do you use for web development?",
+          "answer": "We use modern technologies like React, Vue.js, Angular for frontend; Node.js, Python, PHP for backend; and MongoDB, PostgreSQL, MySQL for databases. The tech stack is chosen based on project requirements."
+        },
+        {
+          "question": "Do you provide post-launch support?",
+          "answer": "Yes, we provide 30 days of free post-launch support. We also offer ongoing maintenance and support packages tailored to your needs."
+        },
+        {
+          "question": "Can you integrate third-party services?",
+          "answer": "Absolutely! We have experience integrating payment gateways, CRM systems, email services, analytics tools, and various APIs."
+        },
+        {
+          "question": "Is my web application secure?",
+          "answer": "Security is our top priority. We implement industry-standard security practices including HTTPS, data encryption, secure authentication, and regular security audits."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Website Design",
+      "slug": "website-design",
+      "icon": "bi-palette",
+      "shortDescription": "Modern UI design",
+      "fullDescription": "Our design team creates stunning, user-centered websites that combine aesthetics with functionality. We focus on creating memorable digital experiences that engage your audience and reflect your brand identity.\n\nIn today's digital-first world, your website is often the first interaction potential customers have with your brand. We ensure it makes a lasting impression. Our designers blend creativity with strategic thinking to craft visuals that not only look beautiful but also drive conversions and build trust.\n\nWe begin by understanding your brand values, target audience, and business goals. This insight guides every design decision, from color palettes and typography to layout and interactions. The result is a cohesive visual experience that resonates with your audience and strengthens your brand positioning.\n\nOur designs are fully responsive, ensuring your website looks and performs flawlessly across all devices. We optimize for speed and usability, creating experiences that keep visitors engaged and coming back for more.",
+      "whyChooseUs": [
+        "Award-winning design team with creative expertise",
+        "User-centered design approach",
+        "Latest design trends and best practices",
+        "Brand-consistent visual identity",
+        "Fast turnaround without compromising quality"
+      ],
+      "benefits": [
+        "Professional, modern design that stands out",
+        "User-centered approach for better engagement",
+        "Brand-consistent visual identity",
+        "Mobile-first responsive design",
+        "Fast loading and optimized performance",
+        "Improved brand credibility and trust",
+        "Higher conversion rates through strategic design"
+      ],
+      "features": [
+        "UI/UX Design",
+        "Wireframing & Prototyping",
+        "Visual Design",
+        "Responsive Design",
+        "Design System Creation",
+        "Brand Identity Design",
+        "Landing Page Design",
+        "Redesign & Modernization"
+      ],
+      "deliverables": [
+        "Complete website design mockups",
+        "Interactive prototypes",
+        "Design system and style guide",
+        "Responsive designs for all devices",
+        "Source files (Figma, Adobe XD, PSD)",
+        "Developer handoff documentation"
+      ],
+      "technologies": [
+        { "name": "Figma", "icon": "bi-palette" },
+        { "name": "Adobe XD", "icon": "bi-palette" },
+        { "name": "Photoshop", "icon": "bi-brush" },
+        { "name": "Illustrator", "icon": "bi-pen" },
+        { "name": "InVision", "icon": "bi-layers" },
+        { "name": "Sketch", "icon": "bi-palette" },
+        { "name": "Bootstrap", "icon": "bi-bootstrap" },
+        { "name": "Tailwind CSS", "icon": "bi-wind" }
+      ],
+      "industries": [
+        "Corporate & Business",
+        "E-commerce",
+        "Healthcare",
+        "Education",
+        "Real Estate",
+        "Restaurant & Food",
+        "Fashion & Beauty",
+        "Technology & SaaS"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Research & Discovery",
+          "description": "Understanding your brand, target audience, competitors, and design preferences through detailed discussions."
+        },
+        {
+          "step": 2,
+          "title": "Wireframing",
+          "description": "Creating layout structures and user flows to establish the foundation of your website."
+        },
+        {
+          "step": 3,
+          "title": "Visual Design",
+          "description": "Applying colors, typography, imagery, and branding elements to create stunning visuals."
+        },
+        {
+          "step": 4,
+          "title": "Prototyping",
+          "description": "Building interactive prototypes to demonstrate functionality and user experience."
+        },
+        {
+          "step": 5,
+          "title": "Feedback & Refinement",
+          "description": "Iterating on designs based on your feedback until perfect."
+        },
+        {
+          "step": 6,
+          "title": "Final Delivery",
+          "description": "Providing all design files, assets, and documentation ready for development."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What design tools do you use?",
+          "answer": "We primarily use Figma and Adobe XD for UI/UX design, along with Adobe Creative Suite for graphics and illustrations."
+        },
+        {
+          "question": "Do you design responsive websites?",
+          "answer": "Yes, all our designs are mobile-first and fully responsive across all devices - desktop, tablet, and mobile."
+        },
+        {
+          "question": "Can you redesign our existing website?",
+          "answer": "Absolutely! We specialize in modernizing outdated websites while maintaining your brand identity and improving user experience."
+        },
+        {
+          "question": "How many design revisions are included?",
+          "answer": "We include unlimited revisions during the design phase to ensure you're completely satisfied with the final result."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Software Development",
+      "slug": "software-development",
+      "icon": "bi-cpu",
+      "shortDescription": "Business software systems",
+      "fullDescription": "We develop custom software solutions that streamline your business operations, improve efficiency, and drive growth. From enterprise applications to specialized tools, we build software that works for you.\n\nEvery business has unique processes and challenges that off-the-shelf software simply can't address. That's where our custom software development expertise comes in. We take the time to understand your workflows, pain points, and objectives, then craft solutions that fit your needs perfectly.\n\nOur experienced team leverages cutting-edge technologies and architectural patterns to build robust, scalable applications that grow with your business. From initial concept through deployment and beyond, we're committed to delivering software that exceeds expectations.\n\nWe specialize in integrating new solutions with your existing systems, ensuring seamless data flow and minimal disruption to your operations. Our agile development approach means you stay involved throughout the process, with regular updates and opportunities for feedback.\n\nWith a focus on code quality, security, and maintainability, we deliver software that stands the test of time and provides lasting value for your organization.",
+      "whyChooseUs": [
+        "Deep understanding of business processes",
+        "Scalable and maintainable code architecture",
+        "Integration with existing systems",
+        "Long-term partnership approach",
+        "Dedicated support team"
+      ],
+      "benefits": [
+        "Tailored solutions for specific business processes",
+        "Improved operational efficiency",
+        "Scalable architecture for future growth",
+        "Integration with existing systems",
+        "Ongoing support and maintenance",
+        "Reduced manual work and errors",
+        "Better data management and insights"
+      ],
+      "features": [
+        "Custom Software Development",
+        "Enterprise Application Development",
+        "Desktop Application Development",
+        "System Integration",
+        "Legacy System Modernization",
+        "Workflow Automation",
+        "Business Intelligence Solutions",
+        "Cloud Migration Services"
+      ],
+      "deliverables": [
+        "Custom software application",
+        "Complete source code",
+        "Technical documentation",
+        "User training and manuals",
+        "Deployment and configuration",
+        "Post-launch support"
+      ],
+      "technologies": [
+        { "name": ".NET", "icon": "bi-windows" },
+        { "name": "Java", "icon": "bi-cup" },
+        { "name": "Python", "icon": "bi-circle-fill" },
+        { "name": "C#", "icon": "bi-code-slash" },
+        { "name": "Angular", "icon": "bi-circle-fill" },
+        { "name": "React", "icon": "bi-react" },
+        { "name": "SQL Server", "icon": "bi-database" },
+        { "name": "Oracle", "icon": "bi-database" },
+        { "name": "PostgreSQL", "icon": "bi-database" },
+        { "name": "Azure", "icon": "bi-cloud" },
+        { "name": "AWS", "icon": "bi-cloud" }
+      ],
+      "industries": [
+        "Finance & Banking",
+        "Healthcare",
+        "Manufacturing",
+        "Retail",
+        "Logistics",
+        "Education",
+        "Government",
+        "Professional Services"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Business Analysis",
+          "description": "Detailed analysis of your business processes, pain points, and requirements."
+        },
+        {
+          "step": 2,
+          "title": "System Architecture",
+          "description": "Designing robust system architecture and selecting appropriate technologies."
+        },
+        {
+          "step": 3,
+          "title": "Development",
+          "description": "Iterative development with agile methodology and regular progress updates."
+        },
+        {
+          "step": 4,
+          "title": "Integration",
+          "description": "Seamless integration with your existing systems and databases."
+        },
+        {
+          "step": 5,
+          "title": "Testing",
+          "description": "Comprehensive testing including unit, integration, and user acceptance testing."
+        },
+        {
+          "step": 6,
+          "title": "Deployment & Training",
+          "description": "Smooth deployment and comprehensive user training for your team."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Can you integrate with our existing systems?",
+          "answer": "Yes, we have extensive experience integrating with various ERP, CRM, and legacy systems using APIs and middleware."
+        },
+        {
+          "question": "What programming languages do you use?",
+          "answer": "We work with .NET, Java, Python, C#, and other enterprise-grade languages based on your requirements."
+        },
+        {
+          "question": "Do you provide ongoing support?",
+          "answer": "Yes, we offer comprehensive support and maintenance packages to ensure your software runs smoothly."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Ecommerce Development",
+      "slug": "ecommerce-development",
+      "icon": "bi-cart",
+      "shortDescription": "Online store development",
+      "fullDescription": "Build a powerful online store with our e-commerce development services. We create secure, feature-rich online shopping experiences that drive sales and customer loyalty.\n\nThe e-commerce landscape is more competitive than ever, and your online store needs to stand out. We build e-commerce platforms that not only showcase your products beautifully but also provide seamless shopping experiences that convert visitors into loyal customers.\n\nFrom platform selection to final launch, we handle every aspect of your online store development. Whether you need a simple Shopify store or a custom-built enterprise e-commerce solution, we have the expertise to deliver. Our teams integrate secure payment gateways, intuitive navigation, advanced search functionality, and streamlined checkout processes to maximize conversions.\n\nWe also focus on mobile optimization, ensuring your store performs flawlessly on smartphones and tablets. With built-in SEO features, analytics integration, and marketing tools, your store will be equipped to attract visitors and drive sales from day one.\n\nPost-launch, we provide ongoing support and optimization to help your e-commerce business thrive in an ever-evolving digital marketplace.",
+      "whyChooseUs": [
+        "E-commerce specialists with proven track record",
+        "Conversion-focused design",
+        "Secure payment integration",
+        "SEO-optimized stores",
+        "Mobile-first approach"
+      ],
+      "benefits": [
+        "Increased sales through optimized checkout",
+        "Secure payment gateway integration",
+        "Inventory and order management",
+        "Mobile-friendly shopping experience",
+        "SEO-optimized product pages",
+        "Customer account management",
+        "Analytics and reporting"
+      ],
+      "features": [
+        "Custom E-commerce Development",
+        "Shopping Cart Integration",
+        "Payment Gateway Integration",
+        "Inventory Management",
+        "Order Tracking System",
+        "Product Catalog Management",
+        "Customer Reviews & Ratings",
+        "Discount & Coupon System"
+      ],
+      "deliverables": [
+        "Fully functional online store",
+        "Payment gateway integration",
+        "Admin dashboard",
+        "Inventory management system",
+        "Order management system",
+        "Training and documentation"
+      ],
+      "technologies": [
+        { "name": "Shopify", "icon": "bi-bag" },
+        { "name": "WooCommerce", "icon": "bi-cart" },
+        { "name": "Magento", "icon": "bi-bag" },
+        { "name": "React", "icon": "bi-react" },
+        { "name": "Node.js", "icon": "bi-node-plus" },
+        { "name": "Stripe", "icon": "bi-credit-card" },
+        { "name": "PayPal", "icon": "bi-paypal" },
+        { "name": "Razorpay", "icon": "bi-currency-dollar" }
+      ],
+      "industries": [
+        "Fashion & Apparel",
+        "Electronics",
+        "Home & Garden",
+        "Beauty & Cosmetics",
+        "Sports & Outdoors",
+        "Food & Beverage",
+        "Books & Media",
+        "Health & Wellness"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Strategy & Planning",
+          "description": "Understanding your products, target market, and e-commerce goals."
+        },
+        {
+          "step": 2,
+          "title": "Store Design",
+          "description": "Creating an attractive, user-friendly design optimized for conversions."
+        },
+        {
+          "step": 3,
+          "title": "Development",
+          "description": "Building your online store with all necessary features and functionality."
+        },
+        {
+          "step": 4,
+          "title": "Payment Integration",
+          "description": "Setting up secure payment gateways and checkout processes."
+        },
+        {
+          "step": 5,
+          "title": "Testing",
+          "description": "Thorough testing of all features, payment flows, and security."
+        },
+        {
+          "step": 6,
+          "title": "Launch & Marketing",
+          "description": "Going live and implementing initial marketing strategies."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Which e-commerce platform do you recommend?",
+          "answer": "It depends on your needs. Shopify is great for quick setup, WooCommerce for WordPress users, and Magento for large enterprises."
+        },
+        {
+          "question": "Can you integrate multiple payment gateways?",
+          "answer": "Yes, we can integrate Stripe, PayPal, Razorpay, and other payment providers based on your requirements."
+        },
+        {
+          "question": "Do you provide SEO services for e-commerce stores?",
+          "answer": "Yes, all our e-commerce stores are built with SEO best practices including optimized product pages and site structure."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "SEO Optimization",
+      "slug": "seo-optimization",
+      "icon": "bi-search",
+      "shortDescription": "Improve search rankings",
+      "fullDescription": "Boost your online visibility with our comprehensive SEO services. We use data-driven strategies to improve your search rankings and drive organic traffic to your website.\n\nIn today's digital landscape, appearing on the first page of search results is crucial for business success. Our SEO experts employ proven techniques to improve your website's visibility, attract qualified traffic, and generate sustainable long-term results.\n\nWe start with a thorough audit of your current website, identifying technical issues, content gaps, and optimization opportunities. Our comprehensive approach covers on-page optimization, technical SEO, content strategy, and authoritative link building. Every tactic we employ follows search engine guidelines, ensuring safe, sustainable growth.\n\nOur team stays ahead of algorithm updates and industry trends, adapting strategies to maintain and improve your rankings. With detailed reporting and transparent communication, you'll always know how your SEO investment is performing.\n\nWhether you're a local business looking to dominate your area or an enterprise targeting global markets, we have the expertise to help you achieve your visibility goals.",
+      "whyChooseUs": [
+        "Proven track record of ranking improvements",
+        "White-hat SEO techniques",
+        "Transparent reporting",
+        "Long-term sustainable results",
+        "Dedicated SEO specialists"
+      ],
+      "benefits": [
+        "Higher search engine rankings",
+        "Increased organic traffic",
+        "Better user experience",
+        "Long-term sustainable growth",
+        "Improved brand credibility",
+        "Higher ROI compared to paid ads",
+        "Local and global reach"
+      ],
+      "features": [
+        "Keyword Research & Analysis",
+        "On-Page Optimization",
+        "Off-Page SEO & Link Building",
+        "Technical SEO Audit",
+        "Content Strategy",
+        "Local SEO",
+        "E-commerce SEO",
+        "SEO Analytics & Reporting"
+      ],
+      "deliverables": [
+        "Comprehensive SEO audit report",
+        "Keyword research document",
+        "On-page optimization implementation",
+        "Monthly progress reports",
+        "Backlink building strategy",
+        "Content recommendations"
+      ],
+      "technologies": [
+        { "name": "Google Analytics", "icon": "bi-graph-up" },
+        { "name": "SEMrush", "icon": "bi-bar-chart" },
+        { "name": "Ahrefs", "icon": "bi-link-45deg" },
+        { "name": "Screaming Frog", "icon": "bi-bug" },
+        { "name": "Google Search Console", "icon": "bi-search" },
+        { "name": "Moz", "icon": "bi-globe" },
+        { "name": "Ubersuggest", "icon": "bi-lightbulb" }
+      ],
+      "industries": [
+        "All Industries",
+        "E-commerce",
+        "Healthcare",
+        "Legal Services",
+        "Real Estate",
+        "Education",
+        "Hospitality",
+        "Professional Services"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "SEO Audit",
+          "description": "Comprehensive analysis of your current website performance and SEO health."
+        },
+        {
+          "step": 2,
+          "title": "Keyword Research",
+          "description": "Identifying high-value keywords relevant to your business."
+        },
+        {
+          "step": 3,
+          "title": "On-Page Optimization",
+          "description": "Optimizing content, meta tags, headers, and internal linking."
+        },
+        {
+          "step": 4,
+          "title": "Content Strategy",
+          "description": "Creating and optimizing content for target keywords."
+        },
+        {
+          "step": 5,
+          "title": "Off-Page SEO",
+          "description": "Building quality backlinks and improving domain authority."
+        },
+        {
+          "step": 6,
+          "title": "Monitoring & Reporting",
+          "description": "Tracking rankings, traffic, and providing monthly reports."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How long does it take to see SEO results?",
+          "answer": "Typically 3-6 months for significant improvements. SEO is a long-term strategy that builds momentum over time."
+        },
+        {
+          "question": "Do you guarantee first page rankings?",
+          "answer": "No ethical SEO can guarantee specific rankings. We focus on proven strategies that improve your overall search visibility."
+        },
+        {
+          "question": "What's included in monthly SEO reports?",
+          "answer": "Reports include keyword rankings, organic traffic, backlink progress, and actionable insights for continued improvement."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "ERP Development",
+      "slug": "erp-development",
+      "icon": "bi-diagram-3",
+      "shortDescription": "Enterprise resource planning",
+      "fullDescription": "Streamline your business operations with our custom ERP solutions. We develop integrated systems that connect all your business processes for improved efficiency and decision-making.\n\nManaging complex business operations across multiple departments requires a unified approach. Our ERP development services create centralized platforms that bring together your finance, HR, inventory, sales, and operations into a single, cohesive system.\n\nWe understand that every organization has unique workflows and requirements. That's why we build customizable ERP solutions that adapt to your processes, not the other way around. Our modular approach allows you to start with the features you need and expand as your business grows.\n\nOur team handles everything from requirements analysis and system design to implementation, training, and ongoing support. We ensure smooth integration with your existing systems, minimizing disruption while maximizing the benefits of digital transformation.\n\nWith real-time data access, automated workflows, and powerful analytics, your team can make informed decisions faster and focus on what matters most growing your business.",
+      "whyChooseUs": [
+        "Industry-specific ERP expertise",
+        "Customizable modules",
+        "Seamless integration capabilities",
+        "Scalable architecture",
+        "Comprehensive training and support"
+      ],
+      "benefits": [
+        "Centralized data management",
+        "Improved cross-department collaboration",
+        "Real-time business insights",
+        "Automated workflows",
+        "Scalable for growing businesses",
+        "Reduced operational costs",
+        "Better compliance and reporting"
+      ],
+      "features": [
+        "Custom ERP Development",
+        "Module Integration",
+        "Real-time Analytics",
+        "Workflow Automation",
+        "Multi-location Support",
+        "HR & Payroll Management",
+        "Inventory Management",
+        "Financial Management"
+      ],
+      "deliverables": [
+        "Custom ERP system",
+        "All integrated modules",
+        "User training programs",
+        "Documentation and manuals",
+        "Ongoing support",
+        "Regular updates"
+      ],
+      "technologies": [
+        { "name": ".NET", "icon": "bi-windows" },
+        { "name": "Java", "icon": "bi-cup" },
+        { "name": "Python", "icon": "bi-circle-fill" },
+        { "name": "React", "icon": "bi-react" },
+        { "name": "Angular", "icon": "bi-circle-fill" },
+        { "name": "SQL Server", "icon": "bi-database" },
+        { "name": "PostgreSQL", "icon": "bi-database" },
+        { "name": "Azure", "icon": "bi-cloud" },
+        { "name": "AWS", "icon": "bi-cloud" }
+      ],
+      "industries": [
+        "Manufacturing",
+        "Distribution",
+        "Retail",
+        "Healthcare",
+        "Education",
+        "Construction",
+        "Professional Services",
+        "Non-profit"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Requirement Analysis",
+          "description": "Understanding your business processes and ERP requirements."
+        },
+        {
+          "step": 2,
+          "title": "System Design",
+          "description": "Designing ERP architecture and module structure."
+        },
+        {
+          "step": 3,
+          "title": "Module Development",
+          "description": "Developing individual modules with specific functionalities."
+        },
+        {
+          "step": 4,
+          "title": "Integration",
+          "description": "Connecting all modules for seamless data flow."
+        },
+        {
+          "step": 5,
+          "title": "Testing",
+          "description": "Comprehensive testing of all modules and integrations."
+        },
+        {
+          "step": 6,
+          "title": "Deployment & Training",
+          "description": "System deployment and user training across departments."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Can ERP be customized for our industry?",
+          "answer": "Yes, we build custom ERP solutions tailored to your specific industry requirements and business processes."
+        },
+        {
+          "question": "How long does ERP implementation take?",
+          "answer": "Typically 3-12 months depending on complexity, number of modules, and organization size."
+        },
+        {
+          "question": "Do you provide training for our staff?",
+          "answer": "Yes, we provide comprehensive training programs for all users and ongoing support."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Mobile Application",
+      "slug": "mobile-application",
+      "icon": "bi-phone",
+      "shortDescription": "Android & iOS apps",
+      "fullDescription": "Reach your customers on the go with our mobile app development services. We create native and cross-platform apps that deliver exceptional user experiences on iOS and Android.\n\nMobile apps have become an essential channel for customer engagement, sales, and brand loyalty. We help you tap into this powerful medium with apps that users love to open and interact with.\n\nOur team specializes in both native development (Swift for iOS, Kotlin for Android) and cross-platform frameworks like React Native and Flutter. We'll recommend the approach that best fits your goals, timeline, and budget. Regardless of the technology, we never compromise on performance, security, or user experience.\n\nFrom concept and design to development, testing, and app store submission, we handle every aspect of your mobile app project. We integrate features like push notifications, in-app purchases, offline functionality, and third-party APIs to create powerful, engaging experiences.\n\nOur apps are optimized for discoverability, with app store optimization (ASO) built into the launch process. Post-launch, we provide ongoing maintenance, updates, and feature enhancements to keep your app performing at its best.",
+      "whyChooseUs": [
+        "Expert mobile developers",
+        "Native and cross-platform expertise",
+        "App store optimization included",
+        "Post-launch support",
+        "User-centric design approach"
+      ],
+      "benefits": [
+        "Native performance and feel",
+        "Cross-platform compatibility",
+        "Engaging user experiences",
+        "Offline functionality",
+        "App store optimization",
+        "Push notification capabilities",
+        "Direct customer engagement channel"
+      ],
+      "features": [
+        "iOS App Development",
+        "Android App Development",
+        "Cross-Platform Development",
+        "App UI/UX Design",
+        "App Maintenance & Support",
+        "API Integration",
+        "Push Notifications",
+        "In-App Purchases"
+      ],
+      "deliverables": [
+        "Fully functional mobile app",
+        "Source code",
+        "App store submission",
+        "Admin panel (if required)",
+        "Documentation",
+        "Support and maintenance"
+      ],
+      "technologies": [
+        { "name": "Swift", "icon": "bi-lightning-charge" },
+        { "name": "Kotlin", "icon": "bi-code-slash" },
+        { "name": "React Native", "icon": "bi-react" },
+        { "name": "Flutter", "icon": "bi-layers" },
+        { "name": "Xamarin", "icon": "bi-phone" },
+        { "name": "Firebase", "icon": "bi-fire" },
+        { "name": "Core Data", "icon": "bi-database" },
+        { "name": "SQLite", "icon": "bi-database" }
+      ],
+      "industries": [
+        "E-commerce",
+        "Healthcare",
+        "Education",
+        "Finance",
+        "Travel & Tourism",
+        "Food & Delivery",
+        "Fitness & Health",
+        "Social Networking"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Concept & Strategy",
+          "description": "Defining app concept, features, and target audience."
+        },
+        {
+          "step": 2,
+          "title": "Design",
+          "description": "Creating intuitive UI/UX designs and interactive prototypes."
+        },
+        {
+          "step": 3,
+          "title": "Development",
+          "description": "Building the app using native or cross-platform technologies."
+        },
+        {
+          "step": 4,
+          "title": "Testing",
+          "description": "Rigorous testing on multiple devices and OS versions."
+        },
+        {
+          "step": 5,
+          "title": "App Store Submission",
+          "description": "Preparing and submitting to Apple App Store and Google Play."
+        },
+        {
+          "step": 6,
+          "title": "Launch & Support",
+          "description": "App launch and ongoing maintenance and updates."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Should I go for native or cross-platform?",
+          "answer": "Native offers better performance, while cross-platform is cost-effective. We'll recommend based on your requirements and budget."
+        },
+        {
+          "question": "How long does app development take?",
+          "answer": "Simple apps take 2-3 months, while complex apps can take 4-8 months depending on features."
+        },
+        {
+          "question": "Do you help with app store approval?",
+          "answer": "Yes, we handle the entire app store submission process and ensure compliance with guidelines."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Digital Marketing",
+      "slug": "digital-marketing",
+      "icon": "bi-megaphone",
+      "shortDescription": "Online brand promotion",
+      "fullDescription": "Grow your brand online with our comprehensive digital marketing services. From PPC to content marketing, we create strategies that drive results and maximize your ROI.\n\nIn an increasingly crowded digital landscape, standing out requires more than just a great product. You need a strategic, multi-channel approach that reaches your audience at the right time, with the right message. That's where our digital marketing expertise comes in.\n\nOur full-service agency handles everything from paid advertising (Google Ads, Facebook, LinkedIn) to content marketing, email campaigns, and conversion rate optimization. We develop integrated campaigns that work together to amplify your message and accelerate growth.\n\nData is at the heart of everything we do. We track, measure, and analyze every campaign to understand what's working and where there's room for improvement. Our transparent reporting means you always know how your marketing budget is performing.\n\nWhether you're looking to generate leads, drive e-commerce sales, or build brand awareness, we have the tools, talent, and experience to deliver measurable results. Let us help you turn digital channels into your biggest growth driver.",
+      "whyChooseUs": [
+        "Data-driven marketing strategies",
+        "Experienced marketing team",
+        "Transparent reporting",
+        "Multi-channel expertise",
+        "ROI-focused approach"
+      ],
+      "benefits": [
+        "Increased brand awareness",
+        "Targeted audience reach",
+        "Measurable results and ROI",
+        "Multi-channel presence",
+        "Cost-effective marketing",
+        "Better customer engagement",
+        "Competitive advantage"
+      ],
+      "features": [
+        "Pay-Per-Click Advertising",
+        "Social Media Marketing",
+        "Content Marketing",
+        "Email Marketing",
+        "Analytics & Reporting",
+        "Conversion Rate Optimization",
+        "Influencer Marketing",
+        "Video Marketing"
+      ],
+      "deliverables": [
+        "Marketing strategy document",
+        "Campaign setup and management",
+        "Content creation",
+        "Monthly performance reports",
+        "ROI analysis",
+        "Optimization recommendations"
+      ],
+      "technologies": [
+        { "name": "Google Ads", "icon": "bi-google" },
+        { "name": "Facebook Ads", "icon": "bi-facebook" },
+        { "name": "LinkedIn Ads", "icon": "bi-linkedin" },
+        { "name": "Mailchimp", "icon": "bi-envelope" },
+        { "name": "HubSpot", "icon": "bi-inbox" },
+        { "name": "Google Analytics", "icon": "bi-graph-up" },
+        { "name": "Hootsuite", "icon": "bi-chat-dots" },
+        { "name": "Canva", "icon": "bi-palette" }
+      ],
+      "industries": [
+        "E-commerce",
+        "B2B Services",
+        "Healthcare",
+        "Real Estate",
+        "Education",
+        "Hospitality",
+        "Retail",
+        "Technology"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Strategy Development",
+          "description": "Creating a comprehensive digital marketing strategy aligned with your goals."
+        },
+        {
+          "step": 2,
+          "title": "Campaign Setup",
+          "description": "Setting up campaigns across selected channels with proper targeting."
+        },
+        {
+          "step": 3,
+          "title": "Content Creation",
+          "description": "Developing engaging content for your campaigns."
+        },
+        {
+          "step": 4,
+          "title": "Launch & Monitor",
+          "description": "Launching campaigns and monitoring performance in real-time."
+        },
+        {
+          "step": 5,
+          "title": "Optimize",
+          "description": "Continuous optimization based on performance data."
+        },
+        {
+          "step": 6,
+          "title": "Report & Analyze",
+          "description": "Regular reporting with insights and recommendations."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What's your minimum budget for digital marketing?",
+          "answer": "We work with various budgets. We'll recommend strategies that maximize your ROI within your budget constraints."
+        },
+        {
+          "question": "How soon will I see results?",
+          "answer": "PPC shows immediate results, while SEO and content marketing take 3-6 months for significant impact."
+        },
+        {
+          "question": "Which channels do you recommend?",
+          "answer": "We analyze your business and audience to recommend the most effective channels for your goals."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "SMO Service",
+      "slug": "smo-service",
+      "icon": "bi-share",
+      "shortDescription": "Social profile optimization",
+      "fullDescription": "Optimize your social media presence with our SMO services. We help you build a strong social media foundation that engages your audience and amplifies your brand message.\n\nSocial media is often the first place potential customers discover and evaluate your brand. A well-optimized social media presence can significantly impact your credibility, reach, and customer engagement. We ensure your profiles make the best possible impression.\n\nOur SMO services cover all major platforms including Facebook, Instagram, Twitter, LinkedIn, and Pinterest. We optimize every element from profile bios and cover images to content strategy and hashtag research. The result is a cohesive, professional presence that reflects your brand values and attracts your target audience.\n\nWe don't just set it and forget it. Our team develops content calendars, creates engaging posts, and actively manages your community to foster meaningful connections. We monitor trends, respond to comments, and identify opportunities to increase your visibility organically.\n\nWhether you're building your social presence from scratch or looking to revitalize existing profiles, we have the expertise to help you succeed in the social landscape.",
+      "whyChooseUs": [
+        "Social media experts",
+        "Platform-specific strategies",
+        "Engagement-focused approach",
+        "Brand consistency",
+        "Proven growth strategies"
+      ],
+      "benefits": [
+        "Enhanced social media presence",
+        "Increased follower engagement",
+        "Better brand visibility",
+        "Improved social sharing",
+        "Stronger community building",
+        "Higher website traffic",
+        "Brand loyalty"
+      ],
+      "features": [
+        "Profile Optimization",
+        "Content Strategy",
+        "Visual Branding",
+        "Hashtag Strategy",
+        "Engagement Management",
+        "Bio Optimization",
+        "Cover Design",
+        "Link Management"
+      ],
+      "deliverables": [
+        "Optimized social profiles",
+        "Content calendar",
+        "Visual assets",
+        "Hashtag research",
+        "Engagement guidelines",
+        "Monthly reports"
+      ],
+      "technologies": [
+        { "name": "Facebook", "icon": "bi-facebook" },
+        { "name": "Instagram", "icon": "bi-instagram" },
+        { "name": "Twitter", "icon": "bi-twitter-x" },
+        { "name": "LinkedIn", "icon": "bi-linkedin" },
+        { "name": "Pinterest", "icon": "bi-pinterest" },
+        { "name": "Canva", "icon": "bi-palette" },
+        { "name": "Buffer", "icon": "bi-layers" },
+        { "name": "Later", "icon": "bi-clock" }
+      ],
+      "industries": [
+        "All Industries",
+        "E-commerce",
+        "Fashion",
+        "Food & Beverage",
+        "Health & Fitness",
+        "Travel",
+        "Technology",
+        "Entertainment"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Profile Audit",
+          "description": "Analyzing current social media profiles and identifying improvement areas."
+        },
+        {
+          "step": 2,
+          "title": "Optimization",
+          "description": "Optimizing profiles with compelling bios, visuals, and links."
+        },
+        {
+          "step": 3,
+          "title": "Strategy Development",
+          "description": "Creating content and engagement strategies."
+        },
+        {
+          "step": 4,
+          "title": "Implementation",
+          "description": "Executing the optimization and content strategy."
+        },
+        {
+          "step": 5,
+          "title": "Engagement",
+          "description": "Actively engaging with your audience and community."
+        },
+        {
+          "step": 6,
+          "title": "Growth & Analysis",
+          "description": "Monitoring growth and refining strategies."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Which platforms do you optimize?",
+          "answer": "We optimize all major platforms including Facebook, Instagram, Twitter, LinkedIn, and Pinterest."
+        },
+        {
+          "question": "Do you create content for social media?",
+          "answer": "Yes, we provide content strategy and can create visual content as part of our packages."
+        },
+        {
+          "question": "How long does optimization take?",
+          "answer": "Initial optimization takes 1-2 weeks, with ongoing improvements based on performance."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "SMM Service",
+      "slug": "smm-service",
+      "icon": "bi-instagram",
+      "shortDescription": "Social media marketing",
+      "fullDescription": "Take your social media marketing to the next level with our comprehensive SMM services. We create and manage campaigns that build brand loyalty and drive conversions.\n\nSocial media marketing goes beyond posting regular updates. It's about creating strategic campaigns that resonate with your audience, spark conversations, and drive meaningful action. Our SMM team combines creativity with data-driven insights to deliver campaigns that perform.\n\nWe manage paid social advertising across all major platforms, from Facebook and Instagram Ads to LinkedIn and TikTok campaigns. Our targeting expertise ensures your ads reach the right people at the right time, maximizing your ad spend ROI. We create compelling ad creatives, write persuasive copy, and continuously optimize based on performance data.\n\nBeyond paid advertising, we handle organic social media management including content creation, community engagement, influencer partnerships, and reputation management. We're your brand's voice on social, responding to comments, messages, and reviews with authenticity and care.\n\nWith comprehensive analytics and reporting, you'll see exactly how your social media efforts are contributing to business goals. Let us help you build a loyal social following that translates into real business results.",
+      "whyChooseUs": [
+        "Creative campaign strategies",
+        "Paid advertising expertise",
+        "Organic growth focus",
+        "Data-driven decisions",
+        "Full-service management"
+      ],
+      "benefits": [
+        "Increased brand loyalty",
+        "Higher conversion rates",
+        "Targeted advertising",
+        "Real-time customer interaction",
+        "Viral marketing potential",
+        "Cost-effective reach",
+        "Brand advocacy"
+      ],
+      "features": [
+        "Social Media Strategy",
+        "Content Creation",
+        "Paid Social Advertising",
+        "Influencer Marketing",
+        "Performance Analytics",
+        "Community Management",
+        "Crisis Management",
+        "Competitor Analysis"
+      ],
+      "deliverables": [
+        "Social media strategy",
+        "Content calendar",
+        "Ad campaigns",
+        "Performance reports",
+        "Community management",
+        "Monthly analytics"
+      ],
+      "technologies": [
+        { "name": "Facebook Business", "icon": "bi-facebook" },
+        { "name": "Instagram Ads", "icon": "bi-instagram" },
+        { "name": "LinkedIn Campaigns", "icon": "bi-linkedin" },
+        { "name": "TikTok Ads", "icon": "bi-play-circle" },
+        { "name": "Hootsuite", "icon": "bi-chat-dots" },
+        { "name": "Buffer", "icon": "bi-layers" },
+        { "name": "Sprout Social", "icon": "bi-chat-heart" },
+        { "name": "Canva", "icon": "bi-palette" }
+      ],
+      "industries": [
+        "E-commerce",
+        "Fashion & Beauty",
+        "Food & Beverage",
+        "Health & Fitness",
+        "Travel & Hospitality",
+        "Technology",
+        "Education",
+        "Entertainment"
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Strategy Planning",
+          "description": "Developing a comprehensive social media marketing plan."
+        },
+        {
+          "step": 2,
+          "title": "Content Creation",
+          "description": "Creating engaging content and posting calendar."
+        },
+        {
+          "step": 3,
+          "title": "Advertising Setup",
+          "description": "Setting up targeted paid advertising campaigns."
+        },
+        {
+          "step": 4,
+          "title": "Campaign Execution",
+          "description": "Launching and managing campaigns across platforms."
+        },
+        {
+          "step": 5,
+          "title": "Monitoring",
+          "description": "Real-time monitoring and community engagement."
+        },
+        {
+          "step": 6,
+          "title": "Optimization",
+          "description": "Data-driven optimization for better results."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Do you manage multiple platforms?",
+          "answer": "Yes, we manage campaigns across Facebook, Instagram, LinkedIn, Twitter, TikTok, and Pinterest."
+        },
+        {
+          "question": "What's included in content creation?",
+          "answer": "We create posts, stories, videos, graphics, and captions tailored to each platform."
+        },
+        {
+          "question": "Do you handle customer responses?",
+          "answer": "Yes, our community management includes responding to comments, messages, and reviews."
+        }
+      ]
+    }
+  ]
+}
