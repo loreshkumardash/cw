@@ -1702,6 +1702,25 @@ body .footer-bottom {
     transition: right 0.3s ease;
     flex-direction: column;
     align-items: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-menu::-webkit-scrollbar-track {
+    background: var(--gray-100);
+  }
+
+  .nav-menu::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: 3px;
+  }
+
+  .nav-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
   }
 
   .nav-menu.active {
@@ -2932,16 +2951,25 @@ textarea,
 /* mobile */
 @media(max-width:991px) {
 
+  .has-mega {
+    width: 100%;
+  }
+
   .mega-menu {
     position: static;
-    transform: none;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
     width: 100%;
     box-shadow: none;
-    padding: 10px 0;
+    padding: 0;
+    margin: 0;
 
     display: none;
     opacity: 1;
     visibility: visible;
+    max-height: none;
+    overflow: visible;
   }
 
   .has-mega.active .mega-menu {
@@ -2950,6 +2978,29 @@ textarea,
 
   .mega-left {
     grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .mega-item {
+    padding: 12px 10px;
+    margin: 0;
+  }
+
+  .mega-item:hover {
+    transform: none;
+  }
+
+  .mega-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mega-icon i {
+    font-size: 14px;
+  }
+
+  .mega-item h6 {
+    font-size: 13px;
   }
 
 }
