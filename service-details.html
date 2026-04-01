@@ -144,8 +144,6 @@
 
           <li><a href="portfolio.html">Portfolio</a></li>
 
-          <li><a href="blog.html">Blogs</a></li>
-
           <li><a href="contact.html">Contact</a></li>
 
         </ul>
@@ -327,9 +325,8 @@
           <div class="col-lg-2 col-md-6">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
+              <li><a href="blog.html">Blogs</a></li>
+              <li><a href="career.html">Careers</a></li>
               <li><a href="portfolio.html">Portfolio</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -337,8 +334,12 @@
 
           <div class="col-lg-3 col-md-6">
             <h4>Services</h4>
-            <ul id="footer-services">
-              <!-- Dynamically loaded -->
+            <ul>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Mobile Apps</a></li>
+              <li><a href="#">E-Commerce</a></li>
+              <li><a href="#">Cloud Solutions</a></li>
+              <li><a href="#">IT Consulting</a></li>
             </ul>
           </div>
 
@@ -384,27 +385,6 @@
 
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>
-
-  <!-- FAQ Toggle Script -->
-  <script>
-    function toggleFaq(element) {
-      const faqItem = element.parentElement;
-      const faqAnswer = element.nextElementSibling;
-      const icon = element.querySelector('i');
-
-      faqItem.classList.toggle('active');
-
-      if (faqItem.classList.contains('active')) {
-        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-        icon.classList.remove('bi-plus-lg');
-        icon.classList.add('bi-dash-lg');
-      } else {
-        faqAnswer.style.maxHeight = '0';
-        icon.classList.remove('bi-dash-lg');
-        icon.classList.add('bi-plus-lg');
-      }
-    }
-  </script>
 
 </body>
 

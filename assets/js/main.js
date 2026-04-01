@@ -1051,15 +1051,6 @@
         </li>
       `).join('');
     }
-
-    // Footer - Services
-    const footerServicesContainer = document.getElementById('footer-services');
-    if (footerServicesContainer) {
-      const firstFiveServices = serviceData.services.slice(0, 5);
-      footerServicesContainer.innerHTML = firstFiveServices.map(s => `
-        <li><a href="service-details.html?service=${s.slug}">${s.title}</a></li>
-      `).join('');
-    }
   }
 
   /**
@@ -1103,6 +1094,30 @@
       if (serviceShortDesc) serviceShortDesc.textContent = 'Unable to load service details. Please try again later.';
     }
   }
+
+  /**
+   * FAQ Toggle Function
+   */
+  function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    const faqAnswer = element.nextElementSibling;
+    const icon = element.querySelector('i');
+
+    faqItem.classList.toggle('active');
+
+    if (faqItem.classList.contains('active')) {
+      faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+      icon.classList.remove('bi-plus-lg');
+      icon.classList.add('bi-dash-lg');
+    } else {
+      faqAnswer.style.maxHeight = '0';
+      icon.classList.remove('bi-dash-lg');
+      icon.classList.add('bi-plus-lg');
+    }
+  }
+
+  // Expose toggleFaq to global scope for onclick handlers
+  window.toggleFaq = toggleFaq;
 
   /**
    * Initialize All Functions
