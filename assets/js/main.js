@@ -39,24 +39,38 @@
       icon.classList.toggle('bi-x');
     });
 
-    // Close menu on link click
+    // Close menu on link click (exclude mega menu toggle links)
     menu.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
+        // Don't close menu if it's a mega menu toggle link
+        if (link.closest('.has-mega') && window.innerWidth < 992) {
+          return;
+        }
         menu.classList.remove('active');
         toggle.querySelector('i').classList.add('bi-list');
         toggle.querySelector('i').classList.remove('bi-x');
       });
     });
 
-    // Accordion services for mobile
-    if (services) {
-      services.querySelector('a').addEventListener('click', function (e) {
-        if (window.innerWidth < 992) {
-          e.preventDefault();
-          services.classList.toggle('active');
-        }
-      });
-    }
+    // Accordion for all mega menus (Services & Products) on mobile
+    document.querySelectorAll('.has-mega').forEach(function(megaItem) {
+      const megaLink = megaItem.querySelector('a');
+      if (megaLink) {
+        megaLink.addEventListener('click', function (e) {
+          if (window.innerWidth < 992) {
+            e.preventDefault();
+            e.stopPropagation();
+            // Toggle only the clicked mega item, close others
+            document.querySelectorAll('.has-mega').forEach(function(other) {
+              if (other !== megaItem) {
+                other.classList.remove('active');
+              }
+            });
+            megaItem.classList.toggle('active');
+          }
+        });
+      }
+    });
   }
 
   /**
