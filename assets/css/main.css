@@ -1423,10 +1423,23 @@ section {
   font-size: 15px;
   color: var(--gray-300);
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 .footer ul a:hover {
   color: var(--white);
-  padding-left: 8px;
+}
+.footer ul a i {
+  font-size: 12px;
+  transition: all 0.3s ease;
+  color: var(--primary);
+  opacity: 0.7;
+}
+.footer ul a:hover i {
+  color: var(--white);
+  opacity: 1;
+  transform: translateX(4px);
 }
 .contact-info li {
   display: flex;
