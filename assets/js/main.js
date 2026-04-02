@@ -1416,6 +1416,21 @@
   window.toggleFaq = toggleFaq;
 
   /**
+   * Button Shine Animation
+   * Adds periodic shine effect to all buttons
+   */
+  function initButtonShine() {
+    // Add shine animation class to all buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach((btn, index) => {
+      // Stagger the animation start time for variety
+      setTimeout(() => {
+        btn.classList.add('shine-animation');
+      }, index * 500);
+    });
+  }
+
+  /**
    * Initialize All Functions
    */
   function init() {
@@ -1440,6 +1455,7 @@
     initMegaMenu();
     initServiceDetails();
     initProductDetails();
+    initButtonShine();
 
     // Refresh ScrollTrigger after everything loads
     window.addEventListener("load", () => {
