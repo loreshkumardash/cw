@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -21,7 +20,6 @@
   <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
-
 <body>
   <!-- Navigation -->
   <nav class="navbar">
@@ -81,7 +79,6 @@
       </div>
     </div>
   </section>
-
   <!-- Contact Section -->
   <section id="contact" class="about" style="padding: 80px 0;">
     <div class="container">
@@ -95,7 +92,6 @@
             Whether you have a question, need a quote, or want to explore partnership opportunities, our team is here to
             help.
           </p>
-
           <div style="display: flex; flex-direction: column; gap: 1.5rem;">
             <div style="display: flex; gap: 1rem; align-items: flex-start;">
               <div
@@ -111,7 +107,6 @@
                 </p>
               </div>
             </div>
-
             <div style="display: flex; gap: 1rem; align-items: flex-start;">
               <div
                 style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(99, 102, 241, 0.1); border-radius: 12px; color: var(--primary); font-size: 20px; flex-shrink: 0;">
@@ -125,7 +120,6 @@
                 </p>
               </div>
             </div>
-
             <div style="display: flex; gap: 1rem; align-items: flex-start;">
               <div
                 style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(99, 102, 241, 0.1); border-radius: 12px; color: var(--primary); font-size: 20px; flex-shrink: 0;">
@@ -138,7 +132,6 @@
                 </p>
               </div>
             </div>
-
             <div style="display: flex; gap: 1rem; align-items: flex-start;">
               <div
                 style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(99, 102, 241, 0.1); border-radius: 12px; color: var(--primary); font-size: 20px; flex-shrink: 0;">
@@ -154,7 +147,6 @@
               </div>
             </div>
           </div>
-
           <div style="margin-top: 2rem;">
             <h4 style="font-size: 1rem; font-weight: var(--font-semibold); margin-bottom: 1rem;">Follow Us</h4>
             <div class="social-links" style="display: flex; gap: 12px;">
@@ -177,7 +169,6 @@
             </div>
           </div>
         </div>
-
         <!-- Contact Form -->
         <div class="col-lg-7" data-aos="fade-left">
           <div
@@ -187,7 +178,6 @@
               Send Us a Message</h3>
             <p style="margin-bottom: 2rem; color: var(--dark-600);">Fill out the form below and we'll get back to you
               within 24 hours.</p>
-
             <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
               <div class="row g-3">
                 <div class="col-md-6">
@@ -207,7 +197,6 @@
                     placeholder="john@example.com">
                 </div>
               </div>
-
               <div class="row g-3">
                 <div class="col-md-6">
                   <label for="phone"
@@ -231,7 +220,6 @@
                   </select>
                 </div>
               </div>
-
               <div>
                 <label for="message"
                   style="display: block; font-size: 0.875rem; font-weight: var(--font-semibold); color: var(--dark-700); margin-bottom: 0.5rem;">Your
@@ -240,13 +228,11 @@
                   style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: var(--font-family); transition: all 0.3s ease; outline: none; resize: vertical;"
                   placeholder="Tell us about your project..."></textarea>
               </div>
-
               <button type="submit" class="btn btn-primary btn-lg"
                 style="width: 100%; padding: 16px 32px; font-size: 1rem; font-weight: var(--font-semibold); border-radius: 12px; margin-top: 0.5rem;">
                 Send Message <i class="bi bi-send" style="margin-left: 8px;"></i>
               </button>
             </form>
-
             <div id="form-message"
               style="margin-top: 1rem; padding: 14px 18px; border-radius: 10px; font-size: 0.95rem; font-weight: var(--font-medium); display: none;">
             </div>
@@ -255,7 +241,6 @@
       </div>
     </div>
   </section>
-
   <!-- Map Section -->
   <section id="map" style="padding: 0 0 80px;">
     <div class="container" data-aos="fade-up">
@@ -269,7 +254,6 @@
       </div>
     </div>
   </section>
-
   <!-- CTA Section -->
   <section id="cta" class="cta" style="padding: 0 0 80px;">
     <div class="container">
@@ -361,40 +345,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <!-- Main JS -->
   <script src="assets/js/main.js"></script>
-
   <!-- Contact Form Handler -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const contactForm = document.getElementById('contact-form');
       const formMessage = document.getElementById('form-message');
-
       if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
           e.preventDefault();
-
           // Get form values
           const formData = new FormData(contactForm);
           const data = Object.fromEntries(formData);
-
           // Simple validation
           if (!data.name || !data.email || !data.message || !data.subject) {
             showMessage('Please fill in all required fields.', 'error');
             return;
           }
-
           // Email validation
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(data.email)) {
             showMessage('Please enter a valid email address.', 'error');
             return;
           }
-
           // Simulate form submission (replace with actual API call)
           const submitBtn = contactForm.querySelector('button[type="submit"]');
           const originalText = submitBtn.innerHTML;
           submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
           submitBtn.disabled = true;
-
           // Simulate API delay
           setTimeout(() => {
             showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
@@ -404,7 +381,6 @@
           }, 1500);
         });
       }
-
       function showMessage(text, type) {
         formMessage.textContent = text;
         formMessage.style.display = 'block';
@@ -415,7 +391,6 @@
           ? '#059669'
           : '#dc2626';
         formMessage.style.border = `1px solid ${type === 'success' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`;
-
         // Auto-hide after 5 seconds
         setTimeout(() => {
           formMessage.style.display = 'none';
@@ -424,5 +399,4 @@
     });
   </script>
 </body>
-
 </html>
