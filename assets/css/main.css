@@ -1148,6 +1148,7 @@ section {
 }
 .portfolio-image {
   height: 220px;
+  position: relative;
 }
 .portfolio-info {
   padding: 20px 22px;
@@ -1177,6 +1178,7 @@ section {
   display: flex;
   align-items: flex-end;
   padding: 24px;
+  z-index: 1;
 }
 .portfolio-card:hover .portfolio-overlay {
   opacity: 1;
@@ -1185,6 +1187,8 @@ section {
   width: 100%;
   transform: translateY(20px);
   transition: transform 0.4s ease;
+  position: relative;
+  z-index: 2;
 }
 .portfolio-card:hover .portfolio-content {
   transform: translateY(0);
