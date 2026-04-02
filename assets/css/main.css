@@ -30,18 +30,6 @@ body {
   opacity: 1 !important;
 }
 
-/* Ensure cards and content are always visible */
-.service-card,
-.choose-card,
-.portfolio-item,
-.about-image-main,
-.cta-card,
-.footer-top,
-.testimonial-card {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 :root {
   /* Colors */
   --primary: #6366f1;
@@ -575,30 +563,6 @@ section {
   margin-bottom: 36px;
 }
 
-/* Ensure section headers are visible */
-.section-subtitle,
-.section-title,
-.section-description {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Fallback for GSAP animations */
-body .section-subtitle,
-body .section-title,
-body .section-description,
-body .service-card,
-body .portfolio-item,
-body .choose-card,
-body .feature,
-body .stat-number,
-body .cta-card,
-body .footer-top,
-body .footer-bottom {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 /* ==================================
    ABOUT SECTION
    ================================== */
@@ -968,15 +932,6 @@ body .footer-bottom {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.service-card h3,
-.service-card p,
-.service-card .service-link {
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
 .service-icon,
@@ -1346,7 +1301,7 @@ body .footer-bottom {
   transition: all 0.3s ease;
 }
 
-.filter-btn:hover{
+.filter-btn:hover {
   color: var(--white);
   background: var(--gradient-primary);
   border-color: transparent;
@@ -1363,9 +1318,6 @@ body .footer-bottom {
   width: 33.333%;
   padding: 16px;
   box-sizing: border-box;
-}
-
-.portfolio-item {
   opacity: 1;
   transition: all 0.5s ease;
 }
@@ -1391,20 +1343,8 @@ body .footer-bottom {
   box-shadow: var(--shadow-2xl);
 }
 
-.portfolio-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .portfolio-image {
   height: 220px;
-}
-
-.portfolio-image img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
 
 .portfolio-info {
@@ -1572,13 +1512,6 @@ body .footer-bottom {
   margin: 0;
 }
 
-/* Ensure CTA content is visible */
-.cta-card h2,
-.cta-card p {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 /* ==================================
    FOOTER
    ================================== */
@@ -1688,19 +1621,6 @@ body .footer-bottom {
   margin: 0;
   font-size: 14px;
   color: var(--gray-400);
-}
-
-/* Ensure footer content is visible */
-.footer,
-.footer-top,
-.footer-bottom,
-.footer-brand,
-.footer h4,
-.footer ul,
-.footer ul li,
-.footer ul a {
-  opacity: 1 !important;
-  visibility: visible !important;
 }
 
 /* ==================================
@@ -1907,12 +1827,6 @@ body .footer-bottom {
 /* ==================================
    TECH STACK SECTION
    ================================== */
-
-.tech-stack {
-  padding: 80px 0;
-  background: var(--white);
-  overflow: hidden;
-}
 
 .tech-stack .section-header {
   margin-bottom: 60px;
@@ -4306,4 +4220,43 @@ input[name="filter"] {
 .portfolio-grid {
   display: flex;
   flex-wrap: wrap;
+}
+
+/* FORCE horizontal layout */
+.mega-left .mega-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px;
+}
+
+/* Prevent inner div from breaking layout */
+.mega-left .mega-item > div {
+  display: block;
+}
+
+/* Fix icon */
+.mega-left .mega-icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+/* Remove any weird spacing */
+.mega-left .mega-item h6 {
+  margin: 0;
+}
+
+.mega-left a.mega-item {
+  display: flex !important;
+}
+
+/* Increase mega menu width */
+.mega-menu {
+  width: 900px; /* try 900–1100px */
+  left: 50%;
+  transform: translateX(-50%);
 }
