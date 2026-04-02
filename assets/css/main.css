@@ -1307,8 +1307,7 @@ body .footer-bottom {
 }
 
 .portfolio-grid {
-  display: flex;
-  flex-wrap: wrap;
+  position: relative;
   margin: -16px;
 }
 
