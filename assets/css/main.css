@@ -1,14 +1,3 @@
-/* ==================================
-   CAKIWEB - PROFESSIONAL SAAS DESIGN
-   Typography: Poppins
-   ================================== */
-
-/* ==================================
-   ANIMATION FALLBACK - Ensure visibility
-   Elements are visible by default, animations enhance
-   ================================== */
-
-/* Ensure AOS elements are visible even if JS fails */
 [data-aos] {
   opacity: 1 !important;
   transform: none !important;
@@ -17,12 +6,12 @@
     transform 0.6s ease;
 }
 
-/* Fallback for GSAP animated elements - always visible */
+
 body {
   overflow-x: hidden;
 }
 
-/* Ensure all section headers are visible */
+
 .section-header,
 .section-subtitle,
 .section-title,
@@ -31,7 +20,7 @@ body {
 }
 
 :root {
-  /* Colors */
+
   --primary: #6366f1;
   --primary-dark: #4f46e5;
   --primary-light: #818cf8;
@@ -50,18 +39,18 @@ body {
   --gray-50: #f8fafc;
   --white: #ffffff;
 
-  /* Gradients */
+
   --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   --gradient-secondary: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
 
-  /* Shadows */
+
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
-  /* Typography - Standardized */
+
   --font-family: "Poppins", sans-serif;
 
   --h1-size: 48px;
@@ -76,12 +65,12 @@ body {
 
   --line-height: 1.6;
 
-  /* Spacing */
+
   --section-padding: 40px 0;
   --card-padding: 24px;
 }
 
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -102,7 +91,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Typography Standardization */
+
 h1,
 h2,
 h3,
@@ -167,9 +156,7 @@ img {
   margin: 0 auto;
 }
 
-/* ==================================
-   NAVIGATION
-   ================================== */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -247,9 +234,7 @@ img {
   cursor: pointer;
 }
 
-/* ==================================
-   BUTTONS
-   ================================== */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -267,7 +252,7 @@ img {
   overflow: hidden;
 }
 
-/* Button Shine Effect - Global */
+
 .btn::before {
   content: "";
   position: absolute;
@@ -284,12 +269,12 @@ img {
   pointer-events: none;
 }
 
-/* Shine animation on hover */
+
 .btn:hover::before {
   animation: button-shine 0.8s ease-in-out;
 }
 
-/* Periodic shine animation every 4 seconds */
+
 .btn.shine-animation::before {
   animation: button-shine 0.8s ease-in-out 4s infinite;
 }
@@ -304,7 +289,7 @@ img {
   }
 }
 
-/* Secondary shine layer for extra polish (subtle) */
+
 .btn::after {
   content: "";
   position: absolute;
@@ -383,9 +368,7 @@ img {
   transform: scale(1.1);
 }
 
-/* ==================================
-   HERO SECTION
-   ================================== */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -581,9 +564,7 @@ img {
   letter-spacing: 0.05em;
 }
 
-/* ==================================
-   SECTIONS
-   ================================== */
+
 section {
   padding: var(--section-padding);
 }
@@ -620,9 +601,7 @@ section {
   margin-bottom: 36px;
 }
 
-/* ==================================
-   ABOUT SECTION
-   ================================== */
+
 .about {
   background: var(--gray-50);
 }
@@ -726,9 +705,7 @@ section {
   margin: 0;
 }
 
-/* ==================================
-   WHY CHOOSE US SECTION
-   ================================== */
+
 .why-choose-us {
   position: relative;
   background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
@@ -938,9 +915,7 @@ section {
   width: 80px;
 }
 
-/* ==================================
-   SERVICES SECTION
-   ================================== */
+
 .services {
   background: var(--white);
   padding: var(--section-padding);
@@ -1077,9 +1052,7 @@ section {
   transform: translateX(6px);
 }
 
-/* ==================================
-   PRODUCTS SECTION - HORIZONTAL SCROLL
-   ================================== */
+
 .products {
   position: relative;
   background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
@@ -1237,7 +1210,7 @@ section {
   margin-top: 40px;
 }
 
-/* Scroll hint */
+
 .products-scroll-hint {
   display: flex;
   align-items: center;
@@ -1316,9 +1289,7 @@ section {
   }
 }
 
-/* ==================================
-   PORTFOLIO SECTION - UNIFORM CARDS
-   ================================== */
+
 .portfolio {
   background: var(--gray-50);
 }
@@ -1496,9 +1467,7 @@ section {
   }
 }
 
-/* ==================================
-   CTA SECTION
-   ================================== */
+
 .cta {
   background: var(--white);
   padding: 40px 0;
@@ -1552,9 +1521,7 @@ section {
   margin: 0;
 }
 
-/* ==================================
-   FOOTER
-   ================================== */
+
 .footer {
   background: var(--dark-900);
   color: var(--gray-300);
@@ -1663,9 +1630,7 @@ section {
   color: var(--gray-400);
 }
 
-/* ==================================
-   SCROLL TOP
-   ================================== */
+
 .scroll-top {
   position: fixed;
   bottom: 30px;
@@ -1698,9 +1663,7 @@ section {
   box-shadow: var(--shadow-xl);
 }
 
-/* ==================================
-   RESPONSIVE
-   ================================== */
+
 @media (max-width: 992px) {
   .nav-menu {
     position: fixed;
@@ -1864,9 +1827,7 @@ section {
   }
 }
 
-/* ==================================
-   TECH STACK SECTION
-   ================================== */
+
 
 .tech-stack .section-header {
   margin-bottom: 60px;
@@ -2028,7 +1989,7 @@ section {
   font-weight: 700;
 }
 
-/* Technology-specific colors */
+
 .tech-icon-wrapper.html5 {
   background: linear-gradient(135deg, #e44d26 0%, #f16529 100%);
   color: white;
@@ -2215,7 +2176,7 @@ section {
   box-shadow: 0 4px 14px rgba(24, 23, 23, 0.35);
 }
 
-/* Responsive */
+
 @media (max-width: 1399px) {
   .tech-grid-7 {
     grid-template-columns: repeat(5, 1fr);
@@ -2359,9 +2320,7 @@ section {
   }
 }
 
-/* ==================================
-   TECH STACK - Seamless Marquee Animation
-   ================================== */
+
 
 .tech-stack {
   padding: 100px 0;
@@ -2446,9 +2405,7 @@ section {
   font-weight: 700;
 }
 
-/* ==================================
-   TESTIMONIAL SECTION
-   ================================== */
+
 
 .testimonials {
   padding: 50px 0;
@@ -2464,7 +2421,7 @@ section {
   margin-bottom: 16px;
 }
 
-/* Gradient Text for Testimonial Title */
+
 .gradient-text-testimonial {
   background: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
   -webkit-background-clip: text;
@@ -2586,7 +2543,7 @@ section {
   transform: scale(1.1);
 }
 
-/* Swiper Navigation - Circular Style */
+
 .testimonial-nav {
   position: absolute;
   top: 50%;
@@ -2640,7 +2597,7 @@ section {
   content: none;
 }
 
-/* Pagination Dots */
+
 .swiper-pagination {
   position: relative !important;
   margin-top: 30px;
@@ -2660,7 +2617,7 @@ section {
   border-radius: 5px;
 }
 
-/* Center Slide Effects - Active slide bigger and prominent */
+
 .testimonial-swiper .swiper-slide {
   transition: all 0.4s ease;
   opacity: 0.6;
@@ -2679,7 +2636,7 @@ section {
   box-shadow: 0 25px 60px rgba(99, 102, 241, 0.3);
 }
 
-/* Floating Animation for active slide */
+
 @keyframes float {
 
   0%,
@@ -2696,7 +2653,7 @@ section {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Responsive */
+
 @media (max-width: 991px) {
   .testimonials {
     padding: 60px 0;
@@ -2765,7 +2722,7 @@ section {
   }
 }
 
-/* Custom Cursor */
+
 .cursor-dot,
 .cursor-outline {
   position: fixed;
@@ -2809,7 +2766,7 @@ section {
       transparent 70%);
 }
 
-/* Cursor glow effect */
+
 .cursor-glow {
   position: fixed;
   top: 0;
@@ -2827,7 +2784,7 @@ section {
   opacity: 0.6;
 }
 
-/* Ripple effect */
+
 .cursor-ripple {
   position: fixed;
   top: 0;
@@ -2857,12 +2814,12 @@ section {
   }
 }
 
-/* Magnetic elements */
+
 .magnetic-element {
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hide default cursor on interactive elements */
+
 a,
 button,
 .btn,
@@ -2872,7 +2829,7 @@ textarea,
   cursor: none;
 }
 
-/* Disable on mobile */
+
 @media (max-width: 768px) {
 
   .cursor-dot,
@@ -2891,12 +2848,12 @@ textarea,
   }
 }
 
-/* parent */
+
 .has-mega {
   position: relative;
 }
 
-/* mega menu */
+
 .mega-menu {
   position: absolute;
   top: 100%;
@@ -2919,14 +2876,14 @@ textarea,
   transform: translateX(-50%) translateY(0);
 }
 
-/* grid */
+
 .mega-left {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
-/* card */
+
 .mega-item {
   display: flex;
   gap: 10px;
@@ -2942,7 +2899,7 @@ textarea,
   transform: translateY(-2px);
 }
 
-/* icon */
+
 .mega-icon {
   width: 36px;
   height: 36px;
@@ -2957,7 +2914,7 @@ textarea,
   font-size: 16px;
 }
 
-/* text */
+
 .mega-item h6 {
   margin: 0;
   font-size: 14px;
@@ -2970,7 +2927,7 @@ textarea,
   color: #666;
 }
 
-/* mobile */
+
 @media (max-width: 991px) {
   .has-mega {
     width: 100%;
@@ -3025,9 +2982,7 @@ textarea,
   }
 }
 
-/* ==================================
-   BLOG SECTION
-   ================================== */
+
 .blog {
   background: var(--gray-50);
   padding: var(--section-padding);
@@ -3121,9 +3076,7 @@ textarea,
   gap: 10px;
 }
 
-/* ==================================
-   PAGE HERO (About, etc.)
-   ================================== */
+
 .page-hero {
   position: relative;
   min-height: 40vh;
@@ -3158,9 +3111,7 @@ textarea,
   margin: 0 auto;
 }
 
-/* ==================================
-   ABOUT STORY SECTION
-   ================================== */
+
 .about-story {
   background: var(--gray-50);
   padding: 60px 0;
@@ -3268,9 +3219,7 @@ textarea,
   margin: 0;
 }
 
-/* ==================================
-   MISSION & VISION SECTION
-   ================================== */
+
 .mission-vision {
   background: var(--white);
   padding: 60px 0;
@@ -3319,9 +3268,7 @@ textarea,
   margin: 0;
 }
 
-/* ==================================
-   STATS SECTION
-   ================================== */
+
 .stats-section {
   background: var(--gradient-primary);
   padding: 60px 0;
@@ -3370,9 +3317,7 @@ textarea,
   letter-spacing: 0.05em;
 }
 
-/* ==================================
-   VALUES SECTION
-   ================================== */
+
 .values-section {
   background: var(--gray-50);
   padding: 60px 0;
@@ -3445,9 +3390,7 @@ textarea,
   margin: 0;
 }
 
-/* ==================================
-   TEAM SECTION
-   ================================== */
+
 .team-section {
   background: var(--white);
   padding: 60px 0;
@@ -3529,9 +3472,7 @@ textarea,
   color: var(--white);
 }
 
-/* ==================================
-   CTA SECTION
-   ================================== */
+
 .cta {
   background: var(--gray-50);
   padding: 60px 0;
@@ -3597,11 +3538,9 @@ textarea,
   }
 }
 
-/* ==================================
-   SERVICE DETAILS PAGE
-   ================================== */
 
-/* Service Details Section */
+
+
 .service-details-section {
   padding: 80px 0;
   background: var(--white);
@@ -3637,7 +3576,7 @@ textarea,
   color: var(--gray-500);
 }
 
-/* Benefits Grid */
+
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -3680,7 +3619,7 @@ textarea,
   margin: 0;
 }
 
-/* Feature List */
+
 .feature-list {
   list-style: none;
   padding: 0;
@@ -3707,7 +3646,7 @@ textarea,
   min-width: 20px;
 }
 
-/* Process Timeline */
+
 .process-timeline {
   position: relative;
   padding-left: 47px;
@@ -3775,7 +3714,7 @@ textarea,
   margin: 0;
 }
 
-/* Service Sidebar */
+
 .service-sidebar {
   position: sticky;
   top: 100px;
@@ -3808,7 +3747,7 @@ textarea,
   margin-bottom: 20px;
 }
 
-/* Service Icon Large */
+
 .service-icon-large {
   width: 80px;
   height: 80px;
@@ -3829,7 +3768,7 @@ textarea,
   margin: 0;
 }
 
-/* Technology Tags */
+
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
@@ -3859,7 +3798,7 @@ textarea,
   transform: translateY(-2px);
 }
 
-/* Sidebar CTA */
+
 .sidebar-card.cta-card {
   background: var(--gradient-primary);
   border: none;
@@ -3896,7 +3835,7 @@ textarea,
   box-shadow: var(--shadow-lg);
 }
 
-/* Service List Sidebar */
+
 .service-list-sidebar {
   list-style: none;
   padding: 0;
@@ -3919,7 +3858,7 @@ textarea,
   transition: all 0.3s ease;
 }
 
-/* Product Website Card - Clean Minimal Design */
+
 .product-website-card {
   background: var(--white);
   border-radius: 20px;
@@ -4030,7 +3969,7 @@ textarea,
   transform: translateX(4px);
 }
 
-/* Mega Menu Active State */
+
 .mega-item.active {
   background: var(--gray-100);
 }
@@ -4039,7 +3978,7 @@ textarea,
   color: var(--primary);
 }
 
-/* Why Choose List - 2 Column Grid */
+
 .why-choose-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4082,7 +4021,7 @@ textarea,
   margin: 0;
 }
 
-/* Feature List - 2 Column Grid with Icons */
+
 .feature-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4117,7 +4056,7 @@ textarea,
   min-width: 20px;
 }
 
-/* Deliverables List */
+
 .deliverables-list {
   list-style: none;
   padding: 0;
@@ -4151,7 +4090,7 @@ textarea,
   min-width: 24px;
 }
 
-/* Industries Grid */
+
 .industries-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -4182,7 +4121,7 @@ textarea,
   opacity: 0.8;
 }
 
-/* FAQ Container */
+
 .faq-container {
   display: flex;
   flex-direction: column;
@@ -4248,7 +4187,7 @@ textarea,
   max-height: 500px;
 }
 
-/* Responsive */
+
 @media (max-width: 992px) {
   .service-sidebar {
     position: relative;
@@ -4329,17 +4268,17 @@ textarea,
   }
 }
 
-/* Hide radios */
+
 .portfolio-filters input {
   display: none;
 }
 
-/* Default show */
+
 .portfolio-item {
   display: block;
 }
 
-/* hide radios */
+
 input[name="filter"] {
   display: none;
 }
@@ -4355,12 +4294,12 @@ input[name="filter"] {
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
 
-/* ALL */
+
 #all:checked~.portfolio-grid .portfolio-item {
   display: block;
 }
 
-/* APP */
+
 #app:checked~.portfolio-grid .portfolio-item {
   display: none;
 }
@@ -4369,7 +4308,7 @@ input[name="filter"] {
   display: block;
 }
 
-/* PRODUCT */
+
 #product:checked~.portfolio-grid .portfolio-item {
   display: none;
 }
@@ -4378,7 +4317,7 @@ input[name="filter"] {
   display: block;
 }
 
-/* WEB */
+
 #web:checked~.portfolio-grid .portfolio-item {
   display: none;
 }
@@ -4387,7 +4326,7 @@ input[name="filter"] {
   display: block;
 }
 
-/* Active button */
+
 .portfolio-filters input:checked+label {
   color: #fff;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
@@ -4398,7 +4337,7 @@ input[name="filter"] {
   flex-wrap: wrap;
 }
 
-/* FORCE horizontal layout */
+
 .mega-left .mega-item {
   display: flex !important;
   flex-direction: row !important;
@@ -4406,12 +4345,12 @@ input[name="filter"] {
   gap: 12px;
 }
 
-/* Prevent inner div from breaking layout */
+
 .mega-left .mega-item>div {
   display: block;
 }
 
-/* Fix icon */
+
 .mega-left .mega-icon {
   display: flex !important;
   align-items: center;
@@ -4421,7 +4360,7 @@ input[name="filter"] {
   flex-shrink: 0;
 }
 
-/* Remove any weird spacing */
+
 .mega-left .mega-item h6 {
   margin: 0;
 }
@@ -4430,15 +4369,15 @@ input[name="filter"] {
   display: flex !important;
 }
 
-/* Increase mega menu width */
+
 .mega-menu {
   width: 900px;
-  /* try 900–1100px */
+
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* Clients Carousel Section */
+
 .clients-section {
   padding: 60px 40px;
   background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
@@ -4558,7 +4497,7 @@ input[name="filter"] {
   }
 }
 
-/* Product Website Card - Responsive */
+
 @media (max-width: 768px) {
   .product-website-card {
     padding: 32px 24px;
@@ -4583,7 +4522,7 @@ input[name="filter"] {
     justify-content: center;
   }
 
-  /* Clients Carousel Responsive */
+
   .clients-section {
     padding: 40px 20px;
   }
@@ -4619,7 +4558,7 @@ input[name="filter"] {
     max-width: 100px;
   }
 
-  /* Single column for why choose and features on mobile */
+
   .why-choose-list,
   .feature-list {
     grid-template-columns: 1fr;

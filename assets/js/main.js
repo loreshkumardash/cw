@@ -1,14 +1,12 @@
 (function () {
   "use strict";
 
-  // Register GSAP plugins
+
   if (typeof gsap !== "undefined") {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   }
 
-  /**
-   * Navbar Scroll Effect
-   */
+
   function initNavbar() {
     const navbar = document.querySelector(".navbar");
     if (!navbar) return;
@@ -22,9 +20,7 @@
     });
   }
 
-  /**
-   * Mobile Menu Toggle
-   */
+
   function initMobileMenu() {
     const toggle = document.querySelector(".mobile-toggle");
     const menu = document.querySelector(".nav-menu");
@@ -39,10 +35,10 @@
       icon.classList.toggle("bi-x");
     });
 
-    // Close menu on link click (exclude mega menu toggle links)
+
     menu.querySelectorAll(".nav-links a").forEach((link) => {
       link.addEventListener("click", () => {
-        // Don't close menu if it's a mega menu toggle link
+
         if (link.closest(".has-mega") && window.innerWidth < 992) {
           return;
         }
@@ -52,7 +48,7 @@
       });
     });
 
-    // Accordion for all mega menus (Services & Products) on mobile
+
     document.querySelectorAll(".has-mega").forEach(function (megaItem) {
       const megaLink = megaItem.querySelector("a");
       if (megaLink) {
@@ -60,7 +56,7 @@
           if (window.innerWidth < 992) {
             e.preventDefault();
             e.stopPropagation();
-            // Toggle only the clicked mega item, close others
+
             document.querySelectorAll(".has-mega").forEach(function (other) {
               if (other !== megaItem) {
                 other.classList.remove("active");
@@ -73,9 +69,7 @@
     });
   }
 
-  /**
-   * Scroll Top Button
-   */
+
   function initScrollTop() {
     const scrollTop = document.querySelector(".scroll-top");
     if (!scrollTop) return;
@@ -98,9 +92,7 @@
     });
   }
 
-  /**
-   * Smooth Scroll for Anchor Links
-   */
+
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
@@ -120,14 +112,12 @@
     });
   }
 
-  /**
-   * Hero Animations
-   */
+
   function initHeroAnimations() {
     const hero = document.querySelector("#hero");
     if (!hero) return;
 
-    // Parallax effect on shapes
+
     gsap.to(".shape-1", {
       y: 100,
       scrollTrigger: {
@@ -158,21 +148,21 @@
       },
     });
 
-    // Animate stats counter
+
     const stats = document.querySelectorAll(".stat-number");
     stats.forEach((stat) => {
       const target = parseInt(stat.getAttribute("data-count"));
       if (isNaN(target)) return;
 
-      // Set initial value
+
       stat.innerText = "0";
 
-      // Check if element is already in viewport
+
       const rect = stat.getBoundingClientRect();
       const isInViewport = rect.top < window.innerHeight * 0.85;
 
       if (isInViewport) {
-        // Animate immediately if already visible
+
         gsap.to(stat, {
           innerText: target,
           duration: 2,
@@ -186,7 +176,7 @@
           },
         });
       } else {
-        // Use ScrollTrigger if not yet visible
+
         gsap.to(stat, {
           scrollTrigger: {
             trigger: stat,
@@ -207,9 +197,7 @@
     });
   }
 
-  /**
-   * Section Header Animations
-   */
+
   function initSectionAnimations() {
     const sectionHeaders = document.querySelectorAll(".section-header");
 
@@ -257,23 +245,21 @@
           "-=0.4",
         );
 
-      // Set initial state
+
       if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
       if (title) gsap.set(title, { opacity: 0, y: 20 });
       if (description) gsap.set(description, { opacity: 0, y: 20 });
     });
   }
 
-  /**
-   * Services Animations
-   */
+
   function initServicesAnimations() {
     const services = document.querySelector("#services");
     if (!services) return;
 
     const serviceCards = services.querySelectorAll(".service-card");
 
-    // Set initial state
+
     gsap.set(serviceCards, { opacity: 0, y: 60 });
 
     gsap.to(serviceCards, {
@@ -293,9 +279,7 @@
     });
   }
 
-  /**
-   * About Section Parallax
-   */
+
   function initAboutAnimations() {
     const about = document.querySelector("#about");
     if (!about) return;
@@ -313,7 +297,7 @@
       });
     }
 
-    // Experience badge animation
+
     const badge = about.querySelector(".experience-badge");
     if (badge) {
       gsap.set(badge, { opacity: 0, scale: 0.8 });
@@ -331,9 +315,7 @@
     }
   }
 
-  /**
-   * CTA Section Animation
-   */
+
   function initCTAAnimations() {
     const cta = document.querySelector("#cta");
     if (!cta) return;
@@ -354,9 +336,7 @@
     });
   }
 
-  /**
-   * Footer Animations
-   */
+
   function initFooterAnimations() {
     const footer = document.querySelector(".footer");
     if (!footer) return;
@@ -377,7 +357,7 @@
       ease: "power2.out",
     });
 
-    // Social icons animation
+
     const socialLinks = footer.querySelectorAll(".social-links a");
     socialLinks.forEach((link, i) => {
       gsap.set(link, { opacity: 0, scale: 0, rotation: -180 });
@@ -397,9 +377,7 @@
     });
   }
 
-  /**
-   * Testimonial Slider Animations
-   */
+
   function initTestimonialAnimations() {
     const testimonials = document.querySelector("#testimonials");
     if (!testimonials) return;
@@ -408,13 +386,13 @@
     const sectionSubtitle = testimonials.querySelector(".section-subtitle");
     const sectionDesc = testimonials.querySelector(".section-description");
 
-    // Set initial state
+
     gsap.set([sectionSubtitle, sectionTitle, sectionDesc], {
       opacity: 0,
       y: 30,
     });
 
-    // Animate section header
+
     gsap.to([sectionSubtitle, sectionTitle, sectionDesc], {
       scrollTrigger: {
         trigger: testimonials,
@@ -437,7 +415,7 @@
 
     const cards = track.querySelectorAll(".product-scroll-card");
 
-    // refresh calculations
+
     function setupScroll() {
       const trackWidth = track.scrollWidth;
       const viewportWidth = viewport.offsetWidth;
@@ -445,7 +423,7 @@
 
       if (scrollDistance <= 0 || window.innerWidth <= 768) return;
 
-      // card entrance animation
+
       gsap.set(cards, { opacity: 0, x: 60 });
 
       gsap.to(cards, {
@@ -461,7 +439,7 @@
         },
       });
 
-      // horizontal movement - pin the section not the viewport
+
       gsap.to(track, {
         x: -scrollDistance,
         ease: "none",
@@ -478,15 +456,13 @@
 
     setupScroll();
 
-    // refresh on resize
+
     window.addEventListener("resize", () => {
       ScrollTrigger.refresh();
     });
   }
 
-  /**
-   * GLightbox Init
-   */
+
   function initLightbox() {
     if (typeof GLightbox !== "undefined") {
       GLightbox({
@@ -498,9 +474,7 @@
     }
   }
 
-  /**
-   * Testimonial Slider Init (Swiper.js)
-   */
+
   function initTestimonialSlider() {
     const testimonialSwiper = document.querySelector(".testimonial-swiper");
     if (!testimonialSwiper || typeof Swiper === "undefined") return;
@@ -542,49 +516,44 @@
     });
   }
 
-  /**
-   * AOS Animation Init - With scroll position fix
-   */
+
   function initAOS() {
     if (typeof AOS !== "undefined") {
-      // Initialize AOS with settings that ensure visibility on load
+
       AOS.init({
         duration: 800,
         easing: "ease-out-cubic",
         once: true,
         offset: 50,
-        // Start animations immediately for elements already in viewport
+
         startEvent: "DOMContentLoaded",
-        // Disable AOS for elements that should always be visible
+
         disable: function () {
-          // Only disable on very small screens if needed
+
           return false;
         },
       });
 
-      // Refresh AOS after a short delay to catch all elements
+
       setTimeout(() => {
         AOS.refresh();
       }, 100);
     }
   }
 
-  /**
-   * Force Visibility Fix - Ensures elements are visible on page load
-   * This handles cases where animations haven't triggered yet
-   */
+
   function fixAnimationVisibility() {
-    // Wait for DOM and resources to load
+
     window.addEventListener("load", () => {
-      // Force ScrollTrigger to recalculate all positions
+
       setTimeout(() => {
         ScrollTrigger.refresh();
 
-        // Update all ScrollTrigger positions based on current scroll
+
         ScrollTrigger.update();
       }, 100);
 
-      // Additional refresh after a bit more time for images to load
+
       setTimeout(() => {
         ScrollTrigger.refresh();
         if (typeof AOS !== "undefined") {
@@ -594,14 +563,12 @@
     });
   }
 
-  /**
-   * Custom Cursor
-   */
+
   function initCustomCursor() {
-    // Only enable on desktop
+
     if (window.innerWidth <= 768) return;
 
-    // Cursor elements
+
     const cursorDot = document.createElement("div");
     const cursorOutline = document.createElement("div");
     const cursorGlow = document.createElement("div");
@@ -614,11 +581,11 @@
     document.body.appendChild(cursorOutline);
     document.body.appendChild(cursorGlow);
 
-    // Mouse position
+
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
 
-    // Cursor positions with smoothing
+
     let dotX = mouseX;
     let dotY = mouseY;
     let outlineX = mouseX;
@@ -626,31 +593,31 @@
     let glowX = mouseX;
     let glowY = mouseY;
 
-    // Smoothing factors
+
     const dotSmoothing = 0.5;
     const outlineSmoothing = 0.15;
     const glowSmoothing = 0.1;
 
-    // Magnetic elements
+
     let magneticElement = null;
 
-    // Interactive elements selector
+
     const interactiveSelector =
       'a, button, .btn, input, textarea, [role="button"], .nav-links a, .navbar-brand, .mobile-toggle';
 
-    // Update mouse position
+
     document.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
 
-    // Handle interactive elements
+
     document.addEventListener("mouseover", (e) => {
       const interactiveEl = e.target.closest(interactiveSelector);
       if (interactiveEl) {
         cursorOutline.classList.add("hovered");
 
-        // Check for magnetic attraction
+
         if (
           interactiveEl.classList.contains("magnetic") ||
           interactiveEl.classList.contains("btn") ||
@@ -668,14 +635,14 @@
         cursorOutline.classList.remove("hovered");
         magneticElement = null;
 
-        // Reset magnetic transform
+
         if (interactiveEl.classList.contains("magnetic")) {
           interactiveEl.style.transform = "translate(0, 0)";
         }
       }
     });
 
-    // Click ripple effect
+
     document.addEventListener("click", (e) => {
       const ripple = document.createElement("div");
       ripple.className = "cursor-ripple";
@@ -683,27 +650,27 @@
       ripple.style.top = e.clientY + "px";
       document.body.appendChild(ripple);
 
-      // Remove ripple after animation
+
       setTimeout(() => {
         ripple.remove();
       }, 600);
     });
 
-    // Animation loop using requestAnimationFrame
+
     function animate() {
-      // Smooth dot movement
+
       dotX += (mouseX - dotX) * dotSmoothing;
       dotY += (mouseY - dotY) * dotSmoothing;
 
-      // Smooth outline movement (slower for trailing effect)
+
       outlineX += (mouseX - outlineX) * outlineSmoothing;
       outlineY += (mouseY - outlineY) * outlineSmoothing;
 
-      // Smooth glow movement (slowest for ethereal effect)
+
       glowX += (mouseX - glowX) * glowSmoothing;
       glowY += (mouseY - glowY) * glowSmoothing;
 
-      // Apply positions
+
       cursorDot.style.left = dotX + "px";
       cursorDot.style.top = dotY + "px";
 
@@ -713,7 +680,7 @@
       cursorGlow.style.left = glowX + "px";
       cursorGlow.style.top = glowY + "px";
 
-      // Magnetic attraction effect
+
       if (magneticElement) {
         const rect = magneticElement.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -733,7 +700,7 @@
 
           magneticElement.style.transform = `translate(${pullX}px, ${pullY}px)`;
 
-          // Move cursor towards element center
+
           outlineX += (centerX - outlineX) * 0.1;
           outlineY += (centerY - outlineY) * 0.1;
         }
@@ -742,10 +709,10 @@
       requestAnimationFrame(animate);
     }
 
-    // Start animation
+
     animate();
 
-    // Hide cursor when leaving window
+
     document.addEventListener("mouseleave", () => {
       cursorDot.style.opacity = "0";
       cursorOutline.style.opacity = "0";
@@ -758,15 +725,13 @@
       cursorGlow.style.opacity = "1";
     });
 
-    // Add magnetic class to common interactive elements
+
     document.querySelectorAll(".btn, button, a[href]").forEach((el) => {
       el.classList.add("magnetic");
     });
   }
 
-  /**
-   * Set Current Year in Footer
-   */
+
   function setCurrentYear() {
     const yearElement = document.getElementById("current-year");
     if (yearElement) {
@@ -774,15 +739,11 @@
     }
   }
 
-  /**
-   * Service Details Dynamic Content
-   */
+
   let serviceData = null;
   let currentService = null;
 
-  /**
-   * Product Details Dynamic Content
-   */
+
   let productData = null;
   let currentProduct = null;
 
@@ -841,7 +802,7 @@
 
     container.innerHTML = services
       .map((service) => {
-        // Get icon from service data, remove 'bi-' prefix if present
+
         const iconName = service.icon
           ? service.icon.replace("bi-", "")
           : "code-slash";
@@ -864,7 +825,7 @@
 
     container.innerHTML = products
       .map((product) => {
-        // Get icon from product data, remove 'bi-' prefix if present
+
         const iconName = product.icon
           ? product.icon.replace("bi-", "")
           : "mortarboard";
@@ -881,11 +842,9 @@
       .join("");
   }
 
-  /**
-   * Initialize Mega Menu (runs on all pages)
-   */
+
   async function initMegaMenu() {
-    // Initialize Services Mega Menu
+
     const servicesMegaMenuContainer = document.getElementById("mega-menu-services");
     if (servicesMegaMenuContainer) {
       try {
@@ -894,7 +853,7 @@
 
         serviceData = await response.json();
 
-        // Only set active service if there's a service parameter in the URL
+
         const params = getServiceFromURL();
         let activeServiceSlug = null;
 
@@ -909,7 +868,7 @@
       }
     }
 
-    // Initialize Products Mega Menu
+
     const productsMegaMenuContainer = document.getElementById("mega-menu-products");
     if (productsMegaMenuContainer) {
       try {
@@ -918,7 +877,7 @@
 
         productData = await response.json();
 
-        // Only set active product if there's a product parameter in the URL
+
         const params = getProductFromURL();
         let activeProductSlug = null;
 
@@ -935,7 +894,7 @@
   }
 
   function renderServiceDetails(service) {
-    // Page title and meta
+
     document.title = `${service.title} - Cakiweb Solutions`;
     const pageTitle = document.getElementById("page-title");
     if (pageTitle)
@@ -944,7 +903,7 @@
     const pageDescription = document.getElementById("page-description");
     if (pageDescription) pageDescription.textContent = service.fullDescription;
 
-    // Hero section
+
     const serviceTitle = document.getElementById("service-title");
     if (serviceTitle) serviceTitle.textContent = service.title;
 
@@ -952,11 +911,11 @@
     if (serviceShortDesc)
       serviceShortDesc.textContent = service.shortDescription;
 
-    // Full description
+
     const serviceFullDesc = document.getElementById("service-full-desc");
     if (serviceFullDesc) serviceFullDesc.textContent = service.fullDescription;
 
-    // Why Choose Us
+
     const whyChooseContainer = document.getElementById("service-why-choose");
     if (whyChooseContainer && service.whyChooseUs) {
       whyChooseContainer.innerHTML = service.whyChooseUs
@@ -976,7 +935,7 @@
         .join("");
     }
 
-    // Benefits
+
     const benefitsContainer = document.getElementById("service-benefits");
     if (benefitsContainer && service.benefits) {
       benefitsContainer.innerHTML = service.benefits
@@ -993,7 +952,7 @@
         .join("");
     }
 
-    // Features
+
     const featuresContainer = document.getElementById("service-features");
     if (featuresContainer && service.features) {
       featuresContainer.innerHTML = service.features
@@ -1005,7 +964,7 @@
         .join("");
     }
 
-    // Deliverables
+
     const deliverablesContainer = document.getElementById(
       "service-deliverables",
     );
@@ -1021,7 +980,7 @@
         .join("");
     }
 
-    // Industries
+
     const industriesContainer = document.getElementById("service-industries");
     if (industriesContainer && service.industries) {
       industriesContainer.innerHTML = service.industries
@@ -1035,7 +994,7 @@
         .join("");
     }
 
-    // Process
+
     const processContainer = document.getElementById("service-process");
     if (processContainer && service.process) {
       processContainer.innerHTML = service.process
@@ -1053,7 +1012,7 @@
         .join("");
     }
 
-    // FAQ
+
     const faqContainer = document.getElementById("service-faq");
     if (faqContainer && service.faq) {
       faqContainer.innerHTML = service.faq
@@ -1073,21 +1032,21 @@
         .join("");
     }
 
-    // Sidebar - Service Icon
+
     const iconLarge = document.getElementById("service-icon-large");
     if (iconLarge) {
-      // Remove 'bi-' prefix if present in the icon name
+
       const iconName = service.icon.replace("bi-", "");
       iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
     }
 
-    // Sidebar - Service Title
+
     const sidebarServiceTitle = document.getElementById(
       "sidebar-service-title",
     );
     if (sidebarServiceTitle) sidebarServiceTitle.textContent = service.title;
 
-    // Sidebar - Technologies
+
     const techContainer = document.getElementById("service-technologies");
     if (techContainer && service.technologies) {
       techContainer.innerHTML = service.technologies
@@ -1098,7 +1057,7 @@
         .join("");
     }
 
-    // Sidebar - All Services List
+
     const allServicesContainer = document.getElementById("all-services-list");
     if (allServicesContainer) {
       allServicesContainer.innerHTML = serviceData.services
@@ -1115,15 +1074,13 @@
     }
   }
 
-  /**
-   * Initialize Service Details Page
-   */
+
   async function initServiceDetails() {
-    // Only run on service-details.html page
+
     if (!document.getElementById("service-title")) return;
 
     try {
-      // Use already loaded serviceData if available (from initMegaMenu)
+
       if (!serviceData || !serviceData.services) {
         const response = await fetch("assets/json/service.json");
         if (!response.ok) throw new Error("Failed to load service data");
@@ -1145,7 +1102,7 @@
 
       renderServiceDetails(currentService);
 
-      // Re-initialize AOS for dynamic content
+
       if (typeof AOS !== "undefined") {
         setTimeout(() => AOS.refresh(), 100);
       }
@@ -1160,9 +1117,7 @@
     }
   }
 
-  /**
-   * FAQ Toggle Function
-   */
+
   function toggleFaq(element) {
     const faqItem = element.parentElement;
     const faqAnswer = element.nextElementSibling;
@@ -1181,11 +1136,9 @@
     }
   }
 
-  /**
-   * Render Product Details Page
-   */
+
   function renderProductDetails(product) {
-    // Page title and meta
+
     document.title = `${product.title} - Cakiweb Solutions`;
     const pageTitle = document.getElementById("page-title");
     if (pageTitle)
@@ -1194,7 +1147,7 @@
     const pageDescription = document.getElementById("page-description");
     if (pageDescription) pageDescription.textContent = product.fullDescription;
 
-    // Hero section
+
     const productTitle = document.getElementById("product-title");
     if (productTitle) productTitle.textContent = product.title;
 
@@ -1202,11 +1155,11 @@
     if (productShortDesc)
       productShortDesc.textContent = product.shortDescription;
 
-    // Full description
+
     const productFullDesc = document.getElementById("product-full-desc");
     if (productFullDesc) productFullDesc.textContent = product.fullDescription;
 
-    // Why Choose Us
+
     const whyChooseContainer = document.getElementById("product-why-choose");
     if (whyChooseContainer && product.whyChooseUs) {
       whyChooseContainer.innerHTML = product.whyChooseUs
@@ -1226,7 +1179,7 @@
         .join("");
     }
 
-    // Benefits
+
     const benefitsContainer = document.getElementById("product-benefits");
     if (benefitsContainer && product.benefits) {
       benefitsContainer.innerHTML = product.benefits
@@ -1243,7 +1196,7 @@
         .join("");
     }
 
-    // Features
+
     const featuresContainer = document.getElementById("product-features");
     if (featuresContainer && product.features) {
       featuresContainer.innerHTML = product.features
@@ -1258,7 +1211,7 @@
         .join("");
     }
 
-    // Deliverables
+
     const deliverablesContainer = document.getElementById(
       "product-deliverables",
     );
@@ -1274,7 +1227,7 @@
         .join("");
     }
 
-    // Industries
+
     const industriesContainer = document.getElementById("product-industries");
     if (industriesContainer && product.industries) {
       industriesContainer.innerHTML = product.industries
@@ -1288,7 +1241,7 @@
         .join("");
     }
 
-    // FAQ
+
     const faqContainer = document.getElementById("product-faq");
     if (faqContainer && product.faq) {
       faqContainer.innerHTML = product.faq
@@ -1308,18 +1261,18 @@
         .join("");
     }
 
-    // Sidebar - Product Icon
+
     const iconLarge = document.getElementById("product-icon-large");
     if (iconLarge) {
       const iconName = product.icon.replace("bi-", "");
       iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
     }
 
-    // Sidebar - Product Title
+
     const sidebarProductTitle = document.getElementById("sidebar-product-title");
     if (sidebarProductTitle) sidebarProductTitle.textContent = product.title;
 
-    // Sidebar - All Products List
+
     const allProductsContainer = document.getElementById("all-products-list");
     if (allProductsContainer) {
       allProductsContainer.innerHTML = productData.products
@@ -1335,7 +1288,7 @@
         .join("");
     }
 
-    // Product Website Section
+
     const websiteSection = document.getElementById("product-website-section");
     const websiteLink = document.getElementById("product-website-link");
     if (websiteSection && websiteLink) {
@@ -1347,10 +1300,10 @@
       }
     }
 
-    // Clients Carousel Section
+
     const clientsTrack = document.getElementById("clients-track");
     if (clientsTrack && product.clients && product.clients.length > 0) {
-      // Duplicate clients for seamless infinite scroll
+
       const allClients = [...product.clients, ...product.clients];
       clientsTrack.innerHTML = allClients
         .map(
@@ -1367,15 +1320,13 @@
     }
   }
 
-  /**
-   * Initialize Product Details Page
-   */
+
   async function initProductDetails() {
-    // Only run on product-details.html page
+
     if (!document.getElementById("product-title")) return;
 
     try {
-      // Use already loaded productData if available (from initMegaMenu)
+
       if (!productData || !productData.products) {
         const response = await fetch("assets/json/product.json");
         if (!response.ok) throw new Error("Failed to load product data");
@@ -1397,7 +1348,7 @@
 
       renderProductDetails(currentProduct);
 
-      // Re-initialize AOS for dynamic content
+
       if (typeof AOS !== "undefined") {
         setTimeout(() => AOS.refresh(), 100);
       }
@@ -1412,27 +1363,22 @@
     }
   }
 
-  // Expose toggleFaq to global scope for onclick handlers
+
   window.toggleFaq = toggleFaq;
 
-  /**
-   * Button Shine Animation
-   * Adds periodic shine effect to all buttons
-   */
+
   function initButtonShine() {
-    // Add shine animation class to all buttons
+
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach((btn, index) => {
-      // Stagger the animation start time for variety
+
       setTimeout(() => {
         btn.classList.add('shine-animation');
       }, index * 500);
     });
   }
 
-  /**
-   * Initialize All Functions
-   */
+
   function init() {
     initNavbar();
     initMobileMenu();
@@ -1457,23 +1403,24 @@
     initProductDetails();
     initButtonShine();
 
-    // Refresh ScrollTrigger after everything loads
+
     window.addEventListener("load", () => {
       setTimeout(() => {
         ScrollTrigger.refresh();
       }, 100);
     });
 
-    // Refresh ScrollTrigger on resize
+
     window.addEventListener("resize", () => {
       ScrollTrigger.refresh();
     });
   }
 
-  // Run on DOM ready
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
 })();
+
