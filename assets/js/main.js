@@ -1346,6 +1346,25 @@
         websiteSection.style.display = "none";
       }
     }
+
+    // Clients Carousel Section
+    const clientsTrack = document.getElementById("clients-track");
+    if (clientsTrack && product.clients && product.clients.length > 0) {
+      // Duplicate clients for seamless infinite scroll
+      const allClients = [...product.clients, ...product.clients];
+      clientsTrack.innerHTML = allClients
+        .map(
+          (client) => `
+        <a href="${client.website || '#'}" target="_blank" rel="noopener noreferrer" class="client-logo">
+          <div class="client-logo-icon">
+            <img src="${client.logo || ''}" alt="${client.name}" loading="lazy">
+          </div>
+          <span class="client-logo-name">${client.name}</span>
+        </a>
+      `,
+        )
+        .join("");
+    }
   }
 
   /**

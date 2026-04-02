@@ -9,11 +9,26 @@
       "productWebsite": "https://www.eazyscholar.com",
       "fullDescription": "Our comprehensive School/College Management Software streamlines all administrative and academic processes in educational institutions. From student admissions to exam management, attendance tracking to fee collection, our system covers every aspect of educational administration.\n\nThe platform is designed to enhance communication between teachers, students, and parents while reducing paperwork and improving operational efficiency. With real-time analytics and reporting, institution administrators can make data-driven decisions to improve educational outcomes.\n\nKey modules include student information management, attendance tracking, timetable scheduling, examination management, grade reporting, library management, transport management, hostel management, and fee collection. The system also includes dedicated portals for administrators, teachers, students, and parents, ensuring everyone has access to the information they need.\n\nOur cloud-based solution is accessible from anywhere, on any device, making it perfect for modern educational institutions looking to digitize their operations.",
       "whyChooseUs": [
-        { "text": "15+ years of experience in education technology", "icon": "bi-award" },
-        { "text": "Used by 500+ educational institutions", "icon": "bi-patch-check" },
-        { "text": "Comprehensive feature set covering all administrative needs", "icon": "bi-layers" },
-        { "text": "User-friendly interface for all stakeholders", "icon": "bi-people" },
-        { "text": "24/7 technical support and training", "icon": "bi-headset" }
+        {
+          "text": "15+ years of experience in education technology",
+          "icon": "bi-award"
+        },
+        {
+          "text": "Used by 500+ educational institutions",
+          "icon": "bi-patch-check"
+        },
+        {
+          "text": "Comprehensive feature set covering all administrative needs",
+          "icon": "bi-layers"
+        },
+        {
+          "text": "User-friendly interface for all stakeholders",
+          "icon": "bi-people"
+        },
+        {
+          "text": "24/7 technical support and training",
+          "icon": "bi-headset"
+        }
       ],
       "benefits": [
         "Reduced administrative workload by 60%",
@@ -25,18 +40,54 @@
         "Better decision-making with analytics"
       ],
       "features": [
-        { "text": "Student Information Management", "icon": "bi-person-badge" },
-        { "text": "Online Admission System", "icon": "bi-cloud-upload" },
-        { "text": "Attendance Tracking (Biometric/RFID)", "icon": "bi-fingerprint" },
-        { "text": "Timetable Scheduling", "icon": "bi-calendar-week" },
-        { "text": "Examination & Grade Management", "icon": "bi-file-earmark-text" },
-        { "text": "Online Fee Payment Gateway", "icon": "bi-credit-card" },
-        { "text": "Transport Management", "icon": "bi-bus-front" },
-        { "text": "Library Management System", "icon": "bi-book" },
-        { "text": "Hostel Management", "icon": "bi-building" },
-        { "text": "Parent-Teacher Communication Portal", "icon": "bi-chat-dots" },
-        { "text": "Mobile App for Parents & Students", "icon": "bi-phone" },
-        { "text": "SMS & Email Notifications", "icon": "bi-bell" }
+        {
+          "text": "Student Information Management",
+          "icon": "bi-person-badge"
+        },
+        {
+          "text": "Online Admission System",
+          "icon": "bi-cloud-upload"
+        },
+        {
+          "text": "Attendance Tracking (Biometric/RFID)",
+          "icon": "bi-fingerprint"
+        },
+        {
+          "text": "Timetable Scheduling",
+          "icon": "bi-calendar-week"
+        },
+        {
+          "text": "Examination & Grade Management",
+          "icon": "bi-file-earmark-text"
+        },
+        {
+          "text": "Online Fee Payment Gateway",
+          "icon": "bi-credit-card"
+        },
+        {
+          "text": "Transport Management",
+          "icon": "bi-bus-front"
+        },
+        {
+          "text": "Library Management System",
+          "icon": "bi-book"
+        },
+        {
+          "text": "Hostel Management",
+          "icon": "bi-building"
+        },
+        {
+          "text": "Parent-Teacher Communication Portal",
+          "icon": "bi-chat-dots"
+        },
+        {
+          "text": "Mobile App for Parents & Students",
+          "icon": "bi-phone"
+        },
+        {
+          "text": "SMS & Email Notifications",
+          "icon": "bi-bell"
+        }
       ],
       "deliverables": [
         "Fully customized software installation",
@@ -53,6 +104,43 @@
         "Training Institutes",
         "Special Education Centers",
         "International Schools"
+      ],
+      "clients": [
+        {
+          "name": "Delhi Public School",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Kendriya Vidyalaya",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Army Public School",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "St. Xavier's College",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Indian Institute of Technology",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Modern School",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Springdale High School",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -82,11 +170,26 @@
       "productWebsite": "https://www.csplerp.com",
       "fullDescription": "Our specialized ERP software for manpower agencies streamlines recruitment, placement, and workforce management processes. Designed specifically for recruitment agencies and manpower suppliers, this comprehensive solution handles everything from candidate sourcing to deployment tracking.\n\nThe system automates visa processing, medical testing, ticketing, and insurance management while maintaining complete compliance with international labor regulations. With real-time tracking of candidates at each stage of the recruitment process, agencies can significantly improve their placement rates and client satisfaction.\n\nKey features include candidate database management, job requisition handling, resume parsing, interview scheduling, offer letter generation, visa tracking, flight booking management, and deployment reporting. The system also includes client and candidate portals for seamless communication.\n\nBuilt with compliance in mind, our ERP ensures all documentation and processes meet regulatory requirements, reducing legal risks and improving operational efficiency.",
       "whyChooseUs": [
-        { "text": "Built specifically for manpower agencies", "icon": "bi-patch-check" },
-        { "text": "Compliance with international labor laws", "icon": "bi-shield-check" },
-        { "text": "Multi-country visa processing support", "icon": "bi-globe" },
-        { "text": "Integration with government portals", "icon": "bi-cloud-connect" },
-        { "text": "Real-time candidate tracking", "icon": "bi-people" }
+        {
+          "text": "Built specifically for manpower agencies",
+          "icon": "bi-patch-check"
+        },
+        {
+          "text": "Compliance with international labor laws",
+          "icon": "bi-shield-check"
+        },
+        {
+          "text": "Multi-country visa processing support",
+          "icon": "bi-globe"
+        },
+        {
+          "text": "Integration with government portals",
+          "icon": "bi-cloud-connect"
+        },
+        {
+          "text": "Real-time candidate tracking",
+          "icon": "bi-people"
+        }
       ],
       "benefits": [
         "50% faster candidate processing",
@@ -98,18 +201,54 @@
         "Real-time business insights"
       ],
       "features": [
-        { "text": "Candidate Database Management", "icon": "bi-people" },
-        { "text": "Job Requisition Portal", "icon": "bi-briefcase" },
-        { "text": "Resume Parsing & Matching", "icon": "bi-file-earmark-text" },
-        { "text": "Interview Scheduling", "icon": "bi-calendar-check" },
-        { "text": "Visa Processing Tracker", "icon": "bi-passport" },
-        { "text": "Medical Test Management", "icon": "bi-heart-pulse" },
-        { "text": "Ticketing & Insurance", "icon": "bi-ticket-perforated" },
-        { "text": "Deployment Tracking", "icon": "bi-geo-alt" },
-        { "text": "Client Management Portal", "icon": "bi-building" },
-        { "text": "Candidate Self-Service Portal", "icon": "bi-person-circle" },
-        { "text": "Document Management System", "icon": "bi-files" },
-        { "text": "Compliance Reporting", "icon": "bi-file-earmark-check" }
+        {
+          "text": "Candidate Database Management",
+          "icon": "bi-people"
+        },
+        {
+          "text": "Job Requisition Portal",
+          "icon": "bi-briefcase"
+        },
+        {
+          "text": "Resume Parsing & Matching",
+          "icon": "bi-file-earmark-text"
+        },
+        {
+          "text": "Interview Scheduling",
+          "icon": "bi-calendar-check"
+        },
+        {
+          "text": "Visa Processing Tracker",
+          "icon": "bi-passport"
+        },
+        {
+          "text": "Medical Test Management",
+          "icon": "bi-heart-pulse"
+        },
+        {
+          "text": "Ticketing & Insurance",
+          "icon": "bi-ticket-perforated"
+        },
+        {
+          "text": "Deployment Tracking",
+          "icon": "bi-geo-alt"
+        },
+        {
+          "text": "Client Management Portal",
+          "icon": "bi-building"
+        },
+        {
+          "text": "Candidate Self-Service Portal",
+          "icon": "bi-person-circle"
+        },
+        {
+          "text": "Document Management System",
+          "icon": "bi-files"
+        },
+        {
+          "text": "Compliance Reporting",
+          "icon": "bi-file-earmark-check"
+        }
       ],
       "deliverables": [
         "Customized ERP system",
@@ -125,6 +264,43 @@
         "HR Consulting",
         "Staffing Agencies",
         "Labor Supply Companies"
+      ],
+      "clients": [
+        {
+          "name": "TeamLease Services",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Randstad India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Adecco India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "ManpowerGroup India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Kelly Services",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "ABC Consultants",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "HirePro Consulting",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -150,11 +326,26 @@
       "productWebsite": "https://www.csplerp.com",
       "fullDescription": "Our Advanced Accounts Software provides comprehensive financial management capabilities for businesses of all sizes. From basic bookkeeping to complex financial reporting, our system handles all aspects of accounting with precision and ease.\n\nThe software automates routine accounting tasks, reduces manual errors, and ensures compliance with accounting standards. With real-time financial insights, businesses can make informed decisions and maintain healthy cash flow.\n\nKey modules include general ledger, accounts payable, accounts receivable, bank reconciliation, fixed assets management, budgeting and forecasting, financial reporting, and tax management. The system integrates seamlessly with banking systems for automated transaction imports and reconciliations.\n\nBuilt with security and audit trails in mind, our software ensures complete financial data integrity and makes audits straightforward with comprehensive logging and reporting capabilities.",
       "whyChooseUs": [
-        { "text": "CA-approved accounting methodologies", "icon": "bi-patch-check" },
-        { "text": "GST and tax compliance ready", "icon": "bi-file-earmark-check" },
-        { "text": "Bank-grade security features", "icon": "bi-shield-lock" },
-        { "text": "Real-time financial dashboards", "icon": "bi-bar-chart" },
-        { "text": "Automated bank reconciliation", "icon": "bi-arrow-left-right" }
+        {
+          "text": "CA-approved accounting methodologies",
+          "icon": "bi-patch-check"
+        },
+        {
+          "text": "GST and tax compliance ready",
+          "icon": "bi-file-earmark-check"
+        },
+        {
+          "text": "Bank-grade security features",
+          "icon": "bi-shield-lock"
+        },
+        {
+          "text": "Real-time financial dashboards",
+          "icon": "bi-bar-chart"
+        },
+        {
+          "text": "Automated bank reconciliation",
+          "icon": "bi-arrow-left-right"
+        }
       ],
       "benefits": [
         "Reduced accounting errors by 90%",
@@ -166,18 +357,54 @@
         "Time savings on manual tasks"
       ],
       "features": [
-        { "text": "General Ledger Management", "icon": "bi-journal-text" },
-        { "text": "Accounts Payable & Receivable", "icon": "bi-arrow-left-right" },
-        { "text": "Bank Reconciliation", "icon": "bi-bank" },
-        { "text": "Fixed Assets Management", "icon": "bi-building" },
-        { "text": "Budgeting & Forecasting", "icon": "bi-graph-up" },
-        { "text": "Financial Statement Generation", "icon": "bi-file-earmark-spreadsheet" },
-        { "text": "GST & Tax Management", "icon": "bi-receipt" },
-        { "text": "Inventory Accounting", "icon": "bi-box-seam" },
-        { "text": "Multi-Currency Support", "icon": "bi-currency-exchange" },
-        { "text": "Cost Center Accounting", "icon": "bi-pie-chart" },
-        { "text": "Automated Journal Entries", "icon": "bi-journal-check" },
-        { "text": "Audit Trail & Logging", "icon": "bi-shield-check" }
+        {
+          "text": "General Ledger Management",
+          "icon": "bi-journal-text"
+        },
+        {
+          "text": "Accounts Payable & Receivable",
+          "icon": "bi-arrow-left-right"
+        },
+        {
+          "text": "Bank Reconciliation",
+          "icon": "bi-bank"
+        },
+        {
+          "text": "Fixed Assets Management",
+          "icon": "bi-building"
+        },
+        {
+          "text": "Budgeting & Forecasting",
+          "icon": "bi-graph-up"
+        },
+        {
+          "text": "Financial Statement Generation",
+          "icon": "bi-file-earmark-spreadsheet"
+        },
+        {
+          "text": "GST & Tax Management",
+          "icon": "bi-receipt"
+        },
+        {
+          "text": "Inventory Accounting",
+          "icon": "bi-box-seam"
+        },
+        {
+          "text": "Multi-Currency Support",
+          "icon": "bi-currency-exchange"
+        },
+        {
+          "text": "Cost Center Accounting",
+          "icon": "bi-pie-chart"
+        },
+        {
+          "text": "Automated Journal Entries",
+          "icon": "bi-journal-check"
+        },
+        {
+          "text": "Audit Trail & Logging",
+          "icon": "bi-shield-check"
+        }
       ],
       "deliverables": [
         "Complete accounting software",
@@ -194,6 +421,43 @@
         "Retail Chains",
         "Distribution Companies",
         "Professional Services"
+      ],
+      "clients": [
+        {
+          "name": "Tata Motors",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Reliance Industries",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "HDFC Bank",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Infosys Limited",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Maruti Suzuki",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Bajaj Electricals",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Godrej Industries",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -219,11 +483,26 @@
       "productWebsite": "https://www.csplerp.com",
       "fullDescription": "Our Advanced Payroll Software simplifies complex payroll processes, ensuring accurate and timely salary payments while maintaining complete compliance with labor laws and tax regulations. Designed for organizations of all sizes, our system handles everything from attendance integration to statutory compliance.\n\nThe software automates salary calculations, tax deductions, loan management, and reimbursement processing. With self-service portals for employees, HR teams can focus on strategic initiatives while employees manage their own payslips, tax declarations, and loan requests.\n\nKey features include attendance and leave integration, salary structure configuration, loan and advance management, reimbursement processing, statutory compliance (PF, ESI, PT), tax calculations, payslip generation, and bank transfer file creation. The system also provides comprehensive payroll analytics and reporting.\n\nBuilt with data security and confidentiality in mind, our payroll software ensures sensitive employee compensation data is protected with role-based access and encryption.",
       "whyChooseUs": [
-        { "text": "100% accurate salary processing", "icon": "bi-patch-check" },
-        { "text": "Statutory compliance automation", "icon": "bi-shield-check" },
-        { "text": "Seamless attendance integration", "icon": "bi-fingerprint" },
-        { "text": "Employee self-service portal", "icon": "bi-person-circle" },
-        { "text": "Quick implementation", "icon": "bi-lightning" }
+        {
+          "text": "100% accurate salary processing",
+          "icon": "bi-patch-check"
+        },
+        {
+          "text": "Statutory compliance automation",
+          "icon": "bi-shield-check"
+        },
+        {
+          "text": "Seamless attendance integration",
+          "icon": "bi-fingerprint"
+        },
+        {
+          "text": "Employee self-service portal",
+          "icon": "bi-person-circle"
+        },
+        {
+          "text": "Quick implementation",
+          "icon": "bi-lightning"
+        }
       ],
       "benefits": [
         "Eliminates payroll errors",
@@ -235,18 +514,54 @@
         "Secure and confidential processing"
       ],
       "features": [
-        { "text": "Salary Structure Management", "icon": "bi-sliders" },
-        { "text": "Attendance & Leave Integration", "icon": "bi-calendar-check" },
-        { "text": "Loan & Advance Management", "icon": "bi-wallet" },
-        { "text": "Reimbursement Processing", "icon": "bi-receipt" },
-        { "text": "PF, ESI & Professional Tax", "icon": "bi-file-earmark-text" },
-        { "text": "Income Tax Calculations", "icon": "bi-calculator" },
-        { "text": "Payslip Generation", "icon": "bi-file-earmark" },
-        { "text": "Bank Transfer File Creation", "icon": "bi-bank" },
-        { "text": "Investment Declaration Management", "icon": "bi-file-earmark-check" },
-        { "text": "Full & Final Settlement", "icon": "bi-check-circle" },
-        { "text": "Payroll Analytics Dashboard", "icon": "bi-bar-chart" },
-        { "text": "Employee Self-Service Portal", "icon": "bi-people" }
+        {
+          "text": "Salary Structure Management",
+          "icon": "bi-sliders"
+        },
+        {
+          "text": "Attendance & Leave Integration",
+          "icon": "bi-calendar-check"
+        },
+        {
+          "text": "Loan & Advance Management",
+          "icon": "bi-wallet"
+        },
+        {
+          "text": "Reimbursement Processing",
+          "icon": "bi-receipt"
+        },
+        {
+          "text": "PF, ESI & Professional Tax",
+          "icon": "bi-file-earmark-text"
+        },
+        {
+          "text": "Income Tax Calculations",
+          "icon": "bi-calculator"
+        },
+        {
+          "text": "Payslip Generation",
+          "icon": "bi-file-earmark"
+        },
+        {
+          "text": "Bank Transfer File Creation",
+          "icon": "bi-bank"
+        },
+        {
+          "text": "Investment Declaration Management",
+          "icon": "bi-file-earmark-check"
+        },
+        {
+          "text": "Full & Final Settlement",
+          "icon": "bi-check-circle"
+        },
+        {
+          "text": "Payroll Analytics Dashboard",
+          "icon": "bi-bar-chart"
+        },
+        {
+          "text": "Employee Self-Service Portal",
+          "icon": "bi-people"
+        }
       ],
       "deliverables": [
         "Complete payroll system",
@@ -263,6 +578,43 @@
         "Educational Institutions",
         "Retail Chains",
         "Service Industries"
+      ],
+      "clients": [
+        {
+          "name": "Wipro Technologies",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Apollo Hospitals",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Tech Mahindra",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Fortis Healthcare",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Larsen & Toubro",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "HCL Technologies",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Max Healthcare",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -288,11 +640,26 @@
       "productWebsite": "https://www.csplerp.com",
       "fullDescription": "Our Advanced Billing Software streamlines invoicing and billing operations for businesses across industries. From creating professional invoices to tracking payments and managing recurring billing, our system ensures healthy cash flow and reduced payment delays.\n\nThe software supports multiple billing models including one-time invoices, recurring billing, usage-based billing, and milestone billing. With automated payment reminders and late fee calculations, businesses can significantly reduce their days sales outstanding (DSO).\n\nKey features include invoice template customization, automated invoice generation, recurring billing management, payment gateway integration, credit note management, billing analytics, customer portal, and integration with accounting systems. The system also supports multi-currency billing for international transactions.\n\nBuilt with compliance and audit requirements in mind, our billing software maintains complete transaction history and provides comprehensive reporting for financial analysis.",
       "whyChooseUs": [
-        { "text": "Flexible billing models support", "icon": "bi-sliders" },
-        { "text": "Automated payment reminders", "icon": "bi-bell" },
-        { "text": "Professional invoice templates", "icon": "bi-file-earmark" },
-        { "text": "Payment gateway integration", "icon": "bi-credit-card" },
-        { "text": "Real-time billing analytics", "icon": "bi-bar-chart" }
+        {
+          "text": "Flexible billing models support",
+          "icon": "bi-sliders"
+        },
+        {
+          "text": "Automated payment reminders",
+          "icon": "bi-bell"
+        },
+        {
+          "text": "Professional invoice templates",
+          "icon": "bi-file-earmark"
+        },
+        {
+          "text": "Payment gateway integration",
+          "icon": "bi-credit-card"
+        },
+        {
+          "text": "Real-time billing analytics",
+          "icon": "bi-bar-chart"
+        }
       ],
       "benefits": [
         "Faster invoice generation",
@@ -304,18 +671,54 @@
         "Reduced billing errors"
       ],
       "features": [
-        { "text": "Invoice Template Designer", "icon": "bi-palette" },
-        { "text": "Automated Invoice Generation", "icon": "bi-file-earmark-text" },
-        { "text": "Recurring Billing Management", "icon": "bi-calendar-repeat" },
-        { "text": "Payment Gateway Integration", "icon": "bi-credit-card-2-front" },
-        { "text": "Credit & Debit Note Management", "icon": "bi-arrow-left-right" },
-        { "text": "Automated Payment Reminders", "icon": "bi-bell-fill" },
-        { "text": "Late Fee Calculations", "icon": "bi-clock-history" },
-        { "text": "Customer Billing Portal", "icon": "bi-person-circle" },
-        { "text": "Multi-Currency Support", "icon": "bi-currency-exchange" },
-        { "text": "Billing Analytics Dashboard", "icon": "bi-graph-up" },
-        { "text": "Integration with Accounting", "icon": "bi-arrow-left-right" },
-        { "text": "Mobile Billing App", "icon": "bi-phone" }
+        {
+          "text": "Invoice Template Designer",
+          "icon": "bi-palette"
+        },
+        {
+          "text": "Automated Invoice Generation",
+          "icon": "bi-file-earmark-text"
+        },
+        {
+          "text": "Recurring Billing Management",
+          "icon": "bi-calendar-repeat"
+        },
+        {
+          "text": "Payment Gateway Integration",
+          "icon": "bi-credit-card-2-front"
+        },
+        {
+          "text": "Credit & Debit Note Management",
+          "icon": "bi-arrow-left-right"
+        },
+        {
+          "text": "Automated Payment Reminders",
+          "icon": "bi-bell-fill"
+        },
+        {
+          "text": "Late Fee Calculations",
+          "icon": "bi-clock-history"
+        },
+        {
+          "text": "Customer Billing Portal",
+          "icon": "bi-person-circle"
+        },
+        {
+          "text": "Multi-Currency Support",
+          "icon": "bi-currency-exchange"
+        },
+        {
+          "text": "Billing Analytics Dashboard",
+          "icon": "bi-graph-up"
+        },
+        {
+          "text": "Integration with Accounting",
+          "icon": "bi-arrow-left-right"
+        },
+        {
+          "text": "Mobile Billing App",
+          "icon": "bi-phone"
+        }
       ],
       "deliverables": [
         "Complete billing software",
@@ -332,6 +735,43 @@
         "Agencies",
         "Subscription Businesses",
         "E-commerce"
+      ],
+      "clients": [
+        {
+          "name": "Zoho Corporation",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Freshworks Inc",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Deloitte Consulting",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "KPMG India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Ogilvy & Mather",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Shopify Partners",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Accenture Solutions",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -357,11 +797,26 @@
       "productWebsite": "https://www.csplerp.com",
       "fullDescription": "Our comprehensive Fleet Management Software provides real-time visibility and control over your entire fleet operations. From vehicle tracking to maintenance scheduling, fuel management to driver monitoring, our system optimizes fleet performance and reduces operational costs.\n\nThe software leverages GPS technology and IoT sensors to provide real-time location tracking, route optimization, and driver behavior monitoring. With predictive maintenance alerts and automated compliance reporting, businesses can minimize vehicle downtime and avoid regulatory penalties.\n\nKey features include real-time GPS tracking, geofencing, route optimization, fuel management, maintenance scheduling, driver behavior monitoring, trip management, expense tracking, and compliance reporting. The system also includes mobile apps for drivers and managers for on-the-go access.\n\nBuilt for scalability, our fleet management solution works for small fleets of 5 vehicles to large enterprises managing thousands of vehicles across multiple locations.",
       "whyChooseUs": [
-        { "text": "Real-time GPS tracking", "icon": "bi-geo-alt" },
-        { "text": "AI-powered route optimization", "icon": "bi-robot" },
-        { "text": "Predictive maintenance alerts", "icon": "bi-wrench-adjustable" },
-        { "text": "Fuel efficiency analytics", "icon": "bi-fuel-pump" },
-        { "text": "Mobile apps for drivers & managers", "icon": "bi-phone" }
+        {
+          "text": "Real-time GPS tracking",
+          "icon": "bi-geo-alt"
+        },
+        {
+          "text": "AI-powered route optimization",
+          "icon": "bi-robot"
+        },
+        {
+          "text": "Predictive maintenance alerts",
+          "icon": "bi-wrench-adjustable"
+        },
+        {
+          "text": "Fuel efficiency analytics",
+          "icon": "bi-fuel-pump"
+        },
+        {
+          "text": "Mobile apps for drivers & managers",
+          "icon": "bi-phone"
+        }
       ],
       "benefits": [
         "20-30% reduction in fuel costs",
@@ -373,18 +828,54 @@
         "Real-time operational visibility"
       ],
       "features": [
-        { "text": "Real-Time GPS Tracking", "icon": "bi-geo-alt-fill" },
-        { "text": "Geofencing & Alerts", "icon": "bi-geo-fence" },
-        { "text": "Route Optimization", "icon": "bi-signpost-split" },
-        { "text": "Fuel Management", "icon": "bi-fuel-pump" },
-        { "text": "Maintenance Scheduling", "icon": "bi-calendar-check" },
-        { "text": "Driver Behavior Monitoring", "icon": "bi-person-badge" },
-        { "text": "Trip Management", "icon": "bi-map" },
-        { "text": "Expense Tracking", "icon": "bi-receipt" },
-        { "text": "Vehicle Documents Tracker", "icon": "bi-file-earmark-text" },
-        { "text": "Accident Management", "icon": "bi-exclamation-triangle" },
-        { "text": "Fleet Analytics Dashboard", "icon": "bi-bar-chart" },
-        { "text": "Driver Mobile App", "icon": "bi-phone" }
+        {
+          "text": "Real-Time GPS Tracking",
+          "icon": "bi-geo-alt-fill"
+        },
+        {
+          "text": "Geofencing & Alerts",
+          "icon": "bi-geo-fence"
+        },
+        {
+          "text": "Route Optimization",
+          "icon": "bi-signpost-split"
+        },
+        {
+          "text": "Fuel Management",
+          "icon": "bi-fuel-pump"
+        },
+        {
+          "text": "Maintenance Scheduling",
+          "icon": "bi-calendar-check"
+        },
+        {
+          "text": "Driver Behavior Monitoring",
+          "icon": "bi-person-badge"
+        },
+        {
+          "text": "Trip Management",
+          "icon": "bi-map"
+        },
+        {
+          "text": "Expense Tracking",
+          "icon": "bi-receipt"
+        },
+        {
+          "text": "Vehicle Documents Tracker",
+          "icon": "bi-file-earmark-text"
+        },
+        {
+          "text": "Accident Management",
+          "icon": "bi-exclamation-triangle"
+        },
+        {
+          "text": "Fleet Analytics Dashboard",
+          "icon": "bi-bar-chart"
+        },
+        {
+          "text": "Driver Mobile App",
+          "icon": "bi-phone"
+        }
       ],
       "deliverables": [
         "Fleet management platform",
@@ -401,6 +892,43 @@
         "Construction Companies",
         "Field Service Companies",
         "Rental Car Companies"
+      ],
+      "clients": [
+        {
+          "name": "Blue Dart Express",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "DTDC Courier",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Transport Corporation of India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Agarwal Packers",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Rivigo Services",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Delhivery Logistics",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Gati Limited",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -426,11 +954,26 @@
       "productWebsite": "",
       "fullDescription": "Our Online Bus Ticket Booking Software provides a complete solution for bus operators and travel agencies to manage online ticket sales, seat inventory, and passenger management. With a user-friendly booking interface and powerful backend management, our system streamlines the entire ticketing process.\n\nThe platform supports multiple booking channels including website, mobile app, and agent portals. Real-time seat availability, dynamic pricing, and automated ticket generation ensure a smooth booking experience for passengers while maximizing revenue for operators.\n\nKey features include route management, seat layout designer, real-time availability, dynamic pricing, online payment integration, e-ticket generation, SMS notifications, cancellation management, refund processing, and comprehensive reporting. The system also includes operator dashboards for managing bookings, inventory, and finances.\n\nBuilt for scalability and reliability, our ticketing system handles high traffic volumes during peak booking periods and ensures 99.9% uptime for your ticketing operations.",
       "whyChooseUs": [
-        { "text": "Proven ticketing platform", "icon": "bi-patch-check" },
-        { "text": "Multi-channel booking support", "icon": "bi-layers" },
-        { "text": "Real-time seat inventory", "icon": "bi-chair" },
-        { "text": "Secure payment processing", "icon": "bi-shield-lock" },
-        { "text": "24/7 system reliability", "icon": "bi-clock" }
+        {
+          "text": "Proven ticketing platform",
+          "icon": "bi-patch-check"
+        },
+        {
+          "text": "Multi-channel booking support",
+          "icon": "bi-layers"
+        },
+        {
+          "text": "Real-time seat inventory",
+          "icon": "bi-chair"
+        },
+        {
+          "text": "Secure payment processing",
+          "icon": "bi-shield-lock"
+        },
+        {
+          "text": "24/7 system reliability",
+          "icon": "bi-clock"
+        }
       ],
       "benefits": [
         "Increased online bookings",
@@ -442,18 +985,54 @@
         "Enhanced brand reputation"
       ],
       "features": [
-        { "text": "Route & Schedule Management", "icon": "bi-map" },
-        { "text": "Seat Layout Designer", "icon": "bi-grid" },
-        { "text": "Real-Time Seat Availability", "icon": "bi-eye" },
-        { "text": "Dynamic Pricing Engine", "icon": "bi-graph-up-arrow" },
-        { "text": "Online Payment Gateway", "icon": "bi-credit-card" },
-        { "text": "E-Ticket Generation", "icon": "bi-ticket-perforated" },
-        { "text": "SMS & Email Notifications", "icon": "bi-bell" },
-        { "text": "Cancellation & Refund Management", "icon": "bi-arrow-counterclockwise" },
-        { "text": "Agent Booking Portal", "icon": "bi-building" },
-        { "text": "Mobile Booking App", "icon": "bi-phone" },
-        { "text": "Reporting & Analytics", "icon": "bi-bar-chart" },
-        { "text": "Operator Dashboard", "icon": "bi-speedometer" }
+        {
+          "text": "Route & Schedule Management",
+          "icon": "bi-map"
+        },
+        {
+          "text": "Seat Layout Designer",
+          "icon": "bi-grid"
+        },
+        {
+          "text": "Real-Time Seat Availability",
+          "icon": "bi-eye"
+        },
+        {
+          "text": "Dynamic Pricing Engine",
+          "icon": "bi-graph-up-arrow"
+        },
+        {
+          "text": "Online Payment Gateway",
+          "icon": "bi-credit-card"
+        },
+        {
+          "text": "E-Ticket Generation",
+          "icon": "bi-ticket-perforated"
+        },
+        {
+          "text": "SMS & Email Notifications",
+          "icon": "bi-bell"
+        },
+        {
+          "text": "Cancellation & Refund Management",
+          "icon": "bi-arrow-counterclockwise"
+        },
+        {
+          "text": "Agent Booking Portal",
+          "icon": "bi-building"
+        },
+        {
+          "text": "Mobile Booking App",
+          "icon": "bi-phone"
+        },
+        {
+          "text": "Reporting & Analytics",
+          "icon": "bi-bar-chart"
+        },
+        {
+          "text": "Operator Dashboard",
+          "icon": "bi-speedometer"
+        }
       ],
       "deliverables": [
         "Complete booking platform",
@@ -470,6 +1049,43 @@
         "Transport Corporations",
         "Private Bus Services",
         "Shuttle Services"
+      ],
+      "clients": [
+        {
+          "name": "RedBus India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "KSRTC Karnataka",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "MSRTC Maharashtra",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "UPSRTC Uttar Pradesh",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Greenline Travels",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "VRL Logistics",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Orange Travels",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -495,11 +1111,26 @@
       "productWebsite": "",
       "fullDescription": "Our Tender Bid Management Software simplifies the entire tender lifecycle from discovery to submission. Designed for contractors, suppliers, and service providers, our system helps organizations identify relevant tenders, prepare compliant bids, and track submission status.\n\nThe platform aggregates tenders from multiple sources including government portals, private sector websites, and international organizations. Advanced filtering and AI-powered matching ensure you never miss a relevant opportunity.\n\nKey features include tender aggregation, opportunity matching, bid/no-bid analysis, document management, compliance checklist, bid preparation workflows, pricing calculators, submission tracking, and performance analytics. The system also includes collaboration tools for teams working on complex bids.\n\nBuilt with security and confidentiality in mind, our software ensures sensitive bid information is protected with role-based access and encryption.",
       "whyChooseUs": [
-        { "text": "Multi-source tender aggregation", "icon": "bi-layers" },
-        { "text": "AI-powered opportunity matching", "icon": "bi-robot" },
-        { "text": "Compliance automation", "icon": "bi-shield-check" },
-        { "text": "Collaborative bid preparation", "icon": "bi-people" },
-        { "text": "Bid success analytics", "icon": "bi-bar-chart" }
+        {
+          "text": "Multi-source tender aggregation",
+          "icon": "bi-layers"
+        },
+        {
+          "text": "AI-powered opportunity matching",
+          "icon": "bi-robot"
+        },
+        {
+          "text": "Compliance automation",
+          "icon": "bi-shield-check"
+        },
+        {
+          "text": "Collaborative bid preparation",
+          "icon": "bi-people"
+        },
+        {
+          "text": "Bid success analytics",
+          "icon": "bi-bar-chart"
+        }
       ],
       "benefits": [
         "Increased bid opportunities",
@@ -511,18 +1142,54 @@
         "Data-driven bid decisions"
       ],
       "features": [
-        { "text": "Tender Aggregation", "icon": "bi-collection" },
-        { "text": "AI Opportunity Matching", "icon": "bi-cpu" },
-        { "text": "Bid/No-Bid Analysis", "icon": "bi-check2-square" },
-        { "text": "Document Management System", "icon": "bi-files" },
-        { "text": "Compliance Checklist", "icon": "bi-list-check" },
-        { "text": "Bid Preparation Workflows", "icon": "bi-diagram-3" },
-        { "text": "Pricing Calculator", "icon": "bi-calculator" },
-        { "text": "Submission Tracking", "icon": "bi-send-check" },
-        { "text": "Team Collaboration Tools", "icon": "bi-people-fill" },
-        { "text": "Bid Performance Analytics", "icon": "bi-graph-up" },
-        { "text": "Deadline Alerts", "icon": "bi-alarm" },
-        { "text": "Vendor Management", "icon": "bi-truck" }
+        {
+          "text": "Tender Aggregation",
+          "icon": "bi-collection"
+        },
+        {
+          "text": "AI Opportunity Matching",
+          "icon": "bi-cpu"
+        },
+        {
+          "text": "Bid/No-Bid Analysis",
+          "icon": "bi-check2-square"
+        },
+        {
+          "text": "Document Management System",
+          "icon": "bi-files"
+        },
+        {
+          "text": "Compliance Checklist",
+          "icon": "bi-list-check"
+        },
+        {
+          "text": "Bid Preparation Workflows",
+          "icon": "bi-diagram-3"
+        },
+        {
+          "text": "Pricing Calculator",
+          "icon": "bi-calculator"
+        },
+        {
+          "text": "Submission Tracking",
+          "icon": "bi-send-check"
+        },
+        {
+          "text": "Team Collaboration Tools",
+          "icon": "bi-people-fill"
+        },
+        {
+          "text": "Bid Performance Analytics",
+          "icon": "bi-graph-up"
+        },
+        {
+          "text": "Deadline Alerts",
+          "icon": "bi-alarm"
+        },
+        {
+          "text": "Vendor Management",
+          "icon": "bi-truck"
+        }
       ],
       "deliverables": [
         "Tender management platform",
@@ -539,6 +1206,43 @@
         "Consulting Firms",
         "Healthcare Providers",
         "Facility Management"
+      ],
+      "clients": [
+        {
+          "name": "L&T Construction",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Shapoorji Pallonji",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Tata Consulting Engineers",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Gammon India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "NBCC Limited",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Hindustan Construction",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Simplex Infrastructure",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -564,11 +1268,26 @@
       "productWebsite": "",
       "fullDescription": "Our Custom CRM Software Development services help businesses build tailored customer relationship management solutions that match their unique processes and requirements. From lead management to customer support, our CRMs centralize all customer interactions and drive business growth.\n\nWe understand that off-the-shelf CRM solutions often fail to address specific business needs. Our custom approach ensures your CRM aligns perfectly with your sales processes, customer journey, and organizational structure.\n\nKey modules include lead management, opportunity tracking, contact management, activity tracking, sales pipeline, customer support ticketing, campaign management, analytics dashboards, and mobile access. Our CRMs integrate seamlessly with your existing tools including email, calendar, marketing automation, and ERP systems.\n\nBuilt with scalability and user adoption in mind, our CRM solutions feature intuitive interfaces, automation capabilities, and comprehensive reporting to drive sales team productivity and customer satisfaction.",
       "whyChooseUs": [
-        { "text": "Custom-built for your processes", "icon": "bi-gear" },
-        { "text": "Seamless integrations", "icon": "bi-arrow-left-right" },
-        { "text": "User-friendly design", "icon": "bi-heart" },
-        { "text": "Scalable architecture", "icon": "bi-layers" },
-        { "text": "Ongoing enhancement support", "icon": "bi-patch-plus" }
+        {
+          "text": "Custom-built for your processes",
+          "icon": "bi-gear"
+        },
+        {
+          "text": "Seamless integrations",
+          "icon": "bi-arrow-left-right"
+        },
+        {
+          "text": "User-friendly design",
+          "icon": "bi-heart"
+        },
+        {
+          "text": "Scalable architecture",
+          "icon": "bi-layers"
+        },
+        {
+          "text": "Ongoing enhancement support",
+          "icon": "bi-patch-plus"
+        }
       ],
       "benefits": [
         "Improved sales team productivity",
@@ -580,18 +1299,54 @@
         "Centralized customer data"
       ],
       "features": [
-        { "text": "Lead Management", "icon": "bi-funnel" },
-        { "text": "Opportunity Tracking", "icon": "bi-briefcase" },
-        { "text": "Contact & Account Management", "icon": "bi-person-badge" },
-        { "text": "Activity Tracking", "icon": "bi-list-task" },
-        { "text": "Sales Pipeline Management", "icon": "bi-diagram-3" },
-        { "text": "Customer Support Ticketing", "icon": "bi-ticket" },
-        { "text": "Campaign Management", "icon": "bi-megaphone" },
-        { "text": "Email Integration", "icon": "bi-envelope" },
-        { "text": "Calendar Integration", "icon": "bi-calendar" },
-        { "text": "Analytics Dashboards", "icon": "bi-bar-chart" },
-        { "text": "Mobile CRM App", "icon": "bi-phone" },
-        { "text": "Workflow Automation", "icon": "bi-gear-wide-connected" }
+        {
+          "text": "Lead Management",
+          "icon": "bi-funnel"
+        },
+        {
+          "text": "Opportunity Tracking",
+          "icon": "bi-briefcase"
+        },
+        {
+          "text": "Contact & Account Management",
+          "icon": "bi-person-badge"
+        },
+        {
+          "text": "Activity Tracking",
+          "icon": "bi-list-task"
+        },
+        {
+          "text": "Sales Pipeline Management",
+          "icon": "bi-diagram-3"
+        },
+        {
+          "text": "Customer Support Ticketing",
+          "icon": "bi-ticket"
+        },
+        {
+          "text": "Campaign Management",
+          "icon": "bi-megaphone"
+        },
+        {
+          "text": "Email Integration",
+          "icon": "bi-envelope"
+        },
+        {
+          "text": "Calendar Integration",
+          "icon": "bi-calendar"
+        },
+        {
+          "text": "Analytics Dashboards",
+          "icon": "bi-bar-chart"
+        },
+        {
+          "text": "Mobile CRM App",
+          "icon": "bi-phone"
+        },
+        {
+          "text": "Workflow Automation",
+          "icon": "bi-gear-wide-connected"
+        }
       ],
       "deliverables": [
         "Custom CRM platform",
@@ -608,6 +1363,43 @@
         "Healthcare",
         "Education",
         "Professional Services"
+      ],
+      "clients": [
+        {
+          "name": "MagicBricks",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "HDFC Sales",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Bajaj Finserv",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Apollo Pharmacy",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "BYJU'S Learning",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Ernst & Young",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "PwC India",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {
@@ -633,11 +1425,26 @@
       "productWebsite": "",
       "fullDescription": "Our Grievance Management Software provides a systematic approach to receiving, tracking, and resolving complaints and grievances. Designed for organizations, government bodies, and educational institutions, our system ensures no complaint goes unaddressed.\n\nThe platform supports multiple channels for complaint submission including web portals, mobile apps, email, and social media integration. Automated routing ensures complaints reach the right department, while SLA tracking ensures timely resolution.\n\nKey features include multi-channel complaint intake, automated ticket generation, intelligent routing, SLA management, escalation workflows, resolution tracking, citizen/customer feedback, analytics dashboards, and compliance reporting. The system also includes self-service portals for complainants to track their grievance status.\n\nBuilt with transparency and accountability in mind, our software provides complete audit trails and comprehensive reporting for management oversight and regulatory compliance.",
       "whyChooseUs": [
-        { "text": "Multi-channel intake support", "icon": "bi-layers" },
-        { "text": "Automated SLA tracking", "icon": "bi-clock-history" },
-        { "text": "Escalation management", "icon": "bi-arrow-up" },
-        { "text": "Transparent tracking", "icon": "bi-eye" },
-        { "text": "Comprehensive analytics", "icon": "bi-bar-chart" }
+        {
+          "text": "Multi-channel intake support",
+          "icon": "bi-layers"
+        },
+        {
+          "text": "Automated SLA tracking",
+          "icon": "bi-clock-history"
+        },
+        {
+          "text": "Escalation management",
+          "icon": "bi-arrow-up"
+        },
+        {
+          "text": "Transparent tracking",
+          "icon": "bi-eye"
+        },
+        {
+          "text": "Comprehensive analytics",
+          "icon": "bi-bar-chart"
+        }
       ],
       "benefits": [
         "Faster grievance resolution",
@@ -649,18 +1456,54 @@
         "Regulatory compliance"
       ],
       "features": [
-        { "text": "Multi-Channel Complaint Intake", "icon": "bi-inbox" },
-        { "text": "Automated Ticket Generation", "icon": "bi-ticket-perforated" },
-        { "text": "Intelligent Routing", "icon": "bi-diagram-3" },
-        { "text": "SLA Management", "icon": "bi-hourglass-split" },
-        { "text": "Escalation Workflows", "icon": "bi-arrow-up-right" },
-        { "text": "Resolution Tracking", "icon": "bi-check2-circle" },
-        { "text": "Feedback Collection", "icon": "bi-chat-heart" },
-        { "text": "Analytics Dashboard", "icon": "bi-bar-chart" },
-        { "text": "Compliance Reporting", "icon": "bi-file-earmark-check" },
-        { "text": "Self-Service Portal", "icon": "bi-person-circle" },
-        { "text": "Mobile App", "icon": "bi-phone" },
-        { "text": "Knowledge Base", "icon": "bi-book" }
+        {
+          "text": "Multi-Channel Complaint Intake",
+          "icon": "bi-inbox"
+        },
+        {
+          "text": "Automated Ticket Generation",
+          "icon": "bi-ticket-perforated"
+        },
+        {
+          "text": "Intelligent Routing",
+          "icon": "bi-diagram-3"
+        },
+        {
+          "text": "SLA Management",
+          "icon": "bi-hourglass-split"
+        },
+        {
+          "text": "Escalation Workflows",
+          "icon": "bi-arrow-up-right"
+        },
+        {
+          "text": "Resolution Tracking",
+          "icon": "bi-check2-circle"
+        },
+        {
+          "text": "Feedback Collection",
+          "icon": "bi-chat-heart"
+        },
+        {
+          "text": "Analytics Dashboard",
+          "icon": "bi-bar-chart"
+        },
+        {
+          "text": "Compliance Reporting",
+          "icon": "bi-file-earmark-check"
+        },
+        {
+          "text": "Self-Service Portal",
+          "icon": "bi-person-circle"
+        },
+        {
+          "text": "Mobile App",
+          "icon": "bi-phone"
+        },
+        {
+          "text": "Knowledge Base",
+          "icon": "bi-book"
+        }
       ],
       "deliverables": [
         "Grievance management platform",
@@ -677,6 +1520,43 @@
         "Healthcare Organizations",
         "Banks & Financial Institutions",
         "Utility Companies"
+      ],
+      "clients": [
+        {
+          "name": "Delhi Government",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "State Bank of India",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Mumbai Municipal Corp",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "AIIMS Hospital",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "Indian Railways",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "NTPC Limited",
+          "logo": "",
+          "website": ""
+        },
+        {
+          "name": "BSES Yamuna Power",
+          "logo": "",
+          "website": ""
+        }
       ],
       "faq": [
         {

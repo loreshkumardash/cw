@@ -4401,6 +4401,129 @@ input[name="filter"] {
   transform: translateX(-50%);
 }
 
+/* Clients Carousel Section */
+.clients-section {
+  padding: 60px 40px;
+  background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+  border-radius: 20px;
+  margin-top: 24px;
+}
+
+.clients-section .section-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark-900);
+  margin-bottom: 12px;
+}
+
+.clients-section .section-description {
+  font-size: 16px;
+  color: var(--gray-500);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.clients-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.clients-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+.client-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 140px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.client-logo:hover {
+  transform: scale(1.05);
+}
+
+.client-logo-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.client-logo-icon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: grayscale(100%) opacity(0.7);
+}
+
+.client-logo:hover .client-logo-icon {
+  background: var(--gradient-primary);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+}
+
+.client-logo:hover .client-logo-icon img {
+  filter: grayscale(0%) opacity(1);
+}
+
+.client-logo-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dark-700);
+  text-align: center;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.client-logo:hover .client-logo-name {
+  color: var(--primary);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* Product Website Card - Responsive */
 @media (max-width: 768px) {
   .product-website-card {
@@ -4424,6 +4547,42 @@ input[name="filter"] {
     font-size: 14px;
     width: 100%;
     justify-content: center;
+  }
+
+  /* Clients Carousel Responsive */
+  .clients-section {
+    padding: 40px 20px;
+  }
+
+  .clients-section .section-heading {
+    font-size: 22px;
+  }
+
+  .clients-section .section-description {
+    font-size: 14px;
+  }
+
+  .clients-track {
+    gap: 40px;
+  }
+
+  .client-logo {
+    min-width: 100px;
+  }
+
+  .client-logo-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .client-logo-icon img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .client-logo-name {
+    font-size: 11px;
+    max-width: 100px;
   }
 
   /* Single column for why choose and features on mobile */
