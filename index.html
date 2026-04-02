@@ -670,11 +670,18 @@
         </p>
       </div>
 
-      <div class="portfolio-filters" data-aos="fade-up">
-        <button class="filter-btn active" data-filter="*">All Projects</button>
-        <button class="filter-btn" data-filter=".app">Applications</button>
-        <button class="filter-btn" data-filter=".product">Products</button>
-        <button class="filter-btn" data-filter=".web">Web Design</button>
+      <!-- MOVE INPUTS OUTSIDE -->
+      <input type="radio" name="filter" id="all" checked>
+      <input type="radio" name="filter" id="app">
+      <input type="radio" name="filter" id="product">
+      <input type="radio" name="filter" id="web">
+
+      <!-- UI buttons -->
+      <div class="portfolio-filters">
+        <label for="all" class="filter-btn">All</label>
+        <label for="app" class="filter-btn">Applications</label>
+        <label for="product" class="filter-btn">Products</label>
+        <label for="web" class="filter-btn">Web Design</label>
       </div>
 
       <div class="portfolio-grid">
