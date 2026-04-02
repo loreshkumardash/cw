@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(type *)"
+      "Bash(type *)",
+      "Bash(powershell *)",
+      "Bash(node *)",
+      "Bash(python *)"
     ]
-  }
+  },
+  "$version": 3
 }

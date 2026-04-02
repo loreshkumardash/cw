@@ -961,14 +961,17 @@
     if (whyChooseContainer && service.whyChooseUs) {
       whyChooseContainer.innerHTML = service.whyChooseUs
         .map(
-          (item, index) => `
+          (item, index) => {
+            const iconName = item.icon ? item.icon.replace("bi-", "") : "check-circle";
+            return `
         <div class="why-choose-item" data-aos="fade-up" data-aos-delay="${index * 100}">
           <div class="why-choose-icon">
-            <i class="bi bi-check-circle-fill"></i>
+            <i class="bi bi-${iconName}"></i>
           </div>
-          <p>${item}</p>
+          <p>${item.text || item}</p>
         </div>
-      `,
+      `;
+          }
         )
         .join("");
     }
@@ -1208,14 +1211,17 @@
     if (whyChooseContainer && product.whyChooseUs) {
       whyChooseContainer.innerHTML = product.whyChooseUs
         .map(
-          (item, index) => `
+          (item, index) => {
+            const iconName = item.icon ? item.icon.replace("bi-", "") : "check-circle";
+            return `
         <div class="why-choose-item" data-aos="fade-up" data-aos-delay="${index * 100}">
           <div class="why-choose-icon">
-            <i class="bi bi-check-circle-fill"></i>
+            <i class="bi bi-${iconName}"></i>
           </div>
-          <p>${item}</p>
+          <p>${item.text || item}</p>
         </div>
-      `,
+      `;
+          }
         )
         .join("");
     }
@@ -1242,9 +1248,12 @@
     if (featuresContainer && product.features) {
       featuresContainer.innerHTML = product.features
         .map(
-          (feature) => `
-        <li><i class="bi bi-check2"></i> ${feature}</li>
-      `,
+          (feature) => {
+            const iconName = feature.icon ? feature.icon.replace("bi-", "") : "check2";
+            return `
+        <li><i class="bi bi-${iconName}"></i> ${feature.text || feature}</li>
+      `;
+          }
         )
         .join("");
     }
@@ -1279,24 +1288,6 @@
         .join("");
     }
 
-    // Process
-    const processContainer = document.getElementById("product-process");
-    if (processContainer && product.process) {
-      processContainer.innerHTML = product.process
-        .map(
-          (step, index) => `
-        <div class="process-step" data-aos="fade-up" data-aos-delay="${index * 100}">
-          <div class="step-number">${step.step}</div>
-          <div class="step-content">
-            <h4>${step.title}</h4>
-            <p>${step.description}</p>
-          </div>
-        </div>
-      `,
-        )
-        .join("");
-    }
-
     // FAQ
     const faqContainer = document.getElementById("product-faq");
     if (faqContainer && product.faq) {
@@ -1320,27 +1311,13 @@
     // Sidebar - Product Icon
     const iconLarge = document.getElementById("product-icon-large");
     if (iconLarge) {
-      // Remove 'bi-' prefix if present in the icon name
       const iconName = product.icon.replace("bi-", "");
       iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
     }
 
     // Sidebar - Product Title
-    const sidebarProductTitle = document.getElementById(
-      "sidebar-product-title",
-    );
+    const sidebarProductTitle = document.getElementById("sidebar-product-title");
     if (sidebarProductTitle) sidebarProductTitle.textContent = product.title;
-
-    // Sidebar - Technologies
-    const techContainer = document.getElementById("product-technologies");
-    if (techContainer && product.technologies) {
-      techContainer.innerHTML = product.technologies
-        .map((tech) => {
-          const iconName = tech.icon || "bi-circle-fill";
-          return `<span class="tech-tag"><i class="bi ${iconName}"></i> ${tech.name}</span>`;
-        })
-        .join("");
-    }
 
     // Sidebar - All Products List
     const allProductsContainer = document.getElementById("all-products-list");
@@ -1356,6 +1333,18 @@
       `,
         )
         .join("");
+    }
+
+    // Product Website Section
+    const websiteSection = document.getElementById("product-website-section");
+    const websiteLink = document.getElementById("product-website-link");
+    if (websiteSection && websiteLink) {
+      if (product.productWebsite) {
+        websiteSection.style.display = "block";
+        websiteLink.href = product.productWebsite;
+      } else {
+        websiteSection.style.display = "none";
+      }
     }
   }
 
