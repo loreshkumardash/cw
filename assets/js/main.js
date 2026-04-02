@@ -780,10 +780,24 @@
   let serviceData = null;
   let currentService = null;
 
+  /**
+   * Product Details Dynamic Content
+   */
+  let productData = null;
+  let currentProduct = null;
+
   function getServiceFromURL() {
     const params = new URLSearchParams(window.location.search);
     return {
       slug: params.get("service"),
+      id: params.get("id"),
+    };
+  }
+
+  function getProductFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      slug: params.get("product"),
       id: params.get("id"),
     };
   }
@@ -796,6 +810,16 @@
       return data.services.find((s) => s.id === parseInt(params.id));
     }
     return data.services[0];
+  }
+
+  function findProduct(data, params) {
+    if (params.slug) {
+      return data.products.find((p) => p.slug === params.slug);
+    }
+    if (params.id) {
+      return data.products.find((p) => p.id === parseInt(params.id));
+    }
+    return data.products[0];
   }
 
   function renderMegaMenu(services, activeServiceSlug = null) {
@@ -834,31 +858,79 @@
       .join("");
   }
 
+  function renderProductsMegaMenu(products, activeProductSlug = null) {
+    const container = document.getElementById("mega-menu-products");
+    if (!container) return;
+
+    container.innerHTML = products
+      .map((product) => {
+        // Get icon from product data, remove 'bi-' prefix if present
+        const iconName = product.icon
+          ? product.icon.replace("bi-", "")
+          : "mortarboard";
+        return `
+      <a href="product-details.html?product=${product.slug}" class="mega-item ${activeProductSlug === product.slug ? "active" : ""}">
+        <span class="mega-icon"><i class="bi bi-${iconName}"></i></span>
+        <div>
+          <h6>${product.title}</h6>
+          <p>${product.shortDescription || "Learn more"}</p>
+        </div>
+      </a>
+    `;
+      })
+      .join("");
+  }
+
   /**
    * Initialize Mega Menu (runs on all pages)
    */
   async function initMegaMenu() {
-    const megaMenuContainer = document.getElementById("mega-menu-services");
-    if (!megaMenuContainer) return;
+    // Initialize Services Mega Menu
+    const servicesMegaMenuContainer = document.getElementById("mega-menu-services");
+    if (servicesMegaMenuContainer) {
+      try {
+        const response = await fetch("assets/json/service.json");
+        if (!response.ok) throw new Error("Failed to load service data");
 
-    try {
-      const response = await fetch("assets/json/service.json");
-      if (!response.ok) throw new Error("Failed to load service data");
+        serviceData = await response.json();
 
-      serviceData = await response.json();
+        // Only set active service if there's a service parameter in the URL
+        const params = getServiceFromURL();
+        let activeServiceSlug = null;
 
-      // Only set active service if there's a service parameter in the URL
-      const params = getServiceFromURL();
-      let activeServiceSlug = null;
+        if (params.slug || params.id) {
+          const currentService = findService(serviceData, params);
+          activeServiceSlug = currentService ? currentService.slug : null;
+        }
 
-      if (params.slug || params.id) {
-        const currentService = findService(serviceData, params);
-        activeServiceSlug = currentService ? currentService.slug : null;
+        renderMegaMenu(serviceData.services, activeServiceSlug);
+      } catch (error) {
+        console.error("Error loading services mega menu:", error);
       }
+    }
 
-      renderMegaMenu(serviceData.services, activeServiceSlug);
-    } catch (error) {
-      console.error("Error loading mega menu:", error);
+    // Initialize Products Mega Menu
+    const productsMegaMenuContainer = document.getElementById("mega-menu-products");
+    if (productsMegaMenuContainer) {
+      try {
+        const response = await fetch("assets/json/product.json");
+        if (!response.ok) throw new Error("Failed to load product data");
+
+        productData = await response.json();
+
+        // Only set active product if there's a product parameter in the URL
+        const params = getProductFromURL();
+        let activeProductSlug = null;
+
+        if (params.slug || params.id) {
+          const currentProduct = findProduct(productData, params);
+          activeProductSlug = currentProduct ? currentProduct.slug : null;
+        }
+
+        renderProductsMegaMenu(productData.products, activeProductSlug);
+      } catch (error) {
+        console.error("Error loading products mega menu:", error);
+      }
     }
   }
 
@@ -1106,6 +1178,232 @@
     }
   }
 
+  /**
+   * Render Product Details Page
+   */
+  function renderProductDetails(product) {
+    // Page title and meta
+    document.title = `${product.title} - Cakiweb Solutions`;
+    const pageTitle = document.getElementById("page-title");
+    if (pageTitle)
+      pageTitle.textContent = `${product.title} - Cakiweb Solutions`;
+
+    const pageDescription = document.getElementById("page-description");
+    if (pageDescription) pageDescription.textContent = product.fullDescription;
+
+    // Hero section
+    const productTitle = document.getElementById("product-title");
+    if (productTitle) productTitle.textContent = product.title;
+
+    const productShortDesc = document.getElementById("product-short-desc");
+    if (productShortDesc)
+      productShortDesc.textContent = product.shortDescription;
+
+    // Full description
+    const productFullDesc = document.getElementById("product-full-desc");
+    if (productFullDesc) productFullDesc.textContent = product.fullDescription;
+
+    // Why Choose Us
+    const whyChooseContainer = document.getElementById("product-why-choose");
+    if (whyChooseContainer && product.whyChooseUs) {
+      whyChooseContainer.innerHTML = product.whyChooseUs
+        .map(
+          (item, index) => `
+        <div class="why-choose-item" data-aos="fade-up" data-aos-delay="${index * 100}">
+          <div class="why-choose-icon">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <p>${item}</p>
+        </div>
+      `,
+        )
+        .join("");
+    }
+
+    // Benefits
+    const benefitsContainer = document.getElementById("product-benefits");
+    if (benefitsContainer && product.benefits) {
+      benefitsContainer.innerHTML = product.benefits
+        .map(
+          (benefit, index) => `
+        <div class="benefit-item" data-aos="fade-up" data-aos-delay="${index * 100}">
+          <div class="benefit-icon">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <p>${benefit}</p>
+        </div>
+      `,
+        )
+        .join("");
+    }
+
+    // Features
+    const featuresContainer = document.getElementById("product-features");
+    if (featuresContainer && product.features) {
+      featuresContainer.innerHTML = product.features
+        .map(
+          (feature) => `
+        <li><i class="bi bi-check2"></i> ${feature}</li>
+      `,
+        )
+        .join("");
+    }
+
+    // Deliverables
+    const deliverablesContainer = document.getElementById(
+      "product-deliverables",
+    );
+    if (deliverablesContainer && product.deliverables) {
+      deliverablesContainer.innerHTML = product.deliverables
+        .map(
+          (item, index) => `
+        <li data-aos="fade-up" data-aos-delay="${index * 100}">
+          <i class="bi bi-box-seam"></i> ${item}
+        </li>
+      `,
+        )
+        .join("");
+    }
+
+    // Industries
+    const industriesContainer = document.getElementById("product-industries");
+    if (industriesContainer && product.industries) {
+      industriesContainer.innerHTML = product.industries
+        .map(
+          (industry, index) => `
+        <div class="industry-tag" data-aos="fade-up" data-aos-delay="${index * 100}">
+          <i class="bi bi-briefcase"></i> ${industry}
+        </div>
+      `,
+        )
+        .join("");
+    }
+
+    // Process
+    const processContainer = document.getElementById("product-process");
+    if (processContainer && product.process) {
+      processContainer.innerHTML = product.process
+        .map(
+          (step, index) => `
+        <div class="process-step" data-aos="fade-up" data-aos-delay="${index * 100}">
+          <div class="step-number">${step.step}</div>
+          <div class="step-content">
+            <h4>${step.title}</h4>
+            <p>${step.description}</p>
+          </div>
+        </div>
+      `,
+        )
+        .join("");
+    }
+
+    // FAQ
+    const faqContainer = document.getElementById("product-faq");
+    if (faqContainer && product.faq) {
+      faqContainer.innerHTML = product.faq
+        .map(
+          (faq, index) => `
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="${index * 100}">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <h4>${faq.question}</h4>
+            <i class="bi bi-plus-lg"></i>
+          </div>
+          <div class="faq-answer">
+            <p>${faq.answer}</p>
+          </div>
+        </div>
+      `,
+        )
+        .join("");
+    }
+
+    // Sidebar - Product Icon
+    const iconLarge = document.getElementById("product-icon-large");
+    if (iconLarge) {
+      // Remove 'bi-' prefix if present in the icon name
+      const iconName = product.icon.replace("bi-", "");
+      iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
+    }
+
+    // Sidebar - Product Title
+    const sidebarProductTitle = document.getElementById(
+      "sidebar-product-title",
+    );
+    if (sidebarProductTitle) sidebarProductTitle.textContent = product.title;
+
+    // Sidebar - Technologies
+    const techContainer = document.getElementById("product-technologies");
+    if (techContainer && product.technologies) {
+      techContainer.innerHTML = product.technologies
+        .map((tech) => {
+          const iconName = tech.icon || "bi-circle-fill";
+          return `<span class="tech-tag"><i class="bi ${iconName}"></i> ${tech.name}</span>`;
+        })
+        .join("");
+    }
+
+    // Sidebar - All Products List
+    const allProductsContainer = document.getElementById("all-products-list");
+    if (allProductsContainer) {
+      allProductsContainer.innerHTML = productData.products
+        .map(
+          (p) => `
+        <li>
+          <a href="product-details.html?product=${p.slug}" class="${p.slug === product.slug ? "active" : ""}">
+            <i class="bi bi-chevron-right"></i> ${p.title}
+          </a>
+        </li>
+      `,
+        )
+        .join("");
+    }
+  }
+
+  /**
+   * Initialize Product Details Page
+   */
+  async function initProductDetails() {
+    // Only run on product-details.html page
+    if (!document.getElementById("product-title")) return;
+
+    try {
+      // Use already loaded productData if available (from initMegaMenu)
+      if (!productData || !productData.products) {
+        const response = await fetch("assets/json/product.json");
+        if (!response.ok) throw new Error("Failed to load product data");
+        productData = await response.json();
+      }
+
+      const params = getProductFromURL();
+      currentProduct = findProduct(productData, params);
+
+      if (!currentProduct) {
+        const productTitle = document.getElementById("product-title");
+        const productShortDesc = document.getElementById("product-short-desc");
+        if (productTitle) productTitle.textContent = "Product Not Found";
+        if (productShortDesc)
+          productShortDesc.textContent =
+            "The requested product could not be found.";
+        return;
+      }
+
+      renderProductDetails(currentProduct);
+
+      // Re-initialize AOS for dynamic content
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 100);
+      }
+    } catch (error) {
+      console.error("Error loading product details:", error);
+      const productTitle = document.getElementById("product-title");
+      const productShortDesc = document.getElementById("product-short-desc");
+      if (productTitle) productTitle.textContent = "Error Loading Product";
+      if (productShortDesc)
+        productShortDesc.textContent =
+          "Unable to load product details. Please try again later.";
+    }
+  }
+
   // Expose toggleFaq to global scope for onclick handlers
   window.toggleFaq = toggleFaq;
 
@@ -1133,6 +1431,7 @@
     setCurrentYear();
     initMegaMenu();
     initServiceDetails();
+    initProductDetails();
 
     // Refresh ScrollTrigger after everything loads
     window.addEventListener("load", () => {
