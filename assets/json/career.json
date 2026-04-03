@@ -1,0 +1,529 @@
+{
+  "categories": [
+    {
+      "id": "development",
+      "name": "Development",
+      "icon": "bi-code-slash"
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "icon": "bi-palette"
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing",
+      "icon": "bi-megaphone"
+    },
+    {
+      "id": "management",
+      "name": "Project Management",
+      "icon": "bi-kanban"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Senior Full Stack Developer",
+      "slug": "senior-full-stack-developer",
+      "category": "development",
+      "location": "Bhubaneswar, India",
+      "type": "Full-time",
+      "experience": "5+ years",
+      "salary": "₹8,00,000 - ₹15,00,000",
+      "posted": "2026-03-15",
+      "status": "active",
+      "shortDescription": "We're looking for an experienced full stack developer to build scalable web applications using modern technologies.",
+      "description": "Join our dynamic development team to design, develop, and maintain cutting-edge web applications. You'll work with modern technologies including React, Node.js, and cloud platforms to deliver exceptional solutions for our clients.",
+      "responsibilities": [
+        "Design and develop scalable web applications using modern frameworks",
+        "Write clean, maintainable, and well-documented code",
+        "Collaborate with cross-functional teams to define and implement new features",
+        "Participate in code reviews and provide constructive feedback",
+        "Troubleshoot and debug applications to optimize performance",
+        "Stay updated with emerging technologies and industry trends",
+        "Mentor junior developers and contribute to team growth"
+      ],
+      "requirements": [
+        "Bachelor's degree in Computer Science or related field",
+        "5+ years of experience in full stack development",
+        "Proficiency in JavaScript, TypeScript, HTML5, CSS3",
+        "Experience with React, Node.js, Express.js",
+        "Strong knowledge of database systems (MySQL, MongoDB)",
+        "Familiarity with version control systems (Git)",
+        "Experience with RESTful APIs and microservices architecture",
+        "Understanding of cloud services (AWS, Azure, or GCP)",
+        "Excellent problem-solving and communication skills"
+      ],
+      "preferredQualifications": [
+        "Experience with TypeScript and Next.js",
+        "Knowledge of DevOps practices and CI/CD pipelines",
+        "Familiarity with Docker and Kubernetes",
+        "Experience with Agile/Scrum methodologies",
+        "Previous experience in a client-facing role"
+      ],
+      "benefits": [
+        "Competitive salary with performance bonuses",
+        "Health insurance for you and your family",
+        "Flexible working hours and remote work options",
+        "Professional development and training budget",
+        "Modern equipment and home office setup allowance",
+        "Unlimited paid time off policy",
+        "Team building events and company retreats"
+      ],
+      "skills": ["JavaScript", "TypeScript", "React", "Node.js", "MongoDB", "AWS"],
+      "applicationDeadline": "2026-04-30",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 2,
+      "title": "Frontend Developer",
+      "slug": "frontend-developer",
+      "category": "development",
+      "location": "Bhubaneswar, India (Remote)",
+      "type": "Full-time",
+      "experience": "2-4 years",
+      "salary": "₹4,00,000 - ₹8,00,000",
+      "posted": "2026-03-20",
+      "status": "active",
+      "shortDescription": "Create beautiful and responsive user interfaces using React and modern CSS frameworks.",
+      "description": "We're seeking a talented frontend developer to join our team and create stunning user interfaces. You'll collaborate closely with designers and backend developers to deliver exceptional user experiences across web and mobile platforms.",
+      "responsibilities": [
+        "Develop responsive and interactive user interfaces using React",
+        "Translate UI/UX design wireframes into high-quality code",
+        "Optimize applications for maximum speed and scalability",
+        "Collaborate with backend developers to integrate APIs",
+        "Ensure cross-browser compatibility and mobile responsiveness",
+        "Implement pixel-perfect designs with attention to detail",
+        "Participate in code reviews and maintain coding standards"
+      ],
+      "requirements": [
+        "2-4 years of frontend development experience",
+        "Strong proficiency in HTML5, CSS3, and JavaScript/TypeScript",
+        "Experience with React and state management (Redux, Context API)",
+        "Familiarity with CSS frameworks (Bootstrap, Tailwind CSS)",
+        "Understanding of responsive design principles",
+        "Experience with version control (Git)",
+        "Knowledge of browser testing and debugging tools"
+      ],
+      "preferredQualifications": [
+        "Experience with Next.js or other React frameworks",
+        "Knowledge of animation libraries (Framer Motion, GSAP)",
+        "Familiarity with Figma or Adobe XD",
+        "Understanding of accessibility standards (WCAG)",
+        "Experience with testing frameworks (Jest, React Testing Library)"
+      ],
+      "benefits": [
+        "Competitive compensation package",
+        "Health and wellness benefits",
+        "Flexible work arrangements",
+        "Learning and development opportunities",
+        "Collaborative and innovative work environment",
+        "Regular team events and activities"
+      ],
+      "skills": ["React", "JavaScript", "TypeScript", "CSS", "Bootstrap", "Figma"],
+      "applicationDeadline": "2026-04-25",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 3,
+      "title": "Backend Developer (Node.js)",
+      "slug": "backend-developer-nodejs",
+      "category": "development",
+      "location": "Bhubaneswar, India",
+      "type": "Full-time",
+      "experience": "3-5 years",
+      "salary": "₹5,00,000 - ₹10,00,000",
+      "posted": "2026-03-10",
+      "status": "active",
+      "shortDescription": "Build robust and scalable backend systems using Node.js and modern database technologies.",
+      "description": "Join our backend team to architect and develop server-side solutions that power our applications. You'll work with Node.js, databases, and cloud infrastructure to create efficient and secure backend systems.",
+      "responsibilities": [
+        "Design and implement RESTful APIs and microservices",
+        "Develop and maintain database architectures",
+        "Optimize application performance and scalability",
+        "Implement security and data protection measures",
+        "Write comprehensive unit and integration tests",
+        "Collaborate with frontend developers and DevOps team",
+        "Monitor and troubleshoot production issues"
+      ],
+      "requirements": [
+        "3-5 years of backend development experience",
+        "Strong proficiency in Node.js and Express.js",
+        "Experience with databases (MySQL, PostgreSQL, MongoDB)",
+        "Understanding of API design principles",
+        "Knowledge of authentication and authorization mechanisms",
+        "Familiarity with cloud platforms (AWS, Azure)",
+        "Experience with Git and CI/CD pipelines"
+      ],
+      "preferredQualifications": [
+        "Experience with GraphQL",
+        "Knowledge of message queues (Redis, RabbitMQ)",
+        "Understanding of Docker and Kubernetes",
+        "Experience with serverless architectures",
+        "Familiarity with monitoring tools"
+      ],
+      "benefits": [
+        "Competitive salary and bonuses",
+        "Health insurance coverage",
+        "Professional growth opportunities",
+        "Flexible work schedule",
+        "Modern tech stack and tools",
+        "Supportive team environment"
+      ],
+      "skills": ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "AWS", "Docker"],
+      "applicationDeadline": "2026-04-20",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 4,
+      "title": "UI/UX Designer",
+      "slug": "ui-ux-designer",
+      "category": "design",
+      "location": "Bhubaneswar, India (Hybrid)",
+      "type": "Full-time",
+      "experience": "3-5 years",
+      "salary": "₹4,50,000 - ₹9,00,000",
+      "posted": "2026-03-18",
+      "status": "active",
+      "shortDescription": "Design intuitive and engaging user experiences for web and mobile applications.",
+      "description": "We're looking for a creative UI/UX designer to craft beautiful and functional designs for our clients' digital products. You'll conduct user research, create wireframes and prototypes, and collaborate with developers to bring designs to life.",
+      "responsibilities": [
+        "Conduct user research and usability testing",
+        "Create wireframes, prototypes, and high-fidelity mockups",
+        "Design user interfaces for web and mobile applications",
+        "Develop and maintain design systems and style guides",
+        "Collaborate with product managers and developers",
+        "Present design concepts to stakeholders",
+        "Iterate designs based on user feedback and analytics"
+      ],
+      "requirements": [
+        "3-5 years of UI/UX design experience",
+        "Proficiency in Figma, Adobe Creative Suite",
+        "Strong portfolio demonstrating user-centered design",
+        "Understanding of design principles and best practices",
+        "Experience with responsive design",
+        "Knowledge of HTML/CSS fundamentals",
+        "Excellent communication and presentation skills"
+      ],
+      "preferredQualifications": [
+        "Experience with motion design and animation",
+        "Knowledge of accessibility standards",
+        "Familiarity with front-end development",
+        "Experience in SaaS product design",
+        "Understanding of Agile methodologies"
+      ],
+      "benefits": [
+        "Competitive compensation",
+        "Creative freedom and ownership",
+        "Latest design tools and software",
+        "Conference and workshop attendance",
+        "Flexible working arrangements",
+        "Collaborative design team"
+      ],
+      "skills": ["Figma", "Adobe XD", "UI Design", "UX Research", "Prototyping", "Design Systems"],
+      "applicationDeadline": "2026-04-28",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 5,
+      "title": "Graphic Designer",
+      "slug": "graphic-designer",
+      "category": "design",
+      "location": "Bhubaneswar, India",
+      "type": "Full-time",
+      "experience": "2-3 years",
+      "salary": "₹3,00,000 - ₹6,00,000",
+      "posted": "2026-03-22",
+      "status": "active",
+      "shortDescription": "Create visually compelling graphics for digital marketing, branding, and web projects.",
+      "description": "Join our creative team to design engaging visual content for various digital platforms. You'll work on branding, marketing materials, social media graphics, and web assets that help our clients stand out.",
+      "responsibilities": [
+        "Design marketing collateral and digital assets",
+        "Create social media graphics and advertisements",
+        "Develop branding materials and style guides",
+        "Design web banners, infographics, and presentations",
+        "Collaborate with marketing and web teams",
+        "Maintain brand consistency across all materials",
+        "Stay current with design trends and best practices"
+      ],
+      "requirements": [
+        "2-3 years of graphic design experience",
+        "Expert in Adobe Photoshop, Illustrator, InDesign",
+        "Strong portfolio showcasing diverse design work",
+        "Understanding of typography and color theory",
+        "Ability to work on multiple projects simultaneously",
+        "Attention to detail and creativity",
+        "Good communication skills"
+      ],
+      "preferredQualifications": [
+        "Experience with video editing (Premiere Pro, After Effects)",
+        "Knowledge of motion graphics",
+        "Basic understanding of web design",
+        "Photography skills",
+        "Experience with Canva or similar tools"
+      ],
+      "benefits": [
+        "Competitive salary",
+        "Creative work environment",
+        "Professional development support",
+        "Latest design software and hardware",
+        "Flexible hours",
+        "Team collaboration and feedback"
+      ],
+      "skills": ["Photoshop", "Illustrator", "InDesign", "Branding", "Social Media Design"],
+      "applicationDeadline": "2026-04-30",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 6,
+      "title": "Digital Marketing Specialist",
+      "slug": "digital-marketing-specialist",
+      "category": "marketing",
+      "location": "Bhubaneswar, India (Remote)",
+      "type": "Full-time",
+      "experience": "3-4 years",
+      "salary": "₹4,00,000 - ₹7,50,000",
+      "posted": "2026-03-12",
+      "status": "active",
+      "shortDescription": "Drive online marketing campaigns and optimize digital presence for B2B and B2C clients.",
+      "description": "We're seeking a data-driven digital marketing specialist to plan, execute, and optimize online marketing campaigns. You'll work with SEO, PPC, email marketing, and social media to drive growth for our clients.",
+      "responsibilities": [
+        "Develop and execute digital marketing strategies",
+        "Manage PPC campaigns across Google, Facebook, and LinkedIn",
+        "Optimize websites for search engines (SEO)",
+        "Create and manage email marketing campaigns",
+        "Analyze campaign performance and provide insights",
+        "Manage social media accounts and content calendars",
+        "Stay updated with digital marketing trends and algorithm changes"
+      ],
+      "requirements": [
+        "3-4 years of digital marketing experience",
+        "Proficiency in Google Analytics and Google Ads",
+        "Experience with SEO tools (SEMrush, Ahrefs, Moz)",
+        "Knowledge of social media advertising platforms",
+        "Understanding of email marketing platforms (Mailchimp, SendGrid)",
+        "Strong analytical and reporting skills",
+        "Excellent copywriting abilities"
+      ],
+      "preferredQualifications": [
+        "Google Ads and Analytics certifications",
+        "Experience with marketing automation tools",
+        "Knowledge of conversion rate optimization",
+        "Familiarity with HTML and basic web development",
+        "Experience in B2B marketing"
+      ],
+      "benefits": [
+        "Competitive salary with performance incentives",
+        "Remote work flexibility",
+        "Certification reimbursement",
+        "Access to premium marketing tools",
+        "Continuous learning opportunities",
+        "Collaborative marketing team"
+      ],
+      "skills": ["Google Ads", "SEO", "Facebook Ads", "Email Marketing", "Analytics", "Content Marketing"],
+      "applicationDeadline": "2026-04-22",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 7,
+      "title": "SEO Specialist",
+      "slug": "seo-specialist",
+      "category": "marketing",
+      "location": "Bhubaneswar, India",
+      "type": "Full-time",
+      "experience": "2-3 years",
+      "salary": "₹3,50,000 - ₹6,50,000",
+      "posted": "2026-03-25",
+      "status": "active",
+      "shortDescription": "Improve website rankings and organic traffic through strategic SEO implementations.",
+      "description": "Join our team as an SEO specialist to optimize websites and content for search engines. You'll conduct audits, implement on-page and off-page SEO strategies, and track performance metrics to drive organic growth.",
+      "responsibilities": [
+        "Conduct comprehensive SEO audits of websites",
+        "Implement on-page optimization strategies",
+        "Develop and execute link building campaigns",
+        "Perform keyword research and competitive analysis",
+        "Monitor and report on SEO performance metrics",
+        "Collaborate with content and development teams",
+        "Stay updated with Google algorithm updates"
+      ],
+      "requirements": [
+        "2-3 years of hands-on SEO experience",
+        "Proficiency with SEO tools (SEMrush, Ahrefs, Screaming Frog)",
+        "Strong understanding of Google Analytics and Search Console",
+        "Knowledge of technical SEO principles",
+        "Experience with keyword research and content optimization",
+        "Understanding of HTML and website structure",
+        "Analytical mindset with attention to detail"
+      ],
+      "preferredQualifications": [
+        "Google Analytics and Search Console certifications",
+        "Experience with local SEO",
+        "Knowledge of schema markup",
+        "Basic understanding of JavaScript and rendering",
+        "Experience with e-commerce SEO"
+      ],
+      "benefits": [
+        "Competitive compensation",
+        "Professional certification support",
+        "Latest SEO tools and software",
+        "Flexible working hours",
+        "Learning and development budget",
+        "Supportive team environment"
+      ],
+      "skills": ["SEO", "Google Analytics", "SEMrush", "Ahrefs", "Technical SEO", "Link Building"],
+      "applicationDeadline": "2026-05-01",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 8,
+      "title": "Project Manager",
+      "slug": "project-manager",
+      "category": "management",
+      "location": "Bhubaneswar, India (Hybrid)",
+      "type": "Full-time",
+      "experience": "5+ years",
+      "salary": "₹7,00,000 - ₹12,00,000",
+      "posted": "2026-03-08",
+      "status": "active",
+      "shortDescription": "Lead and manage software development projects from inception to delivery.",
+      "description": "We're looking for an experienced project manager to oversee multiple software development projects. You'll coordinate teams, manage client relationships, ensure timely delivery, and maintain high quality standards.",
+      "responsibilities": [
+        "Plan, execute, and close software development projects",
+        "Define project scope, goals, and deliverables",
+        "Coordinate cross-functional teams and allocate resources",
+        "Manage project timelines, budgets, and risks",
+        "Communicate with clients and stakeholders regularly",
+        "Conduct sprint planning and retrospectives",
+        "Ensure quality standards and best practices are followed"
+      ],
+      "requirements": [
+        "5+ years of project management experience in software development",
+        "Strong knowledge of Agile/Scrum methodologies",
+        "Experience with project management tools (Jira, Asana, Trello)",
+        "Excellent leadership and communication skills",
+        "Ability to manage multiple projects simultaneously",
+        "Strong problem-solving and decision-making abilities",
+        "Client-facing experience"
+      ],
+      "preferredQualifications": [
+        "PMP or Scrum Master certification",
+        "Technical background in software development",
+        "Experience with remote team management",
+        "Knowledge of DevOps practices",
+        "Experience in client services or consulting"
+      ],
+      "benefits": [
+        "Competitive salary with performance bonuses",
+        "Health and wellness benefits",
+        "Professional certification support",
+        "Flexible work arrangements",
+        "Leadership development opportunities",
+        "Dynamic and growing company"
+      ],
+      "skills": ["Agile", "Scrum", "Jira", "Project Planning", "Team Leadership", "Client Management"],
+      "applicationDeadline": "2026-04-15",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 9,
+      "title": "Mobile App Developer (React Native)",
+      "slug": "mobile-app-developer-react-native",
+      "category": "development",
+      "location": "Bhubaneswar, India (Remote)",
+      "type": "Full-time",
+      "experience": "3-5 years",
+      "salary": "₹5,00,000 - ₹10,00,000",
+      "posted": "2026-03-28",
+      "status": "active",
+      "shortDescription": "Build cross-platform mobile applications using React Native for iOS and Android.",
+      "description": "Join our mobile development team to create high-performance cross-platform mobile applications. You'll work with React Native to deliver seamless experiences on both iOS and Android platforms.",
+      "responsibilities": [
+        "Develop cross-platform mobile applications using React Native",
+        "Integrate with backend APIs and third-party services",
+        "Optimize app performance and troubleshoot issues",
+        "Implement mobile UI/UX designs with pixel-perfect accuracy",
+        "Write clean, maintainable, and well-tested code",
+        "Publish apps to Apple App Store and Google Play Store",
+        "Stay updated with mobile development trends and best practices"
+      ],
+      "requirements": [
+        "3-5 years of mobile app development experience",
+        "Strong proficiency in React Native",
+        "Experience with iOS and Android platforms",
+        "Knowledge of JavaScript/TypeScript",
+        "Understanding of mobile app architecture patterns",
+        "Experience with RESTful APIs and GraphQL",
+        "Familiarity with app deployment processes"
+      ],
+      "preferredQualifications": [
+        "Experience with native iOS (Swift) or Android (Kotlin) development",
+        "Knowledge of mobile app analytics tools",
+        "Experience with push notifications and deep linking",
+        "Familiarity with CI/CD for mobile apps",
+        "Published apps on App Store or Play Store"
+      ],
+      "benefits": [
+        "Competitive salary package",
+        "Remote work flexibility",
+        "Latest devices for testing",
+        "Professional development opportunities",
+        "Health insurance",
+        "Collaborative team culture"
+      ],
+      "skills": ["React Native", "JavaScript", "TypeScript", "iOS", "Android", "Mobile Development"],
+      "applicationDeadline": "2026-05-05",
+      "contactEmail": "careers@cakiweb.com"
+    },
+    {
+      "id": 10,
+      "title": "Social Media Manager",
+      "slug": "social-media-manager",
+      "category": "marketing",
+      "location": "Bhubaneswar, India",
+      "type": "Full-time",
+      "experience": "2-4 years",
+      "salary": "₹3,00,000 - ₹6,00,000",
+      "posted": "2026-03-30",
+      "status": "active",
+      "shortDescription": "Manage and grow social media presence for diverse clients across multiple platforms.",
+      "description": "We're seeking a creative and analytical social media manager to develop and execute social media strategies for our clients. You'll create engaging content, manage communities, and drive brand growth across platforms.",
+      "responsibilities": [
+        "Develop and implement social media strategies",
+        "Create engaging content for various social platforms",
+        "Manage and schedule posts across social media channels",
+        "Monitor social media trends and competitor activities",
+        "Engage with followers and manage online communities",
+        "Analyze social media metrics and prepare reports",
+        "Coordinate with design and content teams"
+      ],
+      "requirements": [
+        "2-4 years of social media management experience",
+        "Proficiency with social media management tools (Hootsuite, Buffer)",
+        "Strong understanding of major social platforms",
+        "Excellent copywriting and content creation skills",
+        "Knowledge of social media advertising",
+        "Analytical skills to interpret metrics",
+        "Creative mindset with attention to detail"
+      ],
+      "preferredQualifications": [
+        "Experience with influencer marketing",
+        "Knowledge of social media analytics tools",
+        "Basic graphic design skills",
+        "Experience with video content creation",
+        "Understanding of paid social strategies"
+      ],
+      "benefits": [
+        "Competitive salary",
+        "Creative and dynamic work environment",
+        "Social media tools and platforms access",
+        "Professional growth opportunities",
+        "Flexible work hours",
+        "Team collaboration"
+      ],
+      "skills": ["Social Media Marketing", "Content Creation", "Hootsuite", "Facebook Ads", "Instagram", "LinkedIn"],
+      "applicationDeadline": "2026-05-10",
+      "contactEmail": "careers@cakiweb.com"
+    }
+  ]
+}

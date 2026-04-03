@@ -1090,6 +1090,921 @@
       }, index * 500);
     });
   }
+
+  /* ==================== Career Page Functions ==================== */
+  let careerData = null;
+  let currentCategory = "all";
+  let searchQuery = "";
+  let locationFilterVar = "";
+  let typeFilterVar = "";
+  let experienceFilterVar = "";
+  let currentJob = null;
+
+  async function loadCareerData() {
+    try {
+      const response = await fetch("assets/json/career.json");
+      if (!response.ok) throw new Error("Failed to load career data");
+      careerData = await response.json();
+      return careerData;
+    } catch (error) {
+      console.error("Error loading career data:", error);
+      return null;
+    }
+  }
+
+  function getActiveJobs() {
+    if (!careerData) return [];
+    return careerData.jobs.filter((job) => job.status === "active");
+  }
+
+  function getCategories() {
+    if (!careerData) return [];
+    return careerData.categories || [];
+  }
+
+  function formatDateCareer(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 1) return "Today";
+    if (diffDays === 7) return "1 week ago";
+    if (diffDays <= 30) return `${Math.floor(diffDays / 7)} week${Math.floor(diffDays / 7) > 1 ? "s" : ""} ago`;
+    if (diffDays <= 60) return "1 month ago";
+    return `${Math.floor(diffDays / 30)} months ago`;
+  }
+
+  function formatDateDetails(dateString) {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString("en-US", options);
+  }
+
+  function renderCategoryTabs() {
+    const tabsContainer = document.getElementById("category-tabs");
+    if (!tabsContainer || !careerData) return;
+
+    const categories = getCategories();
+    const activeJobs = getActiveJobs();
+
+    tabsContainer.innerHTML = `
+      <button class="category-tab active" data-category="all">
+        <i class="bi bi-grid-3x3-gap"></i>
+        <span>All Jobs</span>
+        <span class="job-count" id="count-all">${activeJobs.length}</span>
+      </button>
+    `;
+
+    categories.forEach((category) => {
+      const count = activeJobs.filter((job) => job.category === category.id).length;
+      if (count > 0) {
+        const tab = document.createElement("button");
+        tab.className = "category-tab";
+        tab.dataset.category = category.id;
+        tab.innerHTML = `
+          <i class="bi ${category.icon}"></i>
+          <span>${category.name}</span>
+          <span class="job-count">${count}</span>
+        `;
+        tabsContainer.appendChild(tab);
+      }
+    });
+
+    tabsContainer.addEventListener("click", handleCategoryClick);
+  }
+
+  function handleCategoryClick(e) {
+    const tab = e.target.closest(".category-tab");
+    if (!tab) return;
+
+    document.querySelectorAll(".category-tab").forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
+    currentCategory = tab.dataset.category;
+    renderJobs();
+  }
+
+  function populateFilters() {
+    if (!careerData) return;
+
+    const activeJobs = getActiveJobs();
+    const locations = [...new Set(activeJobs.map((job) => job.location))].sort();
+    const types = [...new Set(activeJobs.map((job) => job.type))].sort();
+    const experiences = [...new Set(activeJobs.map((job) => job.experience))].sort();
+
+    const locationFilterEl = document.getElementById("location-filter");
+    const typeFilterEl = document.getElementById("type-filter");
+    const experienceFilterEl = document.getElementById("experience-filter");
+
+    if (locationFilterEl) {
+      locations.forEach((location) => {
+        const option = document.createElement("option");
+        option.value = location;
+        option.textContent = location;
+        locationFilterEl.appendChild(option);
+      });
+    }
+
+    if (typeFilterEl) {
+      types.forEach((type) => {
+        const option = document.createElement("option");
+        option.value = type;
+        option.textContent = type;
+        typeFilterEl.appendChild(option);
+      });
+    }
+
+    if (experienceFilterEl) {
+      experiences.forEach((exp) => {
+        const option = document.createElement("option");
+        option.value = exp;
+        option.textContent = exp;
+        experienceFilterEl.appendChild(option);
+      });
+    }
+
+    locationFilterEl?.addEventListener("change", (e) => {
+      locationFilterVar = e.target.value;
+      renderJobs();
+    });
+
+    typeFilterEl?.addEventListener("change", (e) => {
+      typeFilterVar = e.target.value;
+      renderJobs();
+    });
+
+    experienceFilterEl?.addEventListener("change", (e) => {
+      experienceFilterVar = e.target.value;
+      renderJobs();
+    });
+  }
+
+  function filterJobs() {
+    let jobs = getActiveJobs();
+
+    if (currentCategory !== "all") {
+      jobs = jobs.filter((job) => job.category === currentCategory);
+    }
+
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      jobs = jobs.filter(
+        (job) =>
+          job.title.toLowerCase().includes(query) ||
+          job.shortDescription.toLowerCase().includes(query) ||
+          job.skills.some((skill) => skill.toLowerCase().includes(query)) ||
+          job.description.toLowerCase().includes(query)
+      );
+    }
+
+    if (locationFilterVar) {
+      jobs = jobs.filter((job) => job.location === locationFilterVar);
+    }
+
+    if (typeFilterVar) {
+      jobs = jobs.filter((job) => job.type === typeFilterVar);
+    }
+
+    if (experienceFilterVar) {
+      jobs = jobs.filter((job) => job.experience === experienceFilterVar);
+    }
+
+    return jobs;
+  }
+
+  function renderJobs() {
+    const container = document.getElementById("jobs-container");
+    const noResults = document.getElementById("no-results");
+    const spinner = document.getElementById("loading-spinner");
+
+    if (!container) return;
+
+    if (spinner) {
+      spinner.style.display = "none";
+    }
+
+    const filteredJobs = filterJobs();
+
+    if (filteredJobs.length === 0) {
+      container.innerHTML = "";
+      if (noResults) {
+        noResults.style.display = "block";
+      }
+      return;
+    }
+
+    if (noResults) {
+      noResults.style.display = "none";
+    }
+
+    const categories = getCategories();
+    const jobsByCategory = {};
+
+    if (currentCategory === "all") {
+      filteredJobs.forEach((job) => {
+        if (!jobsByCategory[job.category]) {
+          jobsByCategory[job.category] = [];
+        }
+        jobsByCategory[job.category].push(job);
+      });
+    } else {
+      jobsByCategory[currentCategory] = filteredJobs;
+    }
+
+    container.innerHTML = "";
+
+    Object.keys(jobsByCategory).forEach((categoryId) => {
+      const category = categories.find((c) => c.id === categoryId);
+      const jobs = jobsByCategory[categoryId];
+
+      if (!category || jobs.length === 0) return;
+
+      const categorySection = document.createElement("div");
+      categorySection.className = "job-category-section";
+      categorySection.setAttribute("data-aos", "fade-up");
+
+      categorySection.innerHTML = `
+        <div class="category-header">
+          <i class="bi ${category.icon}"></i>
+          <h3>${category.name}</h3>
+          <span class="category-job-count">${jobs.length} job${jobs.length > 1 ? "s" : ""}</span>
+        </div>
+        <div class="jobs-grid">
+          ${jobs.map((job) => renderJobCard(job)).join("")}
+        </div>
+      `;
+
+      container.appendChild(categorySection);
+    });
+  }
+
+  function renderJobCard(job) {
+    const skillsHtml = job.skills.slice(0, 4).map((skill) => `<span class="job-skill">${skill}</span>`).join("");
+    const moreSkills = job.skills.length > 4 ? `+${job.skills.length - 4}` : "";
+
+    return `
+      <div class="job-card" onclick="window.location.href='career-details.html?job=${job.slug}'" data-aos="fade-up">
+        <div class="job-card-header">
+          <div class="job-info">
+            <h4 class="job-title">${job.title}</h4>
+            <div class="job-meta">
+              <span class="job-location">
+                <i class="bi bi-geo-alt"></i>
+                ${job.location}
+              </span>
+              <span class="job-type">${job.type}</span>
+              <span class="job-experience">
+                <i class="bi bi-briefcase"></i>
+                ${job.experience}
+              </span>
+            </div>
+          </div>
+          <div class="job-salary">${job.salary}</div>
+        </div>
+        <p class="job-description">${job.shortDescription}</p>
+        <div class="job-footer">
+          <div class="job-skills">
+            ${skillsHtml}
+            ${moreSkills ? `<span class="job-skill more-skills">${moreSkills}</span>` : ""}
+          </div>
+          <div class="job-actions">
+            <span class="job-posted">${formatDateCareer(job.posted)}</span>
+            <button class="btn btn-apply" onclick="event.stopPropagation(); window.location.href='career-details.html?job=${job.slug}'">
+              View Details <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function initCareerSearch() {
+    const searchInput = document.getElementById("job-search");
+    const searchBtn = document.getElementById("search-btn");
+    const clearFiltersBtn = document.getElementById("clear-filters-btn");
+
+    let searchTimeout;
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          searchQuery = e.target.value;
+          renderJobs();
+        }, 300);
+      });
+
+      searchInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          clearTimeout(searchTimeout);
+          searchQuery = e.target.value;
+          renderJobs();
+        }
+      });
+    }
+
+    if (searchBtn) {
+      searchBtn.addEventListener("click", () => {
+        searchQuery = searchInput?.value || "";
+        renderJobs();
+      });
+    }
+
+    if (clearFiltersBtn) {
+      clearFiltersBtn.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
+        const locationFilterEl = document.getElementById("location-filter");
+        const typeFilterEl = document.getElementById("type-filter");
+        const experienceFilterEl = document.getElementById("experience-filter");
+
+        searchQuery = "";
+        locationFilterVar = "";
+        typeFilterVar = "";
+        experienceFilterVar = "";
+
+        if (locationFilterEl) locationFilterEl.value = "";
+        if (typeFilterEl) typeFilterEl.value = "";
+        if (experienceFilterEl) experienceFilterEl.value = "";
+
+        currentCategory = "all";
+        document.querySelectorAll(".category-tab").forEach((t) => t.classList.remove("active"));
+        document.querySelector('.category-tab[data-category="all"]')?.classList.add("active");
+
+        renderJobs();
+      });
+    }
+  }
+
+  function updateOpenPositionsCount() {
+    const countElement = document.getElementById("open-positions-count");
+    if (countElement) {
+      const count = getActiveJobs().length;
+      countElement.textContent = count;
+    }
+  }
+
+  function getJobFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      slug: params.get("job"),
+      id: params.get("id"),
+    };
+  }
+
+  function findJob(data, params) {
+    if (!data || !data.jobs) return null;
+    
+    if (params.slug) {
+      return data.jobs.find((job) => job.slug === params.slug);
+    }
+    if (params.id) {
+      return data.jobs.find((job) => job.id === parseInt(params.id));
+    }
+    return null;
+  }
+
+  function getCategoryName(categoryId) {
+    if (!careerData || !careerData.categories) return categoryId;
+    const category = careerData.categories.find((c) => c.id === categoryId);
+    return category ? category.name : categoryId;
+  }
+
+  function getCategoryIcon(categoryId) {
+    if (!careerData || !careerData.categories) return "bi-briefcase";
+    const category = careerData.categories.find((c) => c.id === categoryId);
+    return category ? category.icon : "bi-briefcase";
+  }
+
+  function renderJobHeader(job) {
+    const header = document.getElementById("career-details-header");
+    if (!header) return;
+
+    const skillsHtml = job.skills
+      .map((skill) => `<span class="career-details-skill">${skill}</span>`)
+      .join("");
+
+    header.innerHTML = `
+      <div class="career-details-info">
+        <div class="career-details-category">
+          <i class="bi ${getCategoryIcon(job.category)}"></i>
+          <span>${getCategoryName(job.category)}</span>
+        </div>
+        <h1 class="career-details-title">${job.title}</h1>
+        <div class="career-details-meta">
+          <div class="career-details-meta-item">
+            <i class="bi bi-geo-alt"></i>
+            <span>${job.location}</span>
+          </div>
+          <div class="career-details-meta-item">
+            <i class="bi bi-clock"></i>
+            <span>${job.type}</span>
+          </div>
+          <div class="career-details-meta-item">
+            <i class="bi bi-briefcase"></i>
+            <span>${job.experience}</span>
+          </div>
+          <div class="career-details-meta-item">
+            <i class="bi bi-calendar"></i>
+            <span>Posted: ${formatDateDetails(job.posted)}</span>
+          </div>
+        </div>
+        <p class="career-details-description">${job.description}</p>
+        <div class="career-details-skills">
+          ${skillsHtml}
+        </div>
+      </div>
+      <div class="career-details-apply-bar">
+        <div>
+          <div class="career-details-salary-label">Salary Range</div>
+          <div class="career-details-salary">${job.salary}</div>
+        </div>
+        <button class="btn btn-apply-now" onclick="window.openApplyModal('${job.title}', '${job.contactEmail}')">
+          Apply Now <i class="bi bi-arrow-right"></i>
+        </button>
+      </div>
+    `;
+  }
+
+  window.openApplyModal = function(jobTitle, contactEmail) {
+    const modal = document.getElementById("apply-modal");
+    const modalJobTitle = document.getElementById("modal-job-title");
+    
+    if (modal) {
+      modalJobTitle.textContent = jobTitle;
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+      
+      // Store job info for form submission
+      modal.dataset.jobTitle = jobTitle;
+      modal.dataset.contactEmail = contactEmail;
+    }
+  };
+
+  function renderJobDetailsContent(job) {
+    const container = document.getElementById("job-details-container");
+    const sidebar = document.getElementById("job-sidebar");
+    if (!container) return;
+
+    const responsibilitiesHtml = job.responsibilities
+      .map(
+        (item, index) => `
+        <li data-aos="fade-up" data-aos-delay="${index * 50}">
+          <i class="bi bi-check-circle-fill"></i>
+          <span>${item}</span>
+        </li>
+      `
+      )
+      .join("");
+
+    const requirementsHtml = job.requirements
+      .map(
+        (item, index) => `
+        <li data-aos="fade-up" data-aos-delay="${index * 50}">
+          <i class="bi bi-check2-circle"></i>
+          <span>${item}</span>
+        </li>
+      `
+      )
+      .join("");
+
+    const preferredHtml = job.preferredQualifications
+      ? job.preferredQualifications
+          .map(
+            (item, index) => `
+        <li data-aos="fade-up" data-aos-delay="${index * 50}">
+          <i class="bi bi-star-fill"></i>
+          <span>${item}</span>
+        </li>
+      `
+          )
+          .join("")
+      : "";
+
+    const benefitsHtml = job.benefits
+      .map(
+        (item, index) => `
+        <div class="career-details-card" data-aos="fade-up" data-aos-delay="${index * 50}">
+          <div class="career-details-card-icon">
+            <i class="bi bi-gift"></i>
+          </div>
+          <h4>${item}</h4>
+        </div>
+      `
+      )
+      .join("");
+
+    container.innerHTML = `
+      <div class="career-details-section" data-aos="fade-up">
+        <h2 class="career-details-section-title"><i class="bi bi-list-check"></i> Key Responsibilities</h2>
+        <ul class="career-details-list">
+          ${responsibilitiesHtml}
+        </ul>
+      </div>
+
+      <div class="career-details-section" data-aos="fade-up">
+        <h2 class="career-details-section-title"><i class="bi bi-clipboard-check"></i> Requirements</h2>
+        <ul class="career-details-list">
+          ${requirementsHtml}
+        </ul>
+      </div>
+
+      ${
+        preferredHtml
+          ? `
+        <div class="career-details-section" data-aos="fade-up">
+          <h2 class="career-details-section-title"><i class="bi bi-star"></i> Preferred Qualifications</h2>
+          <ul class="career-details-list">
+            ${preferredHtml}
+          </ul>
+        </div>
+      `
+          : ""
+      }
+
+      <div class="career-details-section" data-aos="fade-up">
+        <h2 class="career-details-section-title"><i class="bi bi-heart"></i> Benefits & Perks</h2>
+        <div class="career-details-grid">
+          ${benefitsHtml}
+        </div>
+      </div>
+
+      <div class="back-to-jobs" data-aos="fade-up">
+        <a href="career.html" class="btn-back">
+          <i class="bi bi-arrow-left"></i>
+          Back to All Jobs
+        </a>
+      </div>
+    `;
+
+    // Render sidebar
+    if (sidebar) {
+      const currentUrl = window.location.href;
+      sidebar.innerHTML = `
+        <div class="sidebar-card" data-aos="fade-up">
+          <div class="sidebar-card-header">
+            <i class="bi bi-info-circle"></i>
+            <h3>Job Overview</h3>
+          </div>
+          <div class="sidebar-job-overview">
+            <div class="sidebar-job-item">
+              <i class="bi bi-geo-alt"></i>
+              <div>
+                <div class="sidebar-job-label">Location</div>
+                <div class="sidebar-job-value">${job.location}</div>
+              </div>
+            </div>
+            <div class="sidebar-job-item">
+              <i class="bi bi-clock"></i>
+              <div>
+                <div class="sidebar-job-label">Job Type</div>
+                <div class="sidebar-job-value">${job.type}</div>
+              </div>
+            </div>
+            <div class="sidebar-job-item">
+              <i class="bi bi-briefcase"></i>
+              <div>
+                <div class="sidebar-job-label">Experience</div>
+                <div class="sidebar-job-value">${job.experience}</div>
+              </div>
+            </div>
+            <div class="sidebar-job-item">
+              <i class="bi bi-cash-stack"></i>
+              <div>
+                <div class="sidebar-job-label">Salary</div>
+                <div class="sidebar-job-value">${job.salary}</div>
+              </div>
+            </div>
+            <div class="sidebar-job-item">
+              <i class="bi bi-calendar-event"></i>
+              <div>
+                <div class="sidebar-job-label">Deadline</div>
+                <div class="sidebar-job-value">${formatDateDetails(job.applicationDeadline)}</div>
+              </div>
+            </div>
+          </div>
+          <button class="sidebar-apply-btn" onclick="window.openApplyModal('${job.title}', '${job.contactEmail}')">
+            Apply for this Position <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="sidebar-card-header">
+            <i class="bi bi-share"></i>
+            <h3>Share This Job</h3>
+          </div>
+          <div class="sidebar-share-links">
+            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent('Check out: ' + job.title + ' at Cakiweb Solutions')}&url=${encodeURIComponent(currentUrl)}" target="_blank" class="sidebar-share-link" title="Share on Twitter">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}" target="_blank" class="sidebar-share-link" title="Share on Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(job.title)}" target="_blank" class="sidebar-share-link" title="Share on LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="mailto:?subject=${encodeURIComponent('Job Opportunity: ' + job.title)}&body=${encodeURIComponent('Check out this job: ' + currentUrl)}" class="sidebar-share-link" title="Share via Email">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  function renderJobNotFound() {
+    const header = document.getElementById("career-details-header");
+    const container = document.getElementById("job-details-container");
+
+    if (header) {
+      header.innerHTML = `
+        <div style="text-align: center; padding: 60px 20px;">
+          <i class="bi bi-exclamation-circle" style="font-size: 4rem; color: var(--gray-300);"></i>
+          <h1 style="font-size: 2rem; font-weight: var(--font-bold); color: var(--dark-900); margin: 20px 0 12px;">Job Not Found</h1>
+          <p style="font-size: 1.1rem; color: var(--gray-500); margin-bottom: 32px;">The position you're looking for doesn't exist or has been removed.</p>
+          <a href="career.html" class="btn btn-primary btn-lg">
+            <i class="bi bi-arrow-left"></i>
+            View All Open Positions
+          </a>
+        </div>
+      `;
+    }
+
+    if (container) {
+      container.innerHTML = "";
+    }
+  }
+
+  async function initCareerPage() {
+    if (!document.getElementById("job-search") && !document.getElementById("category-tabs")) return;
+    
+    await loadCareerData();
+    if (!careerData) {
+      console.error("Failed to load career data");
+      return;
+    }
+
+    updateOpenPositionsCount();
+    renderCategoryTabs();
+    populateFilters();
+    initCareerSearch();
+    renderJobs();
+
+    if (typeof AOS !== "undefined") {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 100);
+    }
+  }
+
+  async function initCareerDetails() {
+    if (!document.getElementById("career-details-header")) return;
+
+    await loadCareerData();
+    if (!careerData) {
+      console.error("Failed to load career data");
+      return;
+    }
+
+    const params = getJobFromURL();
+    currentJob = findJob(careerData, params);
+
+    if (!currentJob) {
+      renderJobNotFound();
+      return;
+    }
+
+    document.title = `${currentJob.title} - Cakiweb Solutions`;
+    renderJobHeader(currentJob);
+    renderJobDetailsContent(currentJob);
+
+    if (typeof AOS !== "undefined") {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 100);
+    }
+
+    // Initialize modal handlers
+    initApplyModalHandlers();
+  }
+
+  function initApplyModalHandlers() {
+    const modal = document.getElementById("apply-modal");
+    const closeBtn = document.getElementById("modal-close-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+    const backdrop = document.querySelector(".modal-backdrop");
+    const successCloseBtn = document.getElementById("success-close-btn");
+
+    // Close modal handlers
+    [closeBtn, cancelBtn].forEach(btn => {
+      if (btn) {
+        btn.addEventListener("click", closeApplyModal);
+      }
+    });
+
+    if (backdrop) {
+      backdrop.addEventListener("click", closeApplyModal);
+    }
+
+    if (successCloseBtn) {
+      successCloseBtn.addEventListener("click", () => {
+        closeApplyModal();
+        window.location.href = "career.html";
+      });
+    }
+
+    // File upload handlers
+    initFileUpload();
+
+    // Form submit handler
+    const form = document.getElementById("apply-form");
+    if (form) {
+      form.addEventListener("submit", handleFormSubmit);
+    }
+
+    // ESC key handler
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal?.classList.contains("active")) {
+        closeApplyModal();
+      }
+    });
+  }
+
+  function closeApplyModal() {
+    const modal = document.getElementById("apply-modal");
+    if (modal) {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+      
+      // Reset form
+      const form = document.getElementById("apply-form");
+      if (form) {
+        form.reset();
+        form.style.display = "block";
+      }
+
+      // Hide success message
+      const successMessage = document.getElementById("success-message");
+      if (successMessage) {
+        successMessage.style.display = "none";
+      }
+
+      // Reset file upload
+      resetFileUpload();
+    }
+  }
+
+  function initFileUpload() {
+    const fileUploadArea = document.getElementById("file-upload-area");
+    const resumeFile = document.getElementById("resume-file");
+    const uploadPlaceholder = document.getElementById("upload-placeholder");
+    const filePreview = document.getElementById("file-preview");
+    const fileName = document.getElementById("file-name");
+    const fileSize = document.getElementById("file-size");
+    const removeFileBtn = document.getElementById("remove-file-btn");
+
+    if (!fileUploadArea || !resumeFile) return;
+
+    // Click to upload
+    fileUploadArea.addEventListener("click", (e) => {
+      if (e.target !== removeFileBtn && !removeFileBtn?.contains(e.target)) {
+        resumeFile.click();
+      }
+    });
+
+    resumeFile.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        handleFileSelect(file);
+      }
+    });
+
+    // Drag and drop
+    ["dragenter", "dragover", "dragleave", "drop"].forEach(eventName => {
+      fileUploadArea.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
+
+    ["dragenter", "dragover"].forEach(eventName => {
+      fileUploadArea.addEventListener(eventName, () => {
+        fileUploadArea.classList.add("dragover");
+      });
+    });
+
+    ["dragleave", "drop"].forEach(eventName => {
+      fileUploadArea.addEventListener(eventName, () => {
+        fileUploadArea.classList.remove("dragover");
+      });
+    });
+
+    fileUploadArea.addEventListener("drop", (e) => {
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        handleFileSelect(files[0]);
+        resumeFile.files = files;
+      }
+    });
+
+    // Remove file
+    if (removeFileBtn) {
+      removeFileBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        resetFileUpload();
+      });
+    }
+
+    function handleFileSelect(file) {
+      const maxSize = 5 * 1024 * 1024; // 5MB
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      ];
+
+      if (!allowedTypes.includes(file.type)) {
+        alert("Please upload a PDF, DOC, or DOCX file");
+        return;
+      }
+
+      if (file.size > maxSize) {
+        alert("File size must be less than 5MB");
+        return;
+      }
+
+      if (uploadPlaceholder) uploadPlaceholder.style.display = "none";
+      if (filePreview) filePreview.style.display = "flex";
+      if (fileName) fileName.textContent = file.name;
+      if (fileSize) fileSize.textContent = formatFileSize(file.size);
+    }
+
+    function resetFileUpload() {
+      const uploadPlaceholder = document.getElementById("upload-placeholder");
+      const filePreview = document.getElementById("file-preview");
+      const resumeFile = document.getElementById("resume-file");
+
+      if (uploadPlaceholder) uploadPlaceholder.style.display = "block";
+      if (filePreview) filePreview.style.display = "none";
+      if (resumeFile) resumeFile.value = "";
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes === 0) return "0 Bytes";
+      const k = 1024;
+      const sizes = ["Bytes", "KB", "MB"];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + " " + sizes[i];
+    }
+
+    window.resetFileUpload = resetFileUpload;
+  }
+
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const submitBtn = document.getElementById("submit-btn");
+    const btnText = submitBtn?.querySelector(".btn-text");
+    const btnLoading = submitBtn?.querySelector(".btn-loading");
+    const successMessage = document.getElementById("success-message");
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Show loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      if (btnText) btnText.style.display = "none";
+      if (btnLoading) btnLoading.style.display = "flex";
+    }
+
+    // Simulate form submission (replace with actual API call)
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Get form data
+    const formData = new FormData(form);
+    const modal = document.getElementById("apply-modal");
+    const jobTitle = modal?.dataset.jobTitle || "";
+
+    // Here you would typically send the data to your backend
+    // For now, we'll just show the success message
+    console.log("Application submitted for:", jobTitle);
+    console.log("Form data:", Object.fromEntries(formData));
+
+    // Show success message
+    if (form) form.style.display = "none";
+    if (successMessage) successMessage.style.display = "block";
+
+    // Reset button state
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      if (btnText) btnText.style.display = "inline";
+      if (btnLoading) btnLoading.style.display = "none";
+    }
+  }
+
   function init() {
     initNavbar();
     initMobileMenu();
@@ -1113,6 +2028,8 @@
     initServiceDetails();
     initProductDetails();
     initButtonShine();
+    initCareerPage();
+    initCareerDetails();
     window.addEventListener("load", () => {
       setTimeout(() => {
         ScrollTrigger.refresh();

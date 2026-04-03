@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Careers - Cakiweb Solutions | Join Our Team</title>
+  <meta name="description" content="Join Cakiweb Solutions and be part of a dynamic team building innovative software solutions. Explore career opportunities.">
+  <link href="assets/img/favicon.png" rel="icon">
+  <!-- Google Fonts - Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/favicon.png" alt="Cakiweb" height="40">
+        <span class="brand-text">Cakiweb</span>
+      </a>
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-mega">
+            <a href="#" class="services-link">
+              Services <i class="bi bi-chevron-down"></i>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-left" id="mega-menu-services">
+                <!-- Dynamically loaded -->
+              </div>
+            </div>
+          </li>
+          <li class="has-mega">
+            <a href="#" class="products-link">
+              Products <i class="bi bi-chevron-down"></i>
+            </a>
+            <div class="mega-menu">
+              <div class="mega-left" id="mega-menu-products">
+                <!-- Dynamically loaded -->
+              </div>
+            </div>
+          </li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Get Started</a>
+      </div>
+      <button class="mobile-toggle">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </nav>
+  <!-- Page Hero Section -->
+  <section id="hero" class="page-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title" data-aos="fade-up">Join Our <span class="gradient-text">Amazing Team</span></h1>
+        <p class="hero-description" data-aos="fade-up" data-aos-delay="100">
+          Build innovative solutions while growing your career with talented professionals
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Search Section -->
+  <section id="career-search" class="career-search-section">
+    <div class="container">
+      <div class="search-card" data-aos="fade-up">
+        <div class="search-input-wrapper">
+          <i class="bi bi-search search-icon"></i>
+          <input type="text" id="job-search" class="search-input" placeholder="Search jobs by title, skills, or keywords...">
+          <button class="btn btn-search" id="search-btn">Search</button>
+        </div>
+        <div class="search-filters">
+          <div class="filter-group">
+            <label class="filter-label">Location:</label>
+            <select id="location-filter" class="filter-select">
+              <option value="">All Locations</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Job Type:</label>
+            <select id="type-filter" class="filter-select">
+              <option value="">All Types</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Experience:</label>
+            <select id="experience-filter" class="filter-select">
+              <option value="">All Levels</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Categories Section -->
+  <section id="job-categories" class="job-categories">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Explore Opportunities</span>
+        <h2 class="section-title">Browse by <span class="gradient-text">Category</span></h2>
+      </div>
+      
+      <div class="category-tabs" id="category-tabs" data-aos="fade-up" data-aos-delay="100">
+        <button class="category-tab active" data-category="all">
+          <i class="bi bi-grid-3x3-gap"></i>
+          <span>All Jobs</span>
+          <span class="job-count" id="count-all">0</span>
+        </button>
+        <!-- Categories will be dynamically loaded -->
+      </div>
+
+      <div class="jobs-container" id="jobs-container">
+        <div class="loading-spinner" id="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading opportunities...</p>
+        </div>
+      </div>
+
+      <div class="no-results" id="no-results" style="display: none;">
+        <i class="bi bi-search"></i>
+        <h3>No jobs found</h3>
+        <p>Try adjusting your search criteria or browse all available positions.</p>
+        <button class="btn btn-primary" id="clear-filters-btn">Clear All Filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Join Us Section -->
+  <section id="why-join" class="why-join-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Why Choose Us</span>
+        <h2 class="section-title">Why Join <span class="gradient-text">Cakiweb?</span></h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="benefit-icon">
+            <i class="bi bi-rocket-takeoff"></i>
+          </div>
+          <h3>Innovation First</h3>
+          <p>Work with cutting-edge technologies and contribute to groundbreaking solutions</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="benefit-icon">
+            <i class="bi bi-people"></i>
+          </div>
+          <h3>Great Team</h3>
+          <p>Collaborate with talented professionals who share your passion for excellence</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="benefit-icon">
+            <i class="bi bi-graph-up-arrow"></i>
+          </div>
+          <h3>Growth Opportunities</h3>
+          <p>Continuous learning and career development with clear growth paths</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="benefit-icon">
+            <i class="bi bi-house-heart"></i>
+          </div>
+          <h3>Work Flexibility</h3>
+          <p>Remote and hybrid work options with flexible scheduling</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="benefit-icon">
+            <i class="bi bi-heart-pulse"></i>
+          </div>
+          <h3>Health & Wellness</h3>
+          <p>Comprehensive health insurance and wellness programs for you and your family</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="benefit-icon">
+            <i class="bi bi-trophy"></i>
+          </div>
+          <h3>Competitive Benefits</h3>
+          <p>Attractive compensation packages with performance bonuses and perks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="cta">
+    <div class="container">
+      <div class="cta-card" data-aos="zoom-in">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss how we can help transform your business.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="contact.html" class="btn btn-light btn-lg">
+              Get in Touch <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-brand">
+              <span class="brand-text">Cakiweb</span>
+              <p>Empowering businesses with innovative software solutions since 2019.</p>
+              <div class="social-links">
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="blog.html"><i class="bi bi-arrow-right"></i> Blogs</a></li>
+              <li><a href="career.html"><i class="bi bi-arrow-right"></i> Careers</a></li>
+              <li><a href="portfolio.html"><i class="bi bi-arrow-right"></i> Portfolio</a></li>
+              <li><a href="contact.html"><i class="bi bi-arrow-right"></i> Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#"><i class="bi bi-arrow-right"></i> Web Development</a></li>
+              <li><a href="#"><i class="bi bi-arrow-right"></i> Mobile Apps</a></li>
+              <li><a href="#"><i class="bi bi-arrow-right"></i> E-Commerce</a></li>
+              <li><a href="#"><i class="bi bi-arrow-right"></i> Cloud Solutions</a></li>
+              <li><a href="#"><i class="bi bi-arrow-right"></i> IT Consulting</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4>Contact</h4>
+            <ul class="contact-info">
+              <li><a
+                  href="https://maps.google.com/?q=Ward+45,+Flat+-+21,+Metro+Cottage,+Chintamaniswar+Temple+Road,+Chintamaniswar,+Laxmisagar,+Bhubaneswar,+Odisha-751006"
+                  target="_blank"><i class="bi bi-geo-alt"></i> Ward 45, Flat - 21, Metro Cottage, Chintamaniswar Temple
+                  Road,
+                  Chintamaniswar, Laxmisagar,
+                  Bhubaneswar,Odisha-751006</a></li>
+              <li><a href="mailto:cakiweb.com@gmail.com"><i class="bi bi-envelope"></i> cakiweb.com@gmail.com</a></li>
+              <li><a href="tel:+919437368484"><i class="bi bi-telephone"></i> +91 94373 68484</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Cakiweb Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#" class="scroll-top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
