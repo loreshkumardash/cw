@@ -1967,6 +1967,7 @@
     const btnText = submitBtn?.querySelector(".btn-text");
     const btnLoading = submitBtn?.querySelector(".btn-loading");
     const successMessage = document.getElementById("success-message");
+    const modal = document.getElementById("apply-modal");
 
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -1980,28 +1981,68 @@
       if (btnLoading) btnLoading.style.display = "flex";
     }
 
-    // Simulate form submission (replace with actual API call)
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      // Collect form data
+      const formData = new FormData(form);
+      const jobTitle = modal?.dataset.jobTitle || "";
+      const contactEmail = modal?.dataset.contactEmail || "cakiweb.com@gmail.com";
 
-    // Get form data
-    const formData = new FormData(form);
-    const modal = document.getElementById("apply-modal");
-    const jobTitle = modal?.dataset.jobTitle || "";
+      // Prepare email template parameters
+      const templateParams = {
+        to_email: contactEmail,
+        job_title: jobTitle,
+        first_name: formData.get("firstName"),
+        last_name: formData.get("lastName"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        location: formData.get("location") || "Not provided",
+        linkedin: formData.get("linkedin") || "Not provided",
+        portfolio: formData.get("portfolio") || "Not provided",
+        experience_years: formData.get("experienceYears"),
+        current_ctc: formData.get("currentCTC") || "Not provided",
+        expected_ctc: formData.get("expectedCTC"),
+        notice_period: formData.get("noticePeriod"),
+        cover_letter: formData.get("coverLetter") || "Not provided",
+        reply_to: formData.get("email"),
+        application_date: new Date().toLocaleString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        })
+      };
 
-    // Here you would typically send the data to your backend
-    // For now, we'll just show the success message
-    console.log("Application submitted for:", jobTitle);
-    console.log("Form data:", Object.fromEntries(formData));
+      // Send email using EmailJS
+      // Replace with your actual Service ID and Template ID from EmailJS dashboard
+      if (typeof emailjs !== "undefined") {
+        await emailjs.send(
+          "service_ihbrdo7",     // Replace with your EmailJS Service ID
+          "YOUR_TEMPLATE_ID",    // Replace with your EmailJS Template ID
+          templateParams
+        );
+      } else {
+        console.warn("EmailJS not loaded. Application data:", templateParams);
+      }
 
-    // Show success message
-    if (form) form.style.display = "none";
-    if (successMessage) successMessage.style.display = "block";
+      // Show success message
+      if (form) form.style.display = "none";
+      if (successMessage) successMessage.style.display = "block";
 
-    // Reset button state
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      if (btnText) btnText.style.display = "inline";
-      if (btnLoading) btnLoading.style.display = "none";
+      console.log("Application submitted successfully for:", jobTitle);
+      console.log("Applicant:", templateParams.first_name, templateParams.last_name);
+      console.log("Email:", templateParams.email);
+
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      alert("There was an error submitting your application. Please try again or contact us directly.");
+    } finally {
+      // Reset button state
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        if (btnText) btnText.style.display = "inline";
+        if (btnLoading) btnLoading.style.display = "none";
+      }
     }
   }
 
