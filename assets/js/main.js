@@ -3089,3 +3089,61 @@
     fetchProjects();
   }
 })();
+
+/* ================================
+   INDEX PAGE - Blog Preview
+   ================================ */
+(function () {
+  "use strict";
+
+  const indexBlogGrid = document.getElementById("indexBlogGrid");
+  if (!indexBlogGrid) return;
+
+  async function fetchAndRender() {
+    try {
+      const response = await fetch("assets/json/blog.json");
+      if (!response.ok) throw new Error("Failed to load blog data");
+      const data = await response.json();
+      const blogs = (data.blogs || [])
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 3);
+
+      indexBlogGrid.innerHTML = blogs.map((blog, i) => {
+        const date = new Date(blog.date);
+        const formattedDate = date.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+        });
+        return `
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${(i + 1) * 100}">
+            <article class="blog-card">
+              <div class="blog-img">
+                <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+                <span class="blog-date">${formattedDate}</span>
+              </div>
+              <div class="blog-content">
+                <h3 class="blog-title">${blog.title}</h3>
+                <p class="blog-excerpt">${blog.excerpt}</p>
+                <a href="blog-details.html?blog=${blog.slug}" class="read-more">
+                  Read More <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        `;
+      }).join("");
+
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 100);
+      }
+    } catch (error) {
+      console.error("Error loading blog preview:", error);
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fetchAndRender);
+  } else {
+    fetchAndRender();
+  }
+})();
