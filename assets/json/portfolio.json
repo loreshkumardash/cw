@@ -1,0 +1,238 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Samaj Matrimony",
+      "slug": "samaj-matrimony",
+      "category": "Web Application",
+      "filterKey": "app",
+      "shortDescription": "A comprehensive matrimonial platform with advanced matching algorithms.",
+      "fullDescription": "<p>Samaj Matrimony is a full-featured matrimonial platform designed to connect families within the same community. The platform uses advanced matching algorithms based on preferences, horoscope compatibility, and family background to suggest the most suitable matches.</p><h3>Key Features</h3><ul><li>Intelligent match recommendations using ML-based algorithms</li><li>Secure profile verification and identity checks</li><li>Real-time chat and video calling between members</li><li>Advanced search filters with community, location, and profession</li><li>Mobile-responsive design for on-the-go access</li><li>Admin dashboard for profile moderation and analytics</li></ul><p>The platform was built with scalability in mind, handling thousands of concurrent users while maintaining lightning-fast response times. The matching engine processes over 50 parameters to deliver highly compatible suggestions.</p><h3>Technology Stack</h3><p>We used React.js for the frontend, Node.js with Express for the backend API, MongoDB for the database, and Redis for caching. Real-time communication is handled via WebRTC for video calls and Socket.io for instant messaging.</p>",
+      "image": "assets/img/clients/samaj-matrimony.webp",
+      "gallery": [
+        "assets/img/clients/samaj-matrimony.webp",
+        "assets/img/clients/tooros.webp",
+        "assets/img/clients/kamya-app.webp"
+      ],
+      "client": "Samaj Matrimony Pvt Ltd",
+      "projectDate": "2025-06-15",
+      "projectUrl": "#",
+      "technologies": ["React.js", "Node.js", "MongoDB", "Redis", "WebRTC"],
+      "role": "Full Stack Development",
+      "duration": "4 months",
+      "testimonial": {
+        "text": "Cakiweb delivered beyond our expectations. The platform handles 10,000+ daily active users seamlessly.",
+        "author": "Rajesh Panda",
+        "position": "CEO, Samaj Matrimony"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Tooros Platform",
+      "slug": "tooros-platform",
+      "category": "SaaS Platform",
+      "filterKey": "product",
+      "shortDescription": "Enterprise resource planning with real-time analytics and multi-tenant architecture.",
+      "fullDescription": "<p>Tooros is a comprehensive ERP platform built for medium to large enterprises. It integrates finance, HR, inventory, procurement, and project management into a single unified system with real-time analytics dashboards.</p><h3>Key Features</h3><ul><li>Multi-tenant SaaS architecture with role-based access</li><li>Real-time financial reporting and analytics dashboards</li><li>Automated inventory management with predictive restocking</li><li>Employee self-service portal with leave and payroll management</li><li>Custom workflow builder with drag-and-drop interface</li><li>API gateway for third-party integrations</li></ul><p>The platform supports multi-currency transactions and compliance with international accounting standards. The analytics engine processes millions of data points to provide actionable business insights.</p><h3>Technology Stack</h3><p>Built on Vue.js for the frontend, Python Django for the backend, PostgreSQL for relational data, and ClickHouse for analytics. Deployed on AWS with Kubernetes orchestration.</p>",
+      "image": "assets/img/clients/tooros.webp",
+      "gallery": [
+        "assets/img/clients/tooros.webp",
+        "assets/img/clients/mps.webp",
+        "assets/img/clients/udnclg.webp"
+      ],
+      "client": "Tooros Technologies",
+      "projectDate": "2025-03-20",
+      "projectUrl": "#",
+      "technologies": ["Vue.js", "Django", "PostgreSQL", "ClickHouse", "AWS"],
+      "role": "End-to-End Development",
+      "duration": "6 months",
+      "testimonial": {
+        "text": "The ERP transformed our operations. We saw a 40% improvement in process efficiency within the first quarter.",
+        "author": "Anita Sharma",
+        "position": "COO, Tooros Technologies"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Kamya App",
+      "slug": "kamya-app",
+      "category": "Mobile Banking",
+      "filterKey": "web",
+      "shortDescription": "Modern mobile banking with intuitive interface and secure transactions.",
+      "fullDescription": "<p>Kamya App is a next-generation mobile banking application that simplifies financial management for everyday users. The app provides a seamless experience for banking, investments, and bill payments with bank-grade security.</p><h3>Key Features</h3><ul><li>Unified dashboard showing all accounts and investments</li><li>Instant UPI payments and peer-to-peer transfers</li><li>Automated bill payments with smart reminders</li><li>AI-powered expense categorization and budgeting</li><li>Biometric authentication and device-level encryption</li><li>Offline mode for basic functionality without internet</li></ul><p>The app processes over 50,000 transactions daily with a 99.99% uptime. The UI was designed following extensive user research, resulting in a 60% improvement in task completion rates compared to the previous version.</p><h3>Technology Stack</h3><p>Developed using Flutter for cross-platform compatibility, with Go microservices on the backend, Apache Kafka for event streaming, and MongoDB for data persistence.</p>",
+      "image": "assets/img/clients/kamya-app.webp",
+      "gallery": [
+        "assets/img/clients/kamya-app.webp",
+        "assets/img/clients/samaj-matrimony.webp",
+        "assets/img/clients/mining_today.webp"
+      ],
+      "client": "Kamya Financial Services",
+      "projectDate": "2025-08-10",
+      "projectUrl": "#",
+      "technologies": ["Flutter", "Go", "Apache Kafka", "MongoDB", "Firebase"],
+      "role": "Mobile App Development",
+      "duration": "5 months",
+      "testimonial": {
+        "text": "Our user engagement increased by 3x after launching the new app. The team understood our vision perfectly.",
+        "author": "Vikram Mehta",
+        "position": "CTO, Kamya Financial"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Mining Today",
+      "slug": "mining-today",
+      "category": "News & Analytics",
+      "filterKey": "app",
+      "shortDescription": "Industry news and analytics platform for mining professionals.",
+      "fullDescription": "<p>Mining Today is a specialized news and analytics platform serving the global mining industry. It aggregates industry news, commodity prices, regulatory updates, and provides analytical tools for professionals in the mining sector.</p><h3>Key Features</h3><ul><li>Real-time commodity price tracking with interactive charts</li><li>AI-curated news feed from 200+ global sources</li><li>Regulatory compliance tracker for multiple jurisdictions</li><li>Company profiles with financial metrics and project updates</li><li>Custom alerts and watchlists for commodities and companies</li><li>Premium subscription model with exclusive research reports</li></ul><p>The platform serves 25,000+ registered professionals and processes over 5,000 news articles daily. The analytics engine provides real-time insights into market trends and regulatory changes.</p><h3>Technology Stack</h3><p>Built with Next.js for SSR, Node.js backend, Elasticsearch for content search, and TimescaleDB for time-series commodity data.</p>",
+      "image": "assets/img/clients/mining_today.webp",
+      "gallery": [
+        "assets/img/clients/mining_today.webp",
+        "assets/img/clients/tooros.webp",
+        "assets/img/clients/kamya-app.webp"
+      ],
+      "client": "Mining Today Media",
+      "projectDate": "2025-01-25",
+      "projectUrl": "#",
+      "technologies": ["Next.js", "Node.js", "Elasticsearch", "TimescaleDB"],
+      "role": "Full Stack Development",
+      "duration": "3 months",
+      "testimonial": {
+        "text": "The platform exceeded our subscriber targets within the first month. Excellent technical execution.",
+        "author": "David Morrison",
+        "position": "Publisher, Mining Today"
+      }
+    },
+    {
+      "id": 5,
+      "title": "MPS System",
+      "slug": "mps-system",
+      "category": "Property Management",
+      "filterKey": "product",
+      "shortDescription": "Property management with automated billing, tenant portal, and maintenance tracking.",
+      "fullDescription": "<p>MPS (Management Property System) is a comprehensive property management solution that streamlines operations for property managers, landlords, and real estate companies. It handles everything from tenant onboarding to maintenance scheduling.</p><h3>Key Features</h3><ul><li>Automated rent collection with payment reminders and receipts</li><li>Tenant portal for service requests, lease documents, and payments</li><li>Maintenance ticketing with vendor assignment and tracking</li><li>Lease management with automated renewal reminders</li><li>Financial reporting with P&L, balance sheet, and cash flow</li><li>Multi-property dashboard with occupancy and revenue metrics</li></ul><p>The system manages over 15,000 units across 200+ properties, reducing administrative overhead by 55% and improving tenant satisfaction scores by 35%.</p><h3>Technology Stack</h3><p>Angular for the frontend, .NET Core for the API layer, SQL Server for the database, and Azure Service Bus for async messaging between modules.</p>",
+      "image": "assets/img/clients/mps.webp",
+      "gallery": [
+        "assets/img/clients/mps.webp",
+        "assets/img/clients/udnclg.webp",
+        "assets/img/clients/samaj-matrimony.webp"
+      ],
+      "client": "MPS Corporation",
+      "projectDate": "2024-11-05",
+      "projectUrl": "#",
+      "technologies": ["Angular", ".NET Core", "SQL Server", "Azure"],
+      "role": "Enterprise Software Development",
+      "duration": "7 months",
+      "testimonial": {
+        "text": "MPS System transformed our property management. The automated workflows saved us hundreds of hours monthly.",
+        "author": "Priya Nanda",
+        "position": "Director, MPS Corporation"
+      }
+    },
+    {
+      "id": 6,
+      "title": "College Portal",
+      "slug": "college-portal",
+      "category": "Education Portal",
+      "filterKey": "web",
+      "shortDescription": "Educational portal with online admissions, fee management, and student dashboard.",
+      "fullDescription": "<p>College Portal is a comprehensive educational management system that digitizes the entire student lifecycle — from admission to graduation. It serves students, faculty, and administration with role-specific dashboards and tools.</p><h3>Key Features</h3><ul><li>Online admission system with document upload and verification</li><li>Fee management with multiple payment gateway integration</li><li>Student dashboard for grades, attendance, and course materials</li><li>Faculty portal for attendance marking, grade entry, and assignments</li><li>Timetable management with conflict detection</li><li>Parent portal for monitoring student progress and communication</li></ul><p>The portal serves 12,000+ students and 800+ faculty members across 5 campuses. Online fee collection increased payment compliance from 65% to 94% within the first semester.</p><h3>Technology Stack</h3><p>React.js frontend, Spring Boot backend, MySQL database, deployed on Google Cloud Platform with Cloud CDN for static assets.</p>",
+      "image": "assets/img/clients/udnclg.webp",
+      "gallery": [
+        "assets/img/clients/udnclg.webp",
+        "assets/img/clients/mps.webp",
+        "assets/img/clients/mining_today.webp"
+      ],
+      "client": "Utkal University",
+      "projectDate": "2024-07-18",
+      "projectUrl": "#",
+      "technologies": ["React.js", "Spring Boot", "MySQL", "GCP"],
+      "role": "Full Stack Development",
+      "duration": "5 months",
+      "testimonial": {
+        "text": "The portal modernized our entire administrative process. Students and faculty love the intuitive interface.",
+        "author": "Dr. S. K. Patra",
+        "position": "Registrar, Utkal University"
+      }
+    },
+    {
+      "id": 7,
+      "title": "Fleet Command",
+      "slug": "fleet-command",
+      "category": "Logistics & Tracking",
+      "filterKey": "app",
+      "shortDescription": "Real-time GPS fleet tracking with route optimization and fuel management.",
+      "fullDescription": "<p>Fleet Command is an advanced fleet management system providing real-time GPS tracking, route optimization, driver behavior monitoring, and fuel management for logistics and transportation companies.</p><h3>Key Features</h3><ul><li>Real-time GPS tracking with live map visualization</li><li>Intelligent route optimization reducing fuel costs by up to 25%</li><li>Driver behavior monitoring with harsh braking and speeding alerts</li><li>Geofencing with instant entry/exit notifications</li><li>Fuel consumption analytics and theft detection</li><li>Preventive maintenance scheduling with service reminders</li></ul><p>The system tracks 2,000+ vehicles across 15 states, reducing operational costs by 30% and improving on-time delivery rates from 78% to 96%.</p><h3>Technology Stack</h3><p>Flutter mobile app, React dashboard, Python backend with FastAPI, PostGIS for geospatial data, and Redis for real-time pub/sub tracking updates.</p>",
+      "image": "assets/img/clients/samaj-matrimony.webp",
+      "gallery": [
+        "assets/img/clients/samaj-matrimony.webp",
+        "assets/img/clients/tooros.webp",
+        "assets/img/clients/mps.webp"
+      ],
+      "client": "TransFleet Logistics",
+      "projectDate": "2025-04-12",
+      "projectUrl": "#",
+      "technologies": ["Flutter", "React", "FastAPI", "PostGIS", "Redis"],
+      "role": "IoT & Full Stack Development",
+      "duration": "6 months",
+      "testimonial": {
+        "text": "Fleet Command gave us complete visibility into our operations. The ROI was evident within 2 months of deployment.",
+        "author": "Amit Singh",
+        "position": "Operations Head, TransFleet"
+      }
+    },
+    {
+      "id": 8,
+      "title": "Bus Booking Pro",
+      "slug": "bus-booking-pro",
+      "category": "Travel & Booking",
+      "filterKey": "web",
+      "shortDescription": "Online bus ticket reservation with seat selection and live tracking.",
+      "fullDescription": "<p>Bus Booking Pro is a complete online bus ticketing platform that enables operators to sell tickets, manage routes, and provide passengers with a seamless booking experience including real-time bus tracking.</p><h3>Key Features</h3><ul><li>Interactive seat selection with visual bus layout</li><li>Real-time bus tracking for passengers</li><li>Dynamic pricing based on demand and seat availability</li><li>Multi-payment gateway support including UPI, cards, and wallets</li><li>Automated SMS and email ticket delivery</li><li>Operator dashboard for route management and revenue analytics</li></ul><p>The platform processes 5,000+ bookings daily during peak season with zero downtime. Average booking completion time is under 90 seconds.</p><h3>Technology Stack</h3><p>Next.js with SSR for SEO, Node.js backend, Redis for seat locking during checkout, PostgreSQL for transactions, and Razorpay for payments.</p>",
+      "image": "assets/img/clients/kamya-app.webp",
+      "gallery": [
+        "assets/img/clients/kamya-app.webp",
+        "assets/img/clients/mining_today.webp",
+        "assets/img/clients/udnclg.webp"
+      ],
+      "client": "Odisha Roadways Pvt Ltd",
+      "projectDate": "2025-02-28",
+      "projectUrl": "#",
+      "technologies": ["Next.js", "Node.js", "Redis", "PostgreSQL", "Razorpay"],
+      "role": "E-Commerce Development",
+      "duration": "4 months",
+      "testimonial": {
+        "text": "Booking volumes increased 200% after switching to Bus Booking Pro. The user experience is outstanding.",
+        "author": "Sunita Devi",
+        "position": "MD, Odisha Roadways"
+      }
+    },
+    {
+      "id": 9,
+      "title": "Tender Tracker",
+      "slug": "tender-tracker",
+      "category": "Government & Enterprise",
+      "filterKey": "product",
+      "shortDescription": "Government and private tender alerts with bid management system.",
+      "fullDescription": "<p>Tender Tracker is a comprehensive tender management platform that aggregates government and private tenders from across India, providing intelligent alerts, bid preparation tools, and submission workflow management.</p><h3>Key Features</h3><ul><li>Aggregated tender listings from 500+ government and private sources</li><li>AI-powered tender matching based on company profile and past bids</li><li>Automated deadline reminders and compliance checklists</li><li>Document management with template library for common submissions</li><li>Competitor analysis dashboard showing win rates and pricing insights</li><li>Multi-user collaboration with role-based access for bid teams</li></ul><p>The platform helps 1,500+ companies track and respond to 50,000+ tenders annually, improving bid success rates by an average of 35%.</p><h3>Technology Stack</h3><p>React.js frontend, Python Django backend with Celery for scheduled scraping, Elasticsearch for search, and AWS for cloud infrastructure.</p>",
+      "image": "assets/img/clients/tooros.webp",
+      "gallery": [
+        "assets/img/clients/tooros.webp",
+        "assets/img/clients/samaj-matrimony.webp",
+        "assets/img/clients/kamya-app.webp"
+      ],
+      "client": "BidPro Services",
+      "projectDate": "2024-09-15",
+      "projectUrl": "#",
+      "technologies": ["React.js", "Django", "Elasticsearch", "Celery", "AWS"],
+      "role": "SaaS Product Development",
+      "duration": "5 months",
+      "testimonial": {
+        "text": "Tender Tracker gave us a competitive edge. Our bid win rate improved dramatically within the first quarter.",
+        "author": "Manoj Kumar",
+        "position": "CEO, BidPro Services"
+      }
+    }
+  ]
+}

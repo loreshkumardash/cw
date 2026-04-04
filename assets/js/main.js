@@ -2722,3 +2722,370 @@
     fetchBlogs();
   }
 })();
+
+/* ================================
+   PORTFOLIO PAGE - Dynamic Listing
+   ================================ */
+(function () {
+  "use strict";
+
+  const portfolioGrid = document.getElementById("portfolioGrid");
+  if (!portfolioGrid) return;
+
+  const portfolioFilters = document.getElementById("portfolioFilters");
+  const portfolioNoResults = document.getElementById("portfolioNoResults");
+  const portfolioResultsCount = document.getElementById("portfolioResultsCount");
+  const totalProjectsEl = document.getElementById("totalProjects");
+  const totalCategoriesEl = document.getElementById("totalCategories");
+
+  let allProjects = [];
+  let activeFilter = "all";
+
+  async function fetchProjects() {
+    try {
+      const response = await fetch("assets/json/portfolio.json");
+      if (!response.ok) throw new Error("Failed to load portfolio data");
+      const data = await response.json();
+      allProjects = data.projects || [];
+      initPortfolio();
+    } catch (error) {
+      console.error("Error loading portfolio data:", error);
+      portfolioGrid.innerHTML =
+        '<div class="col-12 text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:48px;color:var(--gray-400);"></i><h4 class="mt-3">Unable to load projects</h4><p class="text-muted">Please try again later.</p></div>';
+    }
+  }
+
+  function initPortfolio() {
+    buildFilters();
+    renderProjects();
+    bindEvents();
+    updateStats();
+  }
+
+  function buildFilters() {
+    if (!portfolioFilters) return;
+    const categories = [...new Set(allProjects.map(p => p.category))];
+    const filterKeys = [...new Set(allProjects.map(p => p.filterKey))];
+
+    // "All" button
+    const allBtn = document.createElement("button");
+    allBtn.className = `portfolio-filter-btn ${activeFilter === "all" ? "active" : ""}`;
+    allBtn.dataset.filter = "all";
+    allBtn.textContent = "All Projects";
+    portfolioFilters.appendChild(allBtn);
+
+    // Category buttons using filterKey
+    filterKeys.forEach(key => {
+      const project = allProjects.find(p => p.filterKey === key);
+      const btn = document.createElement("button");
+      btn.className = `portfolio-filter-btn ${activeFilter === key ? "active" : ""}`;
+      btn.dataset.filter = key;
+      btn.textContent = project.category;
+      portfolioFilters.appendChild(btn);
+    });
+  }
+
+  function renderProjects() {
+    let filtered = activeFilter === "all"
+      ? [...allProjects]
+      : allProjects.filter(p => p.filterKey === activeFilter);
+
+    if (filtered.length === 0) {
+      portfolioGrid.innerHTML = "";
+      if (portfolioNoResults) portfolioNoResults.classList.remove("d-none");
+      if (portfolioResultsCount) portfolioResultsCount.textContent = "0 projects";
+      return;
+    }
+
+    if (portfolioNoResults) portfolioNoResults.classList.add("d-none");
+    if (portfolioResultsCount) portfolioResultsCount.textContent = `${filtered.length} project${filtered.length !== 1 ? "s" : ""}`;
+
+    portfolioGrid.innerHTML = filtered
+      .map((project, index) => createProjectCard(project, index))
+      .join("");
+
+    // Reinit AOS
+    if (typeof AOS !== "undefined") {
+      setTimeout(() => AOS.refresh(), 100);
+    }
+  }
+
+  function createProjectCard(project, index) {
+    return `
+      <div class="portfolio-item-js" data-aos="fade-up" data-aos-delay="${index * 80}">
+        <div class="portfolio-card-js">
+          <div class="portfolio-card-image-js">
+            <img src="${project.image}" alt="${project.title}" loading="lazy">
+            <div class="portfolio-card-overlay-js">
+              <div class="portfolio-card-content-js">
+                <span class="portfolio-card-category-js">${project.category}</span>
+                <h4>${project.title}</h4>
+                <p>${project.shortDescription}</p>
+                <div class="portfolio-card-actions-js">
+                  <a href="portfolio-details.html?project=${project.slug}" class="portfolio-view-btn">
+                    <i class="bi bi-arrow-right"></i> View Details
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-card-info-js">
+            <span class="portfolio-card-tag-js">${project.role}</span>
+            <h4>${project.title}</h4>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindEvents() {
+    if (!portfolioFilters) return;
+    portfolioFilters.addEventListener("click", (e) => {
+      const btn = e.target.closest(".portfolio-filter-btn");
+      if (!btn) return;
+      portfolioFilters.querySelectorAll(".portfolio-filter-btn").forEach(b =>
+        b.classList.remove("active")
+      );
+      btn.classList.add("active");
+      activeFilter = btn.dataset.filter;
+      renderProjects();
+    });
+  }
+
+  function updateStats() {
+    if (totalProjectsEl) totalProjectsEl.textContent = allProjects.length;
+    if (totalCategoriesEl) {
+      const cats = new Set(allProjects.map(p => p.category));
+      totalCategoriesEl.textContent = cats.size;
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fetchProjects);
+  } else {
+    fetchProjects();
+  }
+})();
+
+/* ================================
+   PORTFOLIO DETAIL PAGE
+   ================================ */
+(function () {
+  "use strict";
+
+  const detailTitle = document.getElementById("detailTitle");
+  if (!detailTitle) return;
+
+  let allProjects = [];
+  let currentProject = null;
+
+  function getProjectSlugFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("project");
+  }
+
+  async function fetchProjects() {
+    try {
+      const response = await fetch("assets/json/portfolio.json");
+      if (!response.ok) throw new Error("Failed to load portfolio data");
+      const data = await response.json();
+      allProjects = data.projects || [];
+      initPortfolioDetail();
+    } catch (error) {
+      console.error("Error loading portfolio data:", error);
+      showErrorMessage();
+    }
+  }
+
+  function initPortfolioDetail() {
+    const slug = getProjectSlugFromURL();
+    if (!slug) {
+      showErrorMessage();
+      return;
+    }
+    currentProject = allProjects.find(p => p.slug === slug);
+    if (!currentProject) {
+      showErrorMessage();
+      return;
+    }
+    renderDetail();
+    renderSidebar();
+    renderRelatedProjects();
+  }
+
+  function renderDetail() {
+    // Page meta
+    const pageTitle = document.getElementById("page-title");
+    const pageDescription = document.getElementById("page-description");
+    if (pageTitle) pageTitle.textContent = `${currentProject.title} - Cakiweb Solutions`;
+    if (pageDescription) pageDescription.textContent = currentProject.shortDescription;
+
+    // Hero
+    const detailCategory = document.getElementById("detailCategory");
+    const detailClient = document.getElementById("detailClient");
+    const detailDate = document.getElementById("detailDate");
+    const detailDuration = document.getElementById("detailDuration");
+    const detailRole = document.getElementById("detailRole");
+
+    if (detailCategory) detailCategory.textContent = currentProject.category;
+    if (detailTitle) detailTitle.textContent = currentProject.title;
+    if (detailClient) detailClient.textContent = currentProject.client;
+    if (detailDate) detailDate.textContent = formatDate(currentProject.projectDate);
+    if (detailDuration) detailDuration.textContent = currentProject.duration;
+    if (detailRole) detailRole.textContent = currentProject.role;
+
+    // Gallery
+    const detailMainImage = document.getElementById("detailMainImage");
+    const portfolioThumbs = document.getElementById("portfolioThumbs");
+    if (detailMainImage) {
+      detailMainImage.src = currentProject.image;
+      detailMainImage.alt = currentProject.title;
+    }
+    if (portfolioThumbs && currentProject.gallery) {
+      portfolioThumbs.innerHTML = currentProject.gallery
+        .map((img, i) => `
+          <div class="portfolio-thumb-item ${i === 0 ? 'active' : ''}" data-index="${i}">
+            <img src="${img}" alt="Gallery image ${i + 1}">
+          </div>
+        `).join("");
+      portfolioThumbs.addEventListener("click", (e) => {
+        const thumb = e.target.closest(".portfolio-thumb-item");
+        if (!thumb) return;
+        portfolioThumbs.querySelectorAll(".portfolio-thumb-item").forEach(t => t.classList.remove("active"));
+        thumb.classList.add("active");
+        if (detailMainImage) {
+          detailMainImage.src = currentProject.gallery[parseInt(thumb.dataset.index)];
+        }
+      });
+    }
+
+    // Description
+    const detailDescription = document.getElementById("detailDescription");
+    if (detailDescription) detailDescription.innerHTML = currentProject.fullDescription;
+
+    // Technologies
+    const detailTechnologies = document.getElementById("detailTechnologies");
+    if (detailTechnologies && currentProject.technologies) {
+      detailTechnologies.innerHTML = currentProject.technologies
+        .map(t => `<span class="tech-tag">${t}</span>`).join("");
+    }
+
+    // Testimonial
+    const detailTestimonialWrap = document.getElementById("detailTestimonialWrap");
+    if (detailTestimonialWrap && currentProject.testimonial) {
+      detailTestimonialWrap.innerHTML = `
+        <div class="testimonial-quote-box">
+          <i class="bi bi-quote quote-icon-left"></i>
+          <p class="testimonial-text">${currentProject.testimonial.text}</p>
+          <div class="testimonial-author">
+            <div class="author-avatar-icon"><i class="bi bi-person-circle"></i></div>
+            <div class="author-details">
+              <strong>${currentProject.testimonial.author}</strong>
+              <span>${currentProject.testimonial.position}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Sidebar info
+    const infoCategory = document.getElementById("infoCategory");
+    const infoClient = document.getElementById("infoClient");
+    const infoDate = document.getElementById("infoDate");
+    const infoDuration = document.getElementById("infoDuration");
+    const infoRole = document.getElementById("infoRole");
+    const detailProjectUrl = document.getElementById("detailProjectUrl");
+
+    if (infoCategory) infoCategory.textContent = currentProject.category;
+    if (infoClient) infoClient.textContent = currentProject.client;
+    if (infoDate) infoDate.textContent = formatDate(currentProject.projectDate);
+    if (infoDuration) infoDuration.textContent = currentProject.duration;
+    if (infoRole) infoRole.textContent = currentProject.role;
+    if (detailProjectUrl) detailProjectUrl.href = currentProject.projectUrl;
+  }
+
+  function renderSidebar() {
+    const allProjectsList = document.getElementById("allProjectsList");
+    if (!allProjectsList) return;
+
+    allProjectsList.innerHTML = allProjects
+      .filter(p => p.id !== currentProject.id)
+      .map(p => `
+        <div class="all-project-item" data-slug="${p.slug}">
+          <div class="all-project-thumb">
+            <img src="${p.image}" alt="${p.title}">
+          </div>
+          <div class="all-project-info">
+            <h5>${p.title}</h5>
+            <span>${p.category}</span>
+          </div>
+        </div>
+      `).join("");
+
+    allProjectsList.querySelectorAll(".all-project-item").forEach(item => {
+      item.addEventListener("click", () => {
+        window.location.href = `portfolio-details.html?project=${item.dataset.slug}`;
+      });
+    });
+  }
+
+  function renderRelatedProjects() {
+    const relatedProjects = document.getElementById("relatedProjects");
+    if (!relatedProjects) return;
+
+    const related = allProjects
+      .filter(p => p.id !== currentProject.id)
+      .sort((a, b) => {
+        const aMatch = a.filterKey === currentProject.filterKey ? 1 : 0;
+        const bMatch = b.filterKey === currentProject.filterKey ? 1 : 0;
+        return bMatch - aMatch;
+      })
+      .slice(0, 3);
+
+    relatedProjects.innerHTML = related
+      .map((p, i) => `
+        <div class="related-project-card" data-slug="${p.slug}" data-aos="fade-up" data-aos-delay="${i * 100}">
+          <div class="related-project-image">
+            <img src="${p.image}" alt="${p.title}" loading="lazy">
+          </div>
+          <div class="related-project-body">
+            <span class="related-project-category">${p.category}</span>
+            <h4 class="related-project-title">${p.title}</h4>
+            <p class="related-project-desc">${p.shortDescription}</p>
+          </div>
+        </div>
+      `).join("");
+
+    relatedProjects.querySelectorAll(".related-project-card").forEach(card => {
+      card.addEventListener("click", () => {
+        window.location.href = `portfolio-details.html?project=${card.dataset.slug}`;
+      });
+    });
+
+    if (typeof AOS !== "undefined") {
+      setTimeout(() => AOS.refresh(), 100);
+    }
+  }
+
+  function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+      month: "long",
+      year: "numeric"
+    });
+  }
+
+  function showErrorMessage() {
+    const container = document.querySelector(".portfolio-detail-hero-content");
+    if (container) {
+      container.innerHTML =
+        '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Project Not Found</h3><p class="text-muted">The project you\'re looking for doesn\'t exist.</p><a href="portfolio.html" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Portfolio</a></div>';
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fetchProjects);
+  } else {
+    fetchProjects();
+  }
+})();
