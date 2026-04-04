@@ -2086,3 +2086,639 @@
     init();
   }
 })();
+
+/* ================================
+   BLOG PAGE - Dynamic Listing
+   ================================ */
+(function () {
+  "use strict";
+
+  const BLOGS_PER_PAGE = 6;
+  let allBlogs = [];
+  let filteredBlogs = [];
+  let currentPage = 1;
+  let activeCategory = "all";
+  let searchQuery = "";
+  let sortValue = "newest";
+
+  const blogGrid = document.getElementById("blogGrid");
+  if (!blogGrid) return;
+
+  const categoryFilter = document.getElementById("categoryFilter");
+  const sortFilter = document.getElementById("sortFilter");
+  const blogSearch = document.getElementById("blogSearch");
+  const categoryPills = document.getElementById("categoryPills");
+  const resultsCount = document.getElementById("resultsCount");
+  const noResults = document.getElementById("noResults");
+  const loadMoreWrapper = document.getElementById("loadMoreWrapper");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const clearFiltersBtn = document.getElementById("clearFilters");
+
+  async function fetchBlogs() {
+    try {
+      const response = await fetch("assets/json/blog.json");
+      if (!response.ok) throw new Error("Failed to load blog data");
+      const data = await response.json();
+      allBlogs = data.blogs || [];
+      loadVisitorCounts();
+      initBlogPage();
+    } catch (error) {
+      console.error("Error loading blog data:", error);
+      if (blogGrid) {
+        blogGrid.innerHTML =
+          '<div class="col-12 text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:48px;color:var(--gray-400);"></i><h4 class="mt-3">Unable to load blog posts</h4><p class="text-muted">Please try again later.</p></div>';
+      }
+    }
+  }
+
+  function loadVisitorCounts() {
+    const storedVisitors = localStorage.getItem("blogVisitors");
+    const visitorCounts = storedVisitors ? JSON.parse(storedVisitors) : {};
+    allBlogs.forEach(blog => {
+      if (visitorCounts[blog.id] !== undefined) {
+        blog.visitors = visitorCounts[blog.id];
+      }
+    });
+  }
+
+  function initBlogPage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlCategory = urlParams.get("category");
+    if (urlCategory) {
+      activeCategory = urlCategory.toLowerCase();
+    }
+    populateCategories();
+    applyFiltersAndSort();
+    bindEvents();
+  }
+
+  function populateCategories() {
+    const categories = [...new Set(allBlogs.map(blog => blog.category))];
+    if (categoryFilter) {
+      categories.forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat.toLowerCase();
+        option.textContent = cat;
+        categoryFilter.appendChild(option);
+      });
+      if (activeCategory !== "all") {
+        categoryFilter.value = activeCategory;
+      }
+    }
+    if (categoryPills) {
+      const allPill = document.createElement("button");
+      allPill.className = `category-pill ${activeCategory === "all" ? "active" : ""}`;
+      allPill.dataset.category = "all";
+      allPill.textContent = "All";
+      categoryPills.appendChild(allPill);
+      categories.forEach(cat => {
+        const pill = document.createElement("button");
+        pill.className = `category-pill ${activeCategory === cat.toLowerCase() ? "active" : ""}`;
+        pill.dataset.category = cat.toLowerCase();
+        pill.textContent = cat;
+        categoryPills.appendChild(pill);
+      });
+    }
+  }
+
+  function applyFiltersAndSort() {
+    filteredBlogs = [...allBlogs];
+    if (activeCategory !== "all") {
+      filteredBlogs = filteredBlogs.filter(
+        blog => blog.category.toLowerCase() === activeCategory
+      );
+    }
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filteredBlogs = filteredBlogs.filter(
+        blog =>
+          blog.title.toLowerCase().includes(query) ||
+          blog.excerpt.toLowerCase().includes(query) ||
+          blog.category.toLowerCase().includes(query) ||
+          blog.tags.some(tag => tag.toLowerCase().includes(query)) ||
+          blog.author.toLowerCase().includes(query)
+      );
+    }
+    switch (sortValue) {
+      case "newest":
+        filteredBlogs.sort((a, b) => new Date(b.date) - new Date(a.date));
+        break;
+      case "oldest":
+        filteredBlogs.sort((a, b) => new Date(a.date) - new Date(b.date));
+        break;
+      case "popular":
+        filteredBlogs.sort((a, b) => b.visitors - a.visitors);
+        break;
+      case "az":
+        filteredBlogs.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+    }
+    currentPage = 1;
+    renderBlogs();
+    updateResultsCount();
+  }
+
+  function renderBlogs() {
+    if (!blogGrid) return;
+    const blogsToShow = filteredBlogs.slice(0, currentPage * BLOGS_PER_PAGE);
+    if (blogsToShow.length === 0) {
+      blogGrid.innerHTML = "";
+      if (noResults) noResults.classList.remove("d-none");
+      if (loadMoreWrapper) loadMoreWrapper.classList.add("d-none");
+      return;
+    }
+    if (noResults) noResults.classList.add("d-none");
+    blogGrid.innerHTML = blogsToShow
+      .map((blog, index) => createBlogCard(blog, index))
+      .join("");
+    if (loadMoreWrapper) {
+      if (blogsToShow.length >= filteredBlogs.length) {
+        loadMoreWrapper.classList.add("d-none");
+      } else {
+        loadMoreWrapper.classList.remove("d-none");
+      }
+    }
+    if (typeof AOS !== "undefined") {
+      setTimeout(() => AOS.refresh(), 100);
+    }
+  }
+
+  function createBlogCard(blog, index) {
+    const date = new Date(blog.date);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+    const initials = blog.author
+      .split(" ")
+      .map(n => n[0])
+      .join("")
+      .toUpperCase();
+    return `
+      <div class="blog-card-dynamic" data-aos="fade-up" data-aos-delay="${(index % BLOGS_PER_PAGE) * 100}">
+        <a href="blog-details.html?blog=${blog.slug}" class="blog-card-link">
+          <div class="blog-card-image">
+            <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+            <span class="blog-card-category">${blog.category}</span>
+          </div>
+        </a>
+        <div class="blog-card-body">
+          <a href="blog-details.html?blog=${blog.slug}">
+            <h3 class="blog-card-title">${blog.title}</h3>
+          </a>
+          <p class="blog-card-excerpt">${blog.excerpt}</p>
+          <div class="blog-card-meta">
+            <div class="blog-card-author">
+              <div class="blog-card-author-avatar">${initials}</div>
+              <span class="blog-card-author-name">${blog.author}</span>
+            </div>
+            <div class="blog-card-stats">
+              <span><i class="bi bi-eye"></i> ${formatNumber(blog.visitors)}</span>
+              <span><i class="bi bi-clock"></i> ${blog.readTime}</span>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card-footer">
+          <a href="blog-details.html?blog=${blog.slug}" class="blog-card-read-more">
+            Read More <i class="bi bi-arrow-right"></i>
+          </a>
+          <span class="blog-card-date">${formattedDate}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function formatNumber(num) {
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + "k";
+    }
+    return num.toString();
+  }
+
+  function updateResultsCount() {
+    if (resultsCount) {
+      const showing = Math.min(currentPage * BLOGS_PER_PAGE, filteredBlogs.length);
+      resultsCount.textContent = `Showing ${showing} of ${filteredBlogs.length} articles`;
+    }
+  }
+
+  function bindEvents() {
+    if (categoryFilter) {
+      categoryFilter.addEventListener("change", (e) => {
+        activeCategory = e.target.value;
+        applyFiltersAndSort();
+      });
+    }
+    if (sortFilter) {
+      sortFilter.addEventListener("change", (e) => {
+        sortValue = e.target.value;
+        applyFiltersAndSort();
+      });
+    }
+    if (blogSearch) {
+      let searchTimeout;
+      blogSearch.addEventListener("input", (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          searchQuery = e.target.value.trim();
+          applyFiltersAndSort();
+        }, 300);
+      });
+    }
+    if (categoryPills) {
+      categoryPills.addEventListener("click", (e) => {
+        const pill = e.target.closest(".category-pill");
+        if (!pill) return;
+        categoryPills.querySelectorAll(".category-pill").forEach(p =>
+          p.classList.remove("active")
+        );
+        pill.classList.add("active");
+        activeCategory = pill.dataset.category;
+        if (categoryFilter) {
+          categoryFilter.value = activeCategory;
+        }
+        applyFiltersAndSort();
+      });
+    }
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener("click", () => {
+        currentPage++;
+        renderBlogs();
+        updateResultsCount();
+      });
+    }
+    if (clearFiltersBtn) {
+      clearFiltersBtn.addEventListener("click", () => {
+        activeCategory = "all";
+        searchQuery = "";
+        sortValue = "newest";
+        if (blogSearch) blogSearch.value = "";
+        if (categoryFilter) categoryFilter.value = "all";
+        if (sortFilter) sortFilter.value = "newest";
+        categoryPills.querySelectorAll(".category-pill").forEach(p => {
+          p.classList.toggle("active", p.dataset.category === "all");
+        });
+        applyFiltersAndSort();
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fetchBlogs);
+  } else {
+    fetchBlogs();
+  }
+})();
+
+/* ================================
+   BLOG DETAIL PAGE
+   ================================ */
+(function () {
+  "use strict";
+
+  const detailTitle = document.getElementById("detailTitle");
+  if (!detailTitle) return;
+
+  let allBlogs = [];
+  let currentBlog = null;
+
+  function getBlogSlugFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("blog");
+  }
+
+  async function fetchBlogs() {
+    try {
+      const response = await fetch("assets/json/blog.json");
+      if (!response.ok) throw new Error("Failed to load blog data");
+      const data = await response.json();
+      allBlogs = data.blogs || [];
+      loadVisitorCounts();
+      initBlogDetail();
+    } catch (error) {
+      console.error("Error loading blog data:", error);
+      showErrorMessage();
+    }
+  }
+
+  function loadVisitorCounts() {
+    const storedVisitors = localStorage.getItem("blogVisitors");
+    const visitorCounts = storedVisitors ? JSON.parse(storedVisitors) : {};
+    allBlogs.forEach(blog => {
+      if (visitorCounts[blog.id] !== undefined) {
+        blog.visitors = visitorCounts[blog.id];
+      }
+    });
+  }
+
+  function saveVisitorCounts() {
+    const visitorCounts = {};
+    allBlogs.forEach(blog => {
+      visitorCounts[blog.id] = blog.visitors;
+    });
+    localStorage.setItem("blogVisitors", JSON.stringify(visitorCounts));
+  }
+
+  function incrementVisitorCount(blogId) {
+    const blog = allBlogs.find(b => b.id === blogId);
+    if (blog) {
+      blog.visitors++;
+      saveVisitorCounts();
+    }
+    return blog ? blog.visitors : 0;
+  }
+
+  function initBlogDetail() {
+    const slug = getBlogSlugFromURL();
+    if (!slug) {
+      showErrorMessage();
+      return;
+    }
+    currentBlog = allBlogs.find(blog => blog.slug === slug);
+    if (!currentBlog) {
+      showErrorMessage();
+      return;
+    }
+    const visitorCount = incrementVisitorCount(currentBlog.id);
+    renderBlogDetail(visitorCount);
+    renderSidebar();
+    renderRelatedPosts();
+    bindShareEvents();
+  }
+
+  function renderBlogDetail(visitorCount) {
+    const pageTitle = document.getElementById("page-title");
+    const pageDescription = document.getElementById("page-description");
+    const detailCategory = document.getElementById("detailCategory");
+    const detailDate = document.getElementById("detailDate");
+    const detailReadTime = document.getElementById("detailReadTime");
+    const detailVisitors = document.getElementById("detailVisitors");
+    const detailImage = document.getElementById("detailImage");
+    const detailContent = document.getElementById("detailContent");
+    const detailAuthor = document.getElementById("detailAuthor");
+    const detailAuthorRole = document.getElementById("detailAuthorRole");
+    const detailTags = document.getElementById("detailTags");
+
+    if (pageTitle) {
+      pageTitle.textContent = `${currentBlog.title} - Cakiweb Solutions`;
+    }
+    if (pageDescription) {
+      pageDescription.textContent = currentBlog.excerpt;
+    }
+    if (detailCategory) {
+      detailCategory.textContent = currentBlog.category;
+    }
+    if (detailTitle) {
+      detailTitle.textContent = currentBlog.title;
+    }
+    const date = new Date(currentBlog.date);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+    if (detailDate) {
+      detailDate.textContent = formattedDate;
+    }
+    if (detailReadTime) {
+      detailReadTime.textContent = currentBlog.readTime;
+    }
+    if (detailVisitors) {
+      detailVisitors.textContent = formatNumber(visitorCount);
+    }
+    if (detailAuthor) {
+      detailAuthor.textContent = currentBlog.author;
+    }
+    if (detailAuthorRole) {
+      detailAuthorRole.textContent = currentBlog.authorRole;
+    }
+    if (detailImage) {
+      detailImage.src = currentBlog.image;
+      detailImage.alt = currentBlog.title;
+    }
+    if (detailContent) {
+      detailContent.innerHTML = currentBlog.content;
+    }
+    if (detailTags) {
+      detailTags.innerHTML = currentBlog.tags
+        .map(tag => `<span class="tag-item">${tag}</span>`)
+        .join("");
+    }
+    updateShareURLs();
+  }
+
+  function renderSidebar() {
+    const sidebarCategories = document.getElementById("sidebarCategories");
+    const sidebarRecent = document.getElementById("sidebarRecent");
+    const sidebarPopular = document.getElementById("sidebarPopular");
+
+    if (sidebarCategories) {
+      const categories = [...new Set(allBlogs.map(blog => blog.category))];
+      sidebarCategories.innerHTML = categories
+        .map(cat => {
+          const count = allBlogs.filter(b => b.category === cat).length;
+          const isActive = cat === currentBlog.category;
+          return `
+            <div class="sidebar-category-item ${isActive ? "active" : ""}" data-category="${cat.toLowerCase()}">
+              <span>${cat}</span>
+              <span class="sidebar-category-count">${count}</span>
+            </div>
+          `;
+        })
+        .join("");
+      sidebarCategories.addEventListener("click", (e) => {
+        const item = e.target.closest(".sidebar-category-item");
+        if (!item) return;
+        window.location.href = `blog.html?category=${item.dataset.category}`;
+      });
+    }
+
+    if (sidebarRecent) {
+      const recentPosts = [...allBlogs]
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .filter(blog => blog.id !== currentBlog.id)
+        .slice(0, 4);
+      sidebarRecent.innerHTML = recentPosts
+        .map(
+          blog => `
+          <div class="sidebar-post-item" data-slug="${blog.slug}">
+            <div class="sidebar-post-image">
+              <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+            </div>
+            <div class="sidebar-post-content">
+              <h5 class="sidebar-post-title">${blog.title}</h5>
+              <div class="sidebar-post-meta">
+                <span><i class="bi bi-calendar3"></i> ${formatDateShort(blog.date)}</span>
+                <span><i class="bi bi-eye"></i> ${formatNumber(blog.visitors)}</span>
+              </div>
+            </div>
+          </div>
+        `
+        )
+        .join("");
+      sidebarRecent.querySelectorAll(".sidebar-post-item").forEach(item => {
+        item.addEventListener("click", () => {
+          window.location.href = `blog-details.html?blog=${item.dataset.slug}`;
+        });
+      });
+    }
+
+    if (sidebarPopular) {
+      const popularPosts = [...allBlogs]
+        .sort((a, b) => b.visitors - a.visitors)
+        .filter(blog => blog.id !== currentBlog.id)
+        .slice(0, 4);
+      sidebarPopular.innerHTML = popularPosts
+        .map(
+          blog => `
+          <div class="sidebar-post-item" data-slug="${blog.slug}">
+            <div class="sidebar-post-image">
+              <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+            </div>
+            <div class="sidebar-post-content">
+              <h5 class="sidebar-post-title">${blog.title}</h5>
+              <div class="sidebar-post-meta">
+                <span><i class="bi bi-eye"></i> ${formatNumber(blog.visitors)} views</span>
+              </div>
+            </div>
+          </div>
+        `
+        )
+        .join("");
+      sidebarPopular.querySelectorAll(".sidebar-post-item").forEach(item => {
+        item.addEventListener("click", () => {
+          window.location.href = `blog-details.html?blog=${item.dataset.slug}`;
+        });
+      });
+    }
+  }
+
+  function renderRelatedPosts() {
+    const relatedPosts = document.getElementById("relatedPosts");
+    if (!relatedPosts) return;
+    const relatedPostsList = allBlogs
+      .filter(
+        blog =>
+          blog.id !== currentBlog.id &&
+          (blog.category === currentBlog.category ||
+            blog.tags.some(tag => currentBlog.tags.includes(tag)))
+      )
+      .slice(0, 3);
+    if (relatedPostsList.length === 0) {
+      const randomPosts = allBlogs
+        .filter(blog => blog.id !== currentBlog.id)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+      relatedPosts.innerHTML = randomPosts
+        .map(blog => createRelatedPostCard(blog))
+        .join("");
+    } else {
+      relatedPosts.innerHTML = relatedPostsList
+        .map(blog => createRelatedPostCard(blog))
+        .join("");
+    }
+    relatedPosts.querySelectorAll(".related-post-card").forEach(card => {
+      card.addEventListener("click", () => {
+        window.location.href = `blog-details.html?blog=${card.dataset.slug}`;
+      });
+    });
+    if (typeof AOS !== "undefined") {
+      setTimeout(() => AOS.refresh(), 100);
+    }
+  }
+
+  function createRelatedPostCard(blog) {
+    const date = new Date(blog.date);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+    return `
+      <div class="related-post-card" data-slug="${blog.slug}" data-aos="fade-up">
+        <div class="related-post-image">
+          <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+        </div>
+        <div class="related-post-body">
+          <span class="related-post-category">${blog.category}</span>
+          <h4 class="related-post-title">${blog.title}</h4>
+          <div class="related-post-meta">
+            <span><i class="bi bi-calendar3"></i> ${formattedDate}</span>
+            <span><i class="bi bi-eye"></i> ${formatNumber(blog.visitors)}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function updateShareURLs() {
+    const shareTwitter = document.getElementById("shareTwitter");
+    const shareFacebook = document.getElementById("shareFacebook");
+    const shareLinkedin = document.getElementById("shareLinkedin");
+    const shareWhatsapp = document.getElementById("shareWhatsapp");
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(currentBlog.title);
+    if (shareTwitter) {
+      shareTwitter.href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+    }
+    if (shareFacebook) {
+      shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    }
+    if (shareLinkedin) {
+      shareLinkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    }
+    if (shareWhatsapp) {
+      shareWhatsapp.href = `https://wa.me/?text=${text}%20${url}`;
+    }
+  }
+
+  function bindShareEvents() {
+    const shareCopy = document.getElementById("shareCopy");
+    if (shareCopy) {
+      shareCopy.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          const icon = shareCopy.querySelector("i");
+          icon.className = "bi bi-check-lg";
+          setTimeout(() => {
+            icon.className = "bi bi-link-45deg";
+          }, 2000);
+        } catch (err) {
+          console.error("Failed to copy:", err);
+        }
+      });
+    }
+  }
+
+  function formatNumber(num) {
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + "k";
+    }
+    return num.toString();
+  }
+
+  function formatDateShort(dateStr) {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
+
+  function showErrorMessage() {
+    const container = document.querySelector(".blog-detail-hero-content");
+    if (container) {
+      container.innerHTML =
+        '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Blog Post Not Found</h3><p class="text-muted">The article you\'re looking for doesn\'t exist.</p><a href="blog.html" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Blog</a></div>';
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fetchBlogs);
+  } else {
+    fetchBlogs();
+  }
+})();
