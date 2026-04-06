@@ -341,39 +341,36 @@
     const viewport = document.querySelector(".products-scroll-viewport");
     if (!section || !track || !viewport) return;
     const cards = track.querySelectorAll(".product-scroll-card");
-    let productsScrollTrigger = null;
 
-    // Cleanup function to remove pin spacers
-    function cleanupProductsScroll() {
-      if (productsScrollTrigger) {
-        productsScrollTrigger.kill();
-        productsScrollTrigger = null;
+    // Kill any existing ScrollTrigger instances for this section
+    ScrollTrigger.getAll().forEach(trigger => {
+      if (trigger.trigger === section || (trigger.vars && trigger.vars.trigger === section)) {
+        trigger.kill();
       }
+    });
 
-      // Remove all pin spacers for this section
-      const pinSpacers = section.parentNode.querySelectorAll(".pin-spacer");
-      pinSpacers.forEach(spacer => {
-        if (spacer.contains(section)) {
-          const sectionClone = section.cloneNode(true);
-          spacer.parentNode.replaceChild(sectionClone, spacer);
-        }
-      });
+    // Kill all ScrollTrigger markers in the section to prevent pin-spacer buildup
+    const pinSpacers = section.querySelectorAll(".pin-spacer");
+    pinSpacers.forEach(spacer => {
+      spacer.style.cssText = "";
+      spacer.classList.remove("pin-spacer");
+    });
 
-      // Reset inline styles on track
-      if (track) {
-        track.style.cssText = "";
-      }
-    }
-
-    // Run cleanup on initialization to clear any leftover pin spacers
-    cleanupProductsScroll();
+    // Reset track to original position
+    gsap.set(track, { x: 0 });
 
     function setupScroll() {
       const trackWidth = track.scrollWidth;
       const viewportWidth = viewport.offsetWidth;
       const scrollDistance = trackWidth - viewportWidth;
       if (scrollDistance <= 0 || window.innerWidth <= 768) {
-        cleanupProductsScroll();
+        // Clean up pin spacer on mobile
+        const pinSpacers = document.querySelectorAll(".pin-spacer");
+        pinSpacers.forEach(spacer => {
+          if (spacer.contains(section)) {
+            spacer.replaceWith(section.cloneNode(true));
+          }
+        });
         return;
       }
 
@@ -392,7 +389,7 @@
         },
       });
 
-      productsScrollTrigger = gsap.to(track, {
+      gsap.to(track, {
         x: -scrollDistance,
         ease: "none",
         scrollTrigger: {
@@ -408,16 +405,10 @@
 
     setupScroll();
 
-    // Cleanup when navigating away from page
-    window.addEventListener("beforeunload", cleanupProductsScroll);
-
     // Refresh ScrollTrigger when page becomes visible again
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) {
-        setTimeout(() => {
-          cleanupProductsScroll();
-          setupScroll();
-        }, 100);
+        setTimeout(() => ScrollTrigger.refresh(), 100);
       }
     });
 
