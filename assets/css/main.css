@@ -974,6 +974,11 @@ section {
 .products .section-header {
   margin-bottom: 40px;
 }
+.products {
+  position: relative;
+  overflow: hidden;
+}
+
 .products-scroll-wrapper {
   position: relative;
   width: 100%;

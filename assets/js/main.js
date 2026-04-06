@@ -341,12 +341,44 @@
     const viewport = document.querySelector(".products-scroll-viewport");
     if (!section || !track || !viewport) return;
     const cards = track.querySelectorAll(".product-scroll-card");
+    let productsScrollTrigger = null;
+
+    // Cleanup function to remove pin spacers
+    function cleanupProductsScroll() {
+      if (productsScrollTrigger) {
+        productsScrollTrigger.kill();
+        productsScrollTrigger = null;
+      }
+
+      // Remove all pin spacers for this section
+      const pinSpacers = section.parentNode.querySelectorAll(".pin-spacer");
+      pinSpacers.forEach(spacer => {
+        if (spacer.contains(section)) {
+          const sectionClone = section.cloneNode(true);
+          spacer.parentNode.replaceChild(sectionClone, spacer);
+        }
+      });
+
+      // Reset inline styles on track
+      if (track) {
+        track.style.cssText = "";
+      }
+    }
+
+    // Run cleanup on initialization to clear any leftover pin spacers
+    cleanupProductsScroll();
+
     function setupScroll() {
       const trackWidth = track.scrollWidth;
       const viewportWidth = viewport.offsetWidth;
       const scrollDistance = trackWidth - viewportWidth;
-      if (scrollDistance <= 0 || window.innerWidth <= 768) return;
+      if (scrollDistance <= 0 || window.innerWidth <= 768) {
+        cleanupProductsScroll();
+        return;
+      }
+
       gsap.set(cards, { opacity: 0, x: 60 });
+
       gsap.to(cards, {
         opacity: 1,
         x: 0,
@@ -359,7 +391,8 @@
           once: true,
         },
       });
-      gsap.to(track, {
+
+      productsScrollTrigger = gsap.to(track, {
         x: -scrollDistance,
         ease: "none",
         scrollTrigger: {
@@ -372,7 +405,22 @@
         },
       });
     }
+
     setupScroll();
+
+    // Cleanup when navigating away from page
+    window.addEventListener("beforeunload", cleanupProductsScroll);
+
+    // Refresh ScrollTrigger when page becomes visible again
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        setTimeout(() => {
+          cleanupProductsScroll();
+          setupScroll();
+        }, 100);
+      }
+    });
+
     window.addEventListener("resize", () => {
       ScrollTrigger.refresh();
     });
