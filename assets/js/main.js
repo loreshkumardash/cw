@@ -3146,4 +3146,82 @@
   } else {
     fetchAndRender();
   }
+
+  /* ========================================
+     Legal Pages - Smooth Scroll & Active Navigation
+     ======================================== */
+  function initLegalPagesNav() {
+    const legalNav = document.querySelectorAll('.legal-nav a');
+    const contentBlocks = document.querySelectorAll('.content-block[id]');
+
+    if (legalNav.length === 0 || contentBlocks.length === 0) return;
+
+    // Smooth scroll for anchor links
+    legalNav.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetBlock = document.getElementById(targetId);
+
+        if (targetBlock) {
+          const offsetTop = targetBlock.offsetTop - 100;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Update active nav on scroll - improved detection
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          updateActiveNav();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    function updateActiveNav() {
+      const scrollPosition = window.pageYOffset + 150;
+      let currentSection = '';
+
+      // Find the section that's currently in view
+      contentBlocks.forEach((block, index) => {
+        const blockTop = block.offsetTop;
+        const blockBottom = blockTop + block.offsetHeight;
+
+        if (scrollPosition >= blockTop && scrollPosition < blockBottom) {
+          currentSection = block.getAttribute('id');
+        }
+      });
+
+      // If no section found, use the last visible one
+      if (!currentSection) {
+        for (let i = contentBlocks.length - 1; i >= 0; i--) {
+          if (scrollPosition >= contentBlocks[i].offsetTop) {
+            currentSection = contentBlocks[i].getAttribute('id');
+            break;
+          }
+        }
+      }
+
+      // Update active state
+      legalNav.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Initial call
+    updateActiveNav();
+  }
+
+  // Initialize legal pages navigation
+  initLegalPagesNav();
 })();
