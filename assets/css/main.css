@@ -978,6 +978,9 @@ section {
   position: relative;
   overflow: hidden;
 }
+.pin-spacer:has(.products) {
+  overflow: hidden !important;
+}
 
 .products-scroll-wrapper {
   position: relative;

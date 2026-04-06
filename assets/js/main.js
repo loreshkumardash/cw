@@ -397,6 +397,7 @@
           start: "top top",
           end: () => `+=${scrollDistance}`,
           pin: true,
+          pinSpacing: true,
           scrub: 1,
           invalidateOnRefresh: true,
         },
