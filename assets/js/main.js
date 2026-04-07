@@ -343,15 +343,18 @@
     const cards = track.querySelectorAll(".product-scroll-card");
 
     // Kill any existing ScrollTrigger instances for this section
-    ScrollTrigger.getAll().forEach(trigger => {
-      if (trigger.trigger === section || (trigger.vars && trigger.vars.trigger === section)) {
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (
+        trigger.trigger === section ||
+        (trigger.vars && trigger.vars.trigger === section)
+      ) {
         trigger.kill();
       }
     });
 
     // Kill all ScrollTrigger markers in the section to prevent pin-spacer buildup
     const pinSpacers = section.querySelectorAll(".pin-spacer");
-    pinSpacers.forEach(spacer => {
+    pinSpacers.forEach((spacer) => {
       spacer.style.cssText = "";
       spacer.classList.remove("pin-spacer");
     });
@@ -366,7 +369,7 @@
       if (scrollDistance <= 0 || window.innerWidth <= 768) {
         // Clean up pin spacer on mobile
         const pinSpacers = document.querySelectorAll(".pin-spacer");
-        pinSpacers.forEach(spacer => {
+        pinSpacers.forEach((spacer) => {
           if (spacer.contains(section)) {
             spacer.replaceWith(section.cloneNode(true));
           }
@@ -703,7 +706,8 @@
       .join("");
   }
   async function initMegaMenu() {
-    const servicesMegaMenuContainer = document.getElementById("mega-menu-services");
+    const servicesMegaMenuContainer =
+      document.getElementById("mega-menu-services");
     if (servicesMegaMenuContainer) {
       try {
         const response = await fetch("assets/json/service.json");
@@ -720,7 +724,8 @@
         console.error("Error loading services mega menu:", error);
       }
     }
-    const productsMegaMenuContainer = document.getElementById("mega-menu-products");
+    const productsMegaMenuContainer =
+      document.getElementById("mega-menu-products");
     if (productsMegaMenuContainer) {
       try {
         const response = await fetch("assets/json/product.json");
@@ -755,10 +760,11 @@
     const whyChooseContainer = document.getElementById("service-why-choose");
     if (whyChooseContainer && service.whyChooseUs) {
       whyChooseContainer.innerHTML = service.whyChooseUs
-        .map(
-          (item, index) => {
-            const iconName = item.icon ? item.icon.replace("bi-", "") : "check-circle";
-            return `
+        .map((item, index) => {
+          const iconName = item.icon
+            ? item.icon.replace("bi-", "")
+            : "check-circle";
+          return `
         <div class="why-choose-item" data-aos="fade-up" data-aos-delay="${index * 100}">
           <div class="why-choose-icon">
             <i class="bi bi-${iconName}"></i>
@@ -766,8 +772,7 @@
           <p>${item.text || item}</p>
         </div>
       `;
-          }
-        )
+        })
         .join("");
     }
     const benefitsContainer = document.getElementById("service-benefits");
@@ -953,10 +958,11 @@
     const whyChooseContainer = document.getElementById("product-why-choose");
     if (whyChooseContainer && product.whyChooseUs) {
       whyChooseContainer.innerHTML = product.whyChooseUs
-        .map(
-          (item, index) => {
-            const iconName = item.icon ? item.icon.replace("bi-", "") : "check-circle";
-            return `
+        .map((item, index) => {
+          const iconName = item.icon
+            ? item.icon.replace("bi-", "")
+            : "check-circle";
+          return `
         <div class="why-choose-item" data-aos="fade-up" data-aos-delay="${index * 100}">
           <div class="why-choose-icon">
             <i class="bi bi-${iconName}"></i>
@@ -964,8 +970,7 @@
           <p>${item.text || item}</p>
         </div>
       `;
-          }
-        )
+        })
         .join("");
     }
     const benefitsContainer = document.getElementById("product-benefits");
@@ -986,14 +991,14 @@
     const featuresContainer = document.getElementById("product-features");
     if (featuresContainer && product.features) {
       featuresContainer.innerHTML = product.features
-        .map(
-          (feature) => {
-            const iconName = feature.icon ? feature.icon.replace("bi-", "") : "check2";
-            return `
+        .map((feature) => {
+          const iconName = feature.icon
+            ? feature.icon.replace("bi-", "")
+            : "check2";
+          return `
         <li><i class="bi bi-${iconName}"></i> ${feature.text || feature}</li>
       `;
-          }
-        )
+        })
         .join("");
     }
     const deliverablesContainer = document.getElementById(
@@ -1045,7 +1050,9 @@
       const iconName = product.icon.replace("bi-", "");
       iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
     }
-    const sidebarProductTitle = document.getElementById("sidebar-product-title");
+    const sidebarProductTitle = document.getElementById(
+      "sidebar-product-title",
+    );
     if (sidebarProductTitle) sidebarProductTitle.textContent = product.title;
     const allProductsContainer = document.getElementById("all-products-list");
     if (allProductsContainer) {
@@ -1077,9 +1084,9 @@
       clientsTrack.innerHTML = allClients
         .map(
           (client) => `
-        <a href="${client.website || '#'}" target="_blank" rel="noopener noreferrer" class="client-logo">
+        <a href="${client.website || "#"}" target="_blank" rel="noopener noreferrer" class="client-logo">
           <div class="client-logo-icon">
-            <img src="${client.logo || ''}" alt="${client.name}" loading="lazy">
+            <img src="${client.logo || ""}" alt="${client.name}" loading="lazy">
           </div>
           <span class="client-logo-name">${client.name}</span>
         </a>
@@ -1123,10 +1130,10 @@
   }
   window.toggleFaq = toggleFaq;
   function initButtonShine() {
-    const buttons = document.querySelectorAll('.btn');
+    const buttons = document.querySelectorAll(".btn");
     buttons.forEach((btn, index) => {
       setTimeout(() => {
-        btn.classList.add('shine-animation');
+        btn.classList.add("shine-animation");
       }, index * 500);
     });
   }
@@ -1170,7 +1177,8 @@
 
     if (diffDays === 1) return "Today";
     if (diffDays === 7) return "1 week ago";
-    if (diffDays <= 30) return `${Math.floor(diffDays / 7)} week${Math.floor(diffDays / 7) > 1 ? "s" : ""} ago`;
+    if (diffDays <= 30)
+      return `${Math.floor(diffDays / 7)} week${Math.floor(diffDays / 7) > 1 ? "s" : ""} ago`;
     if (diffDays <= 60) return "1 month ago";
     return `${Math.floor(diffDays / 30)} months ago`;
   }
@@ -1197,7 +1205,9 @@
     `;
 
     categories.forEach((category) => {
-      const count = activeJobs.filter((job) => job.category === category.id).length;
+      const count = activeJobs.filter(
+        (job) => job.category === category.id,
+      ).length;
       if (count > 0) {
         const tab = document.createElement("button");
         tab.className = "category-tab";
@@ -1218,7 +1228,9 @@
     const tab = e.target.closest(".category-tab");
     if (!tab) return;
 
-    document.querySelectorAll(".category-tab").forEach((t) => t.classList.remove("active"));
+    document
+      .querySelectorAll(".category-tab")
+      .forEach((t) => t.classList.remove("active"));
     tab.classList.add("active");
     currentCategory = tab.dataset.category;
     renderJobs();
@@ -1228,9 +1240,13 @@
     if (!careerData) return;
 
     const activeJobs = getActiveJobs();
-    const locations = [...new Set(activeJobs.map((job) => job.location))].sort();
+    const locations = [
+      ...new Set(activeJobs.map((job) => job.location)),
+    ].sort();
     const types = [...new Set(activeJobs.map((job) => job.type))].sort();
-    const experiences = [...new Set(activeJobs.map((job) => job.experience))].sort();
+    const experiences = [
+      ...new Set(activeJobs.map((job) => job.experience)),
+    ].sort();
 
     const locationFilterEl = document.getElementById("location-filter");
     const typeFilterEl = document.getElementById("type-filter");
@@ -1293,7 +1309,7 @@
           job.title.toLowerCase().includes(query) ||
           job.shortDescription.toLowerCase().includes(query) ||
           job.skills.some((skill) => skill.toLowerCase().includes(query)) ||
-          job.description.toLowerCase().includes(query)
+          job.description.toLowerCase().includes(query),
       );
     }
 
@@ -1379,7 +1395,10 @@
   }
 
   function renderJobCard(job) {
-    const skillsHtml = job.skills.slice(0, 4).map((skill) => `<span class="job-skill">${skill}</span>`).join("");
+    const skillsHtml = job.skills
+      .slice(0, 4)
+      .map((skill) => `<span class="job-skill">${skill}</span>`)
+      .join("");
     const moreSkills = job.skills.length > 4 ? `+${job.skills.length - 4}` : "";
 
     return `
@@ -1467,8 +1486,12 @@
         if (experienceFilterEl) experienceFilterEl.value = "";
 
         currentCategory = "all";
-        document.querySelectorAll(".category-tab").forEach((t) => t.classList.remove("active"));
-        document.querySelector('.category-tab[data-category="all"]')?.classList.add("active");
+        document
+          .querySelectorAll(".category-tab")
+          .forEach((t) => t.classList.remove("active"));
+        document
+          .querySelector('.category-tab[data-category="all"]')
+          ?.classList.add("active");
 
         renderJobs();
       });
@@ -1493,7 +1516,7 @@
 
   function findJob(data, params) {
     if (!data || !data.jobs) return null;
-    
+
     if (params.slug) {
       return data.jobs.find((job) => job.slug === params.slug);
     }
@@ -1565,15 +1588,15 @@
     `;
   }
 
-  window.openApplyModal = function(jobTitle, contactEmail) {
+  window.openApplyModal = function (jobTitle, contactEmail) {
     const modal = document.getElementById("apply-modal");
     const modalJobTitle = document.getElementById("modal-job-title");
-    
+
     if (modal) {
       modalJobTitle.textContent = jobTitle;
       modal.classList.add("active");
       document.body.style.overflow = "hidden";
-      
+
       // Store job info for form submission
       modal.dataset.jobTitle = jobTitle;
       modal.dataset.contactEmail = contactEmail;
@@ -1592,7 +1615,7 @@
           <i class="bi bi-check-circle-fill"></i>
           <span>${item}</span>
         </li>
-      `
+      `,
       )
       .join("");
 
@@ -1603,7 +1626,7 @@
           <i class="bi bi-check2-circle"></i>
           <span>${item}</span>
         </li>
-      `
+      `,
       )
       .join("");
 
@@ -1615,7 +1638,7 @@
           <i class="bi bi-star-fill"></i>
           <span>${item}</span>
         </li>
-      `
+      `,
           )
           .join("")
       : "";
@@ -1629,7 +1652,7 @@
           </div>
           <h4>${item}</h4>
         </div>
-      `
+      `,
       )
       .join("");
 
@@ -1733,7 +1756,7 @@
             <h3>Share This Job</h3>
           </div>
           <div class="sidebar-share-links">
-            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent('Check out: ' + job.title + ' at Cakiweb Solutions')}&url=${encodeURIComponent(currentUrl)}" target="_blank" class="sidebar-share-link" title="Share on Twitter">
+            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent("Check out: " + job.title + " at Cakiweb Solutions")}&url=${encodeURIComponent(currentUrl)}" target="_blank" class="sidebar-share-link" title="Share on Twitter">
               <i class="bi bi-twitter-x"></i>
             </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}" target="_blank" class="sidebar-share-link" title="Share on Facebook">
@@ -1742,7 +1765,7 @@
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(job.title)}" target="_blank" class="sidebar-share-link" title="Share on LinkedIn">
               <i class="bi bi-linkedin"></i>
             </a>
-            <a href="mailto:?subject=${encodeURIComponent('Job Opportunity: ' + job.title)}&body=${encodeURIComponent('Check out this job: ' + currentUrl)}" class="sidebar-share-link" title="Share via Email">
+            <a href="mailto:?subject=${encodeURIComponent("Job Opportunity: " + job.title)}&body=${encodeURIComponent("Check out this job: " + currentUrl)}" class="sidebar-share-link" title="Share via Email">
               <i class="bi bi-envelope"></i>
             </a>
           </div>
@@ -1775,8 +1798,12 @@
   }
 
   async function initCareerPage() {
-    if (!document.getElementById("job-search") && !document.getElementById("category-tabs")) return;
-    
+    if (
+      !document.getElementById("job-search") &&
+      !document.getElementById("category-tabs")
+    )
+      return;
+
     await loadCareerData();
     if (!careerData) {
       console.error("Failed to load career data");
@@ -1835,7 +1862,7 @@
     const successCloseBtn = document.getElementById("success-close-btn");
 
     // Close modal handlers
-    [closeBtn, cancelBtn].forEach(btn => {
+    [closeBtn, cancelBtn].forEach((btn) => {
       if (btn) {
         btn.addEventListener("click", closeApplyModal);
       }
@@ -1874,7 +1901,7 @@
     if (modal) {
       modal.classList.remove("active");
       document.body.style.overflow = "";
-      
+
       // Reset form
       const form = document.getElementById("apply-form");
       if (form) {
@@ -1919,20 +1946,20 @@
     });
 
     // Drag and drop
-    ["dragenter", "dragover", "dragleave", "drop"].forEach(eventName => {
+    ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
       fileUploadArea.addEventListener(eventName, (e) => {
         e.preventDefault();
         e.stopPropagation();
       });
     });
 
-    ["dragenter", "dragover"].forEach(eventName => {
+    ["dragenter", "dragover"].forEach((eventName) => {
       fileUploadArea.addEventListener(eventName, () => {
         fileUploadArea.classList.add("dragover");
       });
     });
 
-    ["dragleave", "drop"].forEach(eventName => {
+    ["dragleave", "drop"].forEach((eventName) => {
       fileUploadArea.addEventListener(eventName, () => {
         fileUploadArea.classList.remove("dragover");
       });
@@ -1959,7 +1986,7 @@
       const allowedTypes = [
         "application/pdf",
         "application/msword",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       ];
 
       if (!allowedTypes.includes(file.type)) {
@@ -1993,7 +2020,7 @@
       const k = 1024;
       const sizes = ["Bytes", "KB", "MB"];
       const i = Math.floor(Math.log(bytes) / Math.log(k));
-      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + " " + sizes[i];
+      return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + " " + sizes[i];
     }
 
     window.resetFileUpload = resetFileUpload;
@@ -2025,7 +2052,8 @@
       // Collect form data
       const formData = new FormData(form);
       const jobTitle = modal?.dataset.jobTitle || "";
-      const contactEmail = modal?.dataset.contactEmail || "cakiweb.com@gmail.com";
+      const contactEmail =
+        modal?.dataset.contactEmail || "cakiweb.com@gmail.com";
 
       // Prepare email template parameters
       const templateParams = {
@@ -2049,17 +2077,17 @@
           month: "long",
           day: "numeric",
           hour: "2-digit",
-          minute: "2-digit"
-        })
+          minute: "2-digit",
+        }),
       };
 
       // Send email using EmailJS
       // Replace with your actual Service ID and Template ID from EmailJS dashboard
       if (typeof emailjs !== "undefined") {
         await emailjs.send(
-          "service_ihbrdo7",     // Replace with your EmailJS Service ID
-          "YOUR_TEMPLATE_ID",    // Replace with your EmailJS Template ID
-          templateParams
+          "service_ihbrdo7", // Replace with your EmailJS Service ID
+          "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+          templateParams,
         );
       } else {
         console.warn("EmailJS not loaded. Application data:", templateParams);
@@ -2070,12 +2098,17 @@
       if (successMessage) successMessage.style.display = "block";
 
       console.log("Application submitted successfully for:", jobTitle);
-      console.log("Applicant:", templateParams.first_name, templateParams.last_name);
+      console.log(
+        "Applicant:",
+        templateParams.first_name,
+        templateParams.last_name,
+      );
       console.log("Email:", templateParams.email);
-
     } catch (error) {
       console.error("Error submitting application:", error);
-      alert("There was an error submitting your application. Please try again or contact us directly.");
+      alert(
+        "There was an error submitting your application. Please try again or contact us directly.",
+      );
     } finally {
       // Reset button state
       if (submitBtn) {
@@ -2125,6 +2158,23 @@
   } else {
     init();
   }
+
+  // View More toggle (used globally across pages)
+  window.toggleStory = function () {
+    const storyFull = document.getElementById("story-full");
+    const btn = document.getElementById("view-more-btn");
+    const btnText = document.getElementById("view-more-text");
+
+    if (storyFull.style.display === "none") {
+      storyFull.style.display = "block";
+      btnText.textContent = "View Less";
+      btn.classList.add("expanded");
+    } else {
+      storyFull.style.display = "none";
+      btnText.textContent = "View More";
+      btn.classList.remove("expanded");
+    }
+  };
 })();
 
 /* ================================
@@ -2174,7 +2224,7 @@
   function loadVisitorCounts() {
     const storedVisitors = localStorage.getItem("blogVisitors");
     const visitorCounts = storedVisitors ? JSON.parse(storedVisitors) : {};
-    allBlogs.forEach(blog => {
+    allBlogs.forEach((blog) => {
       if (visitorCounts[blog.id] !== undefined) {
         blog.visitors = visitorCounts[blog.id];
       }
@@ -2193,9 +2243,9 @@
   }
 
   function populateCategories() {
-    const categories = [...new Set(allBlogs.map(blog => blog.category))];
+    const categories = [...new Set(allBlogs.map((blog) => blog.category))];
     if (categoryFilter) {
-      categories.forEach(cat => {
+      categories.forEach((cat) => {
         const option = document.createElement("option");
         option.value = cat.toLowerCase();
         option.textContent = cat;
@@ -2211,7 +2261,7 @@
       allPill.dataset.category = "all";
       allPill.textContent = "All";
       categoryPills.appendChild(allPill);
-      categories.forEach(cat => {
+      categories.forEach((cat) => {
         const pill = document.createElement("button");
         pill.className = `category-pill ${activeCategory === cat.toLowerCase() ? "active" : ""}`;
         pill.dataset.category = cat.toLowerCase();
@@ -2225,18 +2275,18 @@
     filteredBlogs = [...allBlogs];
     if (activeCategory !== "all") {
       filteredBlogs = filteredBlogs.filter(
-        blog => blog.category.toLowerCase() === activeCategory
+        (blog) => blog.category.toLowerCase() === activeCategory,
       );
     }
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       filteredBlogs = filteredBlogs.filter(
-        blog =>
+        (blog) =>
           blog.title.toLowerCase().includes(query) ||
           blog.excerpt.toLowerCase().includes(query) ||
           blog.category.toLowerCase().includes(query) ||
-          blog.tags.some(tag => tag.toLowerCase().includes(query)) ||
-          blog.author.toLowerCase().includes(query)
+          blog.tags.some((tag) => tag.toLowerCase().includes(query)) ||
+          blog.author.toLowerCase().includes(query),
       );
     }
     switch (sortValue) {
@@ -2292,7 +2342,7 @@
     });
     const initials = blog.author
       .split(" ")
-      .map(n => n[0])
+      .map((n) => n[0])
       .join("")
       .toUpperCase();
     return `
@@ -2338,7 +2388,10 @@
 
   function updateResultsCount() {
     if (resultsCount) {
-      const showing = Math.min(currentPage * BLOGS_PER_PAGE, filteredBlogs.length);
+      const showing = Math.min(
+        currentPage * BLOGS_PER_PAGE,
+        filteredBlogs.length,
+      );
       resultsCount.textContent = `Showing ${showing} of ${filteredBlogs.length} articles`;
     }
   }
@@ -2370,9 +2423,9 @@
       categoryPills.addEventListener("click", (e) => {
         const pill = e.target.closest(".category-pill");
         if (!pill) return;
-        categoryPills.querySelectorAll(".category-pill").forEach(p =>
-          p.classList.remove("active")
-        );
+        categoryPills
+          .querySelectorAll(".category-pill")
+          .forEach((p) => p.classList.remove("active"));
         pill.classList.add("active");
         activeCategory = pill.dataset.category;
         if (categoryFilter) {
@@ -2396,7 +2449,7 @@
         if (blogSearch) blogSearch.value = "";
         if (categoryFilter) categoryFilter.value = "all";
         if (sortFilter) sortFilter.value = "newest";
-        categoryPills.querySelectorAll(".category-pill").forEach(p => {
+        categoryPills.querySelectorAll(".category-pill").forEach((p) => {
           p.classList.toggle("active", p.dataset.category === "all");
         });
         applyFiltersAndSort();
@@ -2445,7 +2498,7 @@
   function loadVisitorCounts() {
     const storedVisitors = localStorage.getItem("blogVisitors");
     const visitorCounts = storedVisitors ? JSON.parse(storedVisitors) : {};
-    allBlogs.forEach(blog => {
+    allBlogs.forEach((blog) => {
       if (visitorCounts[blog.id] !== undefined) {
         blog.visitors = visitorCounts[blog.id];
       }
@@ -2454,14 +2507,14 @@
 
   function saveVisitorCounts() {
     const visitorCounts = {};
-    allBlogs.forEach(blog => {
+    allBlogs.forEach((blog) => {
       visitorCounts[blog.id] = blog.visitors;
     });
     localStorage.setItem("blogVisitors", JSON.stringify(visitorCounts));
   }
 
   function incrementVisitorCount(blogId) {
-    const blog = allBlogs.find(b => b.id === blogId);
+    const blog = allBlogs.find((b) => b.id === blogId);
     if (blog) {
       blog.visitors++;
       saveVisitorCounts();
@@ -2475,7 +2528,7 @@
       showErrorMessage();
       return;
     }
-    currentBlog = allBlogs.find(blog => blog.slug === slug);
+    currentBlog = allBlogs.find((blog) => blog.slug === slug);
     if (!currentBlog) {
       showErrorMessage();
       return;
@@ -2542,7 +2595,7 @@
     }
     if (detailTags) {
       detailTags.innerHTML = currentBlog.tags
-        .map(tag => `<span class="tag-item">${tag}</span>`)
+        .map((tag) => `<span class="tag-item">${tag}</span>`)
         .join("");
     }
     updateShareURLs();
@@ -2554,10 +2607,10 @@
     const sidebarPopular = document.getElementById("sidebarPopular");
 
     if (sidebarCategories) {
-      const categories = [...new Set(allBlogs.map(blog => blog.category))];
+      const categories = [...new Set(allBlogs.map((blog) => blog.category))];
       sidebarCategories.innerHTML = categories
-        .map(cat => {
-          const count = allBlogs.filter(b => b.category === cat).length;
+        .map((cat) => {
+          const count = allBlogs.filter((b) => b.category === cat).length;
           const isActive = cat === currentBlog.category;
           return `
             <div class="sidebar-category-item ${isActive ? "active" : ""}" data-category="${cat.toLowerCase()}">
@@ -2577,11 +2630,11 @@
     if (sidebarRecent) {
       const recentPosts = [...allBlogs]
         .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .filter(blog => blog.id !== currentBlog.id)
+        .filter((blog) => blog.id !== currentBlog.id)
         .slice(0, 4);
       sidebarRecent.innerHTML = recentPosts
         .map(
-          blog => `
+          (blog) => `
           <div class="sidebar-post-item" data-slug="${blog.slug}">
             <div class="sidebar-post-image">
               <img src="${blog.image}" alt="${blog.title}" loading="lazy">
@@ -2594,10 +2647,10 @@
               </div>
             </div>
           </div>
-        `
+        `,
         )
         .join("");
-      sidebarRecent.querySelectorAll(".sidebar-post-item").forEach(item => {
+      sidebarRecent.querySelectorAll(".sidebar-post-item").forEach((item) => {
         item.addEventListener("click", () => {
           window.location.href = `blog-details.html?blog=${item.dataset.slug}`;
         });
@@ -2607,11 +2660,11 @@
     if (sidebarPopular) {
       const popularPosts = [...allBlogs]
         .sort((a, b) => b.visitors - a.visitors)
-        .filter(blog => blog.id !== currentBlog.id)
+        .filter((blog) => blog.id !== currentBlog.id)
         .slice(0, 4);
       sidebarPopular.innerHTML = popularPosts
         .map(
-          blog => `
+          (blog) => `
           <div class="sidebar-post-item" data-slug="${blog.slug}">
             <div class="sidebar-post-image">
               <img src="${blog.image}" alt="${blog.title}" loading="lazy">
@@ -2623,10 +2676,10 @@
               </div>
             </div>
           </div>
-        `
+        `,
         )
         .join("");
-      sidebarPopular.querySelectorAll(".sidebar-post-item").forEach(item => {
+      sidebarPopular.querySelectorAll(".sidebar-post-item").forEach((item) => {
         item.addEventListener("click", () => {
           window.location.href = `blog-details.html?blog=${item.dataset.slug}`;
         });
@@ -2639,26 +2692,26 @@
     if (!relatedPosts) return;
     const relatedPostsList = allBlogs
       .filter(
-        blog =>
+        (blog) =>
           blog.id !== currentBlog.id &&
           (blog.category === currentBlog.category ||
-            blog.tags.some(tag => currentBlog.tags.includes(tag)))
+            blog.tags.some((tag) => currentBlog.tags.includes(tag))),
       )
       .slice(0, 3);
     if (relatedPostsList.length === 0) {
       const randomPosts = allBlogs
-        .filter(blog => blog.id !== currentBlog.id)
+        .filter((blog) => blog.id !== currentBlog.id)
         .sort(() => Math.random() - 0.5)
         .slice(0, 3);
       relatedPosts.innerHTML = randomPosts
-        .map(blog => createRelatedPostCard(blog))
+        .map((blog) => createRelatedPostCard(blog))
         .join("");
     } else {
       relatedPosts.innerHTML = relatedPostsList
-        .map(blog => createRelatedPostCard(blog))
+        .map((blog) => createRelatedPostCard(blog))
         .join("");
     }
-    relatedPosts.querySelectorAll(".related-post-card").forEach(card => {
+    relatedPosts.querySelectorAll(".related-post-card").forEach((card) => {
       card.addEventListener("click", () => {
         window.location.href = `blog-details.html?blog=${card.dataset.slug}`;
       });
@@ -2774,7 +2827,9 @@
 
   const portfolioFilters = document.getElementById("portfolioFilters");
   const portfolioNoResults = document.getElementById("portfolioNoResults");
-  const portfolioResultsCount = document.getElementById("portfolioResultsCount");
+  const portfolioResultsCount = document.getElementById(
+    "portfolioResultsCount",
+  );
   const totalProjectsEl = document.getElementById("totalProjects");
   const totalCategoriesEl = document.getElementById("totalCategories");
 
@@ -2804,8 +2859,8 @@
 
   function buildFilters() {
     if (!portfolioFilters) return;
-    const categories = [...new Set(allProjects.map(p => p.category))];
-    const filterKeys = [...new Set(allProjects.map(p => p.filterKey))];
+    const categories = [...new Set(allProjects.map((p) => p.category))];
+    const filterKeys = [...new Set(allProjects.map((p) => p.filterKey))];
 
     // "All" button
     const allBtn = document.createElement("button");
@@ -2815,8 +2870,8 @@
     portfolioFilters.appendChild(allBtn);
 
     // Category buttons using filterKey
-    filterKeys.forEach(key => {
-      const project = allProjects.find(p => p.filterKey === key);
+    filterKeys.forEach((key) => {
+      const project = allProjects.find((p) => p.filterKey === key);
       const btn = document.createElement("button");
       btn.className = `portfolio-filter-btn ${activeFilter === key ? "active" : ""}`;
       btn.dataset.filter = key;
@@ -2826,19 +2881,22 @@
   }
 
   function renderProjects() {
-    let filtered = activeFilter === "all"
-      ? [...allProjects]
-      : allProjects.filter(p => p.filterKey === activeFilter);
+    let filtered =
+      activeFilter === "all"
+        ? [...allProjects]
+        : allProjects.filter((p) => p.filterKey === activeFilter);
 
     if (filtered.length === 0) {
       portfolioGrid.innerHTML = "";
       if (portfolioNoResults) portfolioNoResults.classList.remove("d-none");
-      if (portfolioResultsCount) portfolioResultsCount.textContent = "0 projects";
+      if (portfolioResultsCount)
+        portfolioResultsCount.textContent = "0 projects";
       return;
     }
 
     if (portfolioNoResults) portfolioNoResults.classList.add("d-none");
-    if (portfolioResultsCount) portfolioResultsCount.textContent = `${filtered.length} project${filtered.length !== 1 ? "s" : ""}`;
+    if (portfolioResultsCount)
+      portfolioResultsCount.textContent = `${filtered.length} project${filtered.length !== 1 ? "s" : ""}`;
 
     portfolioGrid.innerHTML = filtered
       .map((project, index) => createProjectCard(project, index))
@@ -2883,9 +2941,9 @@
     portfolioFilters.addEventListener("click", (e) => {
       const btn = e.target.closest(".portfolio-filter-btn");
       if (!btn) return;
-      portfolioFilters.querySelectorAll(".portfolio-filter-btn").forEach(b =>
-        b.classList.remove("active")
-      );
+      portfolioFilters
+        .querySelectorAll(".portfolio-filter-btn")
+        .forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       activeFilter = btn.dataset.filter;
       renderProjects();
@@ -2895,7 +2953,7 @@
   function updateStats() {
     if (totalProjectsEl) totalProjectsEl.textContent = allProjects.length;
     if (totalCategoriesEl) {
-      const cats = new Set(allProjects.map(p => p.category));
+      const cats = new Set(allProjects.map((p) => p.category));
       totalCategoriesEl.textContent = cats.size;
     }
   }
@@ -2943,7 +3001,7 @@
       showErrorMessage();
       return;
     }
-    currentProject = allProjects.find(p => p.slug === slug);
+    currentProject = allProjects.find((p) => p.slug === slug);
     if (!currentProject) {
       showErrorMessage();
       return;
@@ -2957,8 +3015,10 @@
     // Page meta
     const pageTitle = document.getElementById("page-title");
     const pageDescription = document.getElementById("page-description");
-    if (pageTitle) pageTitle.textContent = `${currentProject.title} - Cakiweb Solutions`;
-    if (pageDescription) pageDescription.textContent = currentProject.shortDescription;
+    if (pageTitle)
+      pageTitle.textContent = `${currentProject.title} - Cakiweb Solutions`;
+    if (pageDescription)
+      pageDescription.textContent = currentProject.shortDescription;
 
     // Hero
     const detailCategory = document.getElementById("detailCategory");
@@ -2970,7 +3030,8 @@
     if (detailCategory) detailCategory.textContent = currentProject.category;
     if (detailTitle) detailTitle.textContent = currentProject.title;
     if (detailClient) detailClient.textContent = currentProject.client;
-    if (detailDate) detailDate.textContent = formatDate(currentProject.projectDate);
+    if (detailDate)
+      detailDate.textContent = formatDate(currentProject.projectDate);
     if (detailDuration) detailDuration.textContent = currentProject.duration;
     if (detailRole) detailRole.textContent = currentProject.role;
 
@@ -2983,35 +3044,45 @@
     }
     if (portfolioThumbs && currentProject.gallery) {
       portfolioThumbs.innerHTML = currentProject.gallery
-        .map((img, i) => `
-          <div class="portfolio-thumb-item ${i === 0 ? 'active' : ''}" data-index="${i}">
+        .map(
+          (img, i) => `
+          <div class="portfolio-thumb-item ${i === 0 ? "active" : ""}" data-index="${i}">
             <img src="${img}" alt="Gallery image ${i + 1}">
           </div>
-        `).join("");
+        `,
+        )
+        .join("");
       portfolioThumbs.addEventListener("click", (e) => {
         const thumb = e.target.closest(".portfolio-thumb-item");
         if (!thumb) return;
-        portfolioThumbs.querySelectorAll(".portfolio-thumb-item").forEach(t => t.classList.remove("active"));
+        portfolioThumbs
+          .querySelectorAll(".portfolio-thumb-item")
+          .forEach((t) => t.classList.remove("active"));
         thumb.classList.add("active");
         if (detailMainImage) {
-          detailMainImage.src = currentProject.gallery[parseInt(thumb.dataset.index)];
+          detailMainImage.src =
+            currentProject.gallery[parseInt(thumb.dataset.index)];
         }
       });
     }
 
     // Description
     const detailDescription = document.getElementById("detailDescription");
-    if (detailDescription) detailDescription.innerHTML = currentProject.fullDescription;
+    if (detailDescription)
+      detailDescription.innerHTML = currentProject.fullDescription;
 
     // Technologies
     const detailTechnologies = document.getElementById("detailTechnologies");
     if (detailTechnologies && currentProject.technologies) {
       detailTechnologies.innerHTML = currentProject.technologies
-        .map(t => `<span class="tech-tag">${t}</span>`).join("");
+        .map((t) => `<span class="tech-tag">${t}</span>`)
+        .join("");
     }
 
     // Testimonial
-    const detailTestimonialWrap = document.getElementById("detailTestimonialWrap");
+    const detailTestimonialWrap = document.getElementById(
+      "detailTestimonialWrap",
+    );
     if (detailTestimonialWrap && currentProject.testimonial) {
       detailTestimonialWrap.innerHTML = `
         <div class="testimonial-quote-box">
@@ -3049,8 +3120,9 @@
     if (!allProjectsList) return;
 
     allProjectsList.innerHTML = allProjects
-      .filter(p => p.id !== currentProject.id)
-      .map(p => `
+      .filter((p) => p.id !== currentProject.id)
+      .map(
+        (p) => `
         <div class="all-project-item" data-slug="${p.slug}">
           <div class="all-project-thumb">
             <img src="${p.image}" alt="${p.title}">
@@ -3060,9 +3132,11 @@
             <span>${p.category}</span>
           </div>
         </div>
-      `).join("");
+      `,
+      )
+      .join("");
 
-    allProjectsList.querySelectorAll(".all-project-item").forEach(item => {
+    allProjectsList.querySelectorAll(".all-project-item").forEach((item) => {
       item.addEventListener("click", () => {
         window.location.href = `portfolio-details.html?project=${item.dataset.slug}`;
       });
@@ -3074,7 +3148,7 @@
     if (!relatedProjects) return;
 
     const related = allProjects
-      .filter(p => p.id !== currentProject.id)
+      .filter((p) => p.id !== currentProject.id)
       .sort((a, b) => {
         const aMatch = a.filterKey === currentProject.filterKey ? 1 : 0;
         const bMatch = b.filterKey === currentProject.filterKey ? 1 : 0;
@@ -3083,7 +3157,8 @@
       .slice(0, 3);
 
     relatedProjects.innerHTML = related
-      .map((p, i) => `
+      .map(
+        (p, i) => `
         <div class="related-project-card" data-slug="${p.slug}" data-aos="fade-up" data-aos-delay="${i * 100}">
           <div class="related-project-image">
             <img src="${p.image}" alt="${p.title}" loading="lazy">
@@ -3094,13 +3169,17 @@
             <p class="related-project-desc">${p.shortDescription}</p>
           </div>
         </div>
-      `).join("");
+      `,
+      )
+      .join("");
 
-    relatedProjects.querySelectorAll(".related-project-card").forEach(card => {
-      card.addEventListener("click", () => {
-        window.location.href = `portfolio-details.html?project=${card.dataset.slug}`;
+    relatedProjects
+      .querySelectorAll(".related-project-card")
+      .forEach((card) => {
+        card.addEventListener("click", () => {
+          window.location.href = `portfolio-details.html?project=${card.dataset.slug}`;
+        });
       });
-    });
 
     if (typeof AOS !== "undefined") {
       setTimeout(() => AOS.refresh(), 100);
@@ -3111,7 +3190,7 @@
     const date = new Date(dateStr);
     return date.toLocaleDateString("en-US", {
       month: "long",
-      year: "numeric"
+      year: "numeric",
     });
   }
 
@@ -3148,13 +3227,14 @@
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 3);
 
-      indexBlogGrid.innerHTML = blogs.map((blog, i) => {
-        const date = new Date(blog.date);
-        const formattedDate = date.toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-        });
-        return `
+      indexBlogGrid.innerHTML = blogs
+        .map((blog, i) => {
+          const date = new Date(blog.date);
+          const formattedDate = date.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+          });
+          return `
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${(i + 1) * 100}">
             <article class="blog-card">
               <div class="blog-img">
@@ -3171,7 +3251,8 @@
             </article>
           </div>
         `;
-      }).join("");
+        })
+        .join("");
 
       if (typeof AOS !== "undefined") {
         setTimeout(() => AOS.refresh(), 100);
@@ -3191,23 +3272,23 @@
      Legal Pages - Smooth Scroll & Active Navigation
      ======================================== */
   function initLegalPagesNav() {
-    const legalNav = document.querySelectorAll('.legal-nav a');
-    const contentBlocks = document.querySelectorAll('.content-block[id]');
+    const legalNav = document.querySelectorAll(".legal-nav a");
+    const contentBlocks = document.querySelectorAll(".content-block[id]");
 
     if (legalNav.length === 0 || contentBlocks.length === 0) return;
 
     // Smooth scroll for anchor links
-    legalNav.forEach(link => {
-      link.addEventListener('click', function(e) {
+    legalNav.forEach((link) => {
+      link.addEventListener("click", function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
+        const targetId = this.getAttribute("href").substring(1);
         const targetBlock = document.getElementById(targetId);
 
         if (targetBlock) {
           const offsetTop = targetBlock.offsetTop - 100;
           window.scrollTo({
             top: offsetTop,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
       });
@@ -3215,9 +3296,9 @@
 
     // Update active nav on scroll - improved detection
     let ticking = false;
-    window.addEventListener('scroll', function() {
+    window.addEventListener("scroll", function () {
       if (!ticking) {
-        window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function () {
           updateActiveNav();
           ticking = false;
         });
@@ -3227,7 +3308,7 @@
 
     function updateActiveNav() {
       const scrollPosition = window.pageYOffset + 150;
-      let currentSection = '';
+      let currentSection = "";
 
       // Find the section that's currently in view
       contentBlocks.forEach((block, index) => {
@@ -3235,7 +3316,7 @@
         const blockBottom = blockTop + block.offsetHeight;
 
         if (scrollPosition >= blockTop && scrollPosition < blockBottom) {
-          currentSection = block.getAttribute('id');
+          currentSection = block.getAttribute("id");
         }
       });
 
@@ -3243,17 +3324,17 @@
       if (!currentSection) {
         for (let i = contentBlocks.length - 1; i >= 0; i--) {
           if (scrollPosition >= contentBlocks[i].offsetTop) {
-            currentSection = contentBlocks[i].getAttribute('id');
+            currentSection = contentBlocks[i].getAttribute("id");
             break;
           }
         }
       }
 
       // Update active state
-      legalNav.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-          link.classList.add('active');
+      legalNav.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${currentSection}`) {
+          link.classList.add("active");
         }
       });
     }
