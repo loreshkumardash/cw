@@ -7,23 +7,19 @@
       "icon": "bi-mortarboard",
       "shortDescription": "Complete education management solution",
       "productWebsite": "https://www.eazyscholar.com",
-      "fullDescription": "Our comprehensive School/College Management Software streamlines all administrative and academic processes in educational institutions. From student admissions to exam management, attendance tracking to fee collection, our system covers every aspect of educational administration.\n\nThe platform is designed to enhance communication between teachers, students, and parents while reducing paperwork and improving operational efficiency. With real-time analytics and reporting, institution administrators can make data-driven decisions to improve educational outcomes.\n\nKey modules include student information management, attendance tracking, timetable scheduling, examination management, grade reporting, library management, transport management, hostel management, and fee collection. The system also includes dedicated portals for administrators, teachers, students, and parents, ensuring everyone has access to the information they need.\n\nOur cloud-based solution is accessible from anywhere, on any device, making it perfect for modern educational institutions looking to digitize their operations.",
+      "fullDescription": "Cakiweb Solutions is a great School and College Management Software Company in Bhubaneswar that simplifies the daily operations of Educational institutions. Our Education Management ERP allows you to manage student Admission, Online Exam Tests, Student login Panels, Online Payment options, SMS Notification, etc. We focus on simplifying administrative hassles and enhancing productivity and efficiency. A well-designed cloud-based education ERP software that supports most modern technologies to facilitate perfect solutions for the school's and College's Requirements. Our Education management ERP software is versatile and can be customized based on the educational institution's requirements.",
       "whyChooseUs": [
         {
-          "text": "15+ years of experience in education technology",
+          "text": "Cakiweb Solutions is a unique ERP Software Company in Bhubaneswar for School and College Management and comes with different Useful ERP Modules.",
           "icon": "bi-award"
         },
         {
-          "text": "Used by 500+ educational institutions",
+          "text": "Our Education ERP software is well-designed and developed, considering all the operations of Schools and Colleges. When it comes to carrying out smooth administrative work, Our ERP software works best.",
           "icon": "bi-patch-check"
         },
         {
-          "text": "Comprehensive feature set covering all administrative needs",
+          "text": "We offer an extensive integrated system that effectively assimilates and automates operations, resources, and management of colleges and Schools.",
           "icon": "bi-layers"
-        },
-        {
-          "text": "User-friendly interface for all stakeholders",
-          "icon": "bi-people"
         },
         {
           "text": "24/7 technical support and training",
@@ -42,51 +38,63 @@
       "features": [
         {
           "text": "Student Information Management",
-          "icon": "bi-person-badge"
+          "icon": "bi-person-badge",
+          "details": "It Maintains the Complete Database of Students in the institution. The Database includes student profiles, admit cards, T/C processes, and birthday reminders."
         },
         {
-          "text": "Online Admission System",
-          "icon": "bi-cloud-upload"
+          "text": "Academic Management",
+          "icon": "bi-cloud-upload",
+          "details": "It contains topics, course subjects, online assessments, e-books, student timetables, podcasts, etc. E-learning engagement between teachers and students. It is the best feature of Education ERP Software to achieve great results."
         },
         {
           "text": "Attendance Tracking (Biometric/RFID)",
-          "icon": "bi-fingerprint"
+          "icon": "bi-fingerprint",
+          "details": ""
         },
         {
-          "text": "Timetable Scheduling",
-          "icon": "bi-calendar-week"
+          "text": "Financial Management",
+          "icon": "bi-currency-dollar",
+          "details": "Account management will help in managing all student fees efficiently. It simplifies the account management of the institution."
         },
         {
           "text": "Examination & Grade Management",
-          "icon": "bi-file-earmark-text"
+          "icon": "bi-file-earmark-text",
+          "details": "It includes online examination features of subjective examinations, seating plans, online registration and detailed information about the student activity in the online examination."
         },
         {
           "text": "Online Fee Payment Gateway",
-          "icon": "bi-credit-card"
+          "icon": "bi-credit-card",
+          "details": "Get Multiple payment methods, an online payment gateway system with credit-card, debit-card, net banking and UPI integrations Facility."
         },
         {
           "text": "Transport Management",
-          "icon": "bi-bus-front"
+          "icon": "bi-bus-front",
+          "details": ""
         },
         {
           "text": "Library Management System",
-          "icon": "bi-book"
+          "icon": "bi-book",
+          "details": "It includes keeping a record of e-books for the students and stock management of the books. The graphical information is easier to understand."
         },
         {
           "text": "Hostel Management",
-          "icon": "bi-building"
+          "icon": "bi-building",
+          "details": ""
         },
         {
           "text": "Parent-Teacher Communication Portal",
-          "icon": "bi-chat-dots"
+          "icon": "bi-chat-dots",
+          "details": ""
         },
         {
           "text": "Mobile App for Parents & Students",
-          "icon": "bi-phone"
+          "icon": "bi-phone",
+          "details": ""
         },
         {
           "text": "SMS & Email Notifications",
-          "icon": "bi-bell"
+          "icon": "bi-bell",
+          "details": "The SMS and Push Notification integrations of School Management Software will help to deliver Regular information about the Institution to students, Teachers, and Parents."
         }
       ],
       "deliverables": [
@@ -168,7 +176,7 @@
       "icon": "bi-people",
       "shortDescription": "Complete manpower management solution",
       "productWebsite": "https://www.csplerp.com",
-      "fullDescription": "Our specialized ERP software for manpower agencies streamlines recruitment, placement, and workforce management processes. Designed specifically for recruitment agencies and manpower suppliers, this comprehensive solution handles everything from candidate sourcing to deployment tracking.\n\nThe system automates visa processing, medical testing, ticketing, and insurance management while maintaining complete compliance with international labor regulations. With real-time tracking of candidates at each stage of the recruitment process, agencies can significantly improve their placement rates and client satisfaction.\n\nKey features include candidate database management, job requisition handling, resume parsing, interview scheduling, offer letter generation, visa tracking, flight booking management, and deployment reporting. The system also includes client and candidate portals for seamless communication.\n\nBuilt with compliance in mind, our ERP ensures all documentation and processes meet regulatory requirements, reducing legal risks and improving operational efficiency.",
+      "fullDescription": "We are Introducing Manpower Agency ERP Software, a revolutionary workforce management solution that Streamline and Optimise the entire recruitment and HR process. Cakiweb's Manpower Agency ERP Software offers a seamless platform for Manpower agencies. With a user-friendly interface, advanced analytics, and automation capabilities, recruiters can effortlessly source, screen, and onboard top talent. Say goodbye to manual paperwork and embrace the future of Manpower management with this state-of-the-art ERP system. \n\nExperience enhanced productivity, cost-effectiveness, and a competitive edge - all in one integrated solution. Are you tired of the hassles of managing your Manpower agency's work Efficiently?We introduce Cakiweb Manpower agency ERP software in Bhubaneswar, the ultimate solution to streamline your recruitment and HR processes.Our ERP software Solves the specific needs of Manpower agencies in Bhubaneswar and offers a comprehensive platform to handle operations seamlessly.With Cakiweb Manpower agency ERP, you can bid farewell to manual paperwork and embrace automation and advanced analytics.Effortlessly source, screen, and onboard top talent with a user-friendly interface, saving time and resources.Boost productivity, reduce costs, and gain a competitive edge in the industry, all through one integrated ERP solution. Cakiweb Manpower agency ERP Software use provides unlimited benefits to Manpower agencies. Gone are the days of tedious manual processes as this state-of-the-art software automates repetitive tasks, allowing you to focus on strategic aspects of talent acquisition and management. One of the primary advantages of Our Manpower agency ERP Software is its seamless integration of recruitment and HR processes, providing a holistic view of your agency's operations. Our recruitment agency ERP software automates the recruitment process and improves overall work efficiency. Our user-friendly software interface ensures you run ERP software smoothly without extensive training. From job Posting to candidate onboarding, Every Step becomes smooth and efficient, saving valuable time and effort.",
       "whyChooseUs": [
         {
           "text": "Built specifically for manpower agencies",
@@ -203,51 +211,53 @@
       "features": [
         {
           "text": "Candidate Database Management",
-          "icon": "bi-people"
+          "icon": "bi-people",
+          "details": "An ERP Software for Manpower agencies facilitates the efficient management of candidate profiles, including resumes, skills, qualifications, and work history. It enables easy searching, sorting, and categorizing of candidates based on various parameters."
         },
         {
           "text": "Job Requisition Portal",
-          "icon": "bi-briefcase"
+          "icon": "bi-briefcase",
+          "details": "Such software allows agencies to post job openings across multiple platforms, websites, and social media channels. It helps manage the entire job lifecycle, from requisition to candidate placement."
         },
         {
           "text": "Resume Parsing & Matching",
-          "icon": "bi-file-earmark-text"
+          "icon": "bi-file-earmark-text",
+          "details": "Advanced algorithms and AI-driven tools within the ERP software match candidate profiles with job requirements automatically and reduce the manual effort for finding suitable matches."
         },
         {
-          "text": "Interview Scheduling",
-          "icon": "bi-calendar-check"
+          "text": "Timesheet and Payroll Management",
+          "icon": "bi-calendar-check",
+          "details": "ERP systems assist in tracking employee work hours, managing timesheets, calculating wages, and streamlining payroll processes. It ensures accuracy in payments and helps in managing financial aspects efficiently."
         },
         {
-          "text": "Visa Processing Tracker",
-          "icon": "bi-passport"
+          "text": "Training & Skill Developement",
+          "icon": "bi-passport",
+          "details": "Some ERP systems incorporate modules for managing training programs, skill enhancement, and certifications for candidates, ensuring a pool of skilled and updated talent."
         },
         {
-          "text": "Medical Test Management",
-          "icon": "bi-heart-pulse"
-        },
-        {
-          "text": "Ticketing & Insurance",
-          "icon": "bi-ticket-perforated"
-        },
-        {
-          "text": "Deployment Tracking",
-          "icon": "bi-geo-alt"
+          "text": "Mobile Accesibility",
+          "icon": "bi-geo-alt",
+          "details": "With the growing need for mobility, having mobile-compatible ERP software allows recruiters to access critical information on the go, manage tasks, communicate with candidates, and respond promptly to client requests."
         },
         {
           "text": "Client Management Portal",
-          "icon": "bi-building"
+          "icon": "bi-building",
+          "details": "This feature enables agencies to maintain Relationships with clients by managing client information, preferences, contracts, and communications. It understands client needs and provides suitable candidate recommendations."
         },
         {
           "text": "Candidate Self-Service Portal",
-          "icon": "bi-person-circle"
+          "icon": "bi-person-circle",
+          "details": "These systems provide comprehensive reporting and analytics tools that offer insights into key performance indicators (KPIs), such as candidate placements, client satisfaction, revenue generated, and more."
         },
         {
           "text": "Document Management System",
-          "icon": "bi-files"
+          "icon": "bi-files",
+          "details": ""
         },
         {
           "text": "Compliance Reporting",
-          "icon": "bi-file-earmark-check"
+          "icon": "bi-file-earmark-check",
+          "details": "The Manpower agencies need various labour laws, regulations, and compliance standards. Our ERP software ensures that all processes and placements comply with legal requirements, minimizing risks."
         }
       ],
       "deliverables": [
@@ -324,7 +334,7 @@
       "icon": "bi-calculator",
       "shortDescription": "Complete accounting automation",
       "productWebsite": "https://www.csplerp.com",
-      "fullDescription": "Our Advanced Accounts Software provides comprehensive financial management capabilities for businesses of all sizes. From basic bookkeeping to complex financial reporting, our system handles all aspects of accounting with precision and ease.\n\nThe software automates routine accounting tasks, reduces manual errors, and ensures compliance with accounting standards. With real-time financial insights, businesses can make informed decisions and maintain healthy cash flow.\n\nKey modules include general ledger, accounts payable, accounts receivable, bank reconciliation, fixed assets management, budgeting and forecasting, financial reporting, and tax management. The system integrates seamlessly with banking systems for automated transaction imports and reconciliations.\n\nBuilt with security and audit trails in mind, our software ensures complete financial data integrity and makes audits straightforward with comprehensive logging and reporting capabilities.",
+      "fullDescription": "In a bustling urban center, a cutting-edge ERP management software called CAKIWEB is transforming the way businesses handle their accounting and management processes. CAKIWEB is a feature-rich, state-of-the-art solution that caters to the diverse needs of businesses, regardless of their size or industry. With a user-friendly interface and powerful functionalities, CAKIWEB empowers organizations to streamline their operations, optimize efficiency, and drive growth like never before. Embrace the future of business management with CAKIWEB and experience a new era of productivity and success. \n\nCAKIWEB offers a comprehensive Accounting Module, handling all financial aspects like general ledger, invoicing, and taxation with real-time data access. The Inventory Management module optimizes stock levels and automates reorder points to streamline the supply chain. The Sales and CRM feature enhances customer relationships and boosts sales through lead management and tracking interactions. Purchasing and Supplier Management simplifies procurement and improves vendor relationships. The Human Resources and Payroll module manages employee data, attendance, and payroll processing while ensuring labor law compliance. Business Intelligence tools provide valuable insights for data-driven decisions. CAKIWEB prioritizes security with advanced encryption and access controls. The software is scalable and customizable for businesses of all sizes. Embrace CAKIWEB for optimized processes, growth, and success in Bhubaneswar's competitive landscape.",
       "whyChooseUs": [
         {
           "text": "CA-approved accounting methodologies",
@@ -359,51 +369,48 @@
       "features": [
         {
           "text": "General Ledger Management",
-          "icon": "bi-journal-text"
+          "icon": "bi-journal-text",
+          "details": "These solutions automate various accounting tasks such as invoicing, bill payments, expense tracking, and report generation. Automated processes reduce errors, save time, and ensure consistency in financial data."
         },
         {
           "text": "Accounts Payable & Receivable",
-          "icon": "bi-arrow-left-right"
+          "icon": "bi-arrow-left-right",
+          "details": "These systems include features for tracking and managing expenses, enabling businesses to monitor spending, set budgets, and efficiently reimburse employees for business-related expenses."
         },
         {
-          "text": "Bank Reconciliation",
-          "icon": "bi-bank"
+          "text": "Scalability",
+          "icon": "bi-bank",
+          "details": "The software is designed to accommodate the growth of a business. It can handle increased data volumes, users, and transactions without compromising performance. This scalability feature is crucial for businesses aiming for expansion."
         },
         {
-          "text": "Fixed Assets Management",
-          "icon": "bi-building"
+          "text": "Customizable Reporting",
+          "icon": "bi-bar-chart",
+          "details": "These platforms offer robust reporting functionalities, allowing users to generate customized financial reports and statements tailored to specific needs. This includes balance sheets, income statements, cash flow statements, and more, offering insights crucial for informed decision-making."
         },
         {
           "text": "Budgeting & Forecasting",
-          "icon": "bi-graph-up"
-        },
-        {
-          "text": "Financial Statement Generation",
-          "icon": "bi-file-earmark-spreadsheet"
-        },
-        {
-          "text": "GST & Tax Management",
-          "icon": "bi-receipt"
-        },
-        {
-          "text": "Inventory Accounting",
-          "icon": "bi-box-seam"
+          "icon": "bi-graph-up",
+          "details": ""
         },
         {
           "text": "Multi-Currency Support",
-          "icon": "bi-currency-exchange"
+          "icon": "bi-currency-exchange",
+          "details": "For businesses dealing with international transactions, advanced accounting software often supports multiple currencies. This feature helps in accurately recording and managing transactions in different currencies while automatically handling exchange rate fluctuations."
         },
         {
-          "text": "Cost Center Accounting",
-          "icon": "bi-pie-chart"
+          "text": "Cloud Based Access",
+          "icon": "bi-cloud",
+          "details": "Many advanced accounting solutions are cloud-based, allowing users to access financial data securely from anywhere with an internet connection. This feature promotes collaboration among team members and facilitates remote work."
         },
         {
-          "text": "Automated Journal Entries",
-          "icon": "bi-journal-check"
+          "text": "Customer Support & Training",
+          "icon": "bi-headset",
+          "details": "Providers of advanced accounting software usually offer comprehensive customer support, including training resources, tutorials, and dedicated assistance to help users make the most of the software's capabilities."
         },
         {
           "text": "Audit Trail & Logging",
-          "icon": "bi-shield-check"
+          "icon": "bi-shield-check",
+          "details": "The software maintains a detailed audit trail, recording all changes made to financial data, which ensures transparency and aids in regulatory compliance. It helps companies adhere to various accounting standards and regulations."
         }
       ],
       "deliverables": [
@@ -481,7 +488,7 @@
       "icon": "bi-cash-stack",
       "shortDescription": "Automated payroll processing",
       "productWebsite": "https://www.csplerp.com",
-      "fullDescription": "Our Advanced Payroll Software simplifies complex payroll processes, ensuring accurate and timely salary payments while maintaining complete compliance with labor laws and tax regulations. Designed for organizations of all sizes, our system handles everything from attendance integration to statutory compliance.\n\nThe software automates salary calculations, tax deductions, loan management, and reimbursement processing. With self-service portals for employees, HR teams can focus on strategic initiatives while employees manage their own payslips, tax declarations, and loan requests.\n\nKey features include attendance and leave integration, salary structure configuration, loan and advance management, reimbursement processing, statutory compliance (PF, ESI, PT), tax calculations, payslip generation, and bank transfer file creation. The system also provides comprehensive payroll analytics and reporting.\n\nBuilt with data security and confidentiality in mind, our payroll software ensures sensitive employee compensation data is protected with role-based access and encryption.",
+      "fullDescription": "Cakiweb Advanced Payroll ERP Software is a comprehensive solution designed to streamline and automate payroll processes. But before we explore its features in detail, let's get familiar with the fundamentals. Enterprise Resource Planning (ERP) software is a suite of integrated applications that assist businesses in managing a wide range of processes, from finance to human resources and operations. The goal is to centralize data, enhance efficiency, and provide real-time insights for informed decision-making. Payroll ERP Software, as a specialized module, focuses solely on automating payroll-related tasks, making payroll processing more efficient and error-free. \n\nConsider Cakiweb Advanced Payroll ERP Software for efficient payroll management in medium to large-scale organizations. The software automates payroll processing, ensuring accuracy and timely payments. It also handles tax laws, labor regulations, and offers self-service portals for employees. Data security measures protect sensitive information. Key features include time and attendance tracking, taxation management, employee database management, leave and absence management, payroll reporting, integration with accounting systems, and mobile accessibility. Benefits include increased efficiency, cost savings, real-time insights, employee satisfaction, scalability, and regulatory compliance. the Advanced Payroll ERP Software is a customizable, secure, and user-friendly solution for streamlined payroll management.",
       "whyChooseUs": [
         {
           "text": "100% accurate salary processing",
@@ -516,51 +523,38 @@
       "features": [
         {
           "text": "Salary Structure Management",
-          "icon": "bi-sliders"
+          "icon": "bi-sliders",
+          "details": "Advanced software automates complex payroll calculations, including salaries, wages, taxes, deductions, and benefits. It ensures accuracy while saving time and reducing human errors."
         },
         {
           "text": "Attendance & Leave Integration",
-          "icon": "bi-calendar-check"
-        },
-        {
-          "text": "Loan & Advance Management",
-          "icon": "bi-wallet"
-        },
-        {
-          "text": "Reimbursement Processing",
-          "icon": "bi-receipt"
-        },
-        {
-          "text": "PF, ESI & Professional Tax",
-          "icon": "bi-file-earmark-text"
+          "icon": "bi-calendar-check",
+          "details": "Integration with time-tracking systems helps capture employee work hours accurately. This feature automates attendance tracking, overtime calculations, and ensures adherence to labor laws."
         },
         {
           "text": "Income Tax Calculations",
-          "icon": "bi-calculator"
+          "icon": "bi-calculator",
+          "details": "These systems stay updated with ever-changing tax laws and regulations. They automate tax deductions, generate tax forms (like W-2s, 1099s), and assist in filing payroll taxes to ensure compliance with local, state, and federal laws."
         },
         {
           "text": "Payslip Generation",
-          "icon": "bi-file-earmark"
+          "icon": "bi-file-earmark",
+          "details": "Advanced software automates complex payroll calculations, including salaries, wages, taxes, deductions, and benefits. It ensures accuracy while saving time and reducing human errors."
         },
         {
-          "text": "Bank Transfer File Creation",
-          "icon": "bi-bank"
+          "text": "Compliance Monitoring and Alerts",
+          "icon": "bi-bank",
+          "details": "These systems proactively monitor regulatory changes and compliance requirements. They provide alerts or notifications to ensure businesses are aware of any updates or necessary actions."
         },
         {
-          "text": "Investment Declaration Management",
-          "icon": "bi-file-earmark-check"
-        },
-        {
-          "text": "Full & Final Settlement",
-          "icon": "bi-check-circle"
-        },
-        {
-          "text": "Payroll Analytics Dashboard",
-          "icon": "bi-bar-chart"
+          "text": "Scalability and Customization",
+          "icon": "bi-bar-chart",
+          "details": "They are scalable to accommodate business growth and customizable to adapt to specific industry needs or unique payroll processes."
         },
         {
           "text": "Employee Self-Service Portal",
-          "icon": "bi-people"
+          "icon": "bi-people",
+          "details": "These portals empower employees to access their payroll information, view pay stubs, update personal details, and submit time-off requests. It reduces administrative tasks for HR personnel."
         }
       ],
       "deliverables": [
@@ -638,7 +632,7 @@
       "icon": "bi-receipt",
       "shortDescription": "Smart invoicing and billing",
       "productWebsite": "https://www.csplerp.com",
-      "fullDescription": "Our Advanced Billing Software streamlines invoicing and billing operations for businesses across industries. From creating professional invoices to tracking payments and managing recurring billing, our system ensures healthy cash flow and reduced payment delays.\n\nThe software supports multiple billing models including one-time invoices, recurring billing, usage-based billing, and milestone billing. With automated payment reminders and late fee calculations, businesses can significantly reduce their days sales outstanding (DSO).\n\nKey features include invoice template customization, automated invoice generation, recurring billing management, payment gateway integration, credit note management, billing analytics, customer portal, and integration with accounting systems. The system also supports multi-currency billing for international transactions.\n\nBuilt with compliance and audit requirements in mind, our billing software maintains complete transaction history and provides comprehensive reporting for financial analysis.",
+      "fullDescription": "Cakiweb Solutions is the No.1 Billing Software Company in Bhubaneswar that offers unique & user-friendly billing and inventory software solutions for any Business. Advanced billing software has emerged as an indispensable tool for organizations across industries, offering comprehensive solutions to streamline invoicing, billing, and payment processes. This transformative technology simplifies financial transactions, enhances accuracy, reduces errors, and optimizes overall business efficiency. In our billing ERP Software use, you need not be an Expert in accountancy. We make it as simple as possible. Some of the best functions of our online billing software are managing customer contact information, creating professional invoices and backup support for all your data and information as per your requirements. \n\nAdvanced billing and Inventory Software is a comprehensive payment solution that helps to automate the payment process. Before we explore its features, let's get familiar with the fundamentals. Enterprise Resource Planning (ERP) software is a integrated applications that assist businesses from finance to human resources and its operations. Our ERP Software goal is to centralize data, enhance efficiency, and provide real-time insights for informed decision-making. Inventory and billing ERP Software is a specialized module that automates payment-related tasks, making invoice processing more efficient and error-free.Cakiweb ERP software company offers highly customizable and Advanced billing modules that adapt to the unique requirements of businesses. From invoicing to payment tracking and managing complex pricing structures, the billing ERP software ensures precision, flexibility, inventory management, finance, and customer relationship management (CRM). Especially beneficial for businesses operating internationally, the ability to handle multiple currencies simplifies billing processes across diverse markets. Advanced billing software often ensures compliance with tax regulations and data security standards, safeguarding sensitive financial information.",
       "whyChooseUs": [
         {
           "text": "Flexible billing models support",
@@ -673,51 +667,63 @@
       "features": [
         {
           "text": "Invoice Template Designer",
-          "icon": "bi-palette"
+          "icon": "bi-palette",
+          "details": ""
         },
         {
           "text": "Automated Invoice Generation",
-          "icon": "bi-file-earmark-text"
+          "icon": "bi-file-earmark-text",
+          "details": ""
         },
         {
           "text": "Recurring Billing Management",
-          "icon": "bi-calendar-repeat"
+          "icon": "bi-calendar-repeat",
+          "details": ""
         },
         {
           "text": "Payment Gateway Integration",
-          "icon": "bi-credit-card-2-front"
+          "icon": "bi-credit-card-2-front",
+          "details": ""
         },
         {
           "text": "Credit & Debit Note Management",
-          "icon": "bi-arrow-left-right"
+          "icon": "bi-arrow-left-right",
+          "details": ""
         },
         {
           "text": "Automated Payment Reminders",
-          "icon": "bi-bell-fill"
+          "icon": "bi-bell-fill",
+          "details": ""
         },
         {
           "text": "Late Fee Calculations",
-          "icon": "bi-clock-history"
+          "icon": "bi-clock-history",
+          "details": ""
         },
         {
           "text": "Customer Billing Portal",
-          "icon": "bi-person-circle"
+          "icon": "bi-person-circle",
+          "details": ""
         },
         {
           "text": "Multi-Currency Support",
-          "icon": "bi-currency-exchange"
+          "icon": "bi-currency-exchange",
+          "details": ""
         },
         {
           "text": "Billing Analytics Dashboard",
-          "icon": "bi-graph-up"
+          "icon": "bi-graph-up",
+          "details": ""
         },
         {
           "text": "Integration with Accounting",
-          "icon": "bi-arrow-left-right"
+          "icon": "bi-arrow-left-right",
+          "details": ""
         },
         {
           "text": "Mobile Billing App",
-          "icon": "bi-phone"
+          "icon": "bi-phone",
+          "details": ""
         }
       ],
       "deliverables": [
@@ -795,7 +801,7 @@
       "icon": "bi-truck",
       "shortDescription": "Complete fleet tracking & management",
       "productWebsite": "https://www.csplerp.com",
-      "fullDescription": "Our comprehensive Fleet Management Software provides real-time visibility and control over your entire fleet operations. From vehicle tracking to maintenance scheduling, fuel management to driver monitoring, our system optimizes fleet performance and reduces operational costs.\n\nThe software leverages GPS technology and IoT sensors to provide real-time location tracking, route optimization, and driver behavior monitoring. With predictive maintenance alerts and automated compliance reporting, businesses can minimize vehicle downtime and avoid regulatory penalties.\n\nKey features include real-time GPS tracking, geofencing, route optimization, fuel management, maintenance scheduling, driver behavior monitoring, trip management, expense tracking, and compliance reporting. The system also includes mobile apps for drivers and managers for on-the-go access.\n\nBuilt for scalability, our fleet management solution works for small fleets of 5 vehicles to large enterprises managing thousands of vehicles across multiple locations.",
+      "fullDescription": "Get the best fleet management software available online in Bhubaneswar, India. Cakiweb has developed the best fleet management software which is crafted for rental management solution which strengthen your Transportation business with expedite booking and vehicle management procedures. Being the leading supplier of fleet management software in the Bhubaneswar area, We are dedicated to making Transportation and Rental business easier for both tech-savvy and non-techies. With only a few clicks, our user-friendly interface makes renting a car simple and accessible to people from all backgrounds. Our program includes an easy-to-use payment mechanism as well as precise time-and distance-based fare computations. Please contact us for more information about our feature-rich fleet management software in Bhubaneswar.\n\nTo maintain the brand of your company you need to have a strong tool that can give tight competition to your rivals. With the GPS based Vehicle Tracking Devices which are one of the vital parts of every business these days which helps to keep a constant eye on your moving asset. Vehicle theft is prime concern for every Vehicle owner. But we have the developed the best solution you can avoid this risk for your vehicle. Vehicle Tracking Device fulfills this requirement. With the real time GPS Tracking software, you can tracks every single move of your vehicle which you can observe from any corner of this World using Cakiweb Fleet management Software.You must have a potential fleet management software that can put you ahead of your competitors in competition if you want the competency of your business. These days, GPS-based vehicle tracking devices are a necessary component of any organization as they enable you to maintain continuous monitoring of your moving assets. Every owner of a vehicle is extremely concerned about their vehicle location. We have developed the best way to stop your vehicle from avoiding the risk of theft. An automobile tracking device is the best method to stop this issue. These systems, which follow your vehicle movements in real time via GPS, allow you to acess it from anywhere in the world. TWith the use of Cakiweb fleet management software provided by Enterprise Tracking systems, you can increase operational control and can improve your delivery processes. You can also improve customer service models, build stronger relationships, and foster operational transparency by efficiently tracking and evaluating locations and circumstances. By monitoring your drivers, Our fleet software not only saves your business money and effort, but it also gives you a comprehensive view of the precise routes your drivers have taken and gives you access to their entire route history.",
       "whyChooseUs": [
         {
           "text": "Real-time GPS tracking",
@@ -830,51 +836,63 @@
       "features": [
         {
           "text": "Real-Time GPS Tracking",
-          "icon": "bi-geo-alt-fill"
+          "icon": "bi-geo-alt-fill",
+          "details": ""
         },
         {
           "text": "Geofencing & Alerts",
-          "icon": "bi-geo-fence"
+          "icon": "bi-geo-fence",
+          "details": ""
         },
         {
           "text": "Route Optimization",
-          "icon": "bi-signpost-split"
+          "icon": "bi-signpost-split",
+          "details": ""
         },
         {
           "text": "Fuel Management",
-          "icon": "bi-fuel-pump"
+          "icon": "bi-fuel-pump",
+          "details": ""
         },
         {
           "text": "Maintenance Scheduling",
-          "icon": "bi-calendar-check"
+          "icon": "bi-calendar-check",
+          "details": ""
         },
         {
           "text": "Driver Behavior Monitoring",
-          "icon": "bi-person-badge"
+          "icon": "bi-person-badge",
+          "details": ""
         },
         {
           "text": "Trip Management",
-          "icon": "bi-map"
+          "icon": "bi-map",
+          "details": ""
         },
         {
           "text": "Expense Tracking",
-          "icon": "bi-receipt"
+          "icon": "bi-receipt",
+          "details": ""
         },
         {
           "text": "Vehicle Documents Tracker",
-          "icon": "bi-file-earmark-text"
+          "icon": "bi-file-earmark-text",
+          "details": ""
         },
         {
           "text": "Accident Management",
-          "icon": "bi-exclamation-triangle"
+          "icon": "bi-exclamation-triangle",
+          "details": ""
         },
         {
           "text": "Fleet Analytics Dashboard",
-          "icon": "bi-bar-chart"
+          "icon": "bi-bar-chart",
+          "details": ""
         },
         {
           "text": "Driver Mobile App",
-          "icon": "bi-phone"
+          "icon": "bi-phone",
+          "details": ""
         }
       ],
       "deliverables": [
@@ -952,7 +970,7 @@
       "icon": "bi-bus-front",
       "shortDescription": "Complete bus ticketing solution",
       "productWebsite": "",
-      "fullDescription": "Our Online Bus Ticket Booking Software provides a complete solution for bus operators and travel agencies to manage online ticket sales, seat inventory, and passenger management. With a user-friendly booking interface and powerful backend management, our system streamlines the entire ticketing process.\n\nThe platform supports multiple booking channels including website, mobile app, and agent portals. Real-time seat availability, dynamic pricing, and automated ticket generation ensure a smooth booking experience for passengers while maximizing revenue for operators.\n\nKey features include route management, seat layout designer, real-time availability, dynamic pricing, online payment integration, e-ticket generation, SMS notifications, cancellation management, refund processing, and comprehensive reporting. The system also includes operator dashboards for managing bookings, inventory, and finances.\n\nBuilt for scalability and reliability, our ticketing system handles high traffic volumes during peak booking periods and ensures 99.9% uptime for your ticketing operations.",
+      "fullDescription": "Through an automatic online bus booking system, the Bus Operator's Online Bus Ticket Bookings Software is intended to automate online ticket purchases. Allow your clients to purchase tickets for a variety of routes and locations by integrating our online bus ticketing system into your website. You may handle reservations, customer information, and passenger lists with the bus ticket reservation system. Additionally, you can upload an interactive seat map, schedule trips, set seat availability, and let consumers to choose their seats. Customers only need to choose a date, the starting and ending locations, and follow the simple, step-by-step booking instructions to reserve a bus ticket. They may quickly look over every seat that is offered and choose one with ease. Customers receive an electronic ticket that they can print at home as soon as their reservation is complete. \n\nThe Bus Operator's Online bus ticket booking software will be installed for you immediately by an installation wizard. The wizard will begin as soon as you upload the files to your hosting account. Utilize the several payment methods offered by the bus operator's online bus ticket booking software to process payments both online and offline. Using the Admin Panel, you can enable one or all of the payment options. Customers have the option of paying with cash, credit card, wire transfer, or their Razorpay or Phonepe accounts. If you require other payment gateways, we can incorporate them into the script.The fully automated bus ticket sale process, automated fare collecting services, and sold ticket control (inspection) system are all features of the Bus Ticket Booking system for Agent. The development of the entire bus ticket booking system for agents is founded on years of experience working directly with bus operators. Therefore, the Bus Ticket Booking System for Agent Bus Booking System satisfies the needs of public transportation service providers and other bus operators for an integrated ticketing solution with a number of features, such as automated fare collection, fleet management and GPS tracking, bus ticket sales at bus stations, websites, and other selling points, including the bus ticket sale agents . It is made up of numerous separate modules, or sub-systems. Our ticketing system covers nearly every operational procedure for bus operators and bus resellers, having been designed by a skilled team and informed by the business experiences of numerous clients, including bus operators. Depending on the particular requirements of each client, each software component of the Bus Ticket Booking system for Agent system can function both independently and in combination with other software components. This makes it quick and simple to customize the system to meet the needs of end users, much like assembling a puzzle. The bus ticket booking system for agent bus booking software may be regarded as an ongoing project, regardless of its existing features and functioning. It continues to expand and adapt to technology advancements in order to meet our bus operator’s requirements. We provide our bus operators with a mechanism for Bus Ticket Booking system for Conductor for bus tickets. The most crucial part of this computer is the ticketing module, which computes the passengers' fares by combining all the tables. The route number, bus type, starting and ending stops, ticket number, adult or child rate, date, and time are all printed on the ticket.Customers and bus operators can both gain from the Conductor bus ticket booking system. The solution can assist bus conductors increase revenue, enhance customer service, and expedite the booking process. Customers can save time and money by using the system to reserve bus tickets in a convenient and straightforward manner. You may set up your fleet, branches, fares, timetables, pick-up and drop-off locations, and other back-office tasks with our bus reservation system. We provide bus operators with a comprehensive Agency Management System to oversee their agents.The Control Branches Bus Ticket Booking System is an automated online bus ticketing system. Selecting a journey date, starting and ending locations, and adding personal information are the easy stages involved in ordering a bus ticket. Cakiweb provides a faster response time for inquiries and streamlines the itinerary quoting process. Through the bus ticket reservation system, we will notify travelers and the admin via email and SMS. Bus routes, destination information, time, and timetable can all be created by us. Our bus ticket buying system makes it easy to control Cakiweb ticket prices and rates.Details of booking reports: Daily reports on bus ticket purchases can be generated. One of the top bus booking portal development firms in India for Control Branches is Cakiweb, which offers innovative travel technology solutions to travel agencies and bus booking portal owners. It offers a bus booking engine, bus reservation system, and bus booking engine integration solutions! Development of a Cakiweb bus reservation application for a top luxury coach company. Customers may quickly and safely reserve their tickets online thanks to it. A technology called bus ticket software was created to make booking bus tickets easier. Customers can save valuable time and avoid long lines at the ticket office with the help of this technology. To make things easier, operators have bus ticket software that covers every aspect of bus operations, including scheduled route information, seat availability, secure payments, timetable setup, passenger information, and account management, among other things. Cakiweb is a cutting-edge cloud-based cargo business management system that streamlines reservations, operations, and real-time tracking and monitoring of goods scheduled for delivery. By using technology to improve operations and business management, Cakiweb improves the way logistics companies operate. Cakiweb facilitates the tracking, processing, and management of numerous items over a variety of routes for cargo carriers. By offering precise statistics, revenue reports, and real-time communication updates, the platform assists operators in making decisions. Cakiweb is India’s best cloud based logistic software provider that streamlines your business operations. Cakiweb stands as a benchmark for logistic software. We are the leading logistic software provider in India, located in Bhubaneswar, Odisha. There are many advantages to bus management software, but two in particular stand out: financial and safety-related advantages. Bus operators may make better judgments and increase efficiency and reduce costs by utilizing the abundance of data, usage, and analysis this software offers.In terms of finances, bus management software gives operators important information on driver routes, fuel usage, and maintenance plans. Provide with this knowledge, operators can plan more efficient journeys and devise strategies to save on fuel costs, even in the face of price hikes. This maximizes economic benefits and optimizes resources. Another major concern is safety, particularly with regard to the welfare of the passengers. Software for bus management is essential for reducing collisions and enhancing driver conduct. This software makes sure that every trip prioritizes safety by continuously analyzing data. Fuel usage reports and automated vehicle maintenance notifications are provided by our fleet maintenance management software. Businesses can extend the lifespan of their fleets and reduce wasteful fuel use with these insights. Through proactive maintenance scheduling, it assists businesses in preventing costly breakdowns and vehicle wear and tear. Additionally, our system offers performance data about drivers. With the help of our transport fleet management software, companies may monitor driver behavior such as excessive braking, speeding, and quick acceleration. Our technology gives transportation companies the ability to encourage safer driving practices, reduce accident and insurance premium risks, and safeguard their drivers and vehicles. A versatile and adaptable tool, fleet management software assists companies in effectively managing and optimizing their automobile fleets. It is a centralized platform for fleet operations management, tracking, and analysis. One of the most advanced cloud-based comprehensive bus prebook software programs is Cakiweb. The most cutting-edge experience has been created by our cloud-based full business solutions, which enable bus operators to easily handle daily operations. With our cutting-edge technology, Cakiweb, the Global Technology Leader for the Online Bus Ticketing Ecosystem, has completely changed and revolutionized the Online Booking Ecosystem. We manage the world's bus operators and the largest direct bus inventory. We provide full bus reservation system solutions, which include backend admin modules, service modules (bus booking and ticketing), and user modules (B2C, B2B, B2E, and B2B2C). Native iOS and Android mobile apps supplement the reservation system for bus operating firms and can be used in conjunction with the IBE or in a later stage. Bus operators can offer bus booking features on their own bus booking engine using Cakiweb, a unique solution. For bus firms, it makes booking and managing seats more efficient. This online bus booking software allows users to buy bus tickets for any root at any time with just an internet connection, and it gives the administrator full control over connecting an infinite number of distributors/resellers with their own bus booking gateway. You can automate your bus reservations and payments for a variety of bus routes and intercity transfers using Cakiweb's Online Bus Booking System. Additionally, it assists you in managing your whole back office, including accounting and reporting, as well as your bus inventory, fares, routes, and scheduling. You may outperform the competition by transforming your pen-and-paper procedure into a dynamic online reservation system using Cakiweb. We provide our customers with a wide variety of bus ticket booking methods. With an online payment gateway and real-time API interaction with other bus operators, it offers all the newest features for booking bus tickets. Since PHP was used in its development, this program can also be integrated with mobile platforms and applications. It can connect to the logins of numerous users and bus operators without any restrictions because it is enabled with multiple logins. In addition to supporting numerous boarding and dropping locations within the same city, you may build multiple routes and booking agents. One unique way for bus operators to provide a bus booking service on their own bus booking engine is through Cakiweb. It makes it easier for bus operators to make reservations and do business. With merely an internet connection, this online bus prebook software solution gives the operator total control over connecting an infinite distributor or reseller with its own bus booking page. It also enables online users to book buses for any root at any time. For individual passenger reservations on long tours, day trips, and express services, our bus tour booking system offers a comprehensive administration solution. Over 300 operators utilize the system every day, and it has processed reservations for travelers. Our Bus Tour Booking System is a robust back-office system that also includes a completely automated data-driven website for managing online reservations from direct customers and travel agents. It processes payments in real-time and sends out confirmations via email automatically. In addition to a variety of other operational and financial reporting tools, reports include rooming lists, pick-up lists, and seating plans. TBS has been developed to satisfy the needs of the nation's largest and pickiest operators. Tens of thousands of hours of development went into it. As a result, it has more features than anything else on the market and provides more performance, versatility, and dependability. We provide a condensed Express version of TBS because we understand that many operators don't need such a comprehensive solution. Additionally, we provide it in a variety of booking capacities to stay within the budgets of many smaller operators. We think that this strategy provides each operator with the best option available. This is particularly true for smaller businesses, who may benefit from our competitive entry-level price. Our plugin makes it simple to handle a reservation, passenger list, and payment information in a bus reservation system. Additionally, you may set various dropping and boarding points, manage routes, build a seat plan, and allow customers to choose from available seats. • The online bus reservation system operates around-the-clock. This allows the prospective client to purchase bus tickets whenever they'd want. Your business is not restricted to working hours if you have an online booking system. •Use an internet platform to receive payment from your client. You won't have to worry about whether or not money will reach your location because you will be compensated before rendering any kind of service. • Your employees' burden can be decreased or overhead costs can be simply reduced with the help of the online transport booking system. To make a reservation for a customer, the staff member does not have to answer the phone. •You can examine your company information, including selling reports and passenger details, with ease thanks to the integrated booking analytics tools. As a result, you will have all the knowledge you need to comprehend your organization better. You can use this information to help you concentrate on certain company areas that want improvement. Bus Your busses' location, arrival times at different destinations, and driving technique are all provided by a GPS tracker. You can improve on-time performance, boost safety, and coordinate bus schedules between staff and passengers with the help of the Track Your bus GPS tracking system. You may avoid traffic jams, check routes and schedules, adjust routes to make room for a new housing development, and monitor driver activities with bus tracking software reports. Because people's safety and security are so crucial, bus firms place a special emphasis on analyzing driver behavior. To keep an eye on aggressive driving, excessive speed, and arrival times, you can define parameters. In order to alleviate customers' concerns, bus tracking notifies you when an unusual circumstance occurs that delays the bus's arrival. Verify that your drivers are operating their vehicles safely and sensibly; cut down on idle time to save fuel; and accurately map bus routes, replacing inefficient ones to improve on-time performance.",
       "whyChooseUs": [
         {
           "text": "Proven ticketing platform",
@@ -987,51 +1005,63 @@
       "features": [
         {
           "text": "Route & Schedule Management",
-          "icon": "bi-map"
+          "icon": "bi-map",
+          "details": "Route networks are more crucial for the establishment of a transport service. Customers could easily determine how far they need to travel to get to their destination by adding routes to a booking system. Here, the booking system offers bus monitoring, schedules, and route timetables for every bus to ensure a comfortable and easy journey. Customers can select their preferred routes based on their plans with this service, and an additional benefit is that the system has a bus tracking feature that allows you to determine a bus's current location."
         },
         {
           "text": "Seat Layout Designer",
-          "icon": "bi-grid"
+          "icon": "bi-grid",
+          "details": ""
         },
         {
           "text": "Real-Time Seat Availability",
-          "icon": "bi-eye"
+          "icon": "bi-eye",
+          "details": ""
         },
         {
           "text": "Dynamic Pricing Engine",
-          "icon": "bi-graph-up-arrow"
+          "icon": "bi-graph-up-arrow",
+          "details": "Users are fully informed of the costs of the tickets. Additionally, individuals take greater enjoyment in receiving deals and discounts. In addition to creating ticket templates in the administration area and displaying the tickets at a fair price, the ticketing system has set a price that is affordable for all kinds of clients. An additional benefit is that this system handles reservation management and cancelation policy."
         },
         {
           "text": "Online Payment Gateway",
-          "icon": "bi-credit-card"
+          "icon": "bi-credit-card",
+          "details": "Online ticket booking is the more intelligent option. E-payment is the answer if your cash is running low and you need to purchase bus tickets as soon as possible. To complete the ticket booking process, payment gateways including credit and debit cards are available. Users can save time and have quick access with this kind of payment gateway. This booking system's primary benefit is the payment method alone. This software systemizes both offline and internet payments. The portal offers 24-hour booking and payment support."
         },
         {
           "text": "E-Ticket Generation",
-          "icon": "bi-ticket-perforated"
+          "icon": "bi-ticket-perforated",
+          "details": ""
         },
         {
           "text": "SMS & Email Notifications",
-          "icon": "bi-bell"
+          "icon": "bi-bell",
+          "details": "This is a communication tool that the software offers to link users and operators. Instead of a physical ticket, you will receive a message on your phone or in the mail after making the reservation. Customers will find it easier to review the ticket data via email and SMS notifications. This software uses the journey and passenger information to analyze each bus operator's booking insights."
         },
         {
           "text": "Cancellation & Refund Management",
-          "icon": "bi-arrow-counterclockwise"
+          "icon": "bi-arrow-counterclockwise",
+          "details": ""
         },
         {
           "text": "Agent Booking Portal",
-          "icon": "bi-building"
+          "icon": "bi-building",
+          "details": ""
         },
         {
           "text": "Mobile Booking App",
-          "icon": "bi-phone"
+          "icon": "bi-phone",
+          "details": ""
         },
         {
           "text": "Reporting & Analytics",
-          "icon": "bi-bar-chart"
+          "icon": "bi-bar-chart",
+          "details": "Known as the picture of a dealing project, these reports are created for the client's reference. We can monitor the present state of our procedure with the help of these reports, which are genuinely documentary proof. Booking reports are the date-to-date string of reservations that are kept in a bus booking system. Here, the client can assess the services of each bus and its routes by using the software to create booking reports and scheduled booking timetables that analyze the growth of data in each route."
         },
         {
           "text": "Operator Dashboard",
-          "icon": "bi-speedometer"
+          "icon": "bi-speedometer",
+          "details": ""
         }
       ],
       "deliverables": [
@@ -1109,7 +1139,7 @@
       "icon": "bi-file-earmark-text",
       "shortDescription": "Streamlined tender management",
       "productWebsite": "",
-      "fullDescription": "Our Tender Bid Management Software simplifies the entire tender lifecycle from discovery to submission. Designed for contractors, suppliers, and service providers, our system helps organizations identify relevant tenders, prepare compliant bids, and track submission status.\n\nThe platform aggregates tenders from multiple sources including government portals, private sector websites, and international organizations. Advanced filtering and AI-powered matching ensure you never miss a relevant opportunity.\n\nKey features include tender aggregation, opportunity matching, bid/no-bid analysis, document management, compliance checklist, bid preparation workflows, pricing calculators, submission tracking, and performance analytics. The system also includes collaboration tools for teams working on complex bids.\n\nBuilt with security and confidentiality in mind, our software ensures sensitive bid information is protected with role-based access and encryption.",
+      "fullDescription": "Software for managing tender bids: Tender bid management system is to manage the first initiative taken for business in term of tender quote to various projects under Government/Private Sector. This solution is based on a web-based application that can be accessed by multiple users from any location. The task of managing a procurement is extremely demanding and difficult. In order to achieve the best outcome, it is essential that bidders receive timely and accurate communication. Our tender bid management system, Cakiweb, is the best for managing tender procurement. It gets leads from the development team for Cakiweb Apps. During a procurement, there is a constant need to communicate immediately with staff and suppliers, despite the fact that the tender bid management system tends to concentrate on the specifics of gathering information from bidders, such as specifications and other information.\n\n The ideal outcome necessitates that everyone be kept apprised of responses to questions posed, project updates, and any conceivably significant modifications. provide a friendly, low-cost means of sharing information. Reduce the time required for technical specifications' publication and distribution. Version control accurately and correspondence with each individual bidder Improve staff and contracted consultants' teamwork and communication. Reduce calls for documentation and provide responses to frequently asked questions. Allow all those involved to access documentation and be kept up-to-date via instant alerts. Some of the pre-listed vendors are accepted by the customer, while others are not. The item's category-specific description and quality make up the technical bid. Proposed technical assistance must be compared to the state's technical requirements whenever it is required. Amount of EMD Deposited: The earnest money deposit, or EMD, would be mentioned in greater detail in the proposed solution. The main reason for the deposit is to attract the seller. Quote from a commercial bid: The commercial quote is required to be mentioned in the tender system. Rate are calculated by many methods e.g. basic, excise duty, sales tax etc. Required Security Deposit: If security deposit is needed, it can be mention in tender module. Date of the tender's opening: Each tender must include a deadline for submission as well as an opening date. Specifics about L1, L2, and L3: The specifics of L1, L2, and L3 would be mentioned after the tender was opened. All participant information, as well as information about approved and unapproved vendors, will be included if your organization is not L1. Date of EMD return: EMD return date can be mention in tender module. In the software, upload the document: A soft copy of the tender and any other documents can be uploaded to the system for future reference if necessary. The following would make up quotation management: Date of completion. Payment Term etc.Password-only access is restricted. a comprehensive audit trail of updates and changes. decreased the probability of poor submissions. The process of preparing the documents saves money. Tenders managed securely can be distributed to selected bidders without error. Tender",
       "whyChooseUs": [
         {
           "text": "Multi-source tender aggregation",
@@ -1144,51 +1174,63 @@
       "features": [
         {
           "text": "Tender Aggregation",
-          "icon": "bi-collection"
+          "icon": "bi-collection",
+          "details": ""
         },
         {
           "text": "AI Opportunity Matching",
-          "icon": "bi-cpu"
+          "icon": "bi-cpu",
+          "details": ""
         },
         {
           "text": "Bid/No-Bid Analysis",
-          "icon": "bi-check2-square"
+          "icon": "bi-check2-square",
+          "details": ""
         },
         {
           "text": "Document Management System",
-          "icon": "bi-files"
+          "icon": "bi-files",
+          "details": ""
         },
         {
           "text": "Compliance Checklist",
-          "icon": "bi-list-check"
+          "icon": "bi-list-check",
+          "details": ""
         },
         {
           "text": "Bid Preparation Workflows",
-          "icon": "bi-diagram-3"
+          "icon": "bi-diagram-3",
+          "details": ""
         },
         {
           "text": "Pricing Calculator",
-          "icon": "bi-calculator"
+          "icon": "bi-calculator",
+          "details": ""
         },
         {
           "text": "Submission Tracking",
-          "icon": "bi-send-check"
+          "icon": "bi-send-check",
+          "details": ""
         },
         {
           "text": "Team Collaboration Tools",
-          "icon": "bi-people-fill"
+          "icon": "bi-people-fill",
+          "details": ""
         },
         {
           "text": "Bid Performance Analytics",
-          "icon": "bi-graph-up"
+          "icon": "bi-graph-up",
+          "details": ""
         },
         {
           "text": "Deadline Alerts",
-          "icon": "bi-alarm"
+          "icon": "bi-alarm",
+          "details": ""
         },
         {
           "text": "Vendor Management",
-          "icon": "bi-truck"
+          "icon": "bi-truck",
+          "details": ""
         }
       ],
       "deliverables": [
@@ -1266,7 +1308,7 @@
       "icon": "bi-person-lines-fill",
       "shortDescription": "Custom CRM solutions",
       "productWebsite": "",
-      "fullDescription": "Our Custom CRM Software Development services help businesses build tailored customer relationship management solutions that match their unique processes and requirements. From lead management to customer support, our CRMs centralize all customer interactions and drive business growth.\n\nWe understand that off-the-shelf CRM solutions often fail to address specific business needs. Our custom approach ensures your CRM aligns perfectly with your sales processes, customer journey, and organizational structure.\n\nKey modules include lead management, opportunity tracking, contact management, activity tracking, sales pipeline, customer support ticketing, campaign management, analytics dashboards, and mobile access. Our CRMs integrate seamlessly with your existing tools including email, calendar, marketing automation, and ERP systems.\n\nBuilt with scalability and user adoption in mind, our CRM solutions feature intuitive interfaces, automation capabilities, and comprehensive reporting to drive sales team productivity and customer satisfaction.",
+      "fullDescription": "Our internal team performs market research and develops custom dashboards, enabling real-time campaign monitoring.Regardless of whether you are a real estate firm, healthcare provider, educational institution, or an eCommerce business, we offer industry-specific CRM modules tailored to enhance your workflows and increase ROI. Companies throughout India and beyond rely on us as a trustworthy CRM software provider in Bhubaneswar to create adaptable, results-driven systems that meet both local and global operational requirements. \n\nWe are the provider of a Web-Based CRM System in Bhubaneswar. Our ERPs are designed to adapt to the evolving demands and specific changes of our clients. With a single source of truth, companies can establish new business units, onboard new sites, and incorporate remote or emerging market workers. This flexibility allows for the scaling of infrastructures, ensuring that such expansions do not pose challenges that hinder entry into new markets or the establishment of new locations. The cloud ensures that infrastructure remains an enabler rather than a limiting factor, facilitating the integration of emerging technologies and partner ecosystems with minimal friction.",
       "whyChooseUs": [
         {
           "text": "Custom-built for your processes",
@@ -1301,51 +1343,63 @@
       "features": [
         {
           "text": "Lead Management",
-          "icon": "bi-funnel"
+          "icon": "bi-funnel",
+          "details": ""
         },
         {
           "text": "Opportunity Tracking",
-          "icon": "bi-briefcase"
+          "icon": "bi-briefcase",
+          "details": ""
         },
         {
           "text": "Contact & Account Management",
-          "icon": "bi-person-badge"
+          "icon": "bi-person-badge",
+          "details": ""
         },
         {
           "text": "Activity Tracking",
-          "icon": "bi-list-task"
+          "icon": "bi-list-task",
+          "details": ""
         },
         {
           "text": "Sales Pipeline Management",
-          "icon": "bi-diagram-3"
+          "icon": "bi-diagram-3",
+          "details": ""
         },
         {
           "text": "Customer Support Ticketing",
-          "icon": "bi-ticket"
+          "icon": "bi-ticket",
+          "details": ""
         },
         {
           "text": "Campaign Management",
-          "icon": "bi-megaphone"
+          "icon": "bi-megaphone",
+          "details": ""
         },
         {
           "text": "Email Integration",
-          "icon": "bi-envelope"
+          "icon": "bi-envelope",
+          "details": ""
         },
         {
           "text": "Calendar Integration",
-          "icon": "bi-calendar"
+          "icon": "bi-calendar",
+          "details": ""
         },
         {
           "text": "Analytics Dashboards",
-          "icon": "bi-bar-chart"
+          "icon": "bi-bar-chart",
+          "details": ""
         },
         {
           "text": "Mobile CRM App",
-          "icon": "bi-phone"
+          "icon": "bi-phone",
+          "details": ""
         },
         {
           "text": "Workflow Automation",
-          "icon": "bi-gear-wide-connected"
+          "icon": "bi-gear-wide-connected",
+          "details": ""
         }
       ],
       "deliverables": [
@@ -1423,7 +1477,7 @@
       "icon": "bi-chat-left-text",
       "shortDescription": "Efficient complaint resolution",
       "productWebsite": "",
-      "fullDescription": "Our Grievance Management Software provides a systematic approach to receiving, tracking, and resolving complaints and grievances. Designed for organizations, government bodies, and educational institutions, our system ensures no complaint goes unaddressed.\n\nThe platform supports multiple channels for complaint submission including web portals, mobile apps, email, and social media integration. Automated routing ensures complaints reach the right department, while SLA tracking ensures timely resolution.\n\nKey features include multi-channel complaint intake, automated ticket generation, intelligent routing, SLA management, escalation workflows, resolution tracking, citizen/customer feedback, analytics dashboards, and compliance reporting. The system also includes self-service portals for complainants to track their grievance status.\n\nBuilt with transparency and accountability in mind, our software provides complete audit trails and comprehensive reporting for management oversight and regulatory compliance.",
+      "fullDescription": "Highly customizable platform responds to the requirements of customers and offers support in multiple languages. Users can easily file complaints by using online platforms like websites and mobile apps. The mobile app, the website, or a toll-free helpline provide easy access to complaint statuses. The platform enables entities and administrations to seek or provide clarification on complaints online, facilitating efficient communication.\n\nA unique registration number is assigned to each complaint for future reference and tracking. This all-encompassing solution improves the efficiency of complaint management for customers and users alike by ensuring a smooth and transparent procedure. Effective Resolution of Complaints Using an Escalation Matrix Our Escalation Matrix was created to assist you in seamlessly resolving complaints. We begin by defining the typical complaint before adapting each flow to the particular requirements of the department. Each escalation level is given specific days and times to ensure prompt resolution. Complaints are assigned to designated staff members on autopilot, enhancing accountability. A structured approach to handling complaints is provided by our Escalation Matrix, which takes into account insights from departments and locations to facilitate quick and efficient resolutions.Introducing the Grievance App, your go-to solution for seamless grievance resolution. This user-friendly platform requires initial registration, empowering users to effortlessly lodge complaints directly with the concerned entity. The app, which can be used on smartphones, puts convenience at your fingertips. Keep up with the latest news because it lets users monitor the current state of their complaint resolution in real time, ensuring transparency and accountability. Enjoy hassle-free grievance handling that makes the process easy and accessible to everyone.",
       "whyChooseUs": [
         {
           "text": "Multi-channel intake support",
@@ -1458,51 +1512,63 @@
       "features": [
         {
           "text": "Multi-Channel Complaint Intake",
-          "icon": "bi-inbox"
+          "icon": "bi-inbox",
+          "details": ""
         },
         {
           "text": "Automated Ticket Generation",
-          "icon": "bi-ticket-perforated"
+          "icon": "bi-ticket-perforated",
+          "details": ""
         },
         {
           "text": "Intelligent Routing",
-          "icon": "bi-diagram-3"
+          "icon": "bi-diagram-3",
+          "details": ""
         },
         {
           "text": "SLA Management",
-          "icon": "bi-hourglass-split"
+          "icon": "bi-hourglass-split",
+          "details": ""
         },
         {
           "text": "Escalation Workflows",
-          "icon": "bi-arrow-up-right"
+          "icon": "bi-arrow-up-right",
+          "details": ""
         },
         {
           "text": "Resolution Tracking",
-          "icon": "bi-check2-circle"
+          "icon": "bi-check2-circle",
+          "details": ""
         },
         {
           "text": "Feedback Collection",
-          "icon": "bi-chat-heart"
+          "icon": "bi-chat-heart",
+          "details": ""
         },
         {
           "text": "Analytics Dashboard",
-          "icon": "bi-bar-chart"
+          "icon": "bi-bar-chart",
+          "details": ""
         },
         {
           "text": "Compliance Reporting",
-          "icon": "bi-file-earmark-check"
+          "icon": "bi-file-earmark-check",
+          "details": ""
         },
         {
           "text": "Self-Service Portal",
-          "icon": "bi-person-circle"
+          "icon": "bi-person-circle",
+          "details": ""
         },
         {
           "text": "Mobile App",
-          "icon": "bi-phone"
+          "icon": "bi-phone",
+          "details": ""
         },
         {
           "text": "Knowledge Base",
-          "icon": "bi-book"
+          "icon": "bi-book",
+          "details": ""
         }
       ],
       "deliverables": [

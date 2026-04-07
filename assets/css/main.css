@@ -3223,18 +3223,7 @@ textarea,
   box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
-.benefit-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gradient-primary);
-  border-radius: 50%;
-  color: var(--white);
-  font-size: 18px;
-}
+
 .benefit-item p {
   font-size: 15px;
   color: var(--dark-700);
@@ -3262,6 +3251,68 @@ textarea,
   color: var(--primary);
   font-size: 18px;
   min-width: 20px;
+}
+
+/* Feature Accordion (Product Details) */
+.features-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.feature-accordion-item {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+.feature-accordion-item:hover {
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+}
+.feature-accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--dark-700);
+  transition: background 0.2s ease;
+}
+.feature-accordion-header:hover {
+  background: #f8f9ff;
+}
+.feature-accordion-icon i {
+  color: var(--primary);
+  font-size: 18px;
+  min-width: 20px;
+}
+.feature-accordion-title {
+  flex: 1;
+  font-weight: 500;
+}
+.feature-accordion-chevron {
+  font-size: 14px;
+  color: #999;
+  transition: transform 0.3s ease;
+}
+.feature-accordion-header[aria-expanded="true"] .feature-accordion-chevron {
+  transform: rotate(180deg);
+}
+.feature-accordion-body {
+  padding: 0 18px 14px 50px;
+  font-size: 14px;
+  color: var(--dark-500);
+  line-height: 1.7;
+}
+
+/* Overview View More (Product Details) */
+.overview-full p.content-text {
+  margin-top: 16px;
 }
 .process-timeline {
   position: relative;
@@ -4490,7 +4541,7 @@ input[name="filter"] {
 
 .benefit-icon {
   width: 80px;
-  height: 80px;
+  height: 65px;
   margin: 0 auto 20px;
   background: linear-gradient(
     135deg,
@@ -8004,8 +8055,7 @@ input[name="filter"] {
 
 /* Content Blocks */
 .content-block {
-  margin-bottom: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--gray-200);
   position: relative;
 }

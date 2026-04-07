@@ -954,7 +954,31 @@
     if (productShortDesc)
       productShortDesc.textContent = product.shortDescription;
     const productFullDesc = document.getElementById("product-full-desc");
-    if (productFullDesc) productFullDesc.textContent = product.fullDescription;
+    const productShortOverview = document.getElementById("product-short-overview");
+    const overviewFull = document.getElementById("overview-full");
+    const viewMoreBtnOverview = document.getElementById("view-more-btn-overview");
+
+    if (product.fullDescription) {
+      const paragraphs = product.fullDescription.split(/\n\s*\n/);
+      if (paragraphs.length > 1) {
+        if (productShortOverview) productShortOverview.textContent = paragraphs[0];
+        if (productFullDesc) productFullDesc.textContent = paragraphs.slice(1).join("\n\n");
+        if (viewMoreBtnOverview) viewMoreBtnOverview.style.display = "flex";
+      } else {
+        const OVERVIEW_TRUNCATE = 800;
+        const text = product.fullDescription;
+        if (text.length > OVERVIEW_TRUNCATE) {
+          const breakPoint = text.lastIndexOf(" ", OVERVIEW_TRUNCATE);
+          const splitIndex = breakPoint > 0 ? breakPoint : OVERVIEW_TRUNCATE;
+          if (productShortOverview) productShortOverview.textContent = text.substring(0, splitIndex) + "\u2026";
+          if (productFullDesc) productFullDesc.textContent = text.substring(splitIndex);
+          if (viewMoreBtnOverview) viewMoreBtnOverview.style.display = "flex";
+        } else {
+          if (productShortOverview) productShortOverview.textContent = text;
+          if (overviewFull) overviewFull.style.display = "none";
+        }
+      }
+    }
     const whyChooseContainer = document.getElementById("product-why-choose");
     if (whyChooseContainer && product.whyChooseUs) {
       whyChooseContainer.innerHTML = product.whyChooseUs
@@ -991,12 +1015,21 @@
     const featuresContainer = document.getElementById("product-features");
     if (featuresContainer && product.features) {
       featuresContainer.innerHTML = product.features
-        .map((feature) => {
+        .map((feature, index) => {
           const iconName = feature.icon
             ? feature.icon.replace("bi-", "")
             : "check2";
+          const hasDetails = feature.details && feature.details.trim() !== "";
+          const accordionId = `feature-accordion-${index}`;
           return `
-        <li><i class="bi bi-${iconName}"></i> ${feature.text || feature}</li>
+        <div class="feature-accordion-item" data-aos="fade-up" data-aos-delay="${index * 50}">
+          <button class="feature-accordion-header" type="button" ${hasDetails ? `data-bs-toggle="collapse" data-bs-target="#${accordionId}" aria-expanded="false" aria-controls="${accordionId}"` : ""}>
+            <span class="feature-accordion-icon"><i class="bi bi-${iconName}"></i></span>
+            <span class="feature-accordion-title">${feature.text || feature}</span>
+            ${hasDetails ? '<i class="bi bi-chevron-down feature-accordion-chevron"></i>' : ""}
+          </button>
+          ${hasDetails ? `<div id="${accordionId}" class="accordion-collapse collapse"><div class="feature-accordion-body">${feature.details}</div></div>` : ""}
+        </div>
       `;
         })
         .join("");
@@ -2171,6 +2204,25 @@
       btn.classList.add("expanded");
     } else {
       storyFull.style.display = "none";
+      btnText.textContent = "View More";
+      btn.classList.remove("expanded");
+    }
+  };
+
+  // Overview View More toggle (product details page)
+  window.toggleOverview = function () {
+    const overviewFull = document.getElementById("overview-full");
+    const btn = document.getElementById("view-more-btn-overview");
+    const btnText = document.getElementById("view-more-text-overview");
+
+    if (overviewFull.classList.contains("story-hidden")) {
+      overviewFull.classList.remove("story-hidden");
+      overviewFull.classList.add("story-visible");
+      btnText.textContent = "View Less";
+      btn.classList.add("expanded");
+    } else {
+      overviewFull.classList.remove("story-visible");
+      overviewFull.classList.add("story-hidden");
       btnText.textContent = "View More";
       btn.classList.remove("expanded");
     }

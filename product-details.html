@@ -86,7 +86,18 @@
           
           <div class="content-block" data-aos="fade-up">
             <h2 class="section-heading">Overview</h2>
-            <p class="content-text" id="product-full-desc"></p>
+            <div class="overview-content text-justify" id="overview-content">
+              <div class="overview-truncated" id="overview-truncated">
+                <p class="content-text" id="product-short-overview"></p>
+              </div>
+              <div class="overview-full story-hidden" id="overview-full">
+                <p class="content-text" id="product-full-desc"></p>
+              </div>
+            </div>
+            <button type="button" class="view-more-btn view-more-inline" id="view-more-btn-overview" onclick="toggleOverview()" style="display:none;">
+              <span id="view-more-text-overview">View More</span>
+              <i class="bi bi-chevron-down" id="view-more-icon-overview"></i>
+            </button>
           </div>
           
           <div class="content-block" data-aos="fade-up" data-aos-delay="100">
@@ -105,9 +116,9 @@
           
           <div class="content-block" data-aos="fade-up" data-aos-delay="300">
             <h2 class="section-heading">What This Product Offers</h2>
-            <ul class="feature-list" id="product-features">
-              
-            </ul>
+            <div class="features-accordion" id="product-features">
+
+            </div>
           </div>
           
           <div class="content-block" data-aos="fade-up" data-aos-delay="400">

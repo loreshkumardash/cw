@@ -8,7 +8,8 @@
       "Bash(type *)",
       "Bash(findstr *)",
       "Bash(dir *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(node *)"
     ]
   },
   "$version": 3
