@@ -2306,9 +2306,6 @@ section {
   background-clip: text;
   display: inline-block;
 }
-.testimonial-slider-wrapper {
-  padding: 30px 0 40px;
-}
 .testimonial-swiper {
   padding-bottom: 50px !important;
 }
