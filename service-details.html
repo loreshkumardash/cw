@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title id="page-title">Service Details - Cakiweb Solutions</title>
   <meta name="description" id="page-description" content="Explore our professional services">
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/newlogo.png" rel="icon">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
   <nav class="navbar">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="assets/img/favicon.png" alt="Cakiweb" height="40">
+        <img src="assets/img/newlogo.png" alt="Cakiweb" height="40">
         <span class="brand-text">Cakiweb</span>
       </a>
       <div class="nav-menu">
@@ -86,7 +86,18 @@
           
           <div class="content-block" data-aos="fade-up">
             <h2 class="section-heading">Overview</h2>
-            <p class="content-text" id="service-full-desc"></p>
+            <div class="overview-content text-justify" id="service-overview-content">
+              <div class="overview-truncated" id="service-overview-truncated">
+                <p class="content-text" id="service-short-overview"></p>
+              </div>
+              <div class="overview-full story-hidden" id="service-overview-full">
+                <p class="content-text" id="service-full-desc"></p>
+              </div>
+            </div>
+            <button type="button" class="view-more-btn view-more-inline" id="view-more-btn-service-overview" onclick="toggleServiceOverview()" style="display:none;">
+              <span id="view-more-text-service-overview">View More</span>
+              <i class="bi bi-chevron-down" id="view-more-icon-service-overview"></i>
+            </button>
           </div>
           
           <div class="content-block" data-aos="fade-up" data-aos-delay="100">

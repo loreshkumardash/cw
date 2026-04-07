@@ -756,7 +756,31 @@
     if (serviceShortDesc)
       serviceShortDesc.textContent = service.shortDescription;
     const serviceFullDesc = document.getElementById("service-full-desc");
-    if (serviceFullDesc) serviceFullDesc.textContent = service.fullDescription;
+    const serviceShortOverview = document.getElementById("service-short-overview");
+    const serviceOverviewFull = document.getElementById("service-overview-full");
+    const viewMoreBtnServiceOverview = document.getElementById("view-more-btn-service-overview");
+
+    if (service.fullDescription) {
+      const paragraphs = service.fullDescription.split(/\n\s*\n/);
+      if (paragraphs.length > 1) {
+        if (serviceShortOverview) serviceShortOverview.textContent = paragraphs[0];
+        if (serviceFullDesc) serviceFullDesc.textContent = paragraphs.slice(1).join("\n\n");
+        if (viewMoreBtnServiceOverview) viewMoreBtnServiceOverview.style.display = "flex";
+      } else {
+        const OVERVIEW_TRUNCATE = 800;
+        const text = service.fullDescription;
+        if (text.length > OVERVIEW_TRUNCATE) {
+          const breakPoint = text.lastIndexOf(" ", OVERVIEW_TRUNCATE);
+          const splitIndex = breakPoint > 0 ? breakPoint : OVERVIEW_TRUNCATE;
+          if (serviceShortOverview) serviceShortOverview.textContent = text.substring(0, splitIndex) + "\u2026";
+          if (serviceFullDesc) serviceFullDesc.textContent = text.substring(splitIndex);
+          if (viewMoreBtnServiceOverview) viewMoreBtnServiceOverview.style.display = "flex";
+        } else {
+          if (serviceShortOverview) serviceShortOverview.textContent = text;
+          if (serviceOverviewFull) serviceOverviewFull.style.display = "none";
+        }
+      }
+    }
     const whyChooseContainer = document.getElementById("service-why-choose");
     if (whyChooseContainer && service.whyChooseUs) {
       whyChooseContainer.innerHTML = service.whyChooseUs
@@ -2214,6 +2238,25 @@
     const overviewFull = document.getElementById("overview-full");
     const btn = document.getElementById("view-more-btn-overview");
     const btnText = document.getElementById("view-more-text-overview");
+
+    if (overviewFull.classList.contains("story-hidden")) {
+      overviewFull.classList.remove("story-hidden");
+      overviewFull.classList.add("story-visible");
+      btnText.textContent = "View Less";
+      btn.classList.add("expanded");
+    } else {
+      overviewFull.classList.remove("story-visible");
+      overviewFull.classList.add("story-hidden");
+      btnText.textContent = "View More";
+      btn.classList.remove("expanded");
+    }
+  };
+
+  // Overview View More toggle (service details page)
+  window.toggleServiceOverview = function () {
+    const overviewFull = document.getElementById("service-overview-full");
+    const btn = document.getElementById("view-more-btn-service-overview");
+    const btnText = document.getElementById("view-more-text-service-overview");
 
     if (overviewFull.classList.contains("story-hidden")) {
       overviewFull.classList.remove("story-hidden");
