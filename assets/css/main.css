@@ -456,7 +456,7 @@ img {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url("../img/about.jpg") center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
   z-index: 0;
 }
 .hero-bg::after {
@@ -2834,33 +2834,69 @@ textarea,
 }
 .page-hero {
   position: relative;
-  min-height: 40vh;
+  min-height: 45vh;
   display: flex;
   align-items: center;
   padding: 120px 0 60px;
-  background: var(--white);
   overflow: hidden;
+}
+.page-hero .hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.page-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #0b2a3c 0%, #0b2a3ccc 30%, #0b2a3c66 50%, transparent 65%);
+  z-index: 1;
+}
+.page-hero .hero-shapes {
+  display: none;
 }
 .page-hero .hero-content {
   position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  z-index: 2;
+  text-align: left;
+  max-width: 700px;
+  margin: 0;
+  padding-left: calc(var(--bs-gutter-x, 0.75rem) * 2);
+  color: #fff;
 }
 .page-hero .hero-title {
-  font-size: clamp(36px, 4vw, 48px);
-  font-weight: var(--font-extrabold);
-  line-height: var(--line-height-heading);
+  font-size: clamp(32px, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
   margin-bottom: 16px;
-  letter-spacing: var(--letter-spacing-tight);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.page-hero .hero-title .gradient-text {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .page-hero .hero-description {
-  font-size: 18px;
-  line-height: var(--line-height-base);
-  color: var(--dark-600);
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
+}
+.page-hero .page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.page-hero .page-meta i {
+  margin-right: 6px;
 }
 .about-story {
   background: var(--gray-50);
