@@ -1,5 +1,30 @@
 (function () {
   "use strict";
+
+  window.toggleWhatsAppPopup = function () {
+    const popup = document.getElementById("whatsapp-popup");
+    if (popup) popup.classList.toggle("active");
+  };
+  window.sendToWhatsApp = function (event) {
+    event.preventDefault();
+    const nameEl = document.getElementById("wa-name");
+    const emailEl = document.getElementById("wa-email");
+    const messageEl = document.getElementById("wa-message");
+    if (!nameEl || !emailEl || !messageEl) return;
+    const name = nameEl.value;
+    const email = emailEl.value;
+    const message = messageEl.value;
+    const phoneNumber = "919437368484";
+    const whatsappMessage = `Hello,%0A%0AMy name is ${name}.%0AYou can contact me at ${email}.%0A%0AI wanted to say:%0A${message}%0A%0AThank you!`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+    window.open(whatsappURL, "_blank");
+    const popup = document.getElementById("whatsapp-popup");
+    if (popup) popup.classList.remove("active");
+    nameEl.value = "";
+    emailEl.value = "";
+    messageEl.value = "";
+  };
+
   if (typeof gsap !== "undefined") {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   }
@@ -3083,31 +3108,8 @@
   } else {
     fetchAndRender();
   }
-  (function initWhatsAppPopupImmediately() {
+  (function initWhatsAppPopupClickOutside() {
     if (!document.getElementById("whatsapp-popup")) return;
-    window.toggleWhatsAppPopup = function () {
-      const popup = document.getElementById("whatsapp-popup");
-      if (popup) popup.classList.toggle("active");
-    };
-    window.sendToWhatsApp = function (event) {
-      event.preventDefault();
-      const nameEl = document.getElementById("wa-name");
-      const emailEl = document.getElementById("wa-email");
-      const messageEl = document.getElementById("wa-message");
-      if (!nameEl || !emailEl || !messageEl) return;
-      const name = nameEl.value;
-      const email = emailEl.value;
-      const message = messageEl.value;
-      const phoneNumber = "919437368484";
-      const whatsappMessage = `*New Message from Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
-      const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-      window.open(whatsappURL, "_blank");
-      const popup = document.getElementById("whatsapp-popup");
-      if (popup) popup.classList.remove("active");
-      nameEl.value = "";
-      emailEl.value = "";
-      messageEl.value = "";
-    };
     document.addEventListener("click", function (e) {
       const popup = document.getElementById("whatsapp-popup");
       const floatBtn = document.querySelector(".whatsapp-float");
