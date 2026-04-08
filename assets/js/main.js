@@ -92,33 +92,46 @@
   function initHeroAnimations() {
     const hero = document.querySelector("#hero");
     if (!hero) return;
-    gsap.to(".shape-1", {
-      y: 100,
-      scrollTrigger: {
-        trigger: hero,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-    gsap.to(".shape-2", {
-      y: -80,
-      scrollTrigger: {
-        trigger: hero,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-    gsap.to(".shape-3", {
-      y: 60,
-      scrollTrigger: {
-        trigger: hero,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    
+    // Only animate shapes if they exist
+    const shape1 = document.querySelector(".shape-1");
+    const shape2 = document.querySelector(".shape-2");
+    const shape3 = document.querySelector(".shape-3");
+    
+    if (shape1) {
+      gsap.to(shape1, {
+        y: 100,
+        scrollTrigger: {
+          trigger: hero,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+    if (shape2) {
+      gsap.to(shape2, {
+        y: -80,
+        scrollTrigger: {
+          trigger: hero,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+    if (shape3) {
+      gsap.to(shape3, {
+        y: 60,
+        scrollTrigger: {
+          trigger: hero,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+    
     const stats = document.querySelectorAll(".stat-number");
     stats.forEach((stat) => {
       const target = parseInt(stat.getAttribute("data-count"));
@@ -165,47 +178,45 @@
       const subtitle = header.querySelector(".section-subtitle");
       const title = header.querySelector(".section-title");
       const description = header.querySelector(".section-description");
-      gsap
-        .timeline({
+      
+      // Only create timeline if at least one element exists
+      if (subtitle || title || description) {
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: header,
             start: "top bottom-=100",
             once: true,
           },
-        })
-        .to(
-          subtitle,
-          {
+        });
+        
+        if (subtitle) {
+          gsap.set(subtitle, { opacity: 0, y: 20 });
+          tl.to(subtitle, {
             opacity: 1,
             y: 0,
             duration: 0.6,
             ease: "power2.out",
-          },
-          0,
-        )
-        .to(
-          title,
-          {
+          }, 0);
+        }
+        if (title) {
+          gsap.set(title, { opacity: 0, y: 20 });
+          tl.to(title, {
             opacity: 1,
             y: 0,
             duration: 0.6,
             ease: "power2.out",
-          },
-          "-=0.4",
-        )
-        .to(
-          description,
-          {
+          }, "-=0.4");
+        }
+        if (description) {
+          gsap.set(description, { opacity: 0, y: 20 });
+          tl.to(description, {
             opacity: 1,
             y: 0,
             duration: 0.6,
             ease: "power2.out",
-          },
-          "-=0.4",
-        );
-      if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
-      if (title) gsap.set(title, { opacity: 0, y: 20 });
-      if (description) gsap.set(description, { opacity: 0, y: 20 });
+          }, "-=0.4");
+        }
+      }
     });
   }
   function initServicesAnimations() {
@@ -3752,30 +3763,9 @@
   }
 
   // ========================================
-  // Initialize All Functions
+  // Page-Specific Initializations (run on DOMContentLoaded)
   // ========================================
   document.addEventListener('DOMContentLoaded', function() {
-    initNavbar();
-    initMobileMenu();
-    initScrollTop();
-    initSmoothScroll();
-    initHeroAnimations();
-    initSectionAnimations();
-    initServicesAnimations();
-    initAboutAnimations();
-    initCTAAnimations();
-    initFooterAnimations();
-    initTestimonialAnimations();
-    initProductsHorizontalScroll();
-    initLightbox();
-    initTestimonialSlider();
-    initAOS();
-    fixAnimationVisibility();
-    initCustomCursor();
-    setCurrentYear();
-    initMegaMenu();
-    
-    // Page-specific initializations (these run on DOMContentLoaded)
     initContactForm();
     initEmailJS();
   });
