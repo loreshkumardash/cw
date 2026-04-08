@@ -2141,8 +2141,8 @@
       // Send email using EmailJS
       if (typeof emailjs !== "undefined") {
         await emailjs.send(
-          "service_ihbrdo7", // EmailJS Service ID
-          "template_6ekvw8d", // EmailJS Template ID — update this from your EmailJS dashboard
+          "service_2pul7gz",
+          "template_2oc5vxa",
           templateParams,
         );
       } else {
@@ -3437,6 +3437,190 @@
     updateActiveNav();
   }
 
-  // Initialize legal pages navigation
-  initLegalPagesNav();
+  // ========================================
+  // WhatsApp Popup Functions (Immediate Init)
+  // ========================================
+  (function initWhatsAppPopupImmediately() {
+    // Only init if WhatsApp popup element exists
+    if (!document.getElementById('whatsapp-popup')) return;
+
+    // Expose immediately for onclick attributes
+    window.toggleWhatsAppPopup = function() {
+      const popup = document.getElementById('whatsapp-popup');
+      if (popup) popup.classList.toggle('active');
+    };
+
+    window.sendToWhatsApp = function(event) {
+      event.preventDefault();
+
+      const nameEl = document.getElementById('wa-name');
+      const emailEl = document.getElementById('wa-email');
+      const messageEl = document.getElementById('wa-message');
+
+      if (!nameEl || !emailEl || !messageEl) return;
+
+      const name = nameEl.value;
+      const email = emailEl.value;
+      const message = messageEl.value;
+
+      // Replace with your WhatsApp number (with country code, no + or spaces)
+      const phoneNumber = '919437368484';
+
+      const whatsappMessage = `*New Message from Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
+
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+      window.open(whatsappURL, '_blank');
+
+      // Close popup and reset form
+      const popup = document.getElementById('whatsapp-popup');
+      if (popup) popup.classList.remove('active');
+      nameEl.value = '';
+      emailEl.value = '';
+      messageEl.value = '';
+    };
+
+    // Close popup when clicking outside
+    document.addEventListener('click', function(e) {
+      const popup = document.getElementById('whatsapp-popup');
+      const floatBtn = document.querySelector('.whatsapp-float');
+      if (popup && !popup.contains(e.target) && floatBtn && !floatBtn.contains(e.target)) {
+        popup.classList.remove('active');
+      }
+    });
+  })();
+
+  // ========================================
+  // View More/Less Story Toggle (Index Page - Immediate Init)
+  // ========================================
+  (function initStoryTogglesImmediately() {
+    // Only init if elements exist
+    if (!document.getElementById('view-more-btn-cost')) return;
+
+    function toggleCardStory(storyId, btnId, textId) {
+      const storyFull = document.getElementById(storyId);
+      const btn = document.getElementById(btnId);
+      const btnText = document.getElementById(textId);
+
+      if (!storyFull || !btn || !btnText) return;
+
+      if (storyFull.classList.contains("story-hidden")) {
+        storyFull.classList.remove("story-hidden");
+        storyFull.classList.add("story-visible");
+        btnText.textContent = "View Less";
+        btn.classList.add("expanded");
+      } else {
+        storyFull.classList.remove("story-visible");
+        storyFull.classList.add("story-hidden");
+        btnText.textContent = "View More";
+        btn.classList.remove("expanded");
+      }
+    }
+
+    // Expose toggle functions globally for onclick attributes
+    window.toggleStoryCost = function() {
+      toggleCardStory("story-full-cost", "view-more-btn-cost", "view-more-text-cost");
+    };
+    window.toggleStoryVariety = function() {
+      toggleCardStory("story-full-variety", "view-more-btn-variety", "view-more-text-variety");
+    };
+    window.toggleStorySecure = function() {
+      toggleCardStory("story-full-secure", "view-more-btn-secure", "view-more-text-secure");
+    };
+    window.toggleStorySupport = function() {
+      toggleCardStory("story-full-support", "view-more-btn-support", "view-more-text-support");
+    };
+  })();
+
+  // ========================================
+  // Contact Form Handler
+  // ========================================
+  function initContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
+
+    const formMessage = document.getElementById('form-message');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData);
+
+      if (!data.name || !data.email || !data.message || !data.subject) {
+        showMessage('Please fill in all required fields.', 'error');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.email)) {
+        showMessage('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
+        contactForm.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+
+    function showMessage(text, type) {
+      formMessage.textContent = text;
+      formMessage.style.display = 'block';
+      formMessage.style.background = type === 'success'
+        ? 'rgba(16, 185, 129, 0.1)'
+        : 'rgba(239, 68, 68, 0.1)';
+      formMessage.style.color = type === 'success' ? '#059669' : '#dc2626';
+      formMessage.style.border = `1px solid ${type === 'success' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`;
+      setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+    }
+  }
+
+  // ========================================
+  // EmailJS Initialization (Career Details)
+  // ========================================
+  function initEmailJS() {
+    if (typeof emailjs === 'undefined') return;
+    
+    emailjs.init({
+      publicKey: "O7t07Am9Hj1fkJonQ",
+    });
+  }
+
+  // ========================================
+  // Initialize All Functions
+  // ========================================
+  document.addEventListener('DOMContentLoaded', function() {
+    initNavbar();
+    initMobileMenu();
+    initScrollTop();
+    initSmoothScroll();
+    initHeroAnimations();
+    initSectionAnimations();
+    initServicesAnimations();
+    initAboutAnimations();
+    initCTAAnimations();
+    initFooterAnimations();
+    initTestimonialAnimations();
+    initProductsHorizontalScroll();
+    initLightbox();
+    initTestimonialSlider();
+    initAOS();
+    fixAnimationVisibility();
+    initCustomCursor();
+    setCurrentYear();
+    initMegaMenu();
+    
+    // Page-specific initializations (these run on DOMContentLoaded)
+    initContactForm();
+    initEmailJS();
+  });
+
 })();

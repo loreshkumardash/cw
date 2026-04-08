@@ -327,7 +327,39 @@
   <a href="#" class="scroll-top">
     <i class="bi bi-arrow-up-short"></i>
   </a>
-  
+
+  <!-- WhatsApp Floating Button -->
+  <a href="javascript:void(0)" class="whatsapp-float" onclick="toggleWhatsAppPopup()">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- WhatsApp Compact Form Popup -->
+  <div class="whatsapp-form-popup" id="whatsapp-popup">
+    <div class="popup-header">
+      <h4><i class="bi bi-whatsapp"></i> Chat with us</h4>
+      <button class="popup-close" onclick="toggleWhatsAppPopup()">
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+    <form class="whatsapp-form" onsubmit="sendToWhatsApp(event)">
+      <div class="form-group">
+        <label class="form-label" for="wa-name">Name</label>
+        <input type="text" id="wa-name" class="form-control" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="wa-email">Email</label>
+        <input type="email" id="wa-email" class="form-control" placeholder="Your email" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="wa-message">Message</label>
+        <textarea id="wa-message" class="form-control" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="btn-whatsapp-submit">
+        <i class="bi bi-whatsapp"></i> Send
+      </button>
+    </form>
+  </div>
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -340,58 +372,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   
   <script src="assets/js/main.js"></script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const contactForm = document.getElementById('contact-form');
-      const formMessage = document.getElementById('form-message');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-          e.preventDefault();
-          // Get form values
-          const formData = new FormData(contactForm);
-          const data = Object.fromEntries(formData);
-          // Simple validation
-          if (!data.name || !data.email || !data.message || !data.subject) {
-            showMessage('Please fill in all required fields.', 'error');
-            return;
-          }
-          // Email validation
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(data.email)) {
-            showMessage('Please enter a valid email address.', 'error');
-            return;
-          }
-          // Simulate form submission (replace with actual API call)
-          const submitBtn = contactForm.querySelector('button[type="submit"]');
-          const originalText = submitBtn.innerHTML;
-          submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
-          submitBtn.disabled = true;
-          // Simulate API delay
-          setTimeout(() => {
-            showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
-            contactForm.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-          }, 1500);
-        });
-      }
-      function showMessage(text, type) {
-        formMessage.textContent = text;
-        formMessage.style.display = 'block';
-        formMessage.style.background = type === 'success'
-          ? 'rgba(16, 185, 129, 0.1)'
-          : 'rgba(239, 68, 68, 0.1)';
-        formMessage.style.color = type === 'success'
-          ? '#059669'
-          : '#dc2626';
-        formMessage.style.border = `1px solid ${type === 'success' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`;
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-          formMessage.style.display = 'none';
-        }, 5000);
-      }
-    });
-  </script>
 </body>
 </html>

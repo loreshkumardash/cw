@@ -1012,6 +1012,38 @@
   <a href="#" class="scroll-top">
     <i class="bi bi-arrow-up-short"></i>
   </a>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="javascript:void(0)" class="whatsapp-float" onclick="toggleWhatsAppPopup()">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- WhatsApp Compact Form Popup -->
+  <div class="whatsapp-form-popup" id="whatsapp-popup">
+    <div class="popup-header">
+      <h4><i class="bi bi-whatsapp"></i> Chat with us</h4>
+      <button class="popup-close" onclick="toggleWhatsAppPopup()">
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+    <form class="whatsapp-form" onsubmit="sendToWhatsApp(event)">
+      <div class="form-group">
+        <label class="form-label" for="wa-name">Name</label>
+        <input type="text" id="wa-name" class="form-control" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="wa-email">Email</label>
+        <input type="email" id="wa-email" class="form-control" placeholder="Your email" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="wa-message">Message</label>
+        <textarea id="wa-message" class="form-control" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="btn-whatsapp-submit">
+        <i class="bi bi-whatsapp"></i> Send
+      </button>
+    </form>
+  </div>
   
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -1025,30 +1057,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   
   <script src="assets/js/main.js"></script>
-
-  <script>
-    function toggleStoryCost() { toggleCardStory("story-full-cost", "view-more-btn-cost", "view-more-text-cost"); }
-    function toggleStoryVariety() { toggleCardStory("story-full-variety", "view-more-btn-variety", "view-more-text-variety"); }
-    function toggleStorySecure() { toggleCardStory("story-full-secure", "view-more-btn-secure", "view-more-text-secure"); }
-    function toggleStorySupport() { toggleCardStory("story-full-support", "view-more-btn-support", "view-more-text-support"); }
-
-    function toggleCardStory(storyId, btnId, textId) {
-      const storyFull = document.getElementById(storyId);
-      const btn = document.getElementById(btnId);
-      const btnText = document.getElementById(textId);
-
-      if (storyFull.classList.contains("story-hidden")) {
-        storyFull.classList.remove("story-hidden");
-        storyFull.classList.add("story-visible");
-        btnText.textContent = "View Less";
-        btn.classList.add("expanded");
-      } else {
-        storyFull.classList.remove("story-visible");
-        storyFull.classList.add("story-hidden");
-        btnText.textContent = "View More";
-        btn.classList.remove("expanded");
-      }
-    }
-  </script>
 </body>
 </html>
