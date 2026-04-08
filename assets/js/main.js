@@ -545,10 +545,14 @@
       if (interactiveEl) {
         cursorOutline.classList.add("hovered");
         if (
-          interactiveEl.classList.contains("magnetic") ||
-          interactiveEl.classList.contains("btn") ||
+          interactiveEl.classList.contains("magnetic") &&
+          !interactiveEl.classList.contains("play-button") &&
+          !interactiveEl.classList.contains("mega-item") &&
+          !interactiveEl.closest(".mega-menu") &&
+          !interactiveEl.closest(".mega-left") &&
+          (interactiveEl.classList.contains("btn") ||
           interactiveEl.tagName === "A" ||
-          interactiveEl.tagName === "BUTTON"
+          interactiveEl.tagName === "BUTTON")
         ) {
           magneticElement = interactiveEl;
         }
@@ -619,7 +623,11 @@
       cursorGlow.style.opacity = "1";
     });
     document.querySelectorAll(".btn, button, a[href]").forEach((el) => {
-      el.classList.add("magnetic");
+      if (!el.classList.contains("play-button") && 
+          !el.classList.contains("mega-item") && 
+          !el.closest(".mega-menu")) {
+        el.classList.add("magnetic");
+      }
     });
   }
   function setCurrentYear() {

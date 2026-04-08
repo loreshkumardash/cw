@@ -402,7 +402,7 @@ img {
 }
 .btn-primary:hover {
   color: var(--white);
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
   box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
 }
 .btn-outline {
@@ -413,7 +413,7 @@ img {
 .btn-outline:hover {
   background: var(--gray-50);
   border-color: var(--gray-400);
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 .btn-light {
   background: var(--white);
@@ -421,7 +421,7 @@ img {
   box-shadow: var(--shadow-lg);
 }
 .btn-light:hover {
-  transform: translateY(-3px);
+  /* transform: translateY(-3px); */
   box-shadow: var(--shadow-xl);
 }
 .btn-lg {
@@ -1033,7 +1033,7 @@ section {
 .service-card:hover {
   border-color: transparent;
   box-shadow: var(--shadow-xl);
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
 }
 .service-card:hover::before {
   transform: scaleX(1);
@@ -1094,7 +1094,7 @@ section {
   transition: transform 0.3s ease;
 }
 .service-link:hover i {
-  transform: translateX(6px);
+  /* transform: translateX(6px); */
 }
 .products {
   position: relative;
@@ -1337,7 +1337,7 @@ section {
   color: var(--white);
   background: var(--gradient-primary);
   border-color: transparent;
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
 .portfolio-grid {
@@ -2571,7 +2571,7 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%);
   width: 80px;
   height: 80px;
   background: rgba(255, 255, 255, 0.95);
@@ -2590,8 +2590,8 @@ section {
   transition: all 0.3s ease;
 }
 .testimonial-video:hover .play-button {
-  transform: translate(-50%, -50%) scale(1.15);
   background: var(--white);
+  transform: translate(-50%, -50%) scale(1.08);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 .testimonial-video:hover .play-button i {
@@ -2859,7 +2859,7 @@ textarea,
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  /* transform: translateX(-50%) translateY(10px); */
   width: 520px;
   background: #fff;
   border-radius: 12px;
@@ -2872,7 +2872,7 @@ textarea,
 .has-mega:hover .mega-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  /* transform: translateX(-50%) translateY(0); */
 }
 .mega-left {
   display: grid;
@@ -2890,7 +2890,7 @@ textarea,
 }
 .mega-item:hover {
   background: #f6f9ff;
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 .mega-icon {
   width: 36px;
