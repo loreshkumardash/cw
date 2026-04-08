@@ -523,7 +523,6 @@
     const dotSmoothing = 0.5;
     const outlineSmoothing = 0.15;
     const glowSmoothing = 0.1;
-    let magneticElement = null;
     const interactiveSelector =
       'a, button, .btn, input, textarea, [role="button"], .nav-links a, .navbar-brand, .mobile-toggle';
     document.addEventListener("mousemove", (e) => {
@@ -534,28 +533,12 @@
       const interactiveEl = e.target.closest(interactiveSelector);
       if (interactiveEl) {
         cursorOutline.classList.add("hovered");
-        if (
-          interactiveEl.classList.contains("magnetic") &&
-          !interactiveEl.classList.contains("play-button") &&
-          !interactiveEl.classList.contains("mega-item") &&
-          !interactiveEl.closest(".mega-menu") &&
-          !interactiveEl.closest(".mega-left") &&
-          (interactiveEl.classList.contains("btn") ||
-            interactiveEl.tagName === "A" ||
-            interactiveEl.tagName === "BUTTON")
-        ) {
-          magneticElement = interactiveEl;
-        }
       }
     });
     document.addEventListener("mouseout", (e) => {
       const interactiveEl = e.target.closest(interactiveSelector);
       if (interactiveEl) {
         cursorOutline.classList.remove("hovered");
-        magneticElement = null;
-        if (interactiveEl.classList.contains("magnetic")) {
-          interactiveEl.style.transform = "translate(0, 0)";
-        }
       }
     });
     document.addEventListener("click", (e) => {
@@ -581,24 +564,7 @@
       cursorOutline.style.top = outlineY + "px";
       cursorGlow.style.left = glowX + "px";
       cursorGlow.style.top = glowY + "px";
-      if (magneticElement) {
-        const rect = magneticElement.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distanceX = mouseX - centerX;
-        const distanceY = mouseY - centerY;
-        const maxDistance = 100;
-        const distance = Math.sqrt(
-          distanceX * distanceX + distanceY * distanceY,
-        );
-        if (distance < maxDistance) {
-          const pullX = (distanceX / maxDistance) * 20;
-          const pullY = (distanceY / maxDistance) * 20;
-          magneticElement.style.transform = `translate(${pullX}px, ${pullY}px)`;
-          outlineX += (centerX - outlineX) * 0.1;
-          outlineY += (centerY - outlineY) * 0.1;
-        }
-      }
+      
       requestAnimationFrame(animate);
     }
     animate();
@@ -611,15 +577,6 @@
       cursorDot.style.opacity = "1";
       cursorOutline.style.opacity = "1";
       cursorGlow.style.opacity = "1";
-    });
-    document.querySelectorAll(".btn, button, a[href]").forEach((el) => {
-      if (
-        !el.classList.contains("play-button") &&
-        !el.classList.contains("mega-item") &&
-        !el.closest(".mega-menu")
-      ) {
-        el.classList.add("magnetic");
-      }
     });
   }
   function setCurrentYear() {
