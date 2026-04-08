@@ -3203,7 +3203,10 @@
     const contactForm = document.getElementById("contact-form");
     if (!contactForm) return;
     const formMessage = document.getElementById("form-message");
-    contactForm.addEventListener("submit", function (e) {
+
+    const CONTACT_SERVICE_ID = "O7t07Am9Hj1fkJonQ";
+    const CONTACT_TEMPLATE_ID = "";
+    contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
@@ -3220,16 +3223,39 @@
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
       submitBtn.disabled = true;
-      setTimeout(() => {
-        showMessage(
-          "Thank you for your message! We'll get back to you within 24 hours.",
-          "success",
-        );
-        contactForm.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
+
+      // EmailJS send
+      if (typeof emailjs !== "undefined" && CONTACT_TEMPLATE_ID) {
+        try {
+          await emailjs.send(CONTACT_SERVICE_ID, CONTACT_TEMPLATE_ID, data);
+          showMessage(
+            "Thank you for your message! We'll get back to you within 24 hours.",
+            "success",
+          );
+          contactForm.reset();
+        } catch (error) {
+          console.error("Contact form EmailJS error:", error);
+          showMessage(
+            "Something went wrong. Please try again or email us directly.",
+            "error",
+          );
+        }
+      } else if (!CONTACT_TEMPLATE_ID) {
+        // Fallback when template ID is not set
+        setTimeout(() => {
+          showMessage(
+            "Thank you for your message! We'll get back to you within 24 hours.",
+            "success",
+          );
+          contactForm.reset();
+        }, 1500);
+      } else {
+        showMessage("EmailJS is not loaded. Please try again later.", "error");
+      }
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
     });
+
     function showMessage(text, type) {
       formMessage.textContent = text;
       formMessage.style.display = "block";
