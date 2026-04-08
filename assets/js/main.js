@@ -2139,11 +2139,10 @@
       };
 
       // Send email using EmailJS
-      // Replace with your actual Service ID and Template ID from EmailJS dashboard
       if (typeof emailjs !== "undefined") {
         await emailjs.send(
-          "service_ihbrdo7", // Replace with your EmailJS Service ID
-          "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+          "service_ihbrdo7", // EmailJS Service ID
+          "template_6ekvw8d", // EmailJS Template ID — update this from your EmailJS dashboard
           templateParams,
         );
       } else {
