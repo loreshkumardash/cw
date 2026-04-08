@@ -2140,28 +2140,22 @@
 
       // Send email using EmailJS
       if (typeof emailjs !== "undefined") {
+        // Ensure emailjs is initialized before sending
+        if (!emailjs.publicKey) {
+          emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
+        }
+        
         await emailjs.send(
           "service_2pul7gz",
           "template_2oc5vxa",
           templateParams,
         );
-      } else {
-        console.warn("EmailJS not loaded. Application data:", templateParams);
       }
 
       // Show success message
       if (form) form.style.display = "none";
       if (successMessage) successMessage.style.display = "block";
-
-      console.log("Application submitted successfully for:", jobTitle);
-      console.log(
-        "Applicant:",
-        templateParams.first_name,
-        templateParams.last_name,
-      );
-      console.log("Email:", templateParams.email);
     } catch (error) {
-      console.error("Error submitting application:", error);
       alert(
         "There was an error submitting your application. Please try again or contact us directly.",
       );
@@ -3584,14 +3578,177 @@
   }
 
   // ========================================
-  // EmailJS Initialization (Career Details)
+  // EmailJS Initialization (Career Details) - Immediate
   // ========================================
-  function initEmailJS() {
+  (function initEmailJSImmediately() {
     if (typeof emailjs === 'undefined') return;
-    
-    emailjs.init({
-      publicKey: "O7t07Am9Hj1fkJonQ",
+    emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
+  })();
+
+  function initEmailJS() {
+    // Already initialized above, this is just for compatibility
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
+    }
+  }
+
+  // ========================================
+  // Career Application Form Handler
+  // ========================================
+  function initCareerApplicationForm() {
+    const applyModal = document.getElementById('apply-modal');
+    const applyForm = document.getElementById('apply-form');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const successCloseBtn = document.getElementById('success-close-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMessage = document.getElementById('success-message');
+    const fileUploadArea = document.getElementById('file-upload-area');
+    const resumeFileInput = document.getElementById('resume-file');
+    const uploadPlaceholder = document.getElementById('upload-placeholder');
+    const filePreview = document.getElementById('file-preview');
+    const fileName = document.getElementById('file-name');
+    const fileSize = document.getElementById('file-size');
+    const removeFileBtn = document.getElementById('remove-file-btn');
+
+    if (!applyModal || !applyForm) return;
+
+    // File upload handling
+    if (fileUploadArea && resumeFileInput) {
+      fileUploadArea.addEventListener('click', (e) => {
+        if (e.target !== removeFileBtn && !removeFileBtn?.contains(e.target)) {
+          resumeFileInput.click();
+        }
+      });
+
+      resumeFileInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+          const file = this.files[0];
+          
+          // Validate file size (5MB max)
+          if (file.size > 5 * 1024 * 1024) {
+            alert('File size must be less than 5MB');
+            this.value = '';
+            return;
+          }
+
+          // Validate file type
+          const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+          if (!allowedTypes.includes(file.type)) {
+            alert('Only PDF, DOC, and DOCX files are allowed');
+            this.value = '';
+            return;
+          }
+
+          // Show file preview
+          if (uploadPlaceholder) uploadPlaceholder.style.display = 'none';
+          if (filePreview) {
+            filePreview.style.display = 'flex';
+            if (fileName) fileName.textContent = file.name;
+            if (fileSize) fileSize.textContent = (file.size / 1024).toFixed(2) + ' KB';
+          }
+        }
+      });
+
+      if (removeFileBtn) {
+        removeFileBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          resumeFileInput.value = '';
+          if (uploadPlaceholder) uploadPlaceholder.style.display = 'block';
+          if (filePreview) filePreview.style.display = 'none';
+        });
+      }
+    }
+
+    // Form submission
+    applyForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (typeof emailjs === 'undefined') {
+        alert('EmailJS not loaded. Please try again.');
+        return;
+      }
+
+      // Show loading state
+      const btnText = submitBtn?.querySelector('.btn-text');
+      const btnLoading = submitBtn?.querySelector('.btn-loading');
+      if (btnText) btnText.style.display = 'none';
+      if (btnLoading) btnLoading.style.display = 'flex';
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        // Prepare form data
+        const formData = {
+          firstName: document.getElementById('first-name')?.value || '',
+          lastName: document.getElementById('last-name')?.value || '',
+          email: document.getElementById('email')?.value || '',
+          phone: document.getElementById('phone')?.value || '',
+          location: document.getElementById('location')?.value || '',
+          linkedin: document.getElementById('linkedin')?.value || '',
+          portfolio: document.getElementById('portfolio')?.value || '',
+          experienceYears: document.getElementById('experience-years')?.value || '',
+          currentCTC: document.getElementById('current-ctc')?.value || '',
+          expectedCTC: document.getElementById('expected-ctc')?.value || '',
+          noticePeriod: document.getElementById('notice-period')?.value || '',
+          coverLetter: document.getElementById('cover-letter')?.value || '',
+          jobTitle: document.getElementById('modal-job-title')?.textContent || ''
+        };
+
+        // Send email via EmailJS
+        await emailjs.send('service_cakiweb', 'template_career_application', formData);
+
+        // Show success message
+        applyForm.style.display = 'none';
+        if (successMessage) successMessage.style.display = 'block';
+
+        // Reset form
+        applyForm.reset();
+        if (uploadPlaceholder) uploadPlaceholder.style.display = 'block';
+        if (filePreview) filePreview.style.display = 'none';
+
+      } catch (error) {
+        console.error('Error submitting application:', error);
+        alert('Failed to submit application. Please try again.');
+      } finally {
+        // Reset button state
+        if (btnText) btnText.style.display = 'flex';
+        if (btnLoading) btnLoading.style.display = 'none';
+        if (submitBtn) submitBtn.disabled = false;
+      }
     });
+
+    // Close modal handlers
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', function() {
+        applyModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', function() {
+        applyModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    if (successCloseBtn) {
+      successCloseBtn.addEventListener('click', function() {
+        applyModal.classList.remove('active');
+        document.body.style.overflow = '';
+        if (successMessage) successMessage.style.display = 'none';
+        if (applyForm) applyForm.style.display = 'block';
+      });
+    }
+
+    // Close on backdrop click
+    const backdrop = applyModal.querySelector('.modal-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', function() {
+        applyModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
   }
 
   // ========================================
