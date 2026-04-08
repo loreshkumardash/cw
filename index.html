@@ -461,133 +461,13 @@
           Enterprise-grade software products built to scale your business operations
         </p>
       </div>
-      <div class="products-scroll-wrapper">
-        <div class="products-scroll-viewport">
-          <div class="products-scroll-track">
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-mortarboard"></i>
-              </div>
-              <h3>Education Management</h3>
-              <p>Complete school and college management platform with student tracking, attendance, and performance
-                analytics.</p>
-              <a href="product-details.html?product=school-college-management-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-people"></i>
-              </div>
-              <h3>Manpower ERP</h3>
-              <p>End-to-end workforce management with placement tracking, documentation, and client coordination.</p>
-              <a href="product-details.html?product=erp-software-manpower-agency" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-calculator"></i>
-              </div>
-              <h3>Accounts Pro</h3>
-              <p>Smart accounting with real-time financial insights, GST compliance, and automated reporting.</p>
-              <a href="product-details.html?product=advanced-accounts-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-cash-stack"></i>
-              </div>
-              <h3>Payroll Master</h3>
-              <p>Automated salary processing with tax calculations, compliance management, and instant payslip
-                generation.</p>
-              <a href="product-details.html?product=advanced-payroll-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-receipt"></i>
-              </div>
-              <h3>Billing Express</h3>
-              <p>Fast invoicing and billing automation with inventory sync and multi-payment gateway support.</p>
-              <a href="product-details.html?product=advanced-billing-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-truck"></i>
-              </div>
-              <h3>Fleet Command</h3>
-              <p>Real-time GPS tracking, route optimization, fuel management, and maintenance scheduling.</p>
-              <a href="product-details.html?product=fleet-management-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-bus-front"></i>
-              </div>
-              <h3>Bus Booking Pro</h3>
-              <p>Online ticket reservation with seat selection, live availability, and integrated payment processing.
-              </p>
-              <a href="product-details.html?product=online-bus-ticket-booking-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-file-earmark-text"></i>
-              </div>
-              <h3>Tender Tracker</h3>
-              <p>Government and private tender alerts, bid management, and document submission workflow.</p>
-              <a href="product-details.html?product=tender-bid-management-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-person-lines-fill"></i>
-              </div>
-              <h3>CRM Suite</h3>
-              <p>Customer relationship management with lead tracking, pipeline management, and sales automation.</p>
-              <a href="product-details.html?product=crm-software-development" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-
-            <div class="product-scroll-card">
-              <div class="product-icon-wrapper">
-                <i class="bi bi-chat-left-text"></i>
-              </div>
-              <h3>Grievance Hub</h3>
-              <p>Complaint management system with ticket tracking, escalation workflows, and resolution analytics.</p>
-              <a href="product-details.html?product=grievance-management-software" class="product-link">
-                Explore Product <i class="bi bi-arrow-right-short"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="products-scroll-hint">
-          <span>Scroll to explore</span>
-          <i class="bi bi-arrow-right"></i>
-        </div>
+      <div class="products-grid" id="products-grid">
+        <!-- Dynamically loaded product cards -->
       </div>
-      <div class="products-cta text-center" data-aos="fade-up">
-        <a href="contact.html" class="btn btn-primary btn-lg">
-          Request a Demo <i class="bi bi-arrow-right"></i>
-        </a>
+      <div class="text-center" style="margin-top: 32px;">
+        <button type="button" class="btn btn-outline-primary btn-lg" id="products-load-more-btn" style="display:none;">
+          Load More Products <i class="bi bi-chevron-down" style="margin-left: 6px;"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -794,34 +674,12 @@
           We leverage cutting-edge technologies to deliver high-performance, scalable solutions
         </p>
       </div>
-      <div class="tech-marquee">
-        <div class="marquee-track">
-          <div class="tech-item"><span class="tech-name">HTML5</span></div>
-          <div class="tech-item"><span class="tech-name">CSS3</span></div>
-          <div class="tech-item"><span class="tech-name">JavaScript</span></div>
-          <div class="tech-item"><span class="tech-name">React</span></div>
-          <div class="tech-item"><span class="tech-name">Vue.js</span></div>
-          <div class="tech-item"><span class="tech-name">Next.js</span></div>
-          <div class="tech-item"><span class="tech-name">Tailwind CSS</span></div>
-          <div class="tech-item"><span class="tech-name">Bootstrap</span></div>
-          <div class="tech-item"><span class="tech-name">PHP</span></div>
-          <div class="tech-item"><span class="tech-name">Node.js</span></div>
-          <div class="tech-item"><span class="tech-name">Laravel</span></div>
-          <div class="tech-item"><span class="tech-name">Express</span></div>
+      <div class="tech-marquee" id="tech-marquee">
+        <div class="marquee-track" id="marquee-track-1">
+          <!-- Dynamically loaded -->
         </div>
-        <div class="marquee-track mt-3" aria-hidden="true">
-          <div class="tech-item"><span class="tech-name">Python</span></div>
-          <div class="tech-item"><span class="tech-name">Django</span></div>
-          <div class="tech-item"><span class="tech-name">Flutter</span></div>
-          <div class="tech-item"><span class="tech-name">React Native</span></div>
-          <div class="tech-item"><span class="tech-name">MySQL</span></div>
-          <div class="tech-item"><span class="tech-name">PostgreSQL</span></div>
-          <div class="tech-item"><span class="tech-name">MongoDB</span></div>
-          <div class="tech-item"><span class="tech-name">Firebase</span></div>
-          <div class="tech-item"><span class="tech-name">AWS</span></div>
-          <div class="tech-item"><span class="tech-name">Docker</span></div>
-          <div class="tech-item"><span class="tech-name">Git</span></div>
-          <div class="tech-item"><span class="tech-name">Figma</span></div>
+        <div class="marquee-track mt-3" id="marquee-track-2" aria-hidden="true">
+          <!-- Dynamically loaded -->
         </div>
       </div>
     </div>

@@ -383,7 +383,145 @@
       ease: "power2.out",
     });
   }
+
+  // Dynamic Products Loader for index.html
+  (function initProductsGrid() {
+    const grid = document.getElementById("products-grid");
+    const loadMoreBtn = document.getElementById("products-load-more-btn");
+    if (!grid || !loadMoreBtn) return;
+
+    const VISIBLE_COUNT = 6;
+    let allProducts = [];
+    let visibleCount = VISIBLE_COUNT;
+
+    function renderCard(product, index) {
+      const delay = (index % VISIBLE_COUNT) * 50;
+      return `
+        <div class="product-card" data-aos="fade-up" data-aos-delay="${delay}" onclick="window.location.href='product-details.html?product=${product.slug}'" style="cursor:pointer;">
+          <div class="product-icon-wrapper">
+            <i class="bi ${product.icon || "bi-box-seam"}"></i>
+          </div>
+          <h3>${product.title}</h3>
+          <p>${product.shortDescription || ""}</p>
+          <a href="product-details.html?product=${product.slug}" class="product-link" onclick="event.stopPropagation();">
+            Explore Product <i class="bi bi-arrow-right-short"></i>
+          </a>
+        </div>`;
+    }
+
+    function renderProducts(append) {
+      const fragment = document.createDocumentFragment();
+      const start = append ? visibleCount - VISIBLE_COUNT : 0;
+      const end = Math.min(visibleCount, allProducts.length);
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = allProducts
+        .slice(start, end)
+        .map((p, i) => renderCard(p, start + i))
+        .join("");
+      while (wrapper.firstChild) {
+        fragment.appendChild(wrapper.firstChild);
+      }
+      if (append) {
+        grid.appendChild(fragment);
+      } else {
+        grid.innerHTML = "";
+        grid.appendChild(fragment);
+      }
+      // Refresh AOS for new elements
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 100);
+      }
+      // Toggle load more button
+      if (visibleCount >= allProducts.length) {
+        loadMoreBtn.style.display = "none";
+      } else {
+        loadMoreBtn.style.display = "inline-flex";
+      }
+    }
+
+    loadMoreBtn.addEventListener("click", () => {
+      visibleCount += VISIBLE_COUNT;
+      renderProducts(true);
+    });
+
+    async function loadProducts() {
+      try {
+        const resp = await fetch("assets/json/product.json");
+        if (!resp.ok) throw new Error("Failed to load products");
+        const data = await resp.json();
+        allProducts = data.products || [];
+        renderProducts(false);
+      } catch (err) {
+        console.error("Products load error:", err);
+        grid.innerHTML = '<p style="text-align:center;color:var(--gray-500);">Unable to load products.</p>';
+      }
+    }
+
+    loadProducts();
+  })();
+
+  // Dynamic Tech Stack Loader for index.html
+  (function initTechStackMarquee() {
+    const track1 = document.getElementById("marquee-track-1");
+    const track2 = document.getElementById("marquee-track-2");
+    if (!track1 || !track2) return;
+
+    const technologies = [
+      { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+      { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+      { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+      { name: "Bootstrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+      { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+      { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "Laravel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
+      { name: "Express", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Django", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+      { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+      { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+      { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
+      { name: "Sass", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
+      { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    ];
+
+    const HALF = Math.ceil(technologies.length / 2);
+    const row1 = technologies.slice(0, HALF);
+    const row2 = technologies.slice(HALF);
+
+    function buildTrack(techs, container) {
+      // Duplicate for seamless infinite loop
+      const all = [...techs, ...techs];
+      container.innerHTML = all
+        .map(
+          (t) => `
+        <div class="tech-item">
+          <img src="${t.logo}" alt="${t.name}" class="tech-logo" loading="lazy" onerror="this.style.display='none'">
+          <span class="tech-name">${t.name}</span>
+        </div>`
+        )
+        .join("");
+    }
+
+    buildTrack(row1, track1);
+    buildTrack(row2, track2);
+  })();
+
   function initProductsHorizontalScroll() {
+    // Disabled: Products section now uses simple grid layout
+    return;
     const section = document.querySelector("#products");
     const track = document.querySelector(".products-scroll-track");
     const viewport = document.querySelector(".products-scroll-viewport");
