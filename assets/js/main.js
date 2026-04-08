@@ -47,8 +47,10 @@
     toggle.addEventListener("click", () => {
       menu.classList.toggle("active");
       const icon = toggle.querySelector("i");
-      icon.classList.toggle("bi-list");
-      icon.classList.toggle("bi-x");
+      if (icon) {
+        icon.classList.toggle("bi-list");
+        icon.classList.toggle("bi-x");
+      }
     });
     menu.querySelectorAll(".nav-links a").forEach((link) => {
       link.addEventListener("click", () => {
@@ -56,8 +58,11 @@
           return;
         }
         menu.classList.remove("active");
-        toggle.querySelector("i").classList.add("bi-list");
-        toggle.querySelector("i").classList.remove("bi-x");
+        const icon = toggle.querySelector("i");
+        if (icon) {
+          icon.classList.add("bi-list");
+          icon.classList.remove("bi-x");
+        }
       });
     });
     document.querySelectorAll(".has-mega").forEach(function (megaItem) {
@@ -305,6 +310,7 @@
     const cta = document.querySelector("#cta");
     if (!cta) return;
     const ctaCard = cta.querySelector(".cta-card");
+    if (!ctaCard) return;
     gsap.set(ctaCard, { opacity: 0, scale: 0.95 });
     gsap.to(ctaCard, {
       scrollTrigger: {
@@ -359,11 +365,12 @@
     const sectionTitle = testimonials.querySelector(".section-title");
     const sectionSubtitle = testimonials.querySelector(".section-subtitle");
     const sectionDesc = testimonials.querySelector(".section-description");
-    gsap.set([sectionSubtitle, sectionTitle, sectionDesc], {
-      opacity: 0,
-      y: 30,
-    });
-    gsap.to([sectionSubtitle, sectionTitle, sectionDesc], {
+    const elements = [sectionSubtitle, sectionTitle, sectionDesc].filter(
+      Boolean,
+    );
+    if (elements.length === 0) return;
+    gsap.set(elements, { opacity: 0, y: 30 });
+    gsap.to(elements, {
       scrollTrigger: {
         trigger: testimonials,
         start: "top bottom-=100",
@@ -516,7 +523,9 @@
     window.addEventListener("load", () => {
       setTimeout(() => {
         ScrollTrigger.refresh();
-        ScrollTrigger.update();
+        if (typeof ScrollTrigger.update === "function") {
+          ScrollTrigger.update();
+        }
       }, 100);
       setTimeout(() => {
         ScrollTrigger.refresh();
@@ -891,7 +900,9 @@
     }
     const iconLarge = document.getElementById("service-icon-large");
     if (iconLarge) {
-      const iconName = service.icon.replace("bi-", "");
+      const iconName = service.icon
+        ? service.icon.replace("bi-", "")
+        : "code-slash";
       iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
     }
     const sidebarServiceTitle = document.getElementById(
@@ -908,7 +919,7 @@
         .join("");
     }
     const allServicesContainer = document.getElementById("all-services-list");
-    if (allServicesContainer) {
+    if (allServicesContainer && serviceData && serviceData.services) {
       allServicesContainer.innerHTML = serviceData.services
         .map(
           (s) => `
@@ -1117,7 +1128,9 @@
     }
     const iconLarge = document.getElementById("product-icon-large");
     if (iconLarge) {
-      const iconName = product.icon.replace("bi-", "");
+      const iconName = product.icon
+        ? product.icon.replace("bi-", "")
+        : "box-seam";
       iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
     }
     const sidebarProductTitle = document.getElementById(
@@ -1125,7 +1138,7 @@
     );
     if (sidebarProductTitle) sidebarProductTitle.textContent = product.title;
     const allProductsContainer = document.getElementById("all-products-list");
-    if (allProductsContainer) {
+    if (allProductsContainer && productData && productData.products) {
       allProductsContainer.innerHTML = productData.products
         .map(
           (p) => `
@@ -1304,6 +1317,7 @@
     const typeFilterEl = document.getElementById("type-filter");
     const experienceFilterEl = document.getElementById("experience-filter");
     if (locationFilterEl) {
+      locationFilterEl.innerHTML = '<option value="">All Locations</option>';
       locations.forEach((location) => {
         const option = document.createElement("option");
         option.value = location;
@@ -1312,6 +1326,7 @@
       });
     }
     if (typeFilterEl) {
+      typeFilterEl.innerHTML = '<option value="">All Types</option>';
       types.forEach((type) => {
         const option = document.createElement("option");
         option.value = type;
@@ -1320,6 +1335,8 @@
       });
     }
     if (experienceFilterEl) {
+      experienceFilterEl.innerHTML =
+        '<option value="">All Experience Levels</option>';
       experiences.forEach((exp) => {
         const option = document.createElement("option");
         option.value = exp;
@@ -1327,18 +1344,27 @@
         experienceFilterEl.appendChild(option);
       });
     }
-    locationFilterEl?.addEventListener("change", (e) => {
-      locationFilterVar = e.target.value;
-      renderJobs();
-    });
-    typeFilterEl?.addEventListener("change", (e) => {
-      typeFilterVar = e.target.value;
-      renderJobs();
-    });
-    experienceFilterEl?.addEventListener("change", (e) => {
-      experienceFilterVar = e.target.value;
-      renderJobs();
-    });
+    if (locationFilterEl && !locationFilterEl.dataset.listenersAttached) {
+      locationFilterEl.addEventListener("change", (e) => {
+        locationFilterVar = e.target.value;
+        renderJobs();
+      });
+      locationFilterEl.dataset.listenersAttached = "true";
+    }
+    if (typeFilterEl && !typeFilterEl.dataset.listenersAttached) {
+      typeFilterEl.addEventListener("change", (e) => {
+        typeFilterVar = e.target.value;
+        renderJobs();
+      });
+      typeFilterEl.dataset.listenersAttached = "true";
+    }
+    if (experienceFilterEl && !experienceFilterEl.dataset.listenersAttached) {
+      experienceFilterEl.addEventListener("change", (e) => {
+        experienceFilterVar = e.target.value;
+        renderJobs();
+      });
+      experienceFilterEl.dataset.listenersAttached = "true";
+    }
   }
   function filterJobs() {
     let jobs = getActiveJobs();
@@ -1870,7 +1896,9 @@
       if (successMessage) {
         successMessage.style.display = "none";
       }
-      resetFileUpload();
+      if (typeof window.resetFileUpload === "function") {
+        window.resetFileUpload();
+      }
     }
   }
   function initFileUpload() {
