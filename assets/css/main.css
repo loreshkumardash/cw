@@ -1687,10 +1687,10 @@ section {
   position: fixed;
   bottom: 150px;
   right: 30px;
-  width: 280px;
+  width: 250px;
   background: var(--white);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   z-index: 999;
   opacity: 0;
@@ -1718,22 +1718,22 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--gray-200);
 }
 .whatsapp-form-popup .popup-header h4 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--gray-900);
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 .whatsapp-form-popup .popup-header h4 i {
   color: #25d366;
-  font-size: 20px;
+  font-size: 18px;
 }
 .whatsapp-form-popup .popup-close {
   width: 28px;
@@ -1754,21 +1754,21 @@ section {
   color: var(--gray-900);
 }
 .whatsapp-form-popup .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .whatsapp-form-popup .form-label {
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--gray-700);
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 .whatsapp-form-popup .form-control {
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 2px solid var(--gray-200);
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
   transition: all 0.3s ease;
   font-family: inherit;
 }
@@ -1779,16 +1779,16 @@ section {
 }
 .whatsapp-form-popup textarea.form-control {
   resize: vertical;
-  min-height: 60px;
+  min-height: 50px;
 }
 .whatsapp-form-popup .btn-whatsapp-submit {
   width: 100%;
-  padding: 10px;
+  padding: 9px;
   background: #25d366;
   color: var(--white);
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1813,8 +1813,8 @@ section {
   .whatsapp-form-popup {
     bottom: 145px;
     right: 20px;
-    width: 260px;
-    padding: 16px;
+    width: 230px;
+    padding: 14px;
   }
   .scroll-top {
     bottom: 30px;
