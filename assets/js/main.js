@@ -184,30 +184,42 @@
         });
         if (subtitle) {
           gsap.set(subtitle, { opacity: 0, y: 20 });
-          tl.to(subtitle, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          }, 0);
+          tl.to(
+            subtitle,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            0,
+          );
         }
         if (title) {
           gsap.set(title, { opacity: 0, y: 20 });
-          tl.to(title, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          }, "-=0.4");
+          tl.to(
+            title,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            "-=0.4",
+          );
         }
         if (description) {
           gsap.set(description, { opacity: 0, y: 20 });
-          tl.to(description, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          }, "-=0.4");
+          tl.to(
+            description,
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            "-=0.4",
+          );
         }
       }
     });
@@ -529,8 +541,8 @@
           !interactiveEl.closest(".mega-menu") &&
           !interactiveEl.closest(".mega-left") &&
           (interactiveEl.classList.contains("btn") ||
-          interactiveEl.tagName === "A" ||
-          interactiveEl.tagName === "BUTTON")
+            interactiveEl.tagName === "A" ||
+            interactiveEl.tagName === "BUTTON")
         ) {
           magneticElement = interactiveEl;
         }
@@ -601,9 +613,11 @@
       cursorGlow.style.opacity = "1";
     });
     document.querySelectorAll(".btn, button, a[href]").forEach((el) => {
-      if (!el.classList.contains("play-button") && 
-          !el.classList.contains("mega-item") && 
-          !el.closest(".mega-menu")) {
+      if (
+        !el.classList.contains("play-button") &&
+        !el.classList.contains("mega-item") &&
+        !el.closest(".mega-menu")
+      ) {
         el.classList.add("magnetic");
       }
     });
@@ -753,24 +767,37 @@
     if (serviceShortDesc)
       serviceShortDesc.textContent = service.shortDescription;
     const serviceFullDesc = document.getElementById("service-full-desc");
-    const serviceShortOverview = document.getElementById("service-short-overview");
-    const serviceOverviewFull = document.getElementById("service-overview-full");
-    const viewMoreBtnServiceOverview = document.getElementById("view-more-btn-service-overview");
+    const serviceShortOverview = document.getElementById(
+      "service-short-overview",
+    );
+    const serviceOverviewFull = document.getElementById(
+      "service-overview-full",
+    );
+    const viewMoreBtnServiceOverview = document.getElementById(
+      "view-more-btn-service-overview",
+    );
     if (service.fullDescription) {
       const paragraphs = service.fullDescription.split(/\n\s*\n/);
       if (paragraphs.length > 1) {
-        if (serviceShortOverview) serviceShortOverview.textContent = paragraphs[0];
-        if (serviceFullDesc) serviceFullDesc.textContent = paragraphs.slice(1).join("\n\n");
-        if (viewMoreBtnServiceOverview) viewMoreBtnServiceOverview.style.display = "flex";
+        if (serviceShortOverview)
+          serviceShortOverview.textContent = paragraphs[0];
+        if (serviceFullDesc)
+          serviceFullDesc.textContent = paragraphs.slice(1).join("\n\n");
+        if (viewMoreBtnServiceOverview)
+          viewMoreBtnServiceOverview.style.display = "flex";
       } else {
         const OVERVIEW_TRUNCATE = 800;
         const text = service.fullDescription;
         if (text.length > OVERVIEW_TRUNCATE) {
           const breakPoint = text.lastIndexOf(" ", OVERVIEW_TRUNCATE);
           const splitIndex = breakPoint > 0 ? breakPoint : OVERVIEW_TRUNCATE;
-          if (serviceShortOverview) serviceShortOverview.textContent = text.substring(0, splitIndex) + "\u2026";
-          if (serviceFullDesc) serviceFullDesc.textContent = text.substring(splitIndex);
-          if (viewMoreBtnServiceOverview) viewMoreBtnServiceOverview.style.display = "flex";
+          if (serviceShortOverview)
+            serviceShortOverview.textContent =
+              text.substring(0, splitIndex) + "\u2026";
+          if (serviceFullDesc)
+            serviceFullDesc.textContent = text.substring(splitIndex);
+          if (viewMoreBtnServiceOverview)
+            viewMoreBtnServiceOverview.style.display = "flex";
         } else {
           if (serviceShortOverview) serviceShortOverview.textContent = text;
           if (serviceOverviewFull) serviceOverviewFull.style.display = "none";
@@ -974,14 +1001,20 @@
     if (productShortDesc)
       productShortDesc.textContent = product.shortDescription;
     const productFullDesc = document.getElementById("product-full-desc");
-    const productShortOverview = document.getElementById("product-short-overview");
+    const productShortOverview = document.getElementById(
+      "product-short-overview",
+    );
     const overviewFull = document.getElementById("overview-full");
-    const viewMoreBtnOverview = document.getElementById("view-more-btn-overview");
+    const viewMoreBtnOverview = document.getElementById(
+      "view-more-btn-overview",
+    );
     if (product.fullDescription) {
       const paragraphs = product.fullDescription.split(/\n\s*\n/);
       if (paragraphs.length > 1) {
-        if (productShortOverview) productShortOverview.textContent = paragraphs[0];
-        if (productFullDesc) productFullDesc.textContent = paragraphs.slice(1).join("\n\n");
+        if (productShortOverview)
+          productShortOverview.textContent = paragraphs[0];
+        if (productFullDesc)
+          productFullDesc.textContent = paragraphs.slice(1).join("\n\n");
         if (viewMoreBtnOverview) viewMoreBtnOverview.style.display = "flex";
       } else {
         const OVERVIEW_TRUNCATE = 800;
@@ -989,8 +1022,11 @@
         if (text.length > OVERVIEW_TRUNCATE) {
           const breakPoint = text.lastIndexOf(" ", OVERVIEW_TRUNCATE);
           const splitIndex = breakPoint > 0 ? breakPoint : OVERVIEW_TRUNCATE;
-          if (productShortOverview) productShortOverview.textContent = text.substring(0, splitIndex) + "\u2026";
-          if (productFullDesc) productFullDesc.textContent = text.substring(splitIndex);
+          if (productShortOverview)
+            productShortOverview.textContent =
+              text.substring(0, splitIndex) + "\u2026";
+          if (productFullDesc)
+            productFullDesc.textContent = text.substring(splitIndex);
           if (viewMoreBtnOverview) viewMoreBtnOverview.style.display = "flex";
         } else {
           if (productShortOverview) productShortOverview.textContent = text;
@@ -1905,7 +1941,7 @@
       });
     }
     function handleFileSelect(file) {
-      const maxSize = 5 * 1024 * 1024; 
+      const maxSize = 5 * 1024 * 1024;
       const allowedTypes = [
         "application/pdf",
         "application/msword",
@@ -1989,7 +2025,7 @@
       };
       if (typeof emailjs !== "undefined") {
         if (!emailjs.publicKey) {
-          emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
+          emailjs.init({ publicKey: "O7t07Am9Hj1fkJonQ" });
         }
         await emailjs.send(
           "service_2pul7gz",
@@ -3149,40 +3185,45 @@
     updateActiveNav();
   }
   (function initWhatsAppPopupImmediately() {
-    if (!document.getElementById('whatsapp-popup')) return;
-    window.toggleWhatsAppPopup = function() {
-      const popup = document.getElementById('whatsapp-popup');
-      if (popup) popup.classList.toggle('active');
+    if (!document.getElementById("whatsapp-popup")) return;
+    window.toggleWhatsAppPopup = function () {
+      const popup = document.getElementById("whatsapp-popup");
+      if (popup) popup.classList.toggle("active");
     };
-    window.sendToWhatsApp = function(event) {
+    window.sendToWhatsApp = function (event) {
       event.preventDefault();
-      const nameEl = document.getElementById('wa-name');
-      const emailEl = document.getElementById('wa-email');
-      const messageEl = document.getElementById('wa-message');
+      const nameEl = document.getElementById("wa-name");
+      const emailEl = document.getElementById("wa-email");
+      const messageEl = document.getElementById("wa-message");
       if (!nameEl || !emailEl || !messageEl) return;
       const name = nameEl.value;
       const email = emailEl.value;
       const message = messageEl.value;
-      const phoneNumber = '919437368484';
+      const phoneNumber = "919437368484";
       const whatsappMessage = `*New Message from Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-      window.open(whatsappURL, '_blank');
-      const popup = document.getElementById('whatsapp-popup');
-      if (popup) popup.classList.remove('active');
-      nameEl.value = '';
-      emailEl.value = '';
-      messageEl.value = '';
+      window.open(whatsappURL, "_blank");
+      const popup = document.getElementById("whatsapp-popup");
+      if (popup) popup.classList.remove("active");
+      nameEl.value = "";
+      emailEl.value = "";
+      messageEl.value = "";
     };
-    document.addEventListener('click', function(e) {
-      const popup = document.getElementById('whatsapp-popup');
-      const floatBtn = document.querySelector('.whatsapp-float');
-      if (popup && !popup.contains(e.target) && floatBtn && !floatBtn.contains(e.target)) {
-        popup.classList.remove('active');
+    document.addEventListener("click", function (e) {
+      const popup = document.getElementById("whatsapp-popup");
+      const floatBtn = document.querySelector(".whatsapp-float");
+      if (
+        popup &&
+        !popup.contains(e.target) &&
+        floatBtn &&
+        !floatBtn.contains(e.target)
+      ) {
+        popup.classList.remove("active");
       }
     });
   })();
   (function initStoryTogglesImmediately() {
-    if (!document.getElementById('view-more-btn-cost')) return;
+    if (!document.getElementById("view-more-btn-cost")) return;
     function toggleCardStory(storyId, btnId, textId) {
       const storyFull = document.getElementById(storyId);
       const btn = document.getElementById(btnId);
@@ -3200,34 +3241,50 @@
         btn.classList.remove("expanded");
       }
     }
-    window.toggleStoryCost = function() {
-      toggleCardStory("story-full-cost", "view-more-btn-cost", "view-more-text-cost");
+    window.toggleStoryCost = function () {
+      toggleCardStory(
+        "story-full-cost",
+        "view-more-btn-cost",
+        "view-more-text-cost",
+      );
     };
-    window.toggleStoryVariety = function() {
-      toggleCardStory("story-full-variety", "view-more-btn-variety", "view-more-text-variety");
+    window.toggleStoryVariety = function () {
+      toggleCardStory(
+        "story-full-variety",
+        "view-more-btn-variety",
+        "view-more-text-variety",
+      );
     };
-    window.toggleStorySecure = function() {
-      toggleCardStory("story-full-secure", "view-more-btn-secure", "view-more-text-secure");
+    window.toggleStorySecure = function () {
+      toggleCardStory(
+        "story-full-secure",
+        "view-more-btn-secure",
+        "view-more-text-secure",
+      );
     };
-    window.toggleStorySupport = function() {
-      toggleCardStory("story-full-support", "view-more-btn-support", "view-more-text-support");
+    window.toggleStorySupport = function () {
+      toggleCardStory(
+        "story-full-support",
+        "view-more-btn-support",
+        "view-more-text-support",
+      );
     };
   })();
   function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById("contact-form");
     if (!contactForm) return;
-    const formMessage = document.getElementById('form-message');
-    contactForm.addEventListener('submit', function(e) {
+    const formMessage = document.getElementById("form-message");
+    contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
       if (!data.name || !data.email || !data.message || !data.subject) {
-        showMessage('Please fill in all required fields.', 'error');
+        showMessage("Please fill in all required fields.", "error");
         return;
       }
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.email)) {
-        showMessage('Please enter a valid email address.', 'error');
+        showMessage("Please enter a valid email address.", "error");
         return;
       }
       const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -3235,7 +3292,10 @@
       submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
       submitBtn.disabled = true;
       setTimeout(() => {
-        showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
+        showMessage(
+          "Thank you for your message! We'll get back to you within 24 hours.",
+          "success",
+        );
         contactForm.reset();
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
@@ -3243,148 +3303,162 @@
     });
     function showMessage(text, type) {
       formMessage.textContent = text;
-      formMessage.style.display = 'block';
-      formMessage.style.background = type === 'success'
-        ? 'rgba(16, 185, 129, 0.1)'
-        : 'rgba(239, 68, 68, 0.1)';
-      formMessage.style.color = type === 'success' ? '#059669' : '#dc2626';
-      formMessage.style.border = `1px solid ${type === 'success' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`;
-      setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
+      formMessage.style.display = "block";
+      formMessage.style.background =
+        type === "success"
+          ? "rgba(16, 185, 129, 0.1)"
+          : "rgba(239, 68, 68, 0.1)";
+      formMessage.style.color = type === "success" ? "#059669" : "#dc2626";
+      formMessage.style.border = `1px solid ${type === "success" ? "rgba(16, 185, 129, 0.3)" : "rgba(239, 68, 68, 0.3)"}`;
+      setTimeout(() => {
+        formMessage.style.display = "none";
+      }, 5000);
     }
   }
   (function initEmailJSImmediately() {
-    if (typeof emailjs === 'undefined') return;
-    emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
+    if (typeof emailjs === "undefined") return;
+    emailjs.init({ publicKey: "O7t07Am9Hj1fkJonQ" });
   })();
   function initEmailJS() {
-    if (typeof emailjs !== 'undefined') {
-      emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
+    if (typeof emailjs !== "undefined") {
+      emailjs.init({ publicKey: "O7t07Am9Hj1fkJonQ" });
     }
   }
   function initCareerApplicationForm() {
-    const applyModal = document.getElementById('apply-modal');
-    const applyForm = document.getElementById('apply-form');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const cancelBtn = document.getElementById('cancel-btn');
-    const successCloseBtn = document.getElementById('success-close-btn');
-    const submitBtn = document.getElementById('submit-btn');
-    const successMessage = document.getElementById('success-message');
-    const fileUploadArea = document.getElementById('file-upload-area');
-    const resumeFileInput = document.getElementById('resume-file');
-    const uploadPlaceholder = document.getElementById('upload-placeholder');
-    const filePreview = document.getElementById('file-preview');
-    const fileName = document.getElementById('file-name');
-    const fileSize = document.getElementById('file-size');
-    const removeFileBtn = document.getElementById('remove-file-btn');
+    const applyModal = document.getElementById("apply-modal");
+    const applyForm = document.getElementById("apply-form");
+    const modalCloseBtn = document.getElementById("modal-close-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+    const successCloseBtn = document.getElementById("success-close-btn");
+    const submitBtn = document.getElementById("submit-btn");
+    const successMessage = document.getElementById("success-message");
+    const fileUploadArea = document.getElementById("file-upload-area");
+    const resumeFileInput = document.getElementById("resume-file");
+    const uploadPlaceholder = document.getElementById("upload-placeholder");
+    const filePreview = document.getElementById("file-preview");
+    const fileName = document.getElementById("file-name");
+    const fileSize = document.getElementById("file-size");
+    const removeFileBtn = document.getElementById("remove-file-btn");
     if (!applyModal || !applyForm) return;
     if (fileUploadArea && resumeFileInput) {
-      fileUploadArea.addEventListener('click', (e) => {
+      fileUploadArea.addEventListener("click", (e) => {
         if (e.target !== removeFileBtn && !removeFileBtn?.contains(e.target)) {
           resumeFileInput.click();
         }
       });
-      resumeFileInput.addEventListener('change', function() {
+      resumeFileInput.addEventListener("change", function () {
         if (this.files && this.files[0]) {
           const file = this.files[0];
           if (file.size > 5 * 1024 * 1024) {
-            alert('File size must be less than 5MB');
-            this.value = '';
+            alert("File size must be less than 5MB");
+            this.value = "";
             return;
           }
-          const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+          const allowedTypes = [
+            "application/pdf",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          ];
           if (!allowedTypes.includes(file.type)) {
-            alert('Only PDF, DOC, and DOCX files are allowed');
-            this.value = '';
+            alert("Only PDF, DOC, and DOCX files are allowed");
+            this.value = "";
             return;
           }
-          if (uploadPlaceholder) uploadPlaceholder.style.display = 'none';
+          if (uploadPlaceholder) uploadPlaceholder.style.display = "none";
           if (filePreview) {
-            filePreview.style.display = 'flex';
+            filePreview.style.display = "flex";
             if (fileName) fileName.textContent = file.name;
-            if (fileSize) fileSize.textContent = (file.size / 1024).toFixed(2) + ' KB';
+            if (fileSize)
+              fileSize.textContent = (file.size / 1024).toFixed(2) + " KB";
           }
         }
       });
       if (removeFileBtn) {
-        removeFileBtn.addEventListener('click', function(e) {
+        removeFileBtn.addEventListener("click", function (e) {
           e.stopPropagation();
-          resumeFileInput.value = '';
-          if (uploadPlaceholder) uploadPlaceholder.style.display = 'block';
-          if (filePreview) filePreview.style.display = 'none';
+          resumeFileInput.value = "";
+          if (uploadPlaceholder) uploadPlaceholder.style.display = "block";
+          if (filePreview) filePreview.style.display = "none";
         });
       }
     }
-    applyForm.addEventListener('submit', async function(e) {
+    applyForm.addEventListener("submit", async function (e) {
       e.preventDefault();
-      if (typeof emailjs === 'undefined') {
-        alert('EmailJS not loaded. Please try again.');
+      if (typeof emailjs === "undefined") {
+        alert("EmailJS not loaded. Please try again.");
         return;
       }
-      const btnText = submitBtn?.querySelector('.btn-text');
-      const btnLoading = submitBtn?.querySelector('.btn-loading');
-      if (btnText) btnText.style.display = 'none';
-      if (btnLoading) btnLoading.style.display = 'flex';
+      const btnText = submitBtn?.querySelector(".btn-text");
+      const btnLoading = submitBtn?.querySelector(".btn-loading");
+      if (btnText) btnText.style.display = "none";
+      if (btnLoading) btnLoading.style.display = "flex";
       if (submitBtn) submitBtn.disabled = true;
       try {
         const formData = {
-          firstName: document.getElementById('first-name')?.value || '',
-          lastName: document.getElementById('last-name')?.value || '',
-          email: document.getElementById('email')?.value || '',
-          phone: document.getElementById('phone')?.value || '',
-          location: document.getElementById('location')?.value || '',
-          linkedin: document.getElementById('linkedin')?.value || '',
-          portfolio: document.getElementById('portfolio')?.value || '',
-          experienceYears: document.getElementById('experience-years')?.value || '',
-          currentCTC: document.getElementById('current-ctc')?.value || '',
-          expectedCTC: document.getElementById('expected-ctc')?.value || '',
-          noticePeriod: document.getElementById('notice-period')?.value || '',
-          coverLetter: document.getElementById('cover-letter')?.value || '',
-          jobTitle: document.getElementById('modal-job-title')?.textContent || ''
+          firstName: document.getElementById("first-name")?.value || "",
+          lastName: document.getElementById("last-name")?.value || "",
+          email: document.getElementById("email")?.value || "",
+          phone: document.getElementById("phone")?.value || "",
+          location: document.getElementById("location")?.value || "",
+          linkedin: document.getElementById("linkedin")?.value || "",
+          portfolio: document.getElementById("portfolio")?.value || "",
+          experienceYears:
+            document.getElementById("experience-years")?.value || "",
+          currentCTC: document.getElementById("current-ctc")?.value || "",
+          expectedCTC: document.getElementById("expected-ctc")?.value || "",
+          noticePeriod: document.getElementById("notice-period")?.value || "",
+          coverLetter: document.getElementById("cover-letter")?.value || "",
+          jobTitle:
+            document.getElementById("modal-job-title")?.textContent || "",
         };
-        await emailjs.send('service_cakiweb', 'template_career_application', formData);
-        applyForm.style.display = 'none';
-        if (successMessage) successMessage.style.display = 'block';
+        await emailjs.send(
+          "service_cakiweb",
+          "template_career_application",
+          formData,
+        );
+        applyForm.style.display = "none";
+        if (successMessage) successMessage.style.display = "block";
         applyForm.reset();
-        if (uploadPlaceholder) uploadPlaceholder.style.display = 'block';
-        if (filePreview) filePreview.style.display = 'none';
+        if (uploadPlaceholder) uploadPlaceholder.style.display = "block";
+        if (filePreview) filePreview.style.display = "none";
       } catch (error) {
-        console.error('Error submitting application:', error);
-        alert('Failed to submit application. Please try again.');
+        console.error("Error submitting application:", error);
+        alert("Failed to submit application. Please try again.");
       } finally {
-        if (btnText) btnText.style.display = 'flex';
-        if (btnLoading) btnLoading.style.display = 'none';
+        if (btnText) btnText.style.display = "flex";
+        if (btnLoading) btnLoading.style.display = "none";
         if (submitBtn) submitBtn.disabled = false;
       }
     });
     if (modalCloseBtn) {
-      modalCloseBtn.addEventListener('click', function() {
-        applyModal.classList.remove('active');
-        document.body.style.overflow = '';
+      modalCloseBtn.addEventListener("click", function () {
+        applyModal.classList.remove("active");
+        document.body.style.overflow = "";
       });
     }
     if (cancelBtn) {
-      cancelBtn.addEventListener('click', function() {
-        applyModal.classList.remove('active');
-        document.body.style.overflow = '';
+      cancelBtn.addEventListener("click", function () {
+        applyModal.classList.remove("active");
+        document.body.style.overflow = "";
       });
     }
     if (successCloseBtn) {
-      successCloseBtn.addEventListener('click', function() {
-        applyModal.classList.remove('active');
-        document.body.style.overflow = '';
-        if (successMessage) successMessage.style.display = 'none';
-        if (applyForm) applyForm.style.display = 'block';
+      successCloseBtn.addEventListener("click", function () {
+        applyModal.classList.remove("active");
+        document.body.style.overflow = "";
+        if (successMessage) successMessage.style.display = "none";
+        if (applyForm) applyForm.style.display = "block";
       });
     }
-    const backdrop = applyModal.querySelector('.modal-backdrop');
+    const backdrop = applyModal.querySelector(".modal-backdrop");
     if (backdrop) {
-      backdrop.addEventListener('click', function() {
-        applyModal.classList.remove('active');
-        document.body.style.overflow = '';
+      backdrop.addEventListener("click", function () {
+        applyModal.classList.remove("active");
+        document.body.style.overflow = "";
       });
     }
   }
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
     initContactForm();
     initEmailJS();
   });
