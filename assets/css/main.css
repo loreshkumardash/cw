@@ -1835,6 +1835,7 @@ section {
     flex-direction: column;
     align-items: flex-start;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   .nav-menu::-webkit-scrollbar {
@@ -1856,6 +1857,7 @@ section {
   .nav-links {
     flex-direction: column;
     width: 100%;
+    overflow: hidden;
   }
   .nav-links a {
     padding: 14px 20px;
@@ -2483,6 +2485,7 @@ textarea,
     visibility: visible;
     max-height: none;
     overflow: visible;
+    border-radius: 0;
   }
   .has-mega.active .mega-menu {
     display: block;
@@ -2490,23 +2493,37 @@ textarea,
   .mega-left {
     grid-template-columns: 1fr;
     gap: 4px;
+    width: 100%;
+    overflow: hidden;
   }
   .mega-item {
     padding: 12px 10px;
     margin: 0;
+    width: 100%;
+    overflow: hidden;
   }
   .mega-item:hover {
     transform: none;
   }
+  .mega-item h6 {
+    font-size: 13px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .mega-item p {
+    font-size: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    max-width: 100%;
+  }
   .mega-icon {
     width: 32px;
     height: 32px;
+    flex-shrink: 0;
   }
   .mega-icon i {
     font-size: 14px;
-  }
-  .mega-item h6 {
-    font-size: 13px;
   }
 }
 .blog {
@@ -3009,7 +3026,7 @@ textarea,
 }
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 .benefit-item {
@@ -3020,6 +3037,7 @@ textarea,
   background: var(--gray-50);
   border-radius: 12px;
   transition: all 0.3s ease;
+  height: 100%;
 }
 .benefit-item:hover {
   background: var(--white);
@@ -3031,6 +3049,7 @@ textarea,
   color: var(--dark-700);
   line-height: 1.6;
   margin: 0;
+  flex: 1;
 }
 .feature-list {
   list-style: none;
@@ -3396,7 +3415,7 @@ textarea,
 }
 .why-choose-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 .why-choose-item {
@@ -3407,6 +3426,7 @@ textarea,
   background: var(--gray-50);
   border-radius: 12px;
   transition: all 0.3s ease;
+  height: 100%;
 }
 .why-choose-item:hover {
   background: var(--white);
@@ -3591,6 +3611,9 @@ textarea,
 }
 @media (max-width: 576px) {
   .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-choose-list {
     grid-template-columns: 1fr;
   }
   .section-heading {
@@ -3864,6 +3887,9 @@ input[name="filter"] {
   .why-choose-list,
   .feature-list {
     grid-template-columns: 1fr;
+  }
+  .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 }
 .hero-stats {
@@ -4234,7 +4260,7 @@ input[name="filter"] {
 .why-join-section {
   background: var(--gray-50);
 }
-.benefits-grid {
+.why-join-section .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
@@ -5170,7 +5196,7 @@ input[name="filter"] {
     width: 100%;
     justify-content: space-between;
   }
-  .benefits-grid {
+  .why-join-section .benefits-grid {
     grid-template-columns: 1fr;
   }
   .career-details-title {
