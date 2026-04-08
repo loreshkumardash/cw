@@ -92,12 +92,9 @@
   function initHeroAnimations() {
     const hero = document.querySelector("#hero");
     if (!hero) return;
-    
-    // Only animate shapes if they exist
     const shape1 = document.querySelector(".shape-1");
     const shape2 = document.querySelector(".shape-2");
     const shape3 = document.querySelector(".shape-3");
-    
     if (shape1) {
       gsap.to(shape1, {
         y: 100,
@@ -131,7 +128,6 @@
         },
       });
     }
-    
     const stats = document.querySelectorAll(".stat-number");
     stats.forEach((stat) => {
       const target = parseInt(stat.getAttribute("data-count"));
@@ -178,8 +174,6 @@
       const subtitle = header.querySelector(".section-subtitle");
       const title = header.querySelector(".section-title");
       const description = header.querySelector(".section-description");
-      
-      // Only create timeline if at least one element exists
       if (subtitle || title || description) {
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -188,7 +182,6 @@
             once: true,
           },
         });
-        
         if (subtitle) {
           gsap.set(subtitle, { opacity: 0, y: 20 });
           tl.to(subtitle, {
@@ -352,8 +345,6 @@
     const viewport = document.querySelector(".products-scroll-viewport");
     if (!section || !track || !viewport) return;
     const cards = track.querySelectorAll(".product-scroll-card");
-
-    // Kill any existing ScrollTrigger instances for this section
     ScrollTrigger.getAll().forEach((trigger) => {
       if (
         trigger.trigger === section ||
@@ -362,23 +353,17 @@
         trigger.kill();
       }
     });
-
-    // Kill all ScrollTrigger markers in the section to prevent pin-spacer buildup
     const pinSpacers = section.querySelectorAll(".pin-spacer");
     pinSpacers.forEach((spacer) => {
       spacer.style.cssText = "";
       spacer.classList.remove("pin-spacer");
     });
-
-    // Reset track to original position
     gsap.set(track, { x: 0 });
-
     function setupScroll() {
       const trackWidth = track.scrollWidth;
       const viewportWidth = viewport.offsetWidth;
       const scrollDistance = trackWidth - viewportWidth;
       if (scrollDistance <= 0 || window.innerWidth <= 768) {
-        // Clean up pin spacer on mobile
         const pinSpacers = document.querySelectorAll(".pin-spacer");
         pinSpacers.forEach((spacer) => {
           if (spacer.contains(section)) {
@@ -387,9 +372,7 @@
         });
         return;
       }
-
       gsap.set(cards, { opacity: 0, x: 60 });
-
       gsap.to(cards, {
         opacity: 1,
         x: 0,
@@ -402,7 +385,6 @@
           once: true,
         },
       });
-
       gsap.to(track, {
         x: -scrollDistance,
         ease: "none",
@@ -417,16 +399,12 @@
         },
       });
     }
-
     setupScroll();
-
-    // Refresh ScrollTrigger when page becomes visible again
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) {
         setTimeout(() => ScrollTrigger.refresh(), 100);
       }
     });
-
     window.addEventListener("resize", () => {
       ScrollTrigger.refresh();
     });
@@ -778,7 +756,6 @@
     const serviceShortOverview = document.getElementById("service-short-overview");
     const serviceOverviewFull = document.getElementById("service-overview-full");
     const viewMoreBtnServiceOverview = document.getElementById("view-more-btn-service-overview");
-
     if (service.fullDescription) {
       const paragraphs = service.fullDescription.split(/\n\s*\n/);
       if (paragraphs.length > 1) {
@@ -1000,7 +977,6 @@
     const productShortOverview = document.getElementById("product-short-overview");
     const overviewFull = document.getElementById("overview-full");
     const viewMoreBtnOverview = document.getElementById("view-more-btn-overview");
-
     if (product.fullDescription) {
       const paragraphs = product.fullDescription.split(/\n\s*\n/);
       if (paragraphs.length > 1) {
@@ -1213,8 +1189,6 @@
       }, index * 500);
     });
   }
-
-  /* ==================== Career Page Functions ==================== */
   let careerData = null;
   let currentCategory = "all";
   let searchQuery = "";
@@ -1222,7 +1196,6 @@
   let typeFilterVar = "";
   let experienceFilterVar = "";
   let currentJob = null;
-
   async function loadCareerData() {
     try {
       const response = await fetch("assets/json/career.json");
@@ -1234,23 +1207,19 @@
       return null;
     }
   }
-
   function getActiveJobs() {
     if (!careerData) return [];
     return careerData.jobs.filter((job) => job.status === "active");
   }
-
   function getCategories() {
     if (!careerData) return [];
     return careerData.categories || [];
   }
-
   function formatDateCareer(dateString) {
     const date = new Date(dateString);
     const now = new Date();
     const diffTime = Math.abs(now - date);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
     if (diffDays === 1) return "Today";
     if (diffDays === 7) return "1 week ago";
     if (diffDays <= 30)
@@ -1258,20 +1227,16 @@
     if (diffDays <= 60) return "1 month ago";
     return `${Math.floor(diffDays / 30)} months ago`;
   }
-
   function formatDateDetails(dateString) {
     const date = new Date(dateString);
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString("en-US", options);
   }
-
   function renderCategoryTabs() {
     const tabsContainer = document.getElementById("category-tabs");
     if (!tabsContainer || !careerData) return;
-
     const categories = getCategories();
     const activeJobs = getActiveJobs();
-
     tabsContainer.innerHTML = `
       <button class="category-tab active" data-category="all">
         <i class="bi bi-grid-3x3-gap"></i>
@@ -1279,7 +1244,6 @@
         <span class="job-count" id="count-all">${activeJobs.length}</span>
       </button>
     `;
-
     categories.forEach((category) => {
       const count = activeJobs.filter(
         (job) => job.category === category.id,
@@ -1296,14 +1260,11 @@
         tabsContainer.appendChild(tab);
       }
     });
-
     tabsContainer.addEventListener("click", handleCategoryClick);
   }
-
   function handleCategoryClick(e) {
     const tab = e.target.closest(".category-tab");
     if (!tab) return;
-
     document
       .querySelectorAll(".category-tab")
       .forEach((t) => t.classList.remove("active"));
@@ -1311,10 +1272,8 @@
     currentCategory = tab.dataset.category;
     renderJobs();
   }
-
   function populateFilters() {
     if (!careerData) return;
-
     const activeJobs = getActiveJobs();
     const locations = [
       ...new Set(activeJobs.map((job) => job.location)),
@@ -1323,11 +1282,9 @@
     const experiences = [
       ...new Set(activeJobs.map((job) => job.experience)),
     ].sort();
-
     const locationFilterEl = document.getElementById("location-filter");
     const typeFilterEl = document.getElementById("type-filter");
     const experienceFilterEl = document.getElementById("experience-filter");
-
     if (locationFilterEl) {
       locations.forEach((location) => {
         const option = document.createElement("option");
@@ -1336,7 +1293,6 @@
         locationFilterEl.appendChild(option);
       });
     }
-
     if (typeFilterEl) {
       types.forEach((type) => {
         const option = document.createElement("option");
@@ -1345,7 +1301,6 @@
         typeFilterEl.appendChild(option);
       });
     }
-
     if (experienceFilterEl) {
       experiences.forEach((exp) => {
         const option = document.createElement("option");
@@ -1354,30 +1309,24 @@
         experienceFilterEl.appendChild(option);
       });
     }
-
     locationFilterEl?.addEventListener("change", (e) => {
       locationFilterVar = e.target.value;
       renderJobs();
     });
-
     typeFilterEl?.addEventListener("change", (e) => {
       typeFilterVar = e.target.value;
       renderJobs();
     });
-
     experienceFilterEl?.addEventListener("change", (e) => {
       experienceFilterVar = e.target.value;
       renderJobs();
     });
   }
-
   function filterJobs() {
     let jobs = getActiveJobs();
-
     if (currentCategory !== "all") {
       jobs = jobs.filter((job) => job.category === currentCategory);
     }
-
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       jobs = jobs.filter(
@@ -1388,35 +1337,26 @@
           job.description.toLowerCase().includes(query),
       );
     }
-
     if (locationFilterVar) {
       jobs = jobs.filter((job) => job.location === locationFilterVar);
     }
-
     if (typeFilterVar) {
       jobs = jobs.filter((job) => job.type === typeFilterVar);
     }
-
     if (experienceFilterVar) {
       jobs = jobs.filter((job) => job.experience === experienceFilterVar);
     }
-
     return jobs;
   }
-
   function renderJobs() {
     const container = document.getElementById("jobs-container");
     const noResults = document.getElementById("no-results");
     const spinner = document.getElementById("loading-spinner");
-
     if (!container) return;
-
     if (spinner) {
       spinner.style.display = "none";
     }
-
     const filteredJobs = filterJobs();
-
     if (filteredJobs.length === 0) {
       container.innerHTML = "";
       if (noResults) {
@@ -1424,14 +1364,11 @@
       }
       return;
     }
-
     if (noResults) {
       noResults.style.display = "none";
     }
-
     const categories = getCategories();
     const jobsByCategory = {};
-
     if (currentCategory === "all") {
       filteredJobs.forEach((job) => {
         if (!jobsByCategory[job.category]) {
@@ -1442,19 +1379,14 @@
     } else {
       jobsByCategory[currentCategory] = filteredJobs;
     }
-
     container.innerHTML = "";
-
     Object.keys(jobsByCategory).forEach((categoryId) => {
       const category = categories.find((c) => c.id === categoryId);
       const jobs = jobsByCategory[categoryId];
-
       if (!category || jobs.length === 0) return;
-
       const categorySection = document.createElement("div");
       categorySection.className = "job-category-section";
       categorySection.setAttribute("data-aos", "fade-up");
-
       categorySection.innerHTML = `
         <div class="category-header">
           <i class="bi ${category.icon}"></i>
@@ -1465,18 +1397,15 @@
           ${jobs.map((job) => renderJobCard(job)).join("")}
         </div>
       `;
-
       container.appendChild(categorySection);
     });
   }
-
   function renderJobCard(job) {
     const skillsHtml = job.skills
       .slice(0, 4)
       .map((skill) => `<span class="job-skill">${skill}</span>`)
       .join("");
     const moreSkills = job.skills.length > 4 ? `+${job.skills.length - 4}` : "";
-
     return `
       <div class="job-card" onclick="window.location.href='career-details.html?job=${job.slug}'" data-aos="fade-up">
         <div class="job-card-header">
@@ -1512,14 +1441,11 @@
       </div>
     `;
   }
-
   function initCareerSearch() {
     const searchInput = document.getElementById("job-search");
     const searchBtn = document.getElementById("search-btn");
     const clearFiltersBtn = document.getElementById("clear-filters-btn");
-
     let searchTimeout;
-
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
         clearTimeout(searchTimeout);
@@ -1528,7 +1454,6 @@
           renderJobs();
         }, 300);
       });
-
       searchInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
           clearTimeout(searchTimeout);
@@ -1537,30 +1462,25 @@
         }
       });
     }
-
     if (searchBtn) {
       searchBtn.addEventListener("click", () => {
         searchQuery = searchInput?.value || "";
         renderJobs();
       });
     }
-
     if (clearFiltersBtn) {
       clearFiltersBtn.addEventListener("click", () => {
         if (searchInput) searchInput.value = "";
         const locationFilterEl = document.getElementById("location-filter");
         const typeFilterEl = document.getElementById("type-filter");
         const experienceFilterEl = document.getElementById("experience-filter");
-
         searchQuery = "";
         locationFilterVar = "";
         typeFilterVar = "";
         experienceFilterVar = "";
-
         if (locationFilterEl) locationFilterEl.value = "";
         if (typeFilterEl) typeFilterEl.value = "";
         if (experienceFilterEl) experienceFilterEl.value = "";
-
         currentCategory = "all";
         document
           .querySelectorAll(".category-tab")
@@ -1568,12 +1488,10 @@
         document
           .querySelector('.category-tab[data-category="all"]')
           ?.classList.add("active");
-
         renderJobs();
       });
     }
   }
-
   function updateOpenPositionsCount() {
     const countElement = document.getElementById("open-positions-count");
     if (countElement) {
@@ -1581,7 +1499,6 @@
       countElement.textContent = count;
     }
   }
-
   function getJobFromURL() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -1589,10 +1506,8 @@
       id: params.get("id"),
     };
   }
-
   function findJob(data, params) {
     if (!data || !data.jobs) return null;
-
     if (params.slug) {
       return data.jobs.find((job) => job.slug === params.slug);
     }
@@ -1601,27 +1516,22 @@
     }
     return null;
   }
-
   function getCategoryName(categoryId) {
     if (!careerData || !careerData.categories) return categoryId;
     const category = careerData.categories.find((c) => c.id === categoryId);
     return category ? category.name : categoryId;
   }
-
   function getCategoryIcon(categoryId) {
     if (!careerData || !careerData.categories) return "bi-briefcase";
     const category = careerData.categories.find((c) => c.id === categoryId);
     return category ? category.icon : "bi-briefcase";
   }
-
   function renderJobHeader(job) {
     const header = document.getElementById("career-details-header");
     if (!header) return;
-
     const skillsHtml = job.skills
       .map((skill) => `<span class="career-details-skill">${skill}</span>`)
       .join("");
-
     header.innerHTML = `
       <div class="career-details-info">
         <div class="career-details-category">
@@ -1663,27 +1573,21 @@
       </div>
     `;
   }
-
   window.openApplyModal = function (jobTitle, contactEmail) {
     const modal = document.getElementById("apply-modal");
     const modalJobTitle = document.getElementById("modal-job-title");
-
     if (modal) {
       modalJobTitle.textContent = jobTitle;
       modal.classList.add("active");
       document.body.style.overflow = "hidden";
-
-      // Store job info for form submission
       modal.dataset.jobTitle = jobTitle;
       modal.dataset.contactEmail = contactEmail;
     }
   };
-
   function renderJobDetailsContent(job) {
     const container = document.getElementById("job-details-container");
     const sidebar = document.getElementById("job-sidebar");
     if (!container) return;
-
     const responsibilitiesHtml = job.responsibilities
       .map(
         (item, index) => `
@@ -1694,7 +1598,6 @@
       `,
       )
       .join("");
-
     const requirementsHtml = job.requirements
       .map(
         (item, index) => `
@@ -1705,7 +1608,6 @@
       `,
       )
       .join("");
-
     const preferredHtml = job.preferredQualifications
       ? job.preferredQualifications
           .map(
@@ -1718,7 +1620,6 @@
           )
           .join("")
       : "";
-
     const benefitsHtml = job.benefits
       .map(
         (item, index) => `
@@ -1731,7 +1632,6 @@
       `,
       )
       .join("");
-
     container.innerHTML = `
       <div class="career-details-section" data-aos="fade-up">
         <h2 class="career-details-section-title"><i class="bi bi-list-check"></i> Key Responsibilities</h2>
@@ -1739,14 +1639,12 @@
           ${responsibilitiesHtml}
         </ul>
       </div>
-
       <div class="career-details-section" data-aos="fade-up">
         <h2 class="career-details-section-title"><i class="bi bi-clipboard-check"></i> Requirements</h2>
         <ul class="career-details-list">
           ${requirementsHtml}
         </ul>
       </div>
-
       ${
         preferredHtml
           ? `
@@ -1759,14 +1657,12 @@
       `
           : ""
       }
-
       <div class="career-details-section" data-aos="fade-up">
         <h2 class="career-details-section-title"><i class="bi bi-heart"></i> Benefits & Perks</h2>
         <div class="career-details-grid">
           ${benefitsHtml}
         </div>
       </div>
-
       <div class="back-to-jobs" data-aos="fade-up">
         <a href="career.html" class="btn-back">
           <i class="bi bi-arrow-left"></i>
@@ -1774,8 +1670,6 @@
         </a>
       </div>
     `;
-
-    // Render sidebar
     if (sidebar) {
       const currentUrl = window.location.href;
       sidebar.innerHTML = `
@@ -1825,7 +1719,6 @@
             Apply for this Position <i class="bi bi-arrow-right"></i>
           </button>
         </div>
-
         <div class="sidebar-card" data-aos="fade-up" data-aos-delay="100">
           <div class="sidebar-card-header">
             <i class="bi bi-share"></i>
@@ -1849,11 +1742,9 @@
       `;
     }
   }
-
   function renderJobNotFound() {
     const header = document.getElementById("career-details-header");
     const container = document.getElementById("job-details-container");
-
     if (header) {
       header.innerHTML = `
         <div style="text-align: center; padding: 60px 20px;">
@@ -1867,135 +1758,103 @@
         </div>
       `;
     }
-
     if (container) {
       container.innerHTML = "";
     }
   }
-
   async function initCareerPage() {
     if (
       !document.getElementById("job-search") &&
       !document.getElementById("category-tabs")
     )
       return;
-
     await loadCareerData();
     if (!careerData) {
       console.error("Failed to load career data");
       return;
     }
-
     updateOpenPositionsCount();
     renderCategoryTabs();
     populateFilters();
     initCareerSearch();
     renderJobs();
-
     if (typeof AOS !== "undefined") {
       setTimeout(() => {
         AOS.refresh();
       }, 100);
     }
   }
-
   async function initCareerDetails() {
     if (!document.getElementById("career-details-header")) return;
-
     await loadCareerData();
     if (!careerData) {
       console.error("Failed to load career data");
       return;
     }
-
     const params = getJobFromURL();
     currentJob = findJob(careerData, params);
-
     if (!currentJob) {
       renderJobNotFound();
       return;
     }
-
     document.title = `${currentJob.title} - Cakiweb Solutions`;
     renderJobHeader(currentJob);
     renderJobDetailsContent(currentJob);
-
     if (typeof AOS !== "undefined") {
       setTimeout(() => {
         AOS.refresh();
       }, 100);
     }
-
-    // Initialize modal handlers
     initApplyModalHandlers();
   }
-
   function initApplyModalHandlers() {
     const modal = document.getElementById("apply-modal");
     const closeBtn = document.getElementById("modal-close-btn");
     const cancelBtn = document.getElementById("cancel-btn");
     const backdrop = document.querySelector(".modal-backdrop");
     const successCloseBtn = document.getElementById("success-close-btn");
-
-    // Close modal handlers
     [closeBtn, cancelBtn].forEach((btn) => {
       if (btn) {
         btn.addEventListener("click", closeApplyModal);
       }
     });
-
     if (backdrop) {
       backdrop.addEventListener("click", closeApplyModal);
     }
-
     if (successCloseBtn) {
       successCloseBtn.addEventListener("click", () => {
         closeApplyModal();
         window.location.href = "career.html";
       });
     }
-
-    // File upload handlers
     initFileUpload();
-
-    // Form submit handler
     const form = document.getElementById("apply-form");
     if (form) {
       form.addEventListener("submit", handleFormSubmit);
     }
-
-    // ESC key handler
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal?.classList.contains("active")) {
         closeApplyModal();
       }
     });
   }
-
   function closeApplyModal() {
     const modal = document.getElementById("apply-modal");
     if (modal) {
       modal.classList.remove("active");
       document.body.style.overflow = "";
-
-      // Reset form
       const form = document.getElementById("apply-form");
       if (form) {
         form.reset();
         form.style.display = "block";
       }
-
-      // Hide success message
       const successMessage = document.getElementById("success-message");
       if (successMessage) {
         successMessage.style.display = "none";
       }
-
-      // Reset file upload
       resetFileUpload();
     }
   }
-
   function initFileUpload() {
     const fileUploadArea = document.getElementById("file-upload-area");
     const resumeFile = document.getElementById("resume-file");
@@ -2004,43 +1863,34 @@
     const fileName = document.getElementById("file-name");
     const fileSize = document.getElementById("file-size");
     const removeFileBtn = document.getElementById("remove-file-btn");
-
     if (!fileUploadArea || !resumeFile) return;
-
-    // Click to upload
     fileUploadArea.addEventListener("click", (e) => {
       if (e.target !== removeFileBtn && !removeFileBtn?.contains(e.target)) {
         resumeFile.click();
       }
     });
-
     resumeFile.addEventListener("change", (e) => {
       const file = e.target.files[0];
       if (file) {
         handleFileSelect(file);
       }
     });
-
-    // Drag and drop
     ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
       fileUploadArea.addEventListener(eventName, (e) => {
         e.preventDefault();
         e.stopPropagation();
       });
     });
-
     ["dragenter", "dragover"].forEach((eventName) => {
       fileUploadArea.addEventListener(eventName, () => {
         fileUploadArea.classList.add("dragover");
       });
     });
-
     ["dragleave", "drop"].forEach((eventName) => {
       fileUploadArea.addEventListener(eventName, () => {
         fileUploadArea.classList.remove("dragover");
       });
     });
-
     fileUploadArea.addEventListener("drop", (e) => {
       const files = e.dataTransfer.files;
       if (files.length > 0) {
@@ -2048,49 +1898,40 @@
         resumeFile.files = files;
       }
     });
-
-    // Remove file
     if (removeFileBtn) {
       removeFileBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         resetFileUpload();
       });
     }
-
     function handleFileSelect(file) {
-      const maxSize = 5 * 1024 * 1024; // 5MB
+      const maxSize = 5 * 1024 * 1024; 
       const allowedTypes = [
         "application/pdf",
         "application/msword",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       ];
-
       if (!allowedTypes.includes(file.type)) {
         alert("Please upload a PDF, DOC, or DOCX file");
         return;
       }
-
       if (file.size > maxSize) {
         alert("File size must be less than 5MB");
         return;
       }
-
       if (uploadPlaceholder) uploadPlaceholder.style.display = "none";
       if (filePreview) filePreview.style.display = "flex";
       if (fileName) fileName.textContent = file.name;
       if (fileSize) fileSize.textContent = formatFileSize(file.size);
     }
-
     function resetFileUpload() {
       const uploadPlaceholder = document.getElementById("upload-placeholder");
       const filePreview = document.getElementById("file-preview");
       const resumeFile = document.getElementById("resume-file");
-
       if (uploadPlaceholder) uploadPlaceholder.style.display = "block";
       if (filePreview) filePreview.style.display = "none";
       if (resumeFile) resumeFile.value = "";
     }
-
     function formatFileSize(bytes) {
       if (bytes === 0) return "0 Bytes";
       const k = 1024;
@@ -2098,40 +1939,30 @@
       const i = Math.floor(Math.log(bytes) / Math.log(k));
       return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + " " + sizes[i];
     }
-
     window.resetFileUpload = resetFileUpload;
   }
-
   async function handleFormSubmit(e) {
     e.preventDefault();
-
     const form = e.target;
     const submitBtn = document.getElementById("submit-btn");
     const btnText = submitBtn?.querySelector(".btn-text");
     const btnLoading = submitBtn?.querySelector(".btn-loading");
     const successMessage = document.getElementById("success-message");
     const modal = document.getElementById("apply-modal");
-
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
-
-    // Show loading state
     if (submitBtn) {
       submitBtn.disabled = true;
       if (btnText) btnText.style.display = "none";
       if (btnLoading) btnLoading.style.display = "flex";
     }
-
     try {
-      // Collect form data
       const formData = new FormData(form);
       const jobTitle = modal?.dataset.jobTitle || "";
       const contactEmail =
         modal?.dataset.contactEmail || "cakiweb.com@gmail.com";
-
-      // Prepare email template parameters
       const templateParams = {
         to_email: contactEmail,
         job_title: jobTitle,
@@ -2156,22 +1987,16 @@
           minute: "2-digit",
         }),
       };
-
-      // Send email using EmailJS
       if (typeof emailjs !== "undefined") {
-        // Ensure emailjs is initialized before sending
         if (!emailjs.publicKey) {
           emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
         }
-        
         await emailjs.send(
           "service_2pul7gz",
           "template_2oc5vxa",
           templateParams,
         );
       }
-
-      // Show success message
       if (form) form.style.display = "none";
       if (successMessage) successMessage.style.display = "block";
     } catch (error) {
@@ -2179,7 +2004,6 @@
         "There was an error submitting your application. Please try again or contact us directly.",
       );
     } finally {
-      // Reset button state
       if (submitBtn) {
         submitBtn.disabled = false;
         if (btnText) btnText.style.display = "inline";
@@ -2187,7 +2011,6 @@
       }
     }
   }
-
   function init() {
     initNavbar();
     initMobileMenu();
@@ -2227,13 +2050,10 @@
   } else {
     init();
   }
-
-  // View More toggle (used globally across pages)
   window.toggleStory = function () {
     const storyFull = document.getElementById("story-full");
     const btn = document.getElementById("view-more-btn");
     const btnText = document.getElementById("view-more-text");
-
     if (storyFull.style.display === "none") {
       storyFull.style.display = "block";
       btnText.textContent = "View Less";
@@ -2244,13 +2064,10 @@
       btn.classList.remove("expanded");
     }
   };
-
-  // Overview View More toggle (product details page)
   window.toggleOverview = function () {
     const overviewFull = document.getElementById("overview-full");
     const btn = document.getElementById("view-more-btn-overview");
     const btnText = document.getElementById("view-more-text-overview");
-
     if (overviewFull.classList.contains("story-hidden")) {
       overviewFull.classList.remove("story-hidden");
       overviewFull.classList.add("story-visible");
@@ -2263,13 +2080,10 @@
       btn.classList.remove("expanded");
     }
   };
-
-  // Overview View More toggle (service details page)
   window.toggleServiceOverview = function () {
     const overviewFull = document.getElementById("service-overview-full");
     const btn = document.getElementById("view-more-btn-service-overview");
     const btnText = document.getElementById("view-more-text-service-overview");
-
     if (overviewFull.classList.contains("story-hidden")) {
       overviewFull.classList.remove("story-hidden");
       overviewFull.classList.add("story-visible");
@@ -2283,13 +2097,11 @@
     }
   };
 })();
-
 /* ================================
    BLOG PAGE - Dynamic Listing
    ================================ */
 (function () {
   "use strict";
-
   const BLOGS_PER_PAGE = 6;
   let allBlogs = [];
   let filteredBlogs = [];
@@ -2297,10 +2109,8 @@
   let activeCategory = "all";
   let searchQuery = "";
   let sortValue = "newest";
-
   const blogGrid = document.getElementById("blogGrid");
   if (!blogGrid) return;
-
   const categoryFilter = document.getElementById("categoryFilter");
   const sortFilter = document.getElementById("sortFilter");
   const blogSearch = document.getElementById("blogSearch");
@@ -2310,7 +2120,6 @@
   const loadMoreWrapper = document.getElementById("loadMoreWrapper");
   const loadMoreBtn = document.getElementById("loadMoreBtn");
   const clearFiltersBtn = document.getElementById("clearFilters");
-
   async function fetchBlogs() {
     try {
       const response = await fetch("assets/json/blog.json");
@@ -2327,7 +2136,6 @@
       }
     }
   }
-
   function loadVisitorCounts() {
     const storedVisitors = localStorage.getItem("blogVisitors");
     const visitorCounts = storedVisitors ? JSON.parse(storedVisitors) : {};
@@ -2337,7 +2145,6 @@
       }
     });
   }
-
   function initBlogPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const urlCategory = urlParams.get("category");
@@ -2348,7 +2155,6 @@
     applyFiltersAndSort();
     bindEvents();
   }
-
   function populateCategories() {
     const categories = [...new Set(allBlogs.map((blog) => blog.category))];
     if (categoryFilter) {
@@ -2377,7 +2183,6 @@
       });
     }
   }
-
   function applyFiltersAndSort() {
     filteredBlogs = [...allBlogs];
     if (activeCategory !== "all") {
@@ -2414,7 +2219,6 @@
     renderBlogs();
     updateResultsCount();
   }
-
   function renderBlogs() {
     if (!blogGrid) return;
     const blogsToShow = filteredBlogs.slice(0, currentPage * BLOGS_PER_PAGE);
@@ -2439,7 +2243,6 @@
       setTimeout(() => AOS.refresh(), 100);
     }
   }
-
   function createBlogCard(blog, index) {
     const date = new Date(blog.date);
     const formattedDate = date.toLocaleDateString("en-US", {
@@ -2485,14 +2288,12 @@
       </div>
     `;
   }
-
   function formatNumber(num) {
     if (num >= 1000) {
       return (num / 1000).toFixed(1) + "k";
     }
     return num.toString();
   }
-
   function updateResultsCount() {
     if (resultsCount) {
       const showing = Math.min(
@@ -2502,7 +2303,6 @@
       resultsCount.textContent = `Showing ${showing} of ${filteredBlogs.length} articles`;
     }
   }
-
   function bindEvents() {
     if (categoryFilter) {
       categoryFilter.addEventListener("change", (e) => {
@@ -2563,31 +2363,25 @@
       });
     }
   }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", fetchBlogs);
   } else {
     fetchBlogs();
   }
 })();
-
 /* ================================
    BLOG DETAIL PAGE
    ================================ */
 (function () {
   "use strict";
-
   const detailTitle = document.getElementById("detailTitle");
   if (!detailTitle) return;
-
   let allBlogs = [];
   let currentBlog = null;
-
   function getBlogSlugFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get("blog");
   }
-
   async function fetchBlogs() {
     try {
       const response = await fetch("assets/json/blog.json");
@@ -2601,7 +2395,6 @@
       showErrorMessage();
     }
   }
-
   function loadVisitorCounts() {
     const storedVisitors = localStorage.getItem("blogVisitors");
     const visitorCounts = storedVisitors ? JSON.parse(storedVisitors) : {};
@@ -2611,7 +2404,6 @@
       }
     });
   }
-
   function saveVisitorCounts() {
     const visitorCounts = {};
     allBlogs.forEach((blog) => {
@@ -2619,7 +2411,6 @@
     });
     localStorage.setItem("blogVisitors", JSON.stringify(visitorCounts));
   }
-
   function incrementVisitorCount(blogId) {
     const blog = allBlogs.find((b) => b.id === blogId);
     if (blog) {
@@ -2628,7 +2419,6 @@
     }
     return blog ? blog.visitors : 0;
   }
-
   function initBlogDetail() {
     const slug = getBlogSlugFromURL();
     if (!slug) {
@@ -2646,7 +2436,6 @@
     renderRelatedPosts();
     bindShareEvents();
   }
-
   function renderBlogDetail(visitorCount) {
     const pageTitle = document.getElementById("page-title");
     const pageDescription = document.getElementById("page-description");
@@ -2659,7 +2448,6 @@
     const detailAuthor = document.getElementById("detailAuthor");
     const detailAuthorRole = document.getElementById("detailAuthorRole");
     const detailTags = document.getElementById("detailTags");
-
     if (pageTitle) {
       pageTitle.textContent = `${currentBlog.title} - Cakiweb Solutions`;
     }
@@ -2707,12 +2495,10 @@
     }
     updateShareURLs();
   }
-
   function renderSidebar() {
     const sidebarCategories = document.getElementById("sidebarCategories");
     const sidebarRecent = document.getElementById("sidebarRecent");
     const sidebarPopular = document.getElementById("sidebarPopular");
-
     if (sidebarCategories) {
       const categories = [...new Set(allBlogs.map((blog) => blog.category))];
       sidebarCategories.innerHTML = categories
@@ -2733,7 +2519,6 @@
         window.location.href = `blog.html?category=${item.dataset.category}`;
       });
     }
-
     if (sidebarRecent) {
       const recentPosts = [...allBlogs]
         .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -2763,7 +2548,6 @@
         });
       });
     }
-
     if (sidebarPopular) {
       const popularPosts = [...allBlogs]
         .sort((a, b) => b.visitors - a.visitors)
@@ -2793,7 +2577,6 @@
       });
     }
   }
-
   function renderRelatedPosts() {
     const relatedPosts = document.getElementById("relatedPosts");
     if (!relatedPosts) return;
@@ -2827,7 +2610,6 @@
       setTimeout(() => AOS.refresh(), 100);
     }
   }
-
   function createRelatedPostCard(blog) {
     const date = new Date(blog.date);
     const formattedDate = date.toLocaleDateString("en-US", {
@@ -2851,7 +2633,6 @@
       </div>
     `;
   }
-
   function updateShareURLs() {
     const shareTwitter = document.getElementById("shareTwitter");
     const shareFacebook = document.getElementById("shareFacebook");
@@ -2872,7 +2653,6 @@
       shareWhatsapp.href = `https://wa.me/?text=${text}%20${url}`;
     }
   }
-
   function bindShareEvents() {
     const shareCopy = document.getElementById("shareCopy");
     if (shareCopy) {
@@ -2891,14 +2671,12 @@
       });
     }
   }
-
   function formatNumber(num) {
     if (num >= 1000) {
       return (num / 1000).toFixed(1) + "k";
     }
     return num.toString();
   }
-
   function formatDateShort(dateStr) {
     const date = new Date(dateStr);
     return date.toLocaleDateString("en-US", {
@@ -2907,7 +2685,6 @@
       year: "numeric",
     });
   }
-
   function showErrorMessage() {
     const container = document.querySelector(".blog-detail-hero-content");
     if (container) {
@@ -2915,23 +2692,19 @@
         '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Blog Post Not Found</h3><p class="text-muted">The article you\'re looking for doesn\'t exist.</p><a href="blog.html" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Blog</a></div>';
     }
   }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", fetchBlogs);
   } else {
     fetchBlogs();
   }
 })();
-
 /* ================================
    PORTFOLIO PAGE - Dynamic Listing
    ================================ */
 (function () {
   "use strict";
-
   const portfolioGrid = document.getElementById("portfolioGrid");
   if (!portfolioGrid) return;
-
   const portfolioFilters = document.getElementById("portfolioFilters");
   const portfolioNoResults = document.getElementById("portfolioNoResults");
   const portfolioResultsCount = document.getElementById(
@@ -2939,10 +2712,8 @@
   );
   const totalProjectsEl = document.getElementById("totalProjects");
   const totalCategoriesEl = document.getElementById("totalCategories");
-
   let allProjects = [];
   let activeFilter = "all";
-
   async function fetchProjects() {
     try {
       const response = await fetch("assets/json/portfolio.json");
@@ -2956,27 +2727,21 @@
         '<div class="col-12 text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:48px;color:var(--gray-400);"></i><h4 class="mt-3">Unable to load projects</h4><p class="text-muted">Please try again later.</p></div>';
     }
   }
-
   function initPortfolio() {
     buildFilters();
     renderProjects();
     bindEvents();
     updateStats();
   }
-
   function buildFilters() {
     if (!portfolioFilters) return;
     const categories = [...new Set(allProjects.map((p) => p.category))];
     const filterKeys = [...new Set(allProjects.map((p) => p.filterKey))];
-
-    // "All" button
     const allBtn = document.createElement("button");
     allBtn.className = `portfolio-filter-btn ${activeFilter === "all" ? "active" : ""}`;
     allBtn.dataset.filter = "all";
     allBtn.textContent = "All Projects";
     portfolioFilters.appendChild(allBtn);
-
-    // Category buttons using filterKey
     filterKeys.forEach((key) => {
       const project = allProjects.find((p) => p.filterKey === key);
       const btn = document.createElement("button");
@@ -2986,13 +2751,11 @@
       portfolioFilters.appendChild(btn);
     });
   }
-
   function renderProjects() {
     let filtered =
       activeFilter === "all"
         ? [...allProjects]
         : allProjects.filter((p) => p.filterKey === activeFilter);
-
     if (filtered.length === 0) {
       portfolioGrid.innerHTML = "";
       if (portfolioNoResults) portfolioNoResults.classList.remove("d-none");
@@ -3000,21 +2763,16 @@
         portfolioResultsCount.textContent = "0 projects";
       return;
     }
-
     if (portfolioNoResults) portfolioNoResults.classList.add("d-none");
     if (portfolioResultsCount)
       portfolioResultsCount.textContent = `${filtered.length} project${filtered.length !== 1 ? "s" : ""}`;
-
     portfolioGrid.innerHTML = filtered
       .map((project, index) => createProjectCard(project, index))
       .join("");
-
-    // Reinit AOS
     if (typeof AOS !== "undefined") {
       setTimeout(() => AOS.refresh(), 100);
     }
   }
-
   function createProjectCard(project, index) {
     return `
       <div class="portfolio-item-js" data-aos="fade-up" data-aos-delay="${index * 80}">
@@ -3042,7 +2800,6 @@
       </div>
     `;
   }
-
   function bindEvents() {
     if (!portfolioFilters) return;
     portfolioFilters.addEventListener("click", (e) => {
@@ -3056,7 +2813,6 @@
       renderProjects();
     });
   }
-
   function updateStats() {
     if (totalProjectsEl) totalProjectsEl.textContent = allProjects.length;
     if (totalCategoriesEl) {
@@ -3064,31 +2820,25 @@
       totalCategoriesEl.textContent = cats.size;
     }
   }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", fetchProjects);
   } else {
     fetchProjects();
   }
 })();
-
 /* ================================
    PORTFOLIO DETAIL PAGE
    ================================ */
 (function () {
   "use strict";
-
   const detailTitle = document.getElementById("detailTitle");
   if (!detailTitle) return;
-
   let allProjects = [];
   let currentProject = null;
-
   function getProjectSlugFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get("project");
   }
-
   async function fetchProjects() {
     try {
       const response = await fetch("assets/json/portfolio.json");
@@ -3101,7 +2851,6 @@
       showErrorMessage();
     }
   }
-
   function initPortfolioDetail() {
     const slug = getProjectSlugFromURL();
     if (!slug) {
@@ -3117,23 +2866,18 @@
     renderSidebar();
     renderRelatedProjects();
   }
-
   function renderDetail() {
-    // Page meta
     const pageTitle = document.getElementById("page-title");
     const pageDescription = document.getElementById("page-description");
     if (pageTitle)
       pageTitle.textContent = `${currentProject.title} - Cakiweb Solutions`;
     if (pageDescription)
       pageDescription.textContent = currentProject.shortDescription;
-
-    // Hero
     const detailCategory = document.getElementById("detailCategory");
     const detailClient = document.getElementById("detailClient");
     const detailDate = document.getElementById("detailDate");
     const detailDuration = document.getElementById("detailDuration");
     const detailRole = document.getElementById("detailRole");
-
     if (detailCategory) detailCategory.textContent = currentProject.category;
     if (detailTitle) detailTitle.textContent = currentProject.title;
     if (detailClient) detailClient.textContent = currentProject.client;
@@ -3141,8 +2885,6 @@
       detailDate.textContent = formatDate(currentProject.projectDate);
     if (detailDuration) detailDuration.textContent = currentProject.duration;
     if (detailRole) detailRole.textContent = currentProject.role;
-
-    // Gallery
     const detailMainImage = document.getElementById("detailMainImage");
     const portfolioThumbs = document.getElementById("portfolioThumbs");
     if (detailMainImage) {
@@ -3172,21 +2914,15 @@
         }
       });
     }
-
-    // Description
     const detailDescription = document.getElementById("detailDescription");
     if (detailDescription)
       detailDescription.innerHTML = currentProject.fullDescription;
-
-    // Technologies
     const detailTechnologies = document.getElementById("detailTechnologies");
     if (detailTechnologies && currentProject.technologies) {
       detailTechnologies.innerHTML = currentProject.technologies
         .map((t) => `<span class="tech-tag">${t}</span>`)
         .join("");
     }
-
-    // Testimonial
     const detailTestimonialWrap = document.getElementById(
       "detailTestimonialWrap",
     );
@@ -3205,15 +2941,12 @@
         </div>
       `;
     }
-
-    // Sidebar info
     const infoCategory = document.getElementById("infoCategory");
     const infoClient = document.getElementById("infoClient");
     const infoDate = document.getElementById("infoDate");
     const infoDuration = document.getElementById("infoDuration");
     const infoRole = document.getElementById("infoRole");
     const detailProjectUrl = document.getElementById("detailProjectUrl");
-
     if (infoCategory) infoCategory.textContent = currentProject.category;
     if (infoClient) infoClient.textContent = currentProject.client;
     if (infoDate) infoDate.textContent = formatDate(currentProject.projectDate);
@@ -3221,11 +2954,9 @@
     if (infoRole) infoRole.textContent = currentProject.role;
     if (detailProjectUrl) detailProjectUrl.href = currentProject.projectUrl;
   }
-
   function renderSidebar() {
     const allProjectsList = document.getElementById("allProjectsList");
     if (!allProjectsList) return;
-
     allProjectsList.innerHTML = allProjects
       .filter((p) => p.id !== currentProject.id)
       .map(
@@ -3242,18 +2973,15 @@
       `,
       )
       .join("");
-
     allProjectsList.querySelectorAll(".all-project-item").forEach((item) => {
       item.addEventListener("click", () => {
         window.location.href = `portfolio-details.html?project=${item.dataset.slug}`;
       });
     });
   }
-
   function renderRelatedProjects() {
     const relatedProjects = document.getElementById("relatedProjects");
     if (!relatedProjects) return;
-
     const related = allProjects
       .filter((p) => p.id !== currentProject.id)
       .sort((a, b) => {
@@ -3262,7 +2990,6 @@
         return bMatch - aMatch;
       })
       .slice(0, 3);
-
     relatedProjects.innerHTML = related
       .map(
         (p, i) => `
@@ -3279,7 +3006,6 @@
       `,
       )
       .join("");
-
     relatedProjects
       .querySelectorAll(".related-project-card")
       .forEach((card) => {
@@ -3287,12 +3013,10 @@
           window.location.href = `portfolio-details.html?project=${card.dataset.slug}`;
         });
       });
-
     if (typeof AOS !== "undefined") {
       setTimeout(() => AOS.refresh(), 100);
     }
   }
-
   function formatDate(dateStr) {
     const date = new Date(dateStr);
     return date.toLocaleDateString("en-US", {
@@ -3300,7 +3024,6 @@
       year: "numeric",
     });
   }
-
   function showErrorMessage() {
     const container = document.querySelector(".portfolio-detail-hero-content");
     if (container) {
@@ -3308,23 +3031,19 @@
         '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Project Not Found</h3><p class="text-muted">The project you\'re looking for doesn\'t exist.</p><a href="portfolio.html" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Portfolio</a></div>';
     }
   }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", fetchProjects);
   } else {
     fetchProjects();
   }
 })();
-
 /* ================================
    INDEX PAGE - Blog Preview
    ================================ */
 (function () {
   "use strict";
-
   const indexBlogGrid = document.getElementById("indexBlogGrid");
   if (!indexBlogGrid) return;
-
   async function fetchAndRender() {
     try {
       const response = await fetch("assets/json/blog.json");
@@ -3333,7 +3052,6 @@
       const blogs = (data.blogs || [])
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 3);
-
       indexBlogGrid.innerHTML = blogs
         .map((blog, i) => {
           const date = new Date(blog.date);
@@ -3360,7 +3078,6 @@
         `;
         })
         .join("");
-
       if (typeof AOS !== "undefined") {
         setTimeout(() => AOS.refresh(), 100);
       }
@@ -3368,29 +3085,23 @@
       console.error("Error loading blog preview:", error);
     }
   }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", fetchAndRender);
   } else {
     fetchAndRender();
   }
-
   /* ========================================
      Legal Pages - Smooth Scroll & Active Navigation
      ======================================== */
   function initLegalPagesNav() {
     const legalNav = document.querySelectorAll(".legal-nav a");
     const contentBlocks = document.querySelectorAll(".content-block[id]");
-
     if (legalNav.length === 0 || contentBlocks.length === 0) return;
-
-    // Smooth scroll for anchor links
     legalNav.forEach((link) => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
         const targetId = this.getAttribute("href").substring(1);
         const targetBlock = document.getElementById(targetId);
-
         if (targetBlock) {
           const offsetTop = targetBlock.offsetTop - 100;
           window.scrollTo({
@@ -3400,8 +3111,6 @@
         }
       });
     });
-
-    // Update active nav on scroll - improved detection
     let ticking = false;
     window.addEventListener("scroll", function () {
       if (!ticking) {
@@ -3412,22 +3121,16 @@
         ticking = true;
       }
     });
-
     function updateActiveNav() {
       const scrollPosition = window.pageYOffset + 150;
       let currentSection = "";
-
-      // Find the section that's currently in view
       contentBlocks.forEach((block, index) => {
         const blockTop = block.offsetTop;
         const blockBottom = blockTop + block.offsetHeight;
-
         if (scrollPosition >= blockTop && scrollPosition < blockBottom) {
           currentSection = block.getAttribute("id");
         }
       });
-
-      // If no section found, use the last visible one
       if (!currentSection) {
         for (let i = contentBlocks.length - 1; i >= 0; i--) {
           if (scrollPosition >= contentBlocks[i].offsetTop) {
@@ -3436,8 +3139,6 @@
           }
         }
       }
-
-      // Update active state
       legalNav.forEach((link) => {
         link.classList.remove("active");
         if (link.getAttribute("href") === `#${currentSection}`) {
@@ -3445,55 +3146,33 @@
         }
       });
     }
-
-    // Initial call
     updateActiveNav();
   }
-
-  // ========================================
-  // WhatsApp Popup Functions (Immediate Init)
-  // ========================================
   (function initWhatsAppPopupImmediately() {
-    // Only init if WhatsApp popup element exists
     if (!document.getElementById('whatsapp-popup')) return;
-
-    // Expose immediately for onclick attributes
     window.toggleWhatsAppPopup = function() {
       const popup = document.getElementById('whatsapp-popup');
       if (popup) popup.classList.toggle('active');
     };
-
     window.sendToWhatsApp = function(event) {
       event.preventDefault();
-
       const nameEl = document.getElementById('wa-name');
       const emailEl = document.getElementById('wa-email');
       const messageEl = document.getElementById('wa-message');
-
       if (!nameEl || !emailEl || !messageEl) return;
-
       const name = nameEl.value;
       const email = emailEl.value;
       const message = messageEl.value;
-
-      // Replace with your WhatsApp number (with country code, no + or spaces)
       const phoneNumber = '919437368484';
-
       const whatsappMessage = `*New Message from Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
-
       const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-
       window.open(whatsappURL, '_blank');
-
-      // Close popup and reset form
       const popup = document.getElementById('whatsapp-popup');
       if (popup) popup.classList.remove('active');
       nameEl.value = '';
       emailEl.value = '';
       messageEl.value = '';
     };
-
-    // Close popup when clicking outside
     document.addEventListener('click', function(e) {
       const popup = document.getElementById('whatsapp-popup');
       const floatBtn = document.querySelector('.whatsapp-float');
@@ -3502,21 +3181,13 @@
       }
     });
   })();
-
-  // ========================================
-  // View More/Less Story Toggle (Index Page - Immediate Init)
-  // ========================================
   (function initStoryTogglesImmediately() {
-    // Only init if elements exist
     if (!document.getElementById('view-more-btn-cost')) return;
-
     function toggleCardStory(storyId, btnId, textId) {
       const storyFull = document.getElementById(storyId);
       const btn = document.getElementById(btnId);
       const btnText = document.getElementById(textId);
-
       if (!storyFull || !btn || !btnText) return;
-
       if (storyFull.classList.contains("story-hidden")) {
         storyFull.classList.remove("story-hidden");
         storyFull.classList.add("story-visible");
@@ -3529,8 +3200,6 @@
         btn.classList.remove("expanded");
       }
     }
-
-    // Expose toggle functions globally for onclick attributes
     window.toggleStoryCost = function() {
       toggleCardStory("story-full-cost", "view-more-btn-cost", "view-more-text-cost");
     };
@@ -3544,38 +3213,27 @@
       toggleCardStory("story-full-support", "view-more-btn-support", "view-more-text-support");
     };
   })();
-
-  // ========================================
-  // Contact Form Handler
-  // ========================================
   function initContactForm() {
     const contactForm = document.getElementById('contact-form');
     if (!contactForm) return;
-
     const formMessage = document.getElementById('form-message');
-
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
-
       if (!data.name || !data.email || !data.message || !data.subject) {
         showMessage('Please fill in all required fields.', 'error');
         return;
       }
-
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.email)) {
         showMessage('Please enter a valid email address.', 'error');
         return;
       }
-
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
       submitBtn.disabled = true;
-
       setTimeout(() => {
         showMessage('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
         contactForm.reset();
@@ -3583,7 +3241,6 @@
         submitBtn.disabled = false;
       }, 1500);
     });
-
     function showMessage(text, type) {
       formMessage.textContent = text;
       formMessage.style.display = 'block';
@@ -3595,25 +3252,15 @@
       setTimeout(() => { formMessage.style.display = 'none'; }, 5000);
     }
   }
-
-  // ========================================
-  // EmailJS Initialization (Career Details) - Immediate
-  // ========================================
   (function initEmailJSImmediately() {
     if (typeof emailjs === 'undefined') return;
     emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
   })();
-
   function initEmailJS() {
-    // Already initialized above, this is just for compatibility
     if (typeof emailjs !== 'undefined') {
       emailjs.init({ publicKey: 'O7t07Am9Hj1fkJonQ' });
     }
   }
-
-  // ========================================
-  // Career Application Form Handler
-  // ========================================
   function initCareerApplicationForm() {
     const applyModal = document.getElementById('apply-modal');
     const applyForm = document.getElementById('apply-form');
@@ -3629,37 +3276,27 @@
     const fileName = document.getElementById('file-name');
     const fileSize = document.getElementById('file-size');
     const removeFileBtn = document.getElementById('remove-file-btn');
-
     if (!applyModal || !applyForm) return;
-
-    // File upload handling
     if (fileUploadArea && resumeFileInput) {
       fileUploadArea.addEventListener('click', (e) => {
         if (e.target !== removeFileBtn && !removeFileBtn?.contains(e.target)) {
           resumeFileInput.click();
         }
       });
-
       resumeFileInput.addEventListener('change', function() {
         if (this.files && this.files[0]) {
           const file = this.files[0];
-          
-          // Validate file size (5MB max)
           if (file.size > 5 * 1024 * 1024) {
             alert('File size must be less than 5MB');
             this.value = '';
             return;
           }
-
-          // Validate file type
           const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
           if (!allowedTypes.includes(file.type)) {
             alert('Only PDF, DOC, and DOCX files are allowed');
             this.value = '';
             return;
           }
-
-          // Show file preview
           if (uploadPlaceholder) uploadPlaceholder.style.display = 'none';
           if (filePreview) {
             filePreview.style.display = 'flex';
@@ -3668,7 +3305,6 @@
           }
         }
       });
-
       if (removeFileBtn) {
         removeFileBtn.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -3678,25 +3314,18 @@
         });
       }
     }
-
-    // Form submission
     applyForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-
       if (typeof emailjs === 'undefined') {
         alert('EmailJS not loaded. Please try again.');
         return;
       }
-
-      // Show loading state
       const btnText = submitBtn?.querySelector('.btn-text');
       const btnLoading = submitBtn?.querySelector('.btn-loading');
       if (btnText) btnText.style.display = 'none';
       if (btnLoading) btnLoading.style.display = 'flex';
       if (submitBtn) submitBtn.disabled = true;
-
       try {
-        // Prepare form data
         const formData = {
           firstName: document.getElementById('first-name')?.value || '',
           lastName: document.getElementById('last-name')?.value || '',
@@ -3712,45 +3341,33 @@
           coverLetter: document.getElementById('cover-letter')?.value || '',
           jobTitle: document.getElementById('modal-job-title')?.textContent || ''
         };
-
-        // Send email via EmailJS
         await emailjs.send('service_cakiweb', 'template_career_application', formData);
-
-        // Show success message
         applyForm.style.display = 'none';
         if (successMessage) successMessage.style.display = 'block';
-
-        // Reset form
         applyForm.reset();
         if (uploadPlaceholder) uploadPlaceholder.style.display = 'block';
         if (filePreview) filePreview.style.display = 'none';
-
       } catch (error) {
         console.error('Error submitting application:', error);
         alert('Failed to submit application. Please try again.');
       } finally {
-        // Reset button state
         if (btnText) btnText.style.display = 'flex';
         if (btnLoading) btnLoading.style.display = 'none';
         if (submitBtn) submitBtn.disabled = false;
       }
     });
-
-    // Close modal handlers
     if (modalCloseBtn) {
       modalCloseBtn.addEventListener('click', function() {
         applyModal.classList.remove('active');
         document.body.style.overflow = '';
       });
     }
-
     if (cancelBtn) {
       cancelBtn.addEventListener('click', function() {
         applyModal.classList.remove('active');
         document.body.style.overflow = '';
       });
     }
-
     if (successCloseBtn) {
       successCloseBtn.addEventListener('click', function() {
         applyModal.classList.remove('active');
@@ -3759,8 +3376,6 @@
         if (applyForm) applyForm.style.display = 'block';
       });
     }
-
-    // Close on backdrop click
     const backdrop = applyModal.querySelector('.modal-backdrop');
     if (backdrop) {
       backdrop.addEventListener('click', function() {
@@ -3769,13 +3384,8 @@
       });
     }
   }
-
-  // ========================================
-  // Page-Specific Initializations (run on DOMContentLoaded)
-  // ========================================
   document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initEmailJS();
   });
-
 })();
