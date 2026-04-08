@@ -3173,6 +3173,20 @@ textarea,
   color: var(--gray-500);
   margin-bottom: 20px;
 }
+.service-media {
+  margin-bottom: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+.service-media video,
+.service-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+}
 .service-icon-large {
   width: 80px;
   height: 80px;
@@ -3183,7 +3197,7 @@ textarea,
   border-radius: 20px;
   color: var(--white);
   font-size: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 .sidebar-card h3 {
   font-size: 22px;

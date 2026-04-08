@@ -10,7 +10,25 @@
       "Bash(dir *)",
       "Bash(git checkout *)",
       "Bash(node *)",
-      "Bash(cmd *)"
+      "Bash(cmd *)",
+      "Bash(import *)",
+      "Bash(path *)",
+      "Bash(with)",
+      "Bash(as *)",
+      "Bash(data *)",
+      "Bash(f)",
+      "Bash(print)",
+      "Bash(new_items *)",
+      "Bash(v *)",
+      "Bash(new_items.append *)",
+      "Bash(svc.clear)",
+      "Bash(v)",
+      "Bash(json.dump)",
+      "Bash(data2 *)",
+      "Bash(assert *)",
+      "Bash(icon_idx *)",
+      "Bash('icon')",
+      "Bash(eof)"
     ]
   },
   "$version": 3

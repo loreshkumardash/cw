@@ -1036,12 +1036,21 @@
         )
         .join("");
     }
+    const mediaContainer = document.getElementById("service-media");
     const iconLarge = document.getElementById("service-icon-large");
-    if (iconLarge) {
-      const iconName = service.icon
-        ? service.icon.replace("bi-", "")
-        : "code-slash";
-      iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
+    if (mediaContainer) {
+      if (service.videoUrl && service.videoUrl.trim() !== "") {
+        mediaContainer.innerHTML = `
+          <video src="${service.videoUrl}" muted loop autoplay playsinline poster="${service.thumbnail || ""}" style="width:100%;display:block;border-radius:16px;"></video>`;
+      } else if (service.thumbnail || service.image) {
+        const imgSrc = service.thumbnail || service.image;
+        mediaContainer.innerHTML = `<img src="${imgSrc}" alt="${service.title}" style="width:100%;display:block;border-radius:16px;object-fit:cover;">`;
+      } else if (iconLarge) {
+        const iconName = service.icon
+          ? service.icon.replace("bi-", "")
+          : "code-slash";
+        iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
+      }
     }
     const sidebarServiceTitle = document.getElementById(
       "sidebar-service-title",
