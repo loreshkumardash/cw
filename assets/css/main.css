@@ -3738,7 +3738,6 @@ input[name="filter"] {
 }
 .clients-track {
   display: flex;
-  gap: 60px;
   animation: scroll 30s linear infinite;
   width: max-content;
 }
@@ -3771,18 +3770,13 @@ input[name="filter"] {
   overflow: hidden;
 }
 .client-logo-icon img {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   transition: all 0.3s ease;
-  filter: grayscale(100%) opacity(0.7);
 }
 .client-logo:hover .client-logo-icon {
-  background: var(--gradient-primary);
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
-}
-.client-logo:hover .client-logo-icon img {
-  filter: grayscale(0%) opacity(1);
 }
 .client-logo-name {
   font-size: 13px;
@@ -3834,9 +3828,6 @@ input[name="filter"] {
   }
   .clients-section .section-description {
     font-size: 14px;
-  }
-  .clients-track {
-    gap: 40px;
   }
   .client-logo {
     min-width: 100px;
