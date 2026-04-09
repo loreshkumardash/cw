@@ -384,7 +384,7 @@
     });
   }
 
-  // Dynamic Products Loader for index.html
+
   (function initProductsGrid() {
     const grid = document.getElementById("products-grid");
     const loadMoreBtn = document.getElementById("products-load-more-btn");
@@ -427,11 +427,11 @@
         grid.innerHTML = "";
         grid.appendChild(fragment);
       }
-      // Refresh AOS for new elements
+
       if (typeof AOS !== "undefined") {
         setTimeout(() => AOS.refresh(), 100);
       }
-      // Toggle load more button
+
       if (visibleCount >= allProducts.length) {
         loadMoreBtn.style.display = "none";
       } else {
@@ -460,7 +460,7 @@
     loadProducts();
   })();
 
-  // Dynamic Tech Stack Loader for index.html
+
   (function initTechStackMarquee() {
     const track1 = document.getElementById("marquee-track-1");
     const track2 = document.getElementById("marquee-track-2");
@@ -502,7 +502,7 @@
     const row2 = technologies.slice(HALF);
 
     function buildTrack(techs, container) {
-      // Duplicate for seamless infinite loop
+
       const all = [...techs, ...techs];
       container.innerHTML = all
         .map(
@@ -520,7 +520,7 @@
   })();
 
   function initProductsHorizontalScroll() {
-    // Disabled: Products section now uses simple grid layout
+
     return;
     const section = document.querySelector("#products");
     const track = document.querySelector(".products-scroll-track");
@@ -1037,7 +1037,7 @@
         .join("");
     }
 
-    // Service Guide Section
+
     const serviceGuideContainer = document.getElementById("service-guide-container");
     const serviceGuideContent = document.getElementById("service-guide-content");
     if (serviceGuideContainer && serviceGuideContent) {
@@ -1078,7 +1078,7 @@
           mediaContainer.innerHTML = `
             <iframe src="${videoEmbedUrl}" style="width:100%;height:200px;display:block;border-radius:16px;border:none;" allowfullscreen loading="lazy"></iframe>`;
         } else if (url.match(/\.(mp4|webm|ogg|mov)$/i)) {
-          // Direct video file
+
           mediaContainer.innerHTML = `
             <video src="${url}" muted playsinline poster="${service.thumbnail || ""}" controls style="width:100%;display:block;border-radius:16px;"></video>`;
         } else {
@@ -3414,7 +3414,7 @@
       submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
       submitBtn.disabled = true;
 
-      // EmailJS send
+
       if (typeof emailjs !== "undefined" && CONTACT_TEMPLATE_ID) {
         try {
           await emailjs.send(CONTACT_SERVICE_ID, CONTACT_TEMPLATE_ID, data);
@@ -3431,7 +3431,7 @@
           );
         }
       } else if (!CONTACT_TEMPLATE_ID) {
-        // Fallback when template ID is not set
+
         setTimeout(() => {
           showMessage(
             "Thank you for your message! We'll get back to you within 24 hours.",
