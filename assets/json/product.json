@@ -115,39 +115,29 @@
       ],
       "clients": [
         {
-          "name": "Delhi Public School",
-          "logo": "",
-          "website": ""
+          "name": "Young Phoenix Public School",
+          "logo": "assets/img/clients/c3.webp",
+          "website": "http://www.yppschool.com/"
         },
         {
-          "name": "Kendriya Vidyalaya",
-          "logo": "",
-          "website": ""
+          "name": "IIM-Sambalpur",
+          "logo": "assets/img/clients/iim-sambalpur.png",
+          "website": "https://iimsambalpur.ac.in/"
         },
         {
-          "name": "Army Public School",
-          "logo": "",
-          "website": ""
+          "name": "IIT-Roorkee",
+          "logo": "assets/img/clients/iit-roorkee.png",
+          "website": "https://www.iitr.ac.in/"
         },
         {
-          "name": "St. Xavier's College",
-          "logo": "",
-          "website": ""
+          "name": "U.N. (AUTO) College",
+          "logo": "assets/img/clients/c1.webp",
+          "website": "https://udayanathcollege.ac.in/"
         },
         {
-          "name": "Indian Institute of Technology",
-          "logo": "",
-          "website": ""
-        },
-        {
-          "name": "Modern School",
-          "logo": "",
-          "website": ""
-        },
-        {
-          "name": "Springdale High School",
-          "logo": "",
-          "website": ""
+          "name": "AUL College",
+          "logo": "assets/img/clients/c2.webp",
+          "website": "https://aulcollegeaul.org.in/"
         }
       ],
       "faq": [
