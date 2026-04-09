@@ -1036,6 +1036,28 @@
         )
         .join("");
     }
+
+    // Service Guide Section
+    const serviceGuideContainer = document.getElementById("service-guide-container");
+    const serviceGuideContent = document.getElementById("service-guide-content");
+    if (serviceGuideContainer && serviceGuideContent) {
+      if (service.serviceGuide && Array.isArray(service.serviceGuide) && service.serviceGuide.length > 0) {
+        serviceGuideContent.innerHTML = service.serviceGuide
+          .map(
+            (guide, index) => `
+          <div class="guide-item" data-aos="fade-up" data-aos-delay="${index * 100}">
+            <h4>${guide.title}</h4>
+            <p>${guide.content}</p>
+          </div>
+        `,
+          )
+          .join("");
+        serviceGuideContainer.style.display = "block";
+      } else {
+        serviceGuideContainer.style.display = "none";
+      }
+    }
+
     const mediaContainer = document.getElementById("service-media");
     const iconLarge = document.getElementById("service-icon-large");
     if (mediaContainer) {
