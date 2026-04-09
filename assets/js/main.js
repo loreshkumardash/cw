@@ -3279,52 +3279,54 @@
 (function () {
   "use strict";
   const indexBlogGrid = document.getElementById("indexBlogGrid");
-  if (!indexBlogGrid) return;
-  async function fetchAndRender() {
-    try {
-      const response = await fetch("assets/json/blog.json");
-      if (!response.ok) throw new Error("Failed to load blog data");
-      const data = await response.json();
-      const blogs = (data.blogs || [])
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .slice(0, 3);
-      indexBlogGrid.innerHTML = blogs
-        .map((blog, i) => {
-          const date = new Date(blog.date);
-          const formattedDate = date.toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-          });
-          return `
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${(i + 1) * 100}">
-            <article class="blog-card">
-              <div class="blog-img">
-                <img src="${blog.image}" alt="${blog.title}" loading="lazy">
-                <span class="blog-date">${formattedDate}</span>
-              </div>
-              <div class="blog-content">
-                <h3 class="blog-title">${blog.title}</h3>
-                <p class="blog-excerpt">${blog.excerpt}</p>
-                <a href="blog-details.html?blog=${blog.slug}" class="read-more">
-                  Read More <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-            </article>
-          </div>
-        `;
-        })
-        .join("");
-      if (typeof AOS !== "undefined") {
-        setTimeout(() => AOS.refresh(), 100);
+  if (indexBlogGrid) {
+    async function fetchAndRender() {
+      try {
+        const response = await fetch("assets/json/blog.json");
+        if (!response.ok) throw new Error("Failed to load blog data");
+        const data = await response.json();
+        const blogs = (data.blogs || [])
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 3);
+        indexBlogGrid.innerHTML = blogs
+          .map((blog, i) => {
+            const date = new Date(blog.date);
+            const formattedDate = date.toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+            });
+            return `
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${(i + 1) * 100}">
+              <article class="blog-card">
+                <div class="blog-img">
+                  <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+                  <span class="blog-date">${formattedDate}</span>
+                </div>
+                <div class="blog-content">
+                  <h3 class="blog-title">${blog.title}</h3>
+                  <p class="blog-excerpt">${blog.excerpt}</p>
+                  <a href="blog-details.html?blog=${blog.slug}" class="read-more">
+                    Read More <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+          `;
+          })
+          .join("");
+        if (typeof AOS !== "undefined") {
+          setTimeout(() => AOS.refresh(), 100);
+        }
+      } catch (error) {
+        console.error("Error loading blog preview:", error);
       }
-    } catch (error) {
-      console.error("Error loading blog preview:", error);
     }
-  }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", fetchAndRender);
-  } else {
-    fetchAndRender();
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fetchAndRender);
+    } else {
+      fetchAndRender();
+    }
   }
   (function initWhatsAppPopupClickOutside() {
     if (!document.getElementById("whatsapp-popup")) return;
@@ -3467,4 +3469,182 @@
   document.addEventListener("DOMContentLoaded", function () {
     initContactForm();
   });
+
+  function initOdishaPages() {
+    const districtsGrid = document.getElementById("districtsGrid");
+    const servicesList = document.getElementById("servicesList");
+
+    // Load and render odisha.html content
+    (async function initOdishaPage() {
+      if (!districtsGrid || servicesList) {
+        return;
+      }
+
+      try {
+        const response = await fetch("assets/json/odisha.json");
+        const data = await response.json();
+
+        // Render hero section
+        const heroBg = document.getElementById("heroBg");
+        if (heroBg) heroBg.style.backgroundImage = `url('${data.hero.backgroundImage}')`;
+        const heroTitle = document.getElementById("heroTitle");
+        if (heroTitle) {
+          heroTitle.innerHTML = data.hero.title;
+        }
+        const heroDesc = document.getElementById("heroDescription");
+        if (heroDesc) heroDesc.textContent = data.hero.description;
+
+        // Render districts grid
+        districtsGrid.innerHTML = data.districts.map((district, index) => `
+          <div class="district-card" data-aos="fade-up" data-aos-delay="${(index % 3) * 100}">
+            <div class="district-content">
+              <h3>${district.name}</h3>
+              <p>${district.description}</p>
+              <ul class="district-services">
+                ${district.services.slice(0, 5).map(s => `<li><i class="bi bi-check-circle-fill"></i> ${s}</li>`).join('')}
+                <li class="view-more-services"><i class="bi bi-plus-circle-fill"></i> +${district.services.length - 5} more services</li>
+              </ul>
+              <a href="odisha-details.html?district=${district.slug}" class="btn btn-primary btn-sm">
+                Explore ${district.name} <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        `).join("");
+
+        // Render why choose us
+        const whySubtitle = document.getElementById("whySubtitle");
+        const whyTitle = document.getElementById("whyTitle");
+        const whyDescription = document.getElementById("whyDescription");
+        if (whySubtitle) whySubtitle.textContent = data.whyChooseUs.subtitle;
+        if (whyTitle) whyTitle.innerHTML = data.whyChooseUs.title;
+        if (whyDescription) whyDescription.textContent = data.whyChooseUs.description;
+
+        const whyGrid = document.getElementById("whyGrid");
+        if (whyGrid) {
+          whyGrid.innerHTML = data.whyChooseUs.cards.map((card, index) => `
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${index * 100}">
+              <div class="choose-card">
+                <div class="choose-icon-wrapper">
+                  <i class="bi ${card.icon}"></i>
+                </div>
+                <h3>${card.title}</h3>
+                <p>${card.description}</p>
+                <div class="card-underline"></div>
+              </div>
+            </div>
+          `).join("");
+        }
+
+        // Render CTA
+        const ctaTitle = document.getElementById("ctaTitle");
+        const ctaDescription = document.getElementById("ctaDescription");
+        const ctaButtonText = document.getElementById("ctaButtonText");
+        const ctaButton = document.getElementById("ctaButton");
+        if (ctaTitle) ctaTitle.textContent = data.cta.title;
+        if (ctaDescription) ctaDescription.textContent = data.cta.description;
+        if (ctaButtonText) ctaButtonText.textContent = data.cta.buttonText;
+        if (ctaButton) ctaButton.setAttribute("href", data.cta.buttonLink);
+
+        if (typeof AOS !== "undefined") {
+          setTimeout(() => AOS.refresh(), 100);
+        }
+      } catch (error) {
+        console.error("initOdishaPage: ERROR:", error);
+      }
+    })();
+
+    // Load and render odisha-details.html content
+    (async function initOdishaDetailsPage() {
+      const detailsHeroTitle = document.getElementById("heroTitle");
+      if (!servicesList || !detailsHeroTitle) {
+        return;
+      }
+
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const districtSlug = urlParams.get("district");
+        const serviceSlug = urlParams.get("service");
+
+        const response = await fetch("assets/json/odisha.json");
+        const data = await response.json();
+
+        let district;
+        let isServicePage = false;
+
+        if (serviceSlug) {
+          const service = data.allServices.find(s => s.slug === serviceSlug);
+          if (service) {
+            isServicePage = true;
+            district = JSON.parse(JSON.stringify(data.districts[0]));
+            district.title = `${service.title} in ${district.name}`;
+            district.description = `${service.description} We provide top-notch ${service.shortTitle.toLowerCase()} services across all districts of Odisha including ${district.name}.`;
+            district.services = [service.shortTitle];
+            district.highlights = ["Expert team with years of experience", "Custom solutions tailored to your needs", "Latest technologies and best practices", "Competitive pricing", "24/7 support and maintenance"];
+            district.technologies = ["React", "Node.js", "Python", "MongoDB", "AWS", "Azure", "Flutter", "Docker"];
+            district.industries = ["Healthcare", "Education", "E-commerce", "Finance", "Real Estate", "Retail"];
+            district.cta = "Get Free Quote";
+          }
+        }
+
+        if (!isServicePage) {
+          district = data.districts.find(d => d.slug === districtSlug);
+        }
+
+        if (!district) {
+          district = data.districts[0];
+        }
+
+        // Render all sections
+        const heroTitleEl = document.getElementById("heroTitle");
+        const heroTitleHtml = isServicePage ? district.title : district.title.replace(district.name, `<span class="gradient-text">${district.name}</span>`);
+        if (heroTitleEl) heroTitleEl.innerHTML = heroTitleHtml;
+        const heroDesc = document.getElementById("heroDescription");
+        if (heroDesc) heroDesc.textContent = district.description;
+
+        const overviewSubtitle = document.getElementById("overviewSubtitle");
+        const overviewTitle = document.getElementById("overviewTitle");
+        const overviewDescription = document.getElementById("overviewDescription");
+        const ctaBtnText = document.getElementById("ctaButtonText");
+        if (overviewSubtitle) overviewSubtitle.textContent = data.whyChooseUs.subtitle;
+        if (overviewTitle) overviewTitle.textContent = `Why Choose Us in ${district.name}`;
+        if (overviewDescription) overviewDescription.textContent = district.description;
+        if (ctaBtnText) ctaBtnText.textContent = district.cta;
+
+        const highlightsList = document.getElementById("highlightsList");
+        if (highlightsList) {
+          highlightsList.innerHTML = district.highlights.map(h => `<div class="highlight-item"><i class="bi bi-check-circle-fill"></i><span>${h}</span></div>`).join("");
+        }
+
+        if (servicesList) {
+          const servicesToShow = isServicePage ? district.services : data.allServices.map(s => s.shortTitle);
+          const servicesDescriptions = isServicePage ? district.services.map(s => `Professional ${s.toLowerCase()} services tailored to your business needs`) : data.allServices.map(s => s.description);
+          servicesList.innerHTML = servicesToShow.map((service, index) => `<div class="service-item" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="service-icon-sm"><i class="bi bi-arrow-right-circle"></i></div><div class="service-info"><h4>${service}</h4><p>${servicesDescriptions[index]}</p></div></div>`).join("");
+        }
+
+        const techGrid = document.getElementById("techGrid");
+        if (techGrid) {
+          techGrid.innerHTML = district.technologies.map((tech, index) => `<div class="tech-card" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="tech-icon"><i class="bi bi-code-square"></i></div><h4>${tech}</h4></div>`).join("");
+        }
+
+        const industriesGrid = document.getElementById("industriesGrid");
+        if (industriesGrid) {
+          industriesGrid.innerHTML = district.industries.map((industry, index) => `<div class="industry-card" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="industry-icon"><i class="bi bi-building"></i></div><h4>${industry}</h4></div>`).join("");
+        }
+
+        if (typeof AOS !== "undefined") setTimeout(() => AOS.refresh(), 100);
+      } catch (error) {
+        console.error("initOdishaDetailsPage: ERROR:", error);
+      }
+    })();
+  }
+
+  // Run immediately if DOM is ready, otherwise wait for DOMContentLoaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      initOdishaPages();
+    });
+  } else {
+    initOdishaPages();
+  }
+
 })();
