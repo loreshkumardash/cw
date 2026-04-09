@@ -3561,7 +3561,6 @@ textarea,
   max-height: 500px;
 }
 
-
 .service-guide-section {
   margin-top: 32px;
 }
@@ -7834,11 +7833,11 @@ input[name="filter"] {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  
+
   .credentials-section {
     padding: 60px 0;
   }
-  
+
   .credential-card {
     padding: 16px;
   }
@@ -7885,7 +7884,11 @@ input[name="filter"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(139, 92, 246, 0.08) 100%
+  );
   border-radius: 16px;
   font-size: 28px;
   color: var(--primary);
@@ -8176,7 +8179,11 @@ input[name="filter"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(139, 92, 246, 0.08) 100%
+  );
   border-radius: 16px;
   margin: 0 auto 16px;
   font-size: 28px;
@@ -8255,7 +8262,7 @@ input[name="filter"] {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-  
+
   .tech-grid,
   .industries-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -8271,33 +8278,33 @@ input[name="filter"] {
   .district-overview-section {
     padding: 60px 0;
   }
-  
+
   .tech-grid,
   .industries-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .cta-buttons {
     flex-direction: column;
   }
-  
+
   .cta-buttons .btn {
     width: 100%;
   }
-  
+
   .overview-content {
     padding-right: 0;
     margin-bottom: 32px;
   }
-  
+
   .services-showcase {
     padding: 20px;
   }
-  
+
   .services-list {
     max-height: 400px;
   }
-  
+
   .services-showcase h3 {
     font-size: 20px;
   }
@@ -8309,35 +8316,35 @@ input[name="filter"] {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .tech-grid,
   .industries-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .highlight-item {
     padding: 8px 12px;
   }
-  
+
   .highlight-item span {
     font-size: 13px;
   }
-  
+
   .service-item {
     padding: 12px;
     gap: 12px;
   }
-  
+
   .service-icon-sm {
     width: 40px;
     height: 40px;
     font-size: 16px;
   }
-  
+
   .service-info h4 {
     font-size: 14px;
   }
-  
+
   .service-info p {
     font-size: 12px;
   }

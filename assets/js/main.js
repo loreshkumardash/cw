@@ -384,7 +384,6 @@
     });
   }
 
-
   (function initProductsGrid() {
     const grid = document.getElementById("products-grid");
     const loadMoreBtn = document.getElementById("products-load-more-btn");
@@ -453,13 +452,13 @@
         renderProducts(false);
       } catch (err) {
         console.error("Products load error:", err);
-        grid.innerHTML = '<p style="text-align:center;color:var(--gray-500);">Unable to load products.</p>';
+        grid.innerHTML =
+          '<p style="text-align:center;color:var(--gray-500);">Unable to load products.</p>';
       }
     }
 
     loadProducts();
   })();
-
 
   (function initTechStackMarquee() {
     const track1 = document.getElementById("marquee-track-1");
@@ -467,34 +466,118 @@
     if (!track1 || !track2) return;
 
     const technologies = [
-      { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-      { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
-      { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-      { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
-      { name: "Bootstrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-      { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-      { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-      { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-      { name: "Laravel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-      { name: "Express", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      { name: "Django", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
-      { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-      { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-      { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-      { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
-      { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-      { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
-      { name: "Sass", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
-      { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      {
+        name: "HTML5",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+      },
+      {
+        name: "CSS3",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      },
+      {
+        name: "JavaScript",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      },
+      {
+        name: "React",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      },
+      {
+        name: "Vue.js",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+      },
+      {
+        name: "Next.js",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      },
+      {
+        name: "Angular",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+      },
+      {
+        name: "Bootstrap",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+      },
+      {
+        name: "Tailwind",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+      },
+      {
+        name: "PHP",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+      },
+      {
+        name: "Node.js",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      },
+      {
+        name: "Laravel",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+      },
+      {
+        name: "Express",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+      },
+      {
+        name: "Python",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      },
+      {
+        name: "Django",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+      },
+      {
+        name: "Flutter",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+      },
+      {
+        name: "React Native",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      },
+      {
+        name: "MySQL",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+      },
+      {
+        name: "PostgreSQL",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+      },
+      {
+        name: "MongoDB",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      },
+      {
+        name: "Firebase",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+      },
+      {
+        name: "AWS",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      },
+      {
+        name: "Docker",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+      },
+      {
+        name: "Git",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      },
+      {
+        name: "Figma",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      },
+      {
+        name: "WordPress",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg",
+      },
+      {
+        name: "Sass",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+      },
+      {
+        name: "TypeScript",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      },
     ];
 
     const HALF = Math.ceil(technologies.length / 2);
@@ -502,7 +585,6 @@
     const row2 = technologies.slice(HALF);
 
     function buildTrack(techs, container) {
-
       const all = [...techs, ...techs];
       container.innerHTML = all
         .map(
@@ -510,7 +592,7 @@
         <div class="tech-item">
           <img src="${t.logo}" alt="${t.name}" class="tech-logo" loading="lazy" onerror="this.style.display='none'">
           <span class="tech-name">${t.name}</span>
-        </div>`
+        </div>`,
         )
         .join("");
     }
@@ -520,7 +602,6 @@
   })();
 
   function initProductsHorizontalScroll() {
-
     return;
     const section = document.querySelector("#products");
     const track = document.querySelector(".products-scroll-track");
@@ -736,7 +817,7 @@
       cursorOutline.style.top = outlineY + "px";
       cursorGlow.style.left = glowX + "px";
       cursorGlow.style.top = glowY + "px";
-      
+
       requestAnimationFrame(animate);
     }
     animate();
@@ -1037,11 +1118,18 @@
         .join("");
     }
 
-
-    const serviceGuideContainer = document.getElementById("service-guide-container");
-    const serviceGuideContent = document.getElementById("service-guide-content");
+    const serviceGuideContainer = document.getElementById(
+      "service-guide-container",
+    );
+    const serviceGuideContent = document.getElementById(
+      "service-guide-content",
+    );
     if (serviceGuideContainer && serviceGuideContent) {
-      if (service.serviceGuide && Array.isArray(service.serviceGuide) && service.serviceGuide.length > 0) {
+      if (
+        service.serviceGuide &&
+        Array.isArray(service.serviceGuide) &&
+        service.serviceGuide.length > 0
+      ) {
         serviceGuideContent.innerHTML = service.serviceGuide
           .map(
             (guide, index) => `
@@ -1064,7 +1152,9 @@
       if (service.videoUrl && service.videoUrl.trim() !== "") {
         let videoEmbedUrl = "";
         const url = service.videoUrl.trim();
-        const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+        const ytMatch = url.match(
+          /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/,
+        );
         if (ytMatch) {
           videoEmbedUrl = `https://www.youtube.com/embed/${ytMatch[1]}?loop=1&playlist=${ytMatch[1]}&modestbranding=1&rel=0`;
         } else if (url.includes("vimeo.com")) {
@@ -1078,7 +1168,6 @@
           mediaContainer.innerHTML = `
             <iframe src="${videoEmbedUrl}" style="width:100%;height:200px;display:block;border-radius:16px;border:none;" allowfullscreen loading="lazy"></iframe>`;
         } else if (url.match(/\.(mp4|webm|ogg|mov)$/i)) {
-
           mediaContainer.innerHTML = `
             <video src="${url}" muted playsinline poster="${service.thumbnail || ""}" controls style="width:100%;display:block;border-radius:16px;"></video>`;
         } else {
@@ -3416,7 +3505,6 @@
       submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
       submitBtn.disabled = true;
 
-
       if (typeof emailjs !== "undefined" && CONTACT_TEMPLATE_ID) {
         try {
           await emailjs.send(CONTACT_SERVICE_ID, CONTACT_TEMPLATE_ID, data);
@@ -3433,7 +3521,6 @@
           );
         }
       } else if (!CONTACT_TEMPLATE_ID) {
-
         setTimeout(() => {
           showMessage(
             "Thank you for your message! We'll get back to you within 24 hours.",
@@ -3486,7 +3573,8 @@
 
         // Render hero section
         const heroBg = document.getElementById("heroBg");
-        if (heroBg) heroBg.style.backgroundImage = `url('${data.hero.backgroundImage}')`;
+        if (heroBg)
+          heroBg.style.backgroundImage = `url('${data.hero.backgroundImage}')`;
         const heroTitle = document.getElementById("heroTitle");
         if (heroTitle) {
           heroTitle.innerHTML = data.hero.title;
@@ -3495,13 +3583,21 @@
         if (heroDesc) heroDesc.textContent = data.hero.description;
 
         // Render districts grid
-        districtsGrid.innerHTML = data.districts.map((district, index) => `
+        districtsGrid.innerHTML = data.districts
+          .map(
+            (district, index) => `
           <div class="district-card" data-aos="fade-up" data-aos-delay="${(index % 3) * 100}">
             <div class="district-content">
               <h3>${district.name}</h3>
               <p>${district.description}</p>
               <ul class="district-services">
-                ${district.services.slice(0, 5).map(s => `<li><i class="bi bi-check-circle-fill"></i> ${s}</li>`).join('')}
+                ${district.services
+                  .slice(0, 5)
+                  .map(
+                    (s) =>
+                      `<li><i class="bi bi-check-circle-fill"></i> ${s}</li>`,
+                  )
+                  .join("")}
                 <li class="view-more-services"><i class="bi bi-plus-circle-fill"></i> +${district.services.length - 5} more services</li>
               </ul>
               <a href="odisha-details.html?district=${district.slug}" class="btn btn-primary btn-sm">
@@ -3509,7 +3605,9 @@
               </a>
             </div>
           </div>
-        `).join("");
+        `,
+          )
+          .join("");
 
         // Render why choose us
         const whySubtitle = document.getElementById("whySubtitle");
@@ -3517,11 +3615,14 @@
         const whyDescription = document.getElementById("whyDescription");
         if (whySubtitle) whySubtitle.textContent = data.whyChooseUs.subtitle;
         if (whyTitle) whyTitle.innerHTML = data.whyChooseUs.title;
-        if (whyDescription) whyDescription.textContent = data.whyChooseUs.description;
+        if (whyDescription)
+          whyDescription.textContent = data.whyChooseUs.description;
 
         const whyGrid = document.getElementById("whyGrid");
         if (whyGrid) {
-          whyGrid.innerHTML = data.whyChooseUs.cards.map((card, index) => `
+          whyGrid.innerHTML = data.whyChooseUs.cards
+            .map(
+              (card, index) => `
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${index * 100}">
               <div class="choose-card">
                 <div class="choose-icon-wrapper">
@@ -3532,7 +3633,9 @@
                 <div class="card-underline"></div>
               </div>
             </div>
-          `).join("");
+          `,
+            )
+            .join("");
         }
 
         // Render CTA
@@ -3572,22 +3675,44 @@
         let isServicePage = false;
 
         if (serviceSlug) {
-          const service = data.allServices.find(s => s.slug === serviceSlug);
+          const service = data.allServices.find((s) => s.slug === serviceSlug);
           if (service) {
             isServicePage = true;
             district = JSON.parse(JSON.stringify(data.districts[0]));
             district.title = `${service.title} in ${district.name}`;
             district.description = `${service.description} We provide top-notch ${service.shortTitle.toLowerCase()} services across all districts of Odisha including ${district.name}.`;
             district.services = [service.shortTitle];
-            district.highlights = ["Expert team with years of experience", "Custom solutions tailored to your needs", "Latest technologies and best practices", "Competitive pricing", "24/7 support and maintenance"];
-            district.technologies = ["React", "Node.js", "Python", "MongoDB", "AWS", "Azure", "Flutter", "Docker"];
-            district.industries = ["Healthcare", "Education", "E-commerce", "Finance", "Real Estate", "Retail"];
+            district.highlights = [
+              "Expert team with years of experience",
+              "Custom solutions tailored to your needs",
+              "Latest technologies and best practices",
+              "Competitive pricing",
+              "24/7 support and maintenance",
+            ];
+            district.technologies = [
+              "React",
+              "Node.js",
+              "Python",
+              "MongoDB",
+              "AWS",
+              "Azure",
+              "Flutter",
+              "Docker",
+            ];
+            district.industries = [
+              "Healthcare",
+              "Education",
+              "E-commerce",
+              "Finance",
+              "Real Estate",
+              "Retail",
+            ];
             district.cta = "Get Free Quote";
           }
         }
 
         if (!isServicePage) {
-          district = data.districts.find(d => d.slug === districtSlug);
+          district = data.districts.find((d) => d.slug === districtSlug);
         }
 
         if (!district) {
@@ -3596,39 +3721,76 @@
 
         // Render all sections
         const heroTitleEl = document.getElementById("heroTitle");
-        const heroTitleHtml = isServicePage ? district.title : district.title.replace(district.name, `<span class="gradient-text">${district.name}</span>`);
+        const heroTitleHtml = isServicePage
+          ? district.title
+          : district.title.replace(
+              district.name,
+              `<span class="gradient-text">${district.name}</span>`,
+            );
         if (heroTitleEl) heroTitleEl.innerHTML = heroTitleHtml;
         const heroDesc = document.getElementById("heroDescription");
         if (heroDesc) heroDesc.textContent = district.description;
 
         const overviewSubtitle = document.getElementById("overviewSubtitle");
         const overviewTitle = document.getElementById("overviewTitle");
-        const overviewDescription = document.getElementById("overviewDescription");
+        const overviewDescription = document.getElementById(
+          "overviewDescription",
+        );
         const ctaBtnText = document.getElementById("ctaButtonText");
-        if (overviewSubtitle) overviewSubtitle.textContent = data.whyChooseUs.subtitle;
-        if (overviewTitle) overviewTitle.textContent = `Why Choose Us in ${district.name}`;
-        if (overviewDescription) overviewDescription.textContent = district.description;
+        if (overviewSubtitle)
+          overviewSubtitle.textContent = data.whyChooseUs.subtitle;
+        if (overviewTitle)
+          overviewTitle.textContent = `Why Choose Us in ${district.name}`;
+        if (overviewDescription)
+          overviewDescription.textContent = district.description;
         if (ctaBtnText) ctaBtnText.textContent = district.cta;
 
         const highlightsList = document.getElementById("highlightsList");
         if (highlightsList) {
-          highlightsList.innerHTML = district.highlights.map(h => `<div class="highlight-item"><i class="bi bi-check-circle-fill"></i><span>${h}</span></div>`).join("");
+          highlightsList.innerHTML = district.highlights
+            .map(
+              (h) =>
+                `<div class="highlight-item"><i class="bi bi-check-circle-fill"></i><span>${h}</span></div>`,
+            )
+            .join("");
         }
 
         if (servicesList) {
-          const servicesToShow = isServicePage ? district.services : data.allServices.map(s => s.shortTitle);
-          const servicesDescriptions = isServicePage ? district.services.map(s => `Professional ${s.toLowerCase()} services tailored to your business needs`) : data.allServices.map(s => s.description);
-          servicesList.innerHTML = servicesToShow.map((service, index) => `<div class="service-item" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="service-icon-sm"><i class="bi bi-arrow-right-circle"></i></div><div class="service-info"><h4>${service}</h4><p>${servicesDescriptions[index]}</p></div></div>`).join("");
+          const servicesToShow = isServicePage
+            ? district.services
+            : data.allServices.map((s) => s.shortTitle);
+          const servicesDescriptions = isServicePage
+            ? district.services.map(
+                (s) =>
+                  `Professional ${s.toLowerCase()} services tailored to your business needs`,
+              )
+            : data.allServices.map((s) => s.description);
+          servicesList.innerHTML = servicesToShow
+            .map(
+              (service, index) =>
+                `<div class="service-item" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="service-icon-sm"><i class="bi bi-arrow-right-circle"></i></div><div class="service-info"><h4>${service}</h4><p>${servicesDescriptions[index]}</p></div></div>`,
+            )
+            .join("");
         }
 
         const techGrid = document.getElementById("techGrid");
         if (techGrid) {
-          techGrid.innerHTML = district.technologies.map((tech, index) => `<div class="tech-card" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="tech-icon"><i class="bi bi-code-square"></i></div><h4>${tech}</h4></div>`).join("");
+          techGrid.innerHTML = district.technologies
+            .map(
+              (tech, index) =>
+                `<div class="tech-card" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="tech-icon"><i class="bi bi-code-square"></i></div><h4>${tech}</h4></div>`,
+            )
+            .join("");
         }
 
         const industriesGrid = document.getElementById("industriesGrid");
         if (industriesGrid) {
-          industriesGrid.innerHTML = district.industries.map((industry, index) => `<div class="industry-card" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="industry-icon"><i class="bi bi-building"></i></div><h4>${industry}</h4></div>`).join("");
+          industriesGrid.innerHTML = district.industries
+            .map(
+              (industry, index) =>
+                `<div class="industry-card" data-aos="fade-up" data-aos-delay="${index * 50}"><div class="industry-icon"><i class="bi bi-building"></i></div><h4>${industry}</h4></div>`,
+            )
+            .join("");
         }
 
         if (typeof AOS !== "undefined") setTimeout(() => AOS.refresh(), 100);
@@ -3646,5 +3808,4 @@
   } else {
     initOdishaPages();
   }
-
 })();
