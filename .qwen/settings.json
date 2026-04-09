@@ -28,7 +28,8 @@
       "Bash(assert *)",
       "Bash(icon_idx *)",
       "Bash('icon')",
-      "Bash(eof)"
+      "Bash(eof)",
+      "Bash(mkdir *)"
     ]
   },
   "$version": 3
