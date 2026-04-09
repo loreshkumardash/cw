@@ -1042,12 +1042,10 @@
       if (service.videoUrl && service.videoUrl.trim() !== "") {
         let videoEmbedUrl = "";
         const url = service.videoUrl.trim();
-        // Detect YouTube links
         const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
         if (ytMatch) {
           videoEmbedUrl = `https://www.youtube.com/embed/${ytMatch[1]}?loop=1&playlist=${ytMatch[1]}&modestbranding=1&rel=0`;
         } else if (url.includes("vimeo.com")) {
-          // Detect Vimeo links
           const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
           if (vimeoMatch) {
             videoEmbedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}?muted=1&loop=1`;
@@ -1062,7 +1060,6 @@
           mediaContainer.innerHTML = `
             <video src="${url}" muted playsinline poster="${service.thumbnail || ""}" controls style="width:100%;display:block;border-radius:16px;"></video>`;
         } else {
-          // Fallback to generic iframe if URL doesn't match known patterns
           mediaContainer.innerHTML = `
             <iframe src="${url}" style="width:100%;height:200px;display:block;border-radius:16px;border:none;" allowfullscreen loading="lazy"></iframe>`;
         }
