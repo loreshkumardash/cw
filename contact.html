@@ -276,46 +276,29 @@
         </div>
 
         <div class="col-lg-7" data-aos="fade-left">
-          <div
-            style="background: var(--white); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-xl); border: 1px solid var(--gray-200);">
-            <h3
-              style="font-size: 1.5rem; font-weight: var(--font-bold); margin-bottom: 0.5rem; color: var(--dark-900);">
-              Send Us a Message</h3>
-            <p style="margin-bottom: 2rem; color: var(--dark-600);">Fill out the form below and we'll get back to you
+          <div class="contact-form-card">
+            <h3>Send Us a Message</h3>
+            <p class="contact-form-subtitle">Fill out the form below and we'll get back to you
               within 24 hours.</p>
-            <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <form id="contact-form" class="contact-form">
               <div class="row g-3">
                 <div class="col-md-6">
-                  <label for="name"
-                    style="display: block; font-size: 0.875rem; font-weight: var(--font-semibold); color: var(--dark-700); margin-bottom: 0.5rem;">Full
-                    Name</label>
-                  <input type="text" id="name" name="name" required
-                    style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: var(--font-family); transition: all 0.3s ease; outline: none;"
-                    placeholder="John Doe">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" required placeholder="John Doe">
                 </div>
                 <div class="col-md-6">
-                  <label for="email"
-                    style="display: block; font-size: 0.875rem; font-weight: var(--font-semibold); color: var(--dark-700); margin-bottom: 0.5rem;">Email
-                    Address</label>
-                  <input type="email" id="email" name="email" required
-                    style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: var(--font-family); transition: all 0.3s ease; outline: none;"
-                    placeholder="john@example.com">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required placeholder="john@example.com">
                 </div>
               </div>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <label for="phone"
-                    style="display: block; font-size: 0.875rem; font-weight: var(--font-semibold); color: var(--dark-700); margin-bottom: 0.5rem;">Phone
-                    Number</label>
-                  <input type="tel" id="phone" name="phone"
-                    style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: var(--font-family); transition: all 0.3s ease; outline: none;"
-                    placeholder="+91 98765 43210">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
                 </div>
                 <div class="col-md-6">
-                  <label for="subject"
-                    style="display: block; font-size: 0.875rem; font-weight: var(--font-semibold); color: var(--dark-700); margin-bottom: 0.5rem;">Subject</label>
-                  <select id="subject" name="subject" required
-                    style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: var(--font-family); transition: all 0.3s ease; outline: none; background: var(--white); cursor: pointer;">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject" required>
                     <option value="" disabled selected>Select a subject</option>
                     <option value="general">General Inquiry</option>
                     <option value="quote">Request a Quote</option>
@@ -326,21 +309,14 @@
                 </div>
               </div>
               <div>
-                <label for="message"
-                  style="display: block; font-size: 0.875rem; font-weight: var(--font-semibold); color: var(--dark-700); margin-bottom: 0.5rem;">Your
-                  Message</label>
-                <textarea id="message" name="message" rows="5" required
-                  style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: var(--font-family); transition: all 0.3s ease; outline: none; resize: vertical;"
-                  placeholder="Tell us about your project..."></textarea>
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
               </div>
-              <button type="submit" class="btn btn-primary btn-lg"
-                style="width: 100%; padding: 16px 32px; font-size: 1rem; font-weight: var(--font-semibold); border-radius: 12px; margin-top: 0.5rem;">
-                Send Message <i class="bi bi-send" style="margin-left: 8px;"></i>
+              <button type="submit" class="btn btn-primary btn-lg contact-form-submit-btn">
+                Send Message <i class="bi bi-send"></i>
               </button>
             </form>
-            <div id="form-message"
-              style="margin-top: 1rem; padding: 14px 18px; border-radius: 10px; font-size: 0.95rem; font-weight: var(--font-medium); display: none;">
-            </div>
+            <div id="form-message" class="contact-form-message"></div>
           </div>
         </div>
       </div>
