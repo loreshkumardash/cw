@@ -1667,6 +1667,59 @@ section {
   font-weight: var(--font-medium);
   display: none;
 }
+.contact-info-section {
+  padding: 80px 0;
+}
+.contact-info-section h2 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: var(--font-extrabold);
+  margin-bottom: 1rem;
+}
+.contact-info-description {
+  margin-bottom: 2rem;
+  color: var(--dark-600);
+}
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.contact-info-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.contact-info-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+  color: var(--primary);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.contact-info-content h4 {
+  font-size: 1rem;
+  font-weight: var(--font-semibold);
+  margin-bottom: 0.25rem;
+}
+.contact-info-content p {
+  margin: 0;
+  color: var(--dark-600);
+  font-size: 0.95rem;
+}
+.contact-info-content a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-info-content a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
 .footer-bottom {
   padding: 30px 0;
   text-align: center;
