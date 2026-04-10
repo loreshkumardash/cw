@@ -838,32 +838,14 @@
       yearElement.textContent = new Date().getFullYear();
     }
   }
-  let serviceData = null;
-  let currentService = null;
   let productData = null;
   let currentProduct = null;
-  function getServiceFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return {
-      slug: params.get("service"),
-      id: params.get("id"),
-    };
-  }
   function getProductFromURL() {
     const params = new URLSearchParams(window.location.search);
     return {
       slug: params.get("product"),
       id: params.get("id"),
     };
-  }
-  function findService(data, params) {
-    if (params.slug) {
-      return data.services.find((s) => s.slug === params.slug);
-    }
-    if (params.id) {
-      return data.services.find((s) => s.id === parseInt(params.id));
-    }
-    return data.services[0];
   }
   function findProduct(data, params) {
     if (params.slug) {
@@ -873,38 +855,6 @@
       return data.products.find((p) => p.id === parseInt(params.id));
     }
     return data.products[0];
-  }
-  function renderMegaMenu(services, activeServiceSlug = null) {
-    const container = document.getElementById("mega-menu-services");
-    if (!container) return;
-    const descriptions = {
-      "Web Development": "Custom web solutions",
-      "Website Design": "Modern UI design",
-      "Software Development": "Business software systems",
-      "Ecommerce Development": "Online store development",
-      "SEO Optimization": "Improve search rankings",
-      "ERP Development": "Enterprise resource planning",
-      "Mobile Application": "Android & iOS apps",
-      "Digital Marketing": "Online brand promotion",
-      "SMO Service": "Social profile optimization",
-      "SMM Service": "Social media marketing",
-    };
-    container.innerHTML = services
-      .map((service) => {
-        const iconName = service.icon
-          ? service.icon.replace("bi-", "")
-          : "code-slash";
-        return `
-      <a href="service-details.html?service=${service.slug}" class="mega-item ${activeServiceSlug === service.slug ? "active" : ""}">
-        <span class="mega-icon"><i class="bi bi-${iconName}"></i></span>
-        <div>
-          <h6>${service.title}</h6>
-          <p>${service.shortDescription || descriptions[service.title] || "Learn more"}</p>
-        </div>
-      </a>
-    `;
-      })
-      .join("");
   }
   function renderProductsMegaMenu(products, activeProductSlug = null) {
     const container = document.getElementById("mega-menu-products");
@@ -927,24 +877,6 @@
       .join("");
   }
   async function initMegaMenu() {
-    const servicesMegaMenuContainer =
-      document.getElementById("mega-menu-services");
-    if (servicesMegaMenuContainer) {
-      try {
-        const response = await fetch("assets/json/service.json");
-        if (!response.ok) throw new Error("Failed to load service data");
-        serviceData = await response.json();
-        const params = getServiceFromURL();
-        let activeServiceSlug = null;
-        if (params.slug || params.id) {
-          const currentService = findService(serviceData, params);
-          activeServiceSlug = currentService ? currentService.slug : null;
-        }
-        renderMegaMenu(serviceData.services, activeServiceSlug);
-      } catch (error) {
-        console.error("Error loading services mega menu:", error);
-      }
-    }
     const productsMegaMenuContainer =
       document.getElementById("mega-menu-products");
     if (productsMegaMenuContainer) {
@@ -962,287 +894,6 @@
       } catch (error) {
         console.error("Error loading products mega menu:", error);
       }
-    }
-  }
-  function renderServiceDetails(service) {
-    document.title = `${service.title} - Cakiweb Solutions`;
-    const pageTitle = document.getElementById("page-title");
-    if (pageTitle)
-      pageTitle.textContent = `${service.title} - Cakiweb Solutions`;
-    const pageDescription = document.getElementById("page-description");
-    if (pageDescription) pageDescription.textContent = service.fullDescription;
-    const serviceTitle = document.getElementById("service-title");
-    if (serviceTitle) serviceTitle.textContent = service.title;
-    const serviceShortDesc = document.getElementById("service-short-desc");
-    if (serviceShortDesc)
-      serviceShortDesc.textContent = service.shortDescription;
-    const serviceFullDesc = document.getElementById("service-full-desc");
-    const serviceShortOverview = document.getElementById(
-      "service-short-overview",
-    );
-    const serviceOverviewFull = document.getElementById(
-      "service-overview-full",
-    );
-    const viewMoreBtnServiceOverview = document.getElementById(
-      "view-more-btn-service-overview",
-    );
-    if (service.fullDescription) {
-      const paragraphs = service.fullDescription.split(/\n\s*\n/);
-      if (paragraphs.length > 1) {
-        if (serviceShortOverview)
-          serviceShortOverview.textContent = paragraphs[0];
-        if (serviceFullDesc)
-          serviceFullDesc.textContent = paragraphs.slice(1).join("\n\n");
-        if (viewMoreBtnServiceOverview)
-          viewMoreBtnServiceOverview.style.display = "flex";
-      } else {
-        const OVERVIEW_TRUNCATE = 800;
-        const text = service.fullDescription;
-        if (text.length > OVERVIEW_TRUNCATE) {
-          const breakPoint = text.lastIndexOf(" ", OVERVIEW_TRUNCATE);
-          const splitIndex = breakPoint > 0 ? breakPoint : OVERVIEW_TRUNCATE;
-          if (serviceShortOverview)
-            serviceShortOverview.textContent =
-              text.substring(0, splitIndex) + "\u2026";
-          if (serviceFullDesc)
-            serviceFullDesc.textContent = text.substring(splitIndex);
-          if (viewMoreBtnServiceOverview)
-            viewMoreBtnServiceOverview.style.display = "flex";
-        } else {
-          if (serviceShortOverview) serviceShortOverview.textContent = text;
-          if (serviceOverviewFull) serviceOverviewFull.style.display = "none";
-        }
-      }
-    }
-    const whyChooseContainer = document.getElementById("service-why-choose");
-    if (whyChooseContainer && service.whyChooseUs) {
-      whyChooseContainer.innerHTML = service.whyChooseUs
-        .map((item, index) => {
-          const iconName = item.icon
-            ? item.icon.replace("bi-", "")
-            : "check-circle";
-          return `
-        <div class="why-choose-item" data-aos="fade-up" data-aos-delay="${index * 100}">
-          <div class="why-choose-icon">
-            <i class="bi bi-${iconName}"></i>
-          </div>
-          <p>${item.text || item}</p>
-        </div>
-      `;
-        })
-        .join("");
-    }
-    const benefitsContainer = document.getElementById("service-benefits");
-    if (benefitsContainer && service.benefits) {
-      benefitsContainer.innerHTML = service.benefits
-        .map(
-          (benefit, index) => `
-        <div class="benefit-item" data-aos="fade-up" data-aos-delay="${index * 100}">
-          <div class="benefit-icon">
-            <i class="bi bi-check-circle-fill"></i>
-          </div>
-          <p>${benefit}</p>
-        </div>
-      `,
-        )
-        .join("");
-    }
-    const featuresContainer = document.getElementById("service-features");
-    if (featuresContainer && service.features) {
-      featuresContainer.innerHTML = service.features
-        .map(
-          (feature) => `
-        <li><i class="bi bi-check2"></i> ${feature}</li>
-      `,
-        )
-        .join("");
-    }
-    const deliverablesContainer = document.getElementById(
-      "service-deliverables",
-    );
-    if (deliverablesContainer && service.deliverables) {
-      deliverablesContainer.innerHTML = service.deliverables
-        .map(
-          (item, index) => `
-        <li data-aos="fade-up" data-aos-delay="${index * 100}">
-          <i class="bi bi-box-seam"></i> ${item}
-        </li>
-      `,
-        )
-        .join("");
-    }
-    const industriesContainer = document.getElementById("service-industries");
-    if (industriesContainer && service.industries) {
-      industriesContainer.innerHTML = service.industries
-        .map(
-          (industry, index) => `
-        <div class="industry-tag" data-aos="fade-up" data-aos-delay="${index * 100}">
-          <i class="bi bi-briefcase"></i> ${industry}
-        </div>
-      `,
-        )
-        .join("");
-    }
-    const processContainer = document.getElementById("service-process");
-    if (processContainer && service.process) {
-      processContainer.innerHTML = service.process
-        .map(
-          (step, index) => `
-        <div class="process-step" data-aos="fade-up" data-aos-delay="${index * 100}">
-          <div class="step-number">${step.step}</div>
-          <div class="step-content">
-            <h4>${step.title}</h4>
-            <p>${step.description}</p>
-          </div>
-        </div>
-      `,
-        )
-        .join("");
-    }
-    const faqContainer = document.getElementById("service-faq");
-    if (faqContainer && service.faq) {
-      faqContainer.innerHTML = service.faq
-        .map(
-          (faq, index) => `
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="${index * 100}">
-          <div class="faq-question" onclick="toggleFaq(this)">
-            <h4>${faq.question}</h4>
-            <i class="bi bi-plus-lg"></i>
-          </div>
-          <div class="faq-answer">
-            <p>${faq.answer}</p>
-          </div>
-        </div>
-      `,
-        )
-        .join("");
-    }
-
-    const serviceGuideContainer = document.getElementById(
-      "service-guide-container",
-    );
-    const serviceGuideContent = document.getElementById(
-      "service-guide-content",
-    );
-    if (serviceGuideContainer && serviceGuideContent) {
-      if (
-        service.serviceGuide &&
-        Array.isArray(service.serviceGuide) &&
-        service.serviceGuide.length > 0
-      ) {
-        serviceGuideContent.innerHTML = service.serviceGuide
-          .map(
-            (guide, index) => `
-          <div class="guide-item" data-aos="fade-up" data-aos-delay="${index * 100}">
-            <h4>${guide.title}</h4>
-            <p>${guide.content}</p>
-          </div>
-        `,
-          )
-          .join("");
-        serviceGuideContainer.style.display = "block";
-      } else {
-        serviceGuideContainer.style.display = "none";
-      }
-    }
-
-    const mediaContainer = document.getElementById("service-media");
-    const iconLarge = document.getElementById("service-icon-large");
-    if (mediaContainer) {
-      if (service.videoUrl && service.videoUrl.trim() !== "") {
-        let videoEmbedUrl = "";
-        const url = service.videoUrl.trim();
-        const ytMatch = url.match(
-          /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/,
-        );
-        if (ytMatch) {
-          videoEmbedUrl = `https://www.youtube.com/embed/${ytMatch[1]}?loop=1&playlist=${ytMatch[1]}&modestbranding=1&rel=0`;
-        } else if (url.includes("vimeo.com")) {
-          const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-          if (vimeoMatch) {
-            videoEmbedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}?muted=1&loop=1`;
-          }
-        }
-
-        if (videoEmbedUrl) {
-          mediaContainer.innerHTML = `
-            <iframe src="${videoEmbedUrl}" style="width:100%;height:200px;display:block;border-radius:16px;border:none;" allowfullscreen loading="lazy"></iframe>`;
-        } else if (url.match(/\.(mp4|webm|ogg|mov)$/i)) {
-          mediaContainer.innerHTML = `
-            <video src="${url}" muted playsinline poster="${service.thumbnail || ""}" controls style="width:100%;display:block;border-radius:16px;"></video>`;
-        } else {
-          mediaContainer.innerHTML = `
-            <iframe src="${url}" style="width:100%;height:200px;display:block;border-radius:16px;border:none;" allowfullscreen loading="lazy"></iframe>`;
-        }
-      } else if (service.thumbnail || service.image) {
-        const imgSrc = service.thumbnail || service.image;
-        mediaContainer.innerHTML = `<img src="${imgSrc}" alt="${service.title}" style="width:100%;display:block;border-radius:16px;object-fit:cover;">`;
-      } else if (iconLarge) {
-        const iconName = service.icon
-          ? service.icon.replace("bi-", "")
-          : "code-slash";
-        iconLarge.innerHTML = `<i class="bi bi-${iconName}"></i>`;
-      }
-    }
-    const sidebarServiceTitle = document.getElementById(
-      "sidebar-service-title",
-    );
-    if (sidebarServiceTitle) sidebarServiceTitle.textContent = service.title;
-    const techContainer = document.getElementById("service-technologies");
-    if (techContainer && service.technologies) {
-      techContainer.innerHTML = service.technologies
-        .map((tech) => {
-          const iconName = tech.icon || "bi-circle-fill";
-          return `<span class="tech-tag"><i class="bi ${iconName}"></i> ${tech.name}</span>`;
-        })
-        .join("");
-    }
-    const allServicesContainer = document.getElementById("all-services-list");
-    if (allServicesContainer && serviceData && serviceData.services) {
-      allServicesContainer.innerHTML = serviceData.services
-        .map(
-          (s) => `
-        <li>
-          <a href="service-details.html?service=${s.slug}" class="${s.slug === service.slug ? "active" : ""}">
-            <i class="bi bi-chevron-right"></i> ${s.title}
-          </a>
-        </li>
-      `,
-        )
-        .join("");
-    }
-  }
-  async function initServiceDetails() {
-    if (!document.getElementById("service-title")) return;
-    try {
-      if (!serviceData || !serviceData.services) {
-        const response = await fetch("assets/json/service.json");
-        if (!response.ok) throw new Error("Failed to load service data");
-        serviceData = await response.json();
-      }
-      const params = getServiceFromURL();
-      currentService = findService(serviceData, params);
-      if (!currentService) {
-        const serviceTitle = document.getElementById("service-title");
-        const serviceShortDesc = document.getElementById("service-short-desc");
-        if (serviceTitle) serviceTitle.textContent = "Service Not Found";
-        if (serviceShortDesc)
-          serviceShortDesc.textContent =
-            "The requested service could not be found.";
-        return;
-      }
-      renderServiceDetails(currentService);
-      if (typeof AOS !== "undefined") {
-        setTimeout(() => AOS.refresh(), 100);
-      }
-    } catch (error) {
-      console.error("Error loading service details:", error);
-      const serviceTitle = document.getElementById("service-title");
-      const serviceShortDesc = document.getElementById("service-short-desc");
-      if (serviceTitle) serviceTitle.textContent = "Error Loading Service";
-      if (serviceShortDesc)
-        serviceShortDesc.textContent =
-          "Unable to load service details. Please try again later.";
     }
   }
   function toggleFaq(element) {
@@ -2356,7 +2007,6 @@
     initCustomCursor();
     setCurrentYear();
     initMegaMenu();
-    initServiceDetails();
     initProductDetails();
     initButtonShine();
     initCareerPage();
