@@ -1561,6 +1561,39 @@ section {
   font-size: 18px;
   margin-top: 2px;
 }
+.contact-social-section {
+  margin-top: 2rem;
+}
+.contact-social-section h4 {
+  font-size: 1rem;
+  font-weight: var(--font-semibold);
+  margin-bottom: 1rem;
+}
+.contact-social-links {
+  display: flex;
+  gap: 12px;
+}
+.contact-social-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  color: var(--dark-700);
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--gray-200);
+  text-decoration: none;
+}
+.contact-social-link:hover {
+  background: var(--gradient-primary);
+  color: var(--white);
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
 .footer-bottom {
   padding: 30px 0;
   text-align: center;
