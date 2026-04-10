@@ -311,21 +311,5 @@ When selecting an ERP system, businesses should prioritize scalability, security
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    function toggleServiceOverview() {
-      const truncated = document.getElementById("service-overview-truncated");
-      const full = document.getElementById("service-overview-full");
-      const btn = document.getElementById("view-more-btn-service-overview");
-      const btnText = document.getElementById("view-more-text-service-overview");
-      const btnIcon = document.getElementById("view-more-icon-service-overview");
-      if (full.classList.contains("story-hidden")) {
-        full.classList.remove("story-hidden"); full.style.display = "block"; truncated.style.display = "none";
-        btnText.textContent = "View Less"; btnIcon.classList.remove("bi-chevron-down"); btnIcon.classList.add("bi-chevron-up");
-      } else {
-        full.classList.add("story-hidden"); full.style.display = "none"; truncated.style.display = "block";
-        btnText.textContent = "View More"; btnIcon.classList.remove("bi-chevron-up"); btnIcon.classList.add("bi-chevron-down");
-      }
-    }
-  </script>
 </body>
 </html>

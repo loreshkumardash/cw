@@ -2406,19 +2406,32 @@
     }
   };
   window.toggleServiceOverview = function () {
-    const overviewFull = document.getElementById("service-overview-full");
+    const truncated = document.getElementById("service-overview-truncated");
+    const full = document.getElementById("service-overview-full");
     const btn = document.getElementById("view-more-btn-service-overview");
     const btnText = document.getElementById("view-more-text-service-overview");
-    if (overviewFull.classList.contains("story-hidden")) {
-      overviewFull.classList.remove("story-hidden");
-      overviewFull.classList.add("story-visible");
+    const btnIcon = document.getElementById("view-more-icon-service-overview");
+    
+    if (!full || !btn) return;
+    
+    if (full.classList.contains("story-hidden")) {
+      full.classList.remove("story-hidden");
+      full.style.display = "block";
+      if (truncated) truncated.style.display = "none";
       btnText.textContent = "View Less";
-      btn.classList.add("expanded");
+      if (btnIcon) {
+        btnIcon.classList.remove("bi-chevron-down");
+        btnIcon.classList.add("bi-chevron-up");
+      }
     } else {
-      overviewFull.classList.remove("story-visible");
-      overviewFull.classList.add("story-hidden");
+      full.classList.add("story-hidden");
+      full.style.display = "none";
+      if (truncated) truncated.style.display = "block";
       btnText.textContent = "View More";
-      btn.classList.remove("expanded");
+      if (btnIcon) {
+        btnIcon.classList.remove("bi-chevron-up");
+        btnIcon.classList.add("bi-chevron-down");
+      }
     }
   };
 })();
