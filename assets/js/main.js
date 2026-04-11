@@ -1643,57 +1643,89 @@
     const btnLoading = submitBtn?.querySelector(".btn-loading");
     const successMessage = document.getElementById("success-message");
     const modal = document.getElementById("apply-modal");
+    
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
+    
     if (submitBtn) {
       submitBtn.disabled = true;
       if (btnText) btnText.style.display = "none";
       if (btnLoading) btnLoading.style.display = "flex";
     }
+    
     try {
-      const formData = new FormData(form);
       const jobTitle = modal?.dataset.jobTitle || "";
-      const contactEmail =
-        modal?.dataset.contactEmail || "cakiweb.com@gmail.com";
-      const templateParams = {
-        to_email: contactEmail,
-        job_title: jobTitle,
-        first_name: formData.get("firstName"),
-        last_name: formData.get("lastName"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        location: formData.get("location") || "Not provided",
-        linkedin: formData.get("linkedin") || "Not provided",
-        portfolio: formData.get("portfolio") || "Not provided",
-        experience_years: formData.get("experienceYears"),
-        current_ctc: formData.get("currentCTC") || "Not provided",
-        expected_ctc: formData.get("expectedCTC"),
-        notice_period: formData.get("noticePeriod"),
-        cover_letter: formData.get("coverLetter") || "Not provided",
-        reply_to: formData.get("email"),
-        application_date: new Date().toLocaleString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
-      };
+      const contactEmail = modal?.dataset.contactEmail || "cakiweb.com@gmail.com";
+      
+      // Add hidden fields to the form for EmailJS template parameters
+      const hiddenFields = [
+        { name: "job_title", value: jobTitle },
+        { name: "to_email", value: contactEmail },
+        { name: "reply_to", value: form.querySelector('input[name="email"]').value },
+        { 
+          name: "application_date", 
+          value: new Date().toLocaleString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          })
+        }
+      ];
+
+      // Add hidden inputs to form
+      hiddenFields.forEach(field => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = field.name;
+        input.value = field.value;
+        form.appendChild(input);
+      });
+
       if (typeof emailjs !== "undefined") {
         if (!emailjs.publicKey) {
           emailjs.init({ publicKey: "O7t07Am9Hj1fkJonQ" });
         }
-        await emailjs.send(
-          "service_2pul7gz",
-          "template_2oc5vxa",
-          templateParams,
-        );
+
+        try {
+          // Try sending with file attachment first
+          await emailjs.sendForm(
+            "service_2pul7gz",
+            "template_2oc5vxa",
+            form
+          );
+        } catch (attachmentError) {
+          console.warn("File attachment failed, sending without file...", attachmentError);
+          
+          // Fallback: Remove file input and send form data without attachment
+          const fileInput = form.querySelector('input[type="file"]');
+          if (fileInput) {
+            fileInput.required = false;
+            fileInput.remove();
+          }
+          
+          // Retry without the file
+          await emailjs.sendForm(
+            "service_2pul7gz",
+            "template_2oc5vxa",
+            form
+          );
+        }
+
+        // Remove hidden fields after submission
+        hiddenFields.forEach(field => {
+          const input = form.querySelector(`input[name="${field.name}"]`);
+          if (input) input.remove();
+        });
       }
+      
       if (form) form.style.display = "none";
       if (successMessage) successMessage.style.display = "block";
     } catch (error) {
+      console.error("Career form error:", error);
       alert(
         "There was an error submitting your application. Please try again or contact us directly.",
       );
@@ -2892,21 +2924,11 @@
       if (typeof emailjs !== "undefined") {
         try {
           const templateParams = {
-            from_name: data.name,
-            from_email: data.email,
+            name: data.name,
+            email: data.email,
             phone: data.phone || "Not provided",
             subject: data.subject,
             message: data.message,
-            to_email: "info@cakiweb.com",
-            sent_date: new Date().toLocaleDateString("en-IN", {
-              day: "2-digit",
-              month: "short",
-              year: "numeric",
-            }),
-            sent_time: new Date().toLocaleTimeString("en-IN", {
-              hour: "2-digit",
-              minute: "2-digit",
-            }),
           };
 
           if (!emailjs.publicKey) {
