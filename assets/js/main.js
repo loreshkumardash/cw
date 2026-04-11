@@ -2865,29 +2865,56 @@
     if (!contactForm) return;
     const formMessage = document.getElementById("form-message");
 
-    const CONTACT_SERVICE_ID = "O7t07Am9Hj1fkJonQ";
-    const CONTACT_TEMPLATE_ID = "";
+    const CONTACT_SERVICE_ID = "service_2pul7gz";
+    const CONTACT_TEMPLATE_ID = "template_utq0xjk";
+    
     contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData);
+      
       if (!data.name || !data.email || !data.message || !data.subject) {
         showMessage("Please fill in all required fields.", "error");
         return;
       }
+      
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.email)) {
         showMessage("Please enter a valid email address.", "error");
         return;
       }
+      
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
       submitBtn.disabled = true;
 
-      if (typeof emailjs !== "undefined" && CONTACT_TEMPLATE_ID) {
+      if (typeof emailjs !== "undefined") {
         try {
-          await emailjs.send(CONTACT_SERVICE_ID, CONTACT_TEMPLATE_ID, data);
+          const templateParams = {
+            from_name: data.name,
+            from_email: data.email,
+            phone: data.phone || "Not provided",
+            subject: data.subject,
+            message: data.message,
+            to_email: "info@cakiweb.com",
+            sent_date: new Date().toLocaleDateString("en-IN", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+            }),
+            sent_time: new Date().toLocaleTimeString("en-IN", {
+              hour: "2-digit",
+              minute: "2-digit",
+            }),
+          };
+
+          if (!emailjs.publicKey) {
+            emailjs.init({ publicKey: "O7t07Am9Hj1fkJonQ" });
+          }
+
+          await emailjs.send(CONTACT_SERVICE_ID, CONTACT_TEMPLATE_ID, templateParams);
+          
           showMessage(
             "Thank you for your message! We'll get back to you within 24 hours.",
             "success",
@@ -2900,17 +2927,10 @@
             "error",
           );
         }
-      } else if (!CONTACT_TEMPLATE_ID) {
-        setTimeout(() => {
-          showMessage(
-            "Thank you for your message! We'll get back to you within 24 hours.",
-            "success",
-          );
-          contactForm.reset();
-        }, 1500);
       } else {
         showMessage("EmailJS is not loaded. Please try again later.", "error");
       }
+      
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
     });
