@@ -3141,14 +3141,15 @@ textarea,
 }
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
 }
 .benefit-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
-  padding: 20px;
+  padding: 24px;
   background: var(--gray-50);
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -3159,11 +3160,32 @@ textarea,
   box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
-.benefit-item p {
+.benefit-item .benefit-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(139, 92, 246, 0.1) 100%
+  );
+  border-radius: 50%;
+  color: var(--primary);
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+.benefit-item:hover .benefit-icon {
+  background: var(--gradient-primary);
+  color: var(--white);
+}
+.benefit-item .benefit-text {
   font-size: 15px;
   color: var(--dark-700);
-  line-height: 1.6;
-  margin: 0;
+  line-height: 1.5;
+  font-weight: var(--font-medium);
   flex: 1;
 }
 .feature-list {
@@ -3350,14 +3372,22 @@ textarea,
 .service-icon-large {
   width: 80px;
   height: 80px;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   background: var(--gradient-primary);
   border-radius: 20px;
   color: var(--white);
   font-size: 40px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.service-icon-large i {
+  display: block;
+  line-height: 1;
+  visibility: visible;
+  opacity: 1;
 }
 .sidebar-card h3 {
   font-size: 22px;
@@ -3919,97 +3949,88 @@ input[name="filter"] {
   transform: translateX(-50%);
 }
 .clients-section {
-  padding: 60px 40px;
-  background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+  border: 2px solid #4a6cf7;
   border-radius: 20px;
-  margin-top: 24px;
+  padding: 50px 30px 40px;
+  position: relative;
+  overflow: hidden;
 }
 .clients-section .section-heading {
-  font-size: 32px;
-  font-weight: var(--font-bold);
-  color: var(--dark-900);
+  color: #4a6cf7;
+  font-weight: 700;
   margin-bottom: 12px;
+  text-align: center;
 }
 .clients-section .section-description {
+  text-align: center;
+  color: var(--gray-600);
   font-size: 16px;
-  color: var(--gray-500);
-  max-width: 600px;
-  margin: 0 auto;
 }
 .clients-carousel {
   position: relative;
   overflow: hidden;
-  padding: 40px 0;
+  padding: 20px 0;
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 10%,
-    black 90%,
+    black 8%,
+    black 92%,
     transparent
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black 10%,
-    black 90%,
+    black 8%,
+    black 92%,
     transparent
   );
 }
 .clients-track {
   display: flex;
-  animation: scroll 30s linear infinite;
+  animation: scroll 25s linear infinite;
   width: max-content;
 }
 .clients-track:hover {
   animation-play-state: paused;
 }
-.client-logo {
+.client-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  min-width: 140px;
+  gap: 10px;
+  min-width: 160px;
   transition: all 0.3s ease;
   text-decoration: none;
   cursor: pointer;
 }
-.client-logo:hover {
-  transform: scale(1.05);
+.client-item:hover {
+  transform: translateY(-5px);
 }
-.client-logo-icon {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.client-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
   background: var(--white);
   border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-.client-logo-icon img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
-.client-logo:hover .client-logo-icon {
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+.client-item:hover img {
+  box-shadow: 0 8px 30px rgba(74, 108, 247, 0.25);
+  transform: scale(1.05);
 }
-.client-logo-name {
-  font-size: 13px;
+.client-item .client-name {
+  font-size: 14px;
   font-weight: var(--font-medium);
   color: var(--dark-700);
   text-align: center;
-  max-width: 120px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: 140px;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
-.client-logo:hover .client-logo-name {
-  color: var(--primary);
+.client-item:hover .client-name {
+  color: #4a6cf7;
 }
 @keyframes scroll {
   0% {
