@@ -415,7 +415,7 @@
           Comprehensive technology solutions designed to accelerate your digital transformation
         </p>
       </div>
-      <div class="services-grid">
+      <div class="services-grid" id="services-grid">
 
         <div class="service-card" data-aos="fade-up" data-aos-delay="100">
           <div class="service-icon-wrapper">
@@ -430,12 +430,12 @@
           <h3>Web Development</h3>
           <p>Custom web applications built with modern frameworks like React, Vue, and Angular. We deliver scalable,
             high-performance solutions.</p>
-          <a href="service-details.html?service=web-development" class="service-link">
+          <a href="service-web-development.html" class="service-link">
             Learn More <i class="bi bi-arrow-right"></i>
           </a>
         </div>
 
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="150">
           <div class="service-icon-wrapper">
             <div class="service-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
@@ -445,15 +445,14 @@
               </svg>
             </div>
           </div>
-          <h3>Mobile App Development</h3>
-          <p>Native and cross-platform mobile applications for iOS and Android. We create intuitive, engaging
-            experiences.</p>
-          <a href="service-details.html?service=mobile-application" class="service-link">
+          <h3>Website Design</h3>
+          <p>Modern UI design with responsive layouts that captivate visitors and provide seamless user experiences across all devices.</p>
+          <a href="service-website-design.html" class="service-link">
             Learn More <i class="bi bi-arrow-right"></i>
           </a>
         </div>
 
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
           <div class="service-icon-wrapper">
             <div class="service-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
@@ -462,66 +461,150 @@
               </svg>
             </div>
           </div>
-          <h3>E-Commerce Solutions</h3>
-          <p>Full-featured online stores with secure payment integration, inventory management, and seamless checkout.
-          </p>
-          <a href="service-details.html?service=ecommerce-development" class="service-link">
+          <h3>Software Development</h3>
+          <p>Business software systems and enterprise applications built with scalable architecture and modern technologies.</p>
+          <a href="service-software-development.html" class="service-link">
             Learn More <i class="bi bi-arrow-right"></i>
           </a>
         </div>
 
-        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="250">
           <div class="service-icon-wrapper">
             <div class="service-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
                 <path
-                  d="M8 0a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V5a5 5 0 0 0-5-5z" />
+                  d="M0 1.5A.5.5 0 0 1 .5 1H1a.5.5 0 0 1 .5.5V3a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5v-1.5zm1.5 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zM0 5a.5.5 0 0 1 .5-.5H1a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5V5zm1.5 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zM0 8.5A.5.5 0 0 1 .5 8H1a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5V8.5zm1.5 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm6-7a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h10z" />
               </svg>
             </div>
           </div>
-          <h3>Cloud Solutions</h3>
-          <p>Scalable cloud infrastructure, migration services, and DevOps automation for AWS, Azure, and Google Cloud.
-          </p>
-          <a href="service-details.html" class="service-link">
+          <h3>E-Commerce Development</h3>
+          <p>Full-featured online stores with secure payment integration, inventory management, and seamless checkout.</p>
+          <a href="service-ecommerce-development.html" class="service-link">
             Learn More <i class="bi bi-arrow-right"></i>
           </a>
         </div>
 
-        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
           <div class="service-icon-wrapper">
             <div class="service-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                <path
-                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path d="M13.5 4.5v.542a7.5 7.5 0 0 0-7.5 7.5H5.542A8.5 8.5 0 0 1 14.042 4.5h.958a.5.5 0 0 1 0 1h-.5Z" />
+                <path d="M3.5 11.5v-.542a7.5 7.5 0 0 0 7.5-7.5h.458A8.5 8.5 0 0 1 2.958 11.5h.542a.5.5 0 0 1 0-1h-.5Z" />
+                <path d="M8 2a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2Zm0 12a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0V14.5a.5.5 0 0 1 .5-.5Zm-5.5-4a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5Zm12 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H15a.5.5 0 0 1-.5-.5Z" />
               </svg>
             </div>
           </div>
-          <h3>UI/UX Design</h3>
-          <p>User-centered design that combines aesthetics with functionality. We create intuitive, engaging interfaces.
-          </p>
-          <a href="service-details.html" class="service-link">
+          <h3>SEO Optimization</h3>
+          <p>Improve search rankings and drive organic traffic with data-driven SEO strategies and technical optimization.</p>
+          <a href="service-seo-optimization.html" class="service-link">
             Learn More <i class="bi bi-arrow-right"></i>
           </a>
         </div>
 
-        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="350">
           <div class="service-icon-wrapper">
             <div class="service-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M0 0h1v15h15v1H0V0Zm5.81 2.19a.5.5 0 0 0-.5.5v11.5a.5.5 0 0 0 1 0V2.69a.5.5 0 0 0-.5-.5Z" />
-                <path
-                  d="M10.146 3.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708l1.646-1.647a.5.5 0 0 0 .146-.353V3.5a.5.5 0 0 1-1 0V2.646a.5.5 0 0 1 .208-.5Z" />
+                <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V6.414l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 5.707 12 7.001a.5.5 0 0 1-1-1.501ZM6.5 5.5a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0V6.414l1.146 1.147a.5.5 0 0 0 .708-.708L4.707 5.707 6 7.001a.5.5 0 0 0 .5-1.501Z" />
+                <path d="M8 2a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2Zm0 12a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0V14.5a.5.5 0 0 1 .5-.5ZM2 8.5a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm12 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H14.5a.5.5 0 0 1-.5-.5Z" />
+                <path d="M10.5 4.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .5-.5Zm-5 0a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .5-.5ZM8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0-1a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
               </svg>
             </div>
           </div>
-          <h3>IT Consulting</h3>
-          <p>Strategic technology consulting to optimize IT infrastructure, reduce costs, and align with business goals.
-          </p>
-          <a href="service-details.html" class="service-link">
+          <h3>ERP Development</h3>
+          <p>Enterprise resource planning solutions to streamline business operations and improve cross-department collaboration.</p>
+          <a href="service-erp-development.html" class="service-link">
             Learn More <i class="bi bi-arrow-right"></i>
           </a>
         </div>
+
+        <!-- Hidden services (shown on "View More") -->
+        <div class="service-card hidden-service" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon-wrapper">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+                <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+              </svg>
+            </div>
+          </div>
+          <h3>Mobile Application</h3>
+          <p>Native and cross-platform mobile applications for iOS and Android with engaging user experiences.</p>
+          <a href="service-mobile-application.html" class="service-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card hidden-service" data-aos="fade-up" data-aos-delay="450">
+          <div class="service-icon-wrapper">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V5a5 5 0 0 0-5-5z" />
+              </svg>
+            </div>
+          </div>
+          <h3>Digital Marketing</h3>
+          <p>Online brand promotion with SEO, social media, PPC, and content marketing to drive growth and engagement.</p>
+          <a href="service-digital-marketing.html" class="service-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card hidden-service" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon-wrapper">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V6.414l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 5.707 12 7.001a.5.5 0 0 1-1-1.501ZM6.5 5.5a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0V6.414l1.146 1.147a.5.5 0 0 0 .708-.708L4.707 5.707 6 7.001a.5.5 0 0 0 .5-1.501Z" />
+                <path d="M8 2a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2Zm0 12a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0V14.5a.5.5 0 0 1 .5-.5ZM2 8.5a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm12 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H14.5a.5.5 0 0 1-.5-.5Z" />
+                <path d="M10.5 4.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .5-.5Zm-5 0a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0 0 1h1a.5.5 0 0 0 .5-.5ZM8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0-1a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+              </svg>
+            </div>
+          </div>
+          <h3>SMO Service</h3>
+          <p>Social media optimization to enhance your brand's online presence and engage with your audience effectively.</p>
+          <a href="service-smo-service.html" class="service-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card hidden-service" data-aos="fade-up" data-aos-delay="550">
+          <div class="service-icon-wrapper">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V5a5 5 0 0 0-5-5z" />
+              </svg>
+            </div>
+          </div>
+          <h3>SMM Service</h3>
+          <p>Social media marketing campaigns to boost brand awareness, drive engagement, and generate leads.</p>
+          <a href="service-smm-service.html" class="service-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="service-card hidden-service" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-icon-wrapper">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />
+                <path d="M4.828 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM0 6a4.828 4.828 0 0 1 9.656 0 4.828 4.828 0 0 1-9.656 0z" />
+                <path d="M13.084 8.04a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm-4.828 2a4.828 4.828 0 0 1 9.656 0 4.828 4.828 0 0 1-9.656 0z" />
+                <path d="M2 14.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm6 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+              </svg>
+            </div>
+          </div>
+          <h3>Business Consultant</h3>
+          <p>Strategic business consulting to optimize operations, improve efficiency, and drive sustainable growth.</p>
+          <a href="service-business-consultant.html" class="service-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 40px;">
+        <button type="button" class="btn btn-outline-primary btn-lg" id="view-more-services-btn">
+          View More Services <i class="bi bi-chevron-down" style="margin-left: 6px; transition: transform 0.3s ease;" id="view-more-services-icon"></i>
+        </button>
       </div>
     </div>
   </section>
@@ -683,11 +766,121 @@
         </p>
       </div>
       <div class="products-grid" id="products-grid">
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-mortarboard"></i>
+          </div>
+          <h3>School/College Management</h3>
+          <p>Complete education management solution for schools and colleges with ERP capabilities.</p>
+          <a href="product-school-college-management-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
 
+        <div class="product-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-people"></i>
+          </div>
+          <h3>ERP for Manpower Agency</h3>
+          <p>Revolutionary workforce management solution for manpower recruitment agencies.</p>
+          <a href="product-erp-software-manpower-agency.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-calculator"></i>
+          </div>
+          <h3>Advanced Accounts Software</h3>
+          <p>Complete accounting automation with GST compliance and real-time financial visibility.</p>
+          <a href="product-advanced-accounts-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-cash-stack"></i>
+          </div>
+          <h3>Advanced Payroll Software</h3>
+          <p>Automated payroll processing with attendance integration and compliance management.</p>
+          <a href="product-advanced-payroll-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-receipt"></i>
+          </div>
+          <h3>Advanced Billing Software</h3>
+          <p>Flexible billing solution with recurring billing, payment gateway, and analytics.</p>
+          <a href="product-advanced-billing-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-truck"></i>
+          </div>
+          <h3>Fleet Management Software</h3>
+          <p>Complete fleet tracking, route optimization, fuel management, and driver monitoring.</p>
+          <a href="product-fleet-management-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Hidden products (shown on "View More") -->
+        <div class="product-card hidden-product" data-aos="fade-up" data-aos-delay="400">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-bus-front"></i>
+          </div>
+          <h3>Bus Ticket Booking System</h3>
+          <p>Online bus ticket booking platform with real-time seat availability and payments.</p>
+          <a href="product-online-bus-ticket-bookings-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="product-card hidden-product" data-aos="fade-up" data-aos-delay="450">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-file-earmark-text"></i>
+          </div>
+          <h3>Tender Bid Management</h3>
+          <p>AI-powered tender aggregation, bid preparation, and opportunity matching platform.</p>
+          <a href="product-tender-bid-management-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="product-card hidden-product" data-aos="fade-up" data-aos-delay="500">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-person-lines-fill"></i>
+          </div>
+          <h3>CRM Software</h3>
+          <p>Custom CRM with lead management, pipeline tracking, and customer support tools.</p>
+          <a href="product-crm-software-development.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="product-card hidden-product" data-aos="fade-up" data-aos-delay="550">
+          <div class="product-icon-wrapper">
+            <i class="bi bi-chat-left-text"></i>
+          </div>
+          <h3>Grievance Management</h3>
+          <p>Multi-channel grievance tracking with SLA management and resolution workflows.</p>
+          <a href="product-grievance-management-software.html" class="product-link">
+            Learn More <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
       </div>
-      <div class="text-center" style="margin-top: 32px;">
-        <button type="button" class="btn btn-outline-primary btn-lg" id="products-load-more-btn" style="display:none;">
-          Load More Products <i class="bi bi-chevron-down" style="margin-left: 6px;"></i>
+
+      <div class="text-center" style="margin-top: 40px;">
+        <button type="button" class="btn btn-outline-primary btn-lg" id="view-more-products-btn">
+          View More Products <i class="bi bi-chevron-down" style="margin-left: 6px; transition: transform 0.3s ease;" id="view-more-products-icon"></i>
         </button>
       </div>
     </div>

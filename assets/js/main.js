@@ -384,82 +384,6 @@
     });
   }
 
-  (function initProductsGrid() {
-    const grid = document.getElementById("products-grid");
-    const loadMoreBtn = document.getElementById("products-load-more-btn");
-    if (!grid || !loadMoreBtn) return;
-
-    const VISIBLE_COUNT = 6;
-    let allProducts = [];
-    let visibleCount = VISIBLE_COUNT;
-
-    function renderCard(product, index) {
-      const delay = (index % VISIBLE_COUNT) * 50;
-      return `
-        <div class="product-card" data-aos="fade-up" data-aos-delay="${delay}" onclick="window.location.href='product-details.html?product=${product.slug}'" style="cursor:pointer;">
-          <div class="product-icon-wrapper">
-            <i class="bi ${product.icon || "bi-box-seam"}"></i>
-          </div>
-          <h3>${product.title}</h3>
-          <p>${product.shortDescription || ""}</p>
-          <a href="product-details.html?product=${product.slug}" class="product-link" onclick="event.stopPropagation();">
-            Explore Product <i class="bi bi-arrow-right-short"></i>
-          </a>
-        </div>`;
-    }
-
-    function renderProducts(append) {
-      const fragment = document.createDocumentFragment();
-      const start = append ? visibleCount - VISIBLE_COUNT : 0;
-      const end = Math.min(visibleCount, allProducts.length);
-      const wrapper = document.createElement("div");
-      wrapper.innerHTML = allProducts
-        .slice(start, end)
-        .map((p, i) => renderCard(p, start + i))
-        .join("");
-      while (wrapper.firstChild) {
-        fragment.appendChild(wrapper.firstChild);
-      }
-      if (append) {
-        grid.appendChild(fragment);
-      } else {
-        grid.innerHTML = "";
-        grid.appendChild(fragment);
-      }
-
-      if (typeof AOS !== "undefined") {
-        setTimeout(() => AOS.refresh(), 100);
-      }
-
-      if (visibleCount >= allProducts.length) {
-        loadMoreBtn.style.display = "none";
-      } else {
-        loadMoreBtn.style.display = "inline-flex";
-      }
-    }
-
-    loadMoreBtn.addEventListener("click", () => {
-      visibleCount += VISIBLE_COUNT;
-      renderProducts(true);
-    });
-
-    async function loadProducts() {
-      try {
-        const resp = await fetch("assets/json/product.json");
-        if (!resp.ok) throw new Error("Failed to load products");
-        const data = await resp.json();
-        allProducts = data.products || [];
-        renderProducts(false);
-      } catch (err) {
-        console.error("Products load error:", err);
-        grid.innerHTML =
-          '<p style="text-align:center;color:var(--gray-500);">Unable to load products.</p>';
-      }
-    }
-
-    loadProducts();
-  })();
-
   (function initTechStackMarquee() {
     const track1 = document.getElementById("marquee-track-1");
     const track2 = document.getElementById("marquee-track-2");
@@ -721,6 +645,82 @@
       },
     });
   }
+  (function initViewMoreProducts() {
+    const btn = document.getElementById("view-more-products-btn");
+    const icon = document.getElementById("view-more-products-icon");
+    if (!btn || !icon) return;
+
+    let isExpanded = false;
+
+    btn.addEventListener("click", () => {
+      const hiddenProducts = document.querySelectorAll(".hidden-product");
+      isExpanded = !isExpanded;
+
+      hiddenProducts.forEach((card, index) => {
+        if (isExpanded) {
+          card.classList.add("show");
+          setTimeout(() => {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 100);
+        } else {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            card.classList.remove("show");
+          }, 400);
+        }
+      });
+
+      if (isExpanded) {
+        btn.innerHTML = 'View Less <i class="bi bi-chevron-up" style="margin-left: 6px; transition: transform 0.3s ease;"></i>';
+      } else {
+        btn.innerHTML = 'View More Products <i class="bi bi-chevron-down" style="margin-left: 6px; transition: transform 0.3s ease;" id="view-more-products-icon"></i>';
+      }
+
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 100);
+      }
+    });
+  })();
+  (function initViewMoreServices() {
+    const btn = document.getElementById("view-more-services-btn");
+    const icon = document.getElementById("view-more-services-icon");
+    if (!btn || !icon) return;
+
+    let isExpanded = false;
+
+    btn.addEventListener("click", () => {
+      const hiddenServices = document.querySelectorAll(".hidden-service");
+      isExpanded = !isExpanded;
+
+      hiddenServices.forEach((card, index) => {
+        if (isExpanded) {
+          card.classList.add("show");
+          setTimeout(() => {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 100);
+        } else {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            card.classList.remove("show");
+          }, 400);
+        }
+      });
+
+      if (isExpanded) {
+        btn.innerHTML = 'View Less <i class="bi bi-chevron-up" style="margin-left: 6px; transition: transform 0.3s ease;"></i>';
+      } else {
+        btn.innerHTML = 'View More Services <i class="bi bi-chevron-down" style="margin-left: 6px; transition: transform 0.3s ease;" id="view-more-services-icon"></i>';
+      }
+
+      if (typeof AOS !== "undefined") {
+        setTimeout(() => AOS.refresh(), 100);
+      }
+    });
+  })();
   function initAOS() {
     if (typeof AOS !== "undefined") {
       AOS.init({
