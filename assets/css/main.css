@@ -2201,9 +2201,6 @@ section {
   background-clip: text;
   display: inline-block;
 }
-.testimonial-swiper {
-  padding-bottom: 50px !important;
-}
 .testimonial-card {
   padding: 12px;
 }
