@@ -1,0 +1,67 @@
+# robots.txt for Cakiweb Solutions - https://cakiweb.com
+# Generated: 2026-04-13
+
+# Allow all search engines to crawl ALL public pages
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://cakiweb.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block access to asset directories (no need to index these)
+Disallow: /assets/vendor/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /assets/scss/
+Disallow: /assets/php/
+
+# Block file extensions that don't need indexing
+Disallow: /*.scss$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.zip$
+Disallow: /*.tar$
+Disallow: /*.gz$
+
+# Block sensitive/private directories
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+
+# Prevent AI training bots from using content
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Allow Google bots full access with no delay
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /assets/img/
+
+# Allow Bing full access
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

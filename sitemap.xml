@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- ==================== CORE PAGES ==================== -->
+  
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://cakiweb.com/</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://cakiweb.com/about-us</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://cakiweb.com/contact-us</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Credentials Page -->
+  <url>
+    <loc>https://cakiweb.com/credentials</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Odisha Information Page -->
+  <url>
+    <loc>https://cakiweb.com/odisha</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Odisha Details -->
+  <url>
+    <loc>https://cakiweb.com/odisha-details</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://cakiweb.com/privacy-policy</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Terms & Conditions -->
+  <url>
+    <loc>https://cakiweb.com/terms-conditions</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- ==================== SERVICES ==================== -->
+
+  <!-- Web Development Service -->
+  <url>
+    <loc>https://cakiweb.com/service-web-development</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Website Design Service -->
+  <url>
+    <loc>https://cakiweb.com/service-website-design</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Software Development Service -->
+  <url>
+    <loc>https://cakiweb.com/service-software-development</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ERP Development Service -->
+  <url>
+    <loc>https://cakiweb.com/service-erp-development</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Mobile App Development Service -->
+  <url>
+    <loc>https://cakiweb.com/service-mobile-application</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ecommerce Development Service -->
+  <url>
+    <loc>https://cakiweb.com/service-ecommerce-development</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Digital Marketing Service -->
+  <url>
+    <loc>https://cakiweb.com/service-digital-marketing</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SEO Optimization Service -->
+  <url>
+    <loc>https://cakiweb.com/service-seo-optimization</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SMM Service -->
+  <url>
+    <loc>https://cakiweb.com/service-smm-service</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SMO Service -->
+  <url>
+    <loc>https://cakiweb.com/service-smo-service</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Business Consultant Service -->
+  <url>
+    <loc>https://cakiweb.com/service-business-consultant</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Service Details (Template) -->
+  <url>
+    <loc>https://cakiweb.com/service-details</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ==================== PRODUCTS ==================== -->
+
+  <!-- Product: Advanced Accounts Software -->
+  <url>
+    <loc>https://cakiweb.com/product-advanced-accounts-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: Advanced Billing Software -->
+  <url>
+    <loc>https://cakiweb.com/product-advanced-billing-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: Payroll Software -->
+  <url>
+    <loc>https://cakiweb.com/product-advanced-payroll-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: CRM Software Development -->
+  <url>
+    <loc>https://cakiweb.com/product-crm-software-development</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: ERP Software & Manpower Agency -->
+  <url>
+    <loc>https://cakiweb.com/product-erp-software-manpower-agency</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: Fleet Management Software -->
+  <url>
+    <loc>https://cakiweb.com/product-fleet-management-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: Grievance Management Software -->
+  <url>
+    <loc>https://cakiweb.com/product-grievance-management-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: Online Bus Ticket Bookings Software -->
+  <url>
+    <loc>https://cakiweb.com/product-online-bus-ticket-bookings-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: School/College Management Software -->
+  <url>
+    <loc>https://cakiweb.com/product-school-college-management-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product: Tender Bid Management Software -->
+  <url>
+    <loc>https://cakiweb.com/product-tender-bid-management-software</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product Details (Template) -->
+  <url>
+    <loc>https://cakiweb.com/product-details</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ==================== PORTFOLIO ==================== -->
+
+  <!-- Portfolio Listing -->
+  <url>
+    <loc>https://cakiweb.com/portfolio</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Portfolio Details -->
+  <url>
+    <loc>https://cakiweb.com/portfolio-details</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ==================== BLOG ==================== -->
+
+  <!-- Blog Listing -->
+  <url>
+    <loc>https://cakiweb.com/blog</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Details -->
+  <url>
+    <loc>https://cakiweb.com/blog-details</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ==================== CAREER ==================== -->
+
+  <!-- Career Listing -->
+  <url>
+    <loc>https://cakiweb.com/career</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Career Details -->
+  <url>
+    <loc>https://cakiweb.com/career-details</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
