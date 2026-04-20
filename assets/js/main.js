@@ -42,27 +42,32 @@
   function initMobileMenu() {
     const toggle = document.querySelector(".mobile-toggle");
     const menu = document.querySelector(".nav-menu");
-    const services = document.querySelector(".has-mega");
     if (!toggle || !menu) return;
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("active");
-      const icon = toggle.querySelector("i");
+    const icon = toggle.querySelector("i");
+    const setMenuState = (isOpen) => {
+      menu.classList.toggle("active", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("nav-open", isOpen);
       if (icon) {
-        icon.classList.toggle("bi-list");
-        icon.classList.toggle("bi-x");
+        icon.classList.toggle("bi-list", !isOpen);
+        icon.classList.toggle("bi-x", isOpen);
       }
+    };
+    const closeMenu = () => {
+      document.querySelectorAll(".has-mega.active").forEach((item) => {
+        item.classList.remove("active");
+      });
+      setMenuState(false);
+    };
+    toggle.addEventListener("click", () => {
+      setMenuState(!menu.classList.contains("active"));
     });
-    menu.querySelectorAll(".nav-links a").forEach((link) => {
+    menu.querySelectorAll(".nav-links a, .nav-cta a").forEach((link) => {
       link.addEventListener("click", () => {
         if (link.closest(".has-mega") && window.innerWidth < 992) {
           return;
         }
-        menu.classList.remove("active");
-        const icon = toggle.querySelector("i");
-        if (icon) {
-          icon.classList.add("bi-list");
-          icon.classList.remove("bi-x");
-        }
+        closeMenu();
       });
     });
     document.querySelectorAll(".has-mega").forEach(function (megaItem) {
@@ -80,6 +85,25 @@
             megaItem.classList.toggle("active");
           }
         });
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (window.innerWidth >= 992 || !menu.classList.contains("active")) {
+        return;
+      }
+      if (menu.contains(event.target) || toggle.contains(event.target)) {
+        return;
+      }
+      closeMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.classList.contains("active")) {
+        closeMenu();
+      }
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 992 && menu.classList.contains("active")) {
+        closeMenu();
       }
     });
   }
