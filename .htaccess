@@ -5,41 +5,29 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# ============================================
-# SEO 301 Redirects for Deleted/Moved URLs
-# ============================================
-
-# Specific Page Mappings
-RewriteRule ^contact-us/?$ /contact.html [R=301,NC,L]
-RewriteRule ^about-us/?$ /about.html [R=301,NC,L]
-RewriteRule ^career/?$ /career.html [R=301,NC,L]
-
-# Blog Redirects
-RewriteRule ^blog-details/?$ /blog-details.html [R=301,NC,L]
-RewriteRule ^blog(/.*)?$ /blog.html [R=301,NC,L]
-
-# Service Mappings (Pattern-based)
-# Redirect to exact .html file if it exists, otherwise to main service-details page
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(service-[a-z0-9-]+)/?$ /$1.html [R=301,NC,L]
-RewriteRule ^service-.*$ /service-details.html [R=301,NC,L]
-
-# Product Mappings (Pattern-based)
-# Redirect to exact .html file if it exists, otherwise to main product-details page
-RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-RewriteRule ^(product-[a-z0-9-]+)/?$ /$1.html [R=301,NC,L]
-RewriteRule ^product-.*$ /product-details.html [R=301,NC,L]
-
-# Miscellaneous Specifics
-RewriteRule ^odisha-details/?$ /odisha-details.html [R=301,NC,L]
-RewriteRule ^credentials/?$ /credentials.html [R=301,NC,L]
-
 
 # ============================================
 # Redirect index.html to root (SEO friendly)
 # ============================================
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.html\ HTTP/
 RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+
+# ============================================
+# Clean URLs: Remove .html extension
+# ============================================
+
+# 1. Specific Redirects for Renamed Files
+RewriteRule ^about\.html$ /about-us [R=301,L]
+RewriteRule ^contact\.html$ /contact-us [R=301,L]
+
+# 2. External Redirect: /page.html to /page
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 3. Internal Rewrite: /page to /page.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
 
 # ============================================
 # Force HTTPS (if SSL is enabled)
