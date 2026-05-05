@@ -1380,7 +1380,7 @@
         </div>
       </div>
       <div class="back-to-jobs" data-aos="fade-up">
-        <a href="career.html" class="btn-back">
+        <a href="career" class="btn-back">
           <i class="bi bi-arrow-left"></i>
           Back to All Jobs
         </a>
@@ -1467,7 +1467,7 @@
           <i class="bi bi-exclamation-circle" style="font-size: 4rem; color: var(--gray-300);"></i>
           <h1 style="font-size: 2rem; font-weight: var(--font-bold); color: var(--dark-900); margin: 20px 0 12px;">Job Not Found</h1>
           <p style="font-size: 1.1rem; color: var(--gray-500); margin-bottom: 32px;">The position you're looking for doesn't exist or has been removed.</p>
-          <a href="career.html" class="btn btn-primary btn-lg">
+          <a href="career" class="btn btn-primary btn-lg">
             <i class="bi bi-arrow-left"></i>
             View All Open Positions
           </a>
@@ -2018,14 +2018,14 @@
       .toUpperCase();
     return `
       <div class="blog-card-dynamic" data-aos="fade-up" data-aos-delay="${(index % BLOGS_PER_PAGE) * 100}">
-        <a href="blog-details.html?blog=${blog.slug}" class="blog-card-link">
+        <a href="blog-details?blog=${blog.slug}" class="blog-card-link">
           <div class="blog-card-image">
             <img src="${blog.image}" alt="${blog.title}" loading="lazy">
             <span class="blog-card-category">${blog.category}</span>
           </div>
         </a>
         <div class="blog-card-body">
-          <a href="blog-details.html?blog=${blog.slug}">
+          <a href="blog-details?blog=${blog.slug}">
             <h3 class="blog-card-title">${blog.title}</h3>
           </a>
           <p class="blog-card-excerpt">${blog.excerpt}</p>
@@ -2041,7 +2041,7 @@
           </div>
         </div>
         <div class="blog-card-footer">
-          <a href="blog-details.html?blog=${blog.slug}" class="blog-card-read-more">
+          <a href="blog-details?blog=${blog.slug}" class="blog-card-read-more">
             Read More <i class="bi bi-arrow-right"></i>
           </a>
           <span class="blog-card-date">${formattedDate}</span>
@@ -2450,7 +2450,7 @@
     const container = document.querySelector(".blog-detail-hero-content");
     if (container) {
       container.innerHTML =
-        '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Blog Post Not Found</h3><p class="text-muted">The article you\'re looking for doesn\'t exist.</p><a href="blog.html" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Blog</a></div>';
+        '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Blog Post Not Found</h3><p class="text-muted">The article you\'re looking for doesn\'t exist.</p><a href="blog" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Blog</a></div>';
     }
   }
   if (document.readyState === "loading") {
@@ -2546,7 +2546,7 @@
                 <h4>${project.title}</h4>
                 <p>${project.shortDescription}</p>
                 <div class="portfolio-card-actions-js">
-                  <a href="portfolio-details.html?project=${project.slug}" class="portfolio-view-btn">
+                  <a href="portfolio-details?project=${project.slug}" class="portfolio-view-btn">
                     <i class="bi bi-arrow-right"></i> View Details
                   </a>
                 </div>
@@ -2736,7 +2736,7 @@
       .join("");
     allProjectsList.querySelectorAll(".all-project-item").forEach((item) => {
       item.addEventListener("click", () => {
-        window.location.href = `portfolio-details.html?project=${item.dataset.slug}`;
+        window.location.href = `portfolio-details?project=${item.dataset.slug}`;
       });
     });
   }
@@ -2771,7 +2771,7 @@
       .querySelectorAll(".related-project-card")
       .forEach((card) => {
         card.addEventListener("click", () => {
-          window.location.href = `portfolio-details.html?project=${card.dataset.slug}`;
+          window.location.href = `portfolio-details?project=${card.dataset.slug}`;
         });
       });
     if (typeof AOS !== "undefined") {
@@ -2789,7 +2789,7 @@
     const container = document.querySelector(".portfolio-detail-hero-content");
     if (container) {
       container.innerHTML =
-        '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Project Not Found</h3><p class="text-muted">The project you\'re looking for doesn\'t exist.</p><a href="portfolio.html" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Portfolio</a></div>';
+        '<div class="text-center py-5"><i class="bi bi-exclamation-circle" style="font-size:64px;color:var(--gray-400);"></i><h3 class="mt-3">Project Not Found</h3><p class="text-muted">The project you\'re looking for doesn\'t exist.</p><a href="portfolio" class="btn btn-primary mt-3"><i class="bi bi-arrow-left"></i> Back to Portfolio</a></div>';
     }
   }
   if (document.readyState === "loading") {
@@ -2830,7 +2830,7 @@
                 <div class="blog-content">
                   <h3 class="blog-title">${blog.title}</h3>
                   <p class="blog-excerpt">${blog.excerpt}</p>
-                  <a href="blog-details.html?blog=${blog.slug}" class="read-more">
+                  <a href="blog-details?blog=${blog.slug}" class="read-more">
                     Read More <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
@@ -3046,7 +3046,7 @@
                   .join("")}
                 <li class="view-more-services"><i class="bi bi-plus-circle-fill"></i> +${district.services.length - 5} more services</li>
               </ul>
-              <a href="odisha-details.html?district=${district.slug}" class="btn btn-primary btn-sm">
+              <a href="odisha-details?district=${district.slug}" class="btn btn-primary btn-sm">
                 Explore ${district.name} <i class="bi bi-arrow-right"></i>
               </a>
             </div>

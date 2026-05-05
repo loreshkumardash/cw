@@ -19,6 +19,8 @@ RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
 # 1. Specific Redirects for Renamed Files
 RewriteRule ^about\.html$ /about-us [R=301,L]
 RewriteRule ^contact\.html$ /contact-us [R=301,L]
+RewriteRule ^pp\.html$ /privacy-policy [R=301,L]
+RewriteRule ^tc\.html$ /terms-conditions [R=301,L]
 
 # 2. External Redirect: /page.html to /page
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.+)\.html [NC]
