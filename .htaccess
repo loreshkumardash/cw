@@ -5,6 +5,35 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
+# ============================================
+# SEO 301 Redirects for Deleted/Moved URLs
+# ============================================
+
+# Specific Page Mappings
+RewriteRule ^contact-us/?$ /contact.html [R=301,NC,L]
+RewriteRule ^about-us/?$ /about.html [R=301,NC,L]
+RewriteRule ^career/?$ /career.html [R=301,NC,L]
+
+# Blog Redirects
+RewriteRule ^blog-details/?$ /blog-details.html [R=301,NC,L]
+RewriteRule ^blog(/.*)?$ /blog.html [R=301,NC,L]
+
+# Service Mappings (Pattern-based)
+# Redirect to exact .html file if it exists, otherwise to main service-details page
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(service-[a-z0-9-]+)/?$ /$1.html [R=301,NC,L]
+RewriteRule ^service-.*$ /service-details.html [R=301,NC,L]
+
+# Product Mappings (Pattern-based)
+# Redirect to exact .html file if it exists, otherwise to main product-details page
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(product-[a-z0-9-]+)/?$ /$1.html [R=301,NC,L]
+RewriteRule ^product-.*$ /product-details.html [R=301,NC,L]
+
+# Miscellaneous Specifics
+RewriteRule ^odisha-details/?$ /odisha-details.html [R=301,NC,L]
+RewriteRule ^credentials/?$ /credentials.html [R=301,NC,L]
+
 
 # ============================================
 # Redirect index.html to root (SEO friendly)
