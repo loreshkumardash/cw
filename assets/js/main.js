@@ -1123,7 +1123,7 @@
       .join("");
     const moreSkills = job.skills.length > 4 ? `+${job.skills.length - 4}` : "";
     return `
-      <div class="job-card" onclick="window.location.href='career-details.html?job=${job.slug}'" data-aos="fade-up">
+      <div class="job-card" onclick="window.location.href='career-details?job=${job.slug}'" data-aos="fade-up">
         <div class="job-card-header">
           <div class="job-info">
             <h4 class="job-title">${job.title}</h4>
@@ -1149,7 +1149,7 @@
           </div>
           <div class="job-actions">
             <span class="job-posted">${formatDateCareer(job.posted)}</span>
-            <button class="btn btn-apply" onclick="event.stopPropagation(); window.location.href='career-details.html?job=${job.slug}'">
+            <button class="btn btn-apply" onclick="event.stopPropagation(); window.location.href='career-details?job=${job.slug}'">
               View Details <i class="bi bi-arrow-right"></i>
             </button>
           </div>
@@ -2305,7 +2305,7 @@
         .join("");
       sidebarRecent.querySelectorAll(".sidebar-post-item").forEach((item) => {
         item.addEventListener("click", () => {
-          window.location.href = `blog-details.html?blog=${item.dataset.slug}`;
+          window.location.href = `blog-details?blog=${item.dataset.slug}`;
         });
       });
     }
@@ -2333,7 +2333,7 @@
         .join("");
       sidebarPopular.querySelectorAll(".sidebar-post-item").forEach((item) => {
         item.addEventListener("click", () => {
-          window.location.href = `blog-details.html?blog=${item.dataset.slug}`;
+          window.location.href = `blog-details?blog=${item.dataset.slug}`;
         });
       });
     }
@@ -2364,7 +2364,7 @@
     }
     relatedPosts.querySelectorAll(".related-post-card").forEach((card) => {
       card.addEventListener("click", () => {
-        window.location.href = `blog-details.html?blog=${card.dataset.slug}`;
+        window.location.href = `blog-details?blog=${card.dataset.slug}`;
       });
     });
     if (typeof AOS !== "undefined") {
