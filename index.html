@@ -294,43 +294,91 @@
     </div>
   </nav>
 
-  <section id="hero" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
+  <section id="hero" class="hero-premium">
+    <canvas id="hero-particles"></canvas>
+    <div class="hero-bg-abstract"></div>
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge mt-3" data-aos="fade-down">
-          <span class="badge-dot"></span>
-          Trusted by 1500+ Companies Worldwide
-        </div>
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-          Transform Your Business With
-          <span class="gradient-text">Digital Excellence</span>
-        </h1>
-        <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-          We craft innovative software solutions that drive growth, enhance efficiency,
-          and deliver exceptional user experiences for forward-thinking businesses.
-        </p>
-        <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-          <a href="contact-us" class="btn btn-cta-red btn-lg">
-            Get Started Today
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-        <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
-          <div class="stat">
-            <div class="stat-number" data-count="700">0</div>
-            <div class="stat-label">Projects Delivered</div>
+      <div class="hero-content-wrapper">
+        <!-- Floating Elements (Desktop) -->
+        <a href="service-mobile-application" class="floating-badge badge-1">
+          <i class="bi bi-phone"></i> <span>Mobile App Development</span>
+        </a>
+        <a href="service-web-development" class="floating-badge badge-2">
+          <i class="bi bi-globe"></i> <span>Web Development</span>
+        </a>
+        <a href="service-website-design" class="floating-badge badge-3">
+          <i class="bi bi-palette"></i> <span>UI/UX Design</span>
+        </a>
+        <a href="service-software-development" class="floating-badge badge-4">
+          <i class="bi bi-cpu"></i> <span>Artificial Intelligence</span>
+        </a>
+        <a href="service-software-development" class="floating-badge badge-5">
+          <i class="bi bi-rocket-takeoff"></i> <span>MVP Development</span>
+        </a>
+        <a href="service-software-development" class="floating-badge badge-6">
+          <i class="bi bi-unity"></i> <span>AR/VR Development</span>
+        </a>
+
+        <div class="hero-main-content">
+          <h1 class="hero-premium-title" data-aos="fade-up">
+            Turning <span class="text-emphasis">Smart Ideas</span> <br>
+            Into <span class="text-emphasis">Smarter Solutions.</span>
+          </h1>
+          <p class="hero-premium-description" data-aos="fade-up" data-aos-delay="100">
+            At Cakiweb, we take your ideas and give them a genius upgrade <br> by guiding you in 
+            the journey of building fantastic digital products. <br>Let's build your 
+            <strong>NEXT BIG THING</strong> together!
+          </p>
+          <div class="hero-premium-actions" data-aos="fade-up" data-aos-delay="200">
+            <a href="portfolio" class="btn btn-premium-secondary">
+              Our Works
+            </a>
+            <a href="contact-us" class="btn btn-premium-primary">
+              Get free consultation call
+            </a>
           </div>
-          <div class="stat">
-            <div class="stat-number" data-count="250">0</div>
-            <div class="stat-label">Happy Clients</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number" data-count="7">0</div>
-            <div class="stat-label">Years Experience</div>
+          
+          <div class="hero-trusted-base" data-aos="fade-up" data-aos-delay="300">
+            <p class="hero-trusted-text text-white">Trusted by 1500+ businesses worldwide.</p>
           </div>
         </div>
+
+        <!-- Mobile Badges Grid -->
+        <div class="badges-mobile-grid d-lg-none">
+          <a href="service-mobile-application" class="floating-badge badge-1"><i class="bi bi-phone"></i> Apps</a>
+          <a href="service-web-development" class="floating-badge badge-2"><i class="bi bi-globe"></i> Web</a>
+          <a href="service-website-design" class="floating-badge badge-3"><i class="bi bi-palette"></i> Design</a>
+          <a href="service-software-development" class="floating-badge badge-4"><i class="bi bi-cpu"></i> AI</a>
+          <a href="service-software-development" class="floating-badge badge-5"><i class="bi bi-rocket-takeoff"></i> MVP</a>
+          <a href="service-software-development" class="floating-badge badge-6"><i class="bi bi-unity"></i> AR/VR</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infinite Logo Scroll -->
+    <div class="hero-client-logos" data-aos="fade-up" data-aos-delay="400">
+      <div class="logo-scroll-track">
+        <!-- Group 1 -->
+        <div class="logo-item"><img src="assets/img/clients/c1.webp" alt="Client 1"></div>
+        <div class="logo-item"><img src="assets/img/clients/c2.webp" alt="Client 2"></div>
+        <div class="logo-item"><img src="assets/img/clients/c3.webp" alt="Client 3"></div>
+        <div class="logo-item"><img src="assets/img/clients/c4.webp" alt="Client 4"></div>
+        <div class="logo-item"><img src="assets/img/clients/c5.webp" alt="Client 5"></div>
+        <div class="logo-item"><img src="assets/img/clients/jindal.png" alt="Jindal"></div>
+        <div class="logo-item"><img src="assets/img/clients/tooros.png" alt="Tooros"></div>
+        <div class="logo-item"><img src="assets/img/clients/samaj_logo.png" alt="Samaj"></div>
+        <div class="logo-item"><img src="assets/img/clients/iim-sambalpur.png" alt="IIM Sambalpur"></div>
+        
+        <!-- Duplicate for Seamless Scroll -->
+        <div class="logo-item"><img src="assets/img/clients/c1.webp" alt="Client 1"></div>
+        <div class="logo-item"><img src="assets/img/clients/c2.webp" alt="Client 2"></div>
+        <div class="logo-item"><img src="assets/img/clients/c3.webp" alt="Client 3"></div>
+        <div class="logo-item"><img src="assets/img/clients/c4.webp" alt="Client 4"></div>
+        <div class="logo-item"><img src="assets/img/clients/c5.webp" alt="Client 5"></div>
+        <div class="logo-item"><img src="assets/img/clients/jindal.png" alt="Jindal"></div>
+        <div class="logo-item"><img src="assets/img/clients/tooros.png" alt="Tooros"></div>
+        <div class="logo-item"><img src="assets/img/clients/samaj_logo.png" alt="Samaj"></div>
+        <div class="logo-item"><img src="assets/img/clients/iim-sambalpur.png" alt="IIM Sambalpur"></div>
       </div>
     </div>
   </section>
